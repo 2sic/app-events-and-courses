@@ -1,0 +1,21 @@
+{
+  "name": "2sxcKurse",
+  "authors": [
+    "2sic"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-validation": "1.16.0",
+    "font-awesome": "^4.7.0"
+  }
+}
