@@ -10,12 +10,12 @@
             				.Where(c => c.Type.Name == "Course")
             				.Select(c => AsDynamic(c))	// now only the courses
             				.Where(c => c.DateTo >= DateTime.Now.AddDays(-2) || c.individual == true);
-                            
+	
             			<div class="panel panel-default">
             				<div class="panel-heading sc-element" role="tab" id="heading_@group.EntityId">
             			
             				  <h4 class="panel-title">
-            					<a data-toggle="collapse" data-parent="#accordion" href="#collapse_@group.EntityId" aria-expanded="false" aria-controls="collapse_@group.EntityId" class="collapsed">
+            					<a data-toggle="collapse" data-parent="#accordion" href="#collapse_@group.EntityId" aria-expanded="@((group.InitiallyExpanded == true) ? "true" : "false")" aria-controls="collapse_@group.EntityId" class="@((group.InitiallyExpanded == true) ? "" : "collapsed" )">
             					  	<span class="co-panel-icon">
                                 @if(!String.IsNullOrEmpty(Content.Icon)){
                                     <i class="fa @group.Icon co-icon" aria-hidden="true"></i>
@@ -26,7 +26,7 @@
             					@group.Toolbar
             				  </h4>
             				</div>
-            				<div id="collapse_@group.EntityId" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_@group.EntityId">
+            				<div id="collapse_@group.EntityId" class="panel-collapse collapse @((group.InitiallyExpanded == true) ? "in" : "")" role="tabpanel" aria-labelledby="heading_@group.EntityId">
             				@if (!string.IsNullOrEmpty(group.Description))
                             {
             					<div class="panel-body">
