@@ -5,7 +5,7 @@
             	@foreach (var group in AsDynamic(Data["Default"]))
             		{
             			// Here's the short version for the list of course-parents
-            			var courses = ((ToSic.Eav.IEntity)AsEntity(group))	// cast to use power-API
+            			var courses = ((ToSic.Eav.Interfaces.IEntity)AsEntity(group))	// cast to use power-API
             				.Relationships.AllParents	// all parents, no matter what type
             				.Where(c => c.Type.Name == "Course")
             				.Select(c => AsDynamic(c))	// now only the courses
