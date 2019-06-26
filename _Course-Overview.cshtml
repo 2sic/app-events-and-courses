@@ -1,149 +1,145 @@
-<div class="ly-maxwrapper ly-maxwrapper-white">
+@using Connect.Koi;
+
+<div class="app-events app-event-list ly-maxwrapper ly-maxwrapper-white">
     <div class="container-fluid ly-content">
-        <div class="ly-container-inner">
+        <div class="ly-container-inner app-course">
             <div class="panel-group co-kurs-wrapper" id="accordion" role="tablist" aria-multiselectable="true">
             	@foreach (var group in AsDynamic(Data["Default"]))
             		{
             			// Here's the short version for the list of course-parents
             			var courses = ((ToSic.Eav.Interfaces.IEntity)AsEntity(group))	// cast to use power-API
             				.Relationships.AllParents	// all parents, no matter what type
-            				.Where(c => c.Type.Name == "Course")
+            				.Where(c => c.Type.Name == "Event")
+							.SelectMany(c => c.Relationships.AllParents.Where(p => p.Type.Name == "EventDate"))
             				.Select(c => AsDynamic(c))	// now only the courses
-            				.Where(c => c.DateTo >= DateTime.Now.AddDays(-2) || c.individual == true);
+            				.Where(c => c.Start.Date >= DateTime.Now || c.Event[0].individual == true);
 	
             			<div class="panel panel-default">
-            				<div class="panel-heading sc-element" role="tab" id="heading_@group.EntityId">
-            			
-            				  <h4 class="panel-title">
-            					<a data-toggle="collapse" data-parent="#accordion" href="#collapse_@group.EntityId" aria-expanded="@((group.InitiallyExpanded == true) ? "true" : "false")" aria-controls="collapse_@group.EntityId" class="@((group.InitiallyExpanded == true) ? "" : "collapsed" )">
-            					  	<span class="co-panel-icon">
-                                @if(!String.IsNullOrEmpty(Content.Icon)){
-                                    <i class="fa @group.Icon co-icon" aria-hidden="true"></i>
-                                }
-                            </span>
-							@group.Title
-            					</a>
-            					@group.Toolbar
-            				  </h4>
-            				</div>
-            				<div id="collapse_@group.EntityId" class="panel-collapse collapse @((group.InitiallyExpanded == true) ? "in" : "")" role="tabpanel" aria-labelledby="heading_@group.EntityId">
-            				@if (!string.IsNullOrEmpty(group.Description))
-                            {
-            					<div class="panel-body">
-            						@Html.Raw(group.Description)
-                                    @if (!string.IsNullOrEmpty(group.Download))
-            						{
-                                        <a class="btn btn-md btn-default co-kurs-pdf" href="@group.Download" target="_blank"><span class="glyphicon glyphicon-file"></span> @App.Resources.Download</a>
-                                    }
-            					</div>
-            				}
-            				@if(Permissions.UserMayEditContent) {
-								@Edit.Toolbar(toolbar: new { contentType = "Course", action = "new", prefill = new { Topic = @group.EntityGuid.ToString() } } )
-								<i>Neuen Termin zur Gruppe hinzufügen</i>
-							}
-							
-                               
-            				<ul class="list-group">
-            					@foreach (var course in courses.OrderBy(c => c.Date))
-            						{
-										var registrations = AsDynamic(App.Data["CourseRegistration"]).Where(c => c.Status == "registered" && c.Course.Count > 0 && c.Course[0].EntityGuid == course.EntityGuid);
-										var freeSeats = @course.Seats - registrations.Count();
-
-            							<li class="list-group-item xsc-element">
-            							<div class="row sc-element">
-            								<div class="col-xs-12 col-sm-3 col-md-3">
-												@Edit.Toolbar(course, actions: "edit", settings: new { hover = "left"} )
-            								    <strong>@App.Resources.CourseTitle</strong><br/>@course.Title
-            								    
-            								    @if(!string.IsNullOrEmpty(course.Management)) {
-                								    <br/><br />
-            										<strong>@App.Resources.Management</strong><br />@Html.Raw(course.Management)
-        										}
-        										
-        										@if(!string.IsNullOrEmpty(course.Fee)) {
-                								    <br/><br />
-            										<strong>@App.Resources.Fee</strong><br />@Html.Raw(course.Fee)
-        										}
-												
-            									@if(!string.IsNullOrEmpty(course.ShortDescription)) {
-													<br><br>
-													<strong>@App.Resources.LabelShortDescription</strong><br>
-													<span>@Html.Raw(course.ShortDescription.Replace("\n", "<br/>"))</span>
-												}
-
-												@if(!string.IsNullOrEmpty(course.Document)) {
-													<br><br>
-                                        			<a class="btn btn-md btn-default co-kurs-pdf" style="position:relative; left:-12px;" href="@course.Document" target="_blank"><span class="glyphicon glyphicon-file"></span> @App.Resources.Download</a>
-												}
-        									</div>
-            								<div class="col-xs-12 col-sm-2 col-md-2"></div>
-            								<div class="col-xs-12 col-sm-4 col-md-4">
-												<strong>@Html.Raw(App.Resources.DateTime)</strong>
-												
-												<br />
-												@Html.Raw(course.Time.Replace("\n", "<br/>"))
-												
-												@if(!string.IsNullOrEmpty(course.City)) {
-													<br /><br /> 
-													<strong>@Html.Raw(App.Resources.Location.Replace("\n", "<br/>"))</strong>
-													<br />
-													@Html.Raw(course.City.Replace("\n", "<br/>")) 
-												}
-												
-												<br /><br />
-
-												@if(course.RegistrationEnabled && course.FullyBooked == false && course.Canceled == false) {
-												<strong>@Html.Raw(App.Resources.Seats.Replace("\n", "<br/>"))</strong><br />@freeSeats<br />
-												}
-            								</div>
-            								<div class="col-xs-12 col-sm-3 col-md-3">
-            								@if (course.Canceled == true) {
-            									<div class="alert alert-warning pull-right" role="alert">
-            									<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            										@App.Resources.StatusCanceled
-            									</div>
-            								}
-											else if(course.RegistrationEnabled) {
-												if(freeSeats <= 0 || course.FullyBooked) {
-													<div class="alert alert-warning pull-right" role="alert">
-													<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-														@App.Resources.StatusFullyBooked
-													</div>
-												}
-												else {
-													<a class="btn btn-md btn-primary pull-right" href="@Link.To(parameters: "mid=" + Dnn.Module.ModuleID + "&cid=" + @course.EntityId)"><span class="glyphicon glyphicon-log-in"></span> @App.Resources.Register</a>
-												}
+            				@* Checked divs from here on  *@
+							<div class="panel-heading sc-element"  id="heading_@group.EntityId">
+								<h2 class="panel-title">
+										@*
+										<span class="co-panel-icon">
+											<i class="fa @group.Icon" aria-hidden="true"></i>
+										</span>
+										*@
+										@group.Title
+								</h2>
+							</div>
+							@if (!string.IsNullOrEmpty(group.Description))
+								{
+									<div @Koi.Class("all='sc-element' bs3,unk='row' bs4='row'")>
+										@Edit.Toolbar(group)
+										<div @Koi.Class("all='co-group-description' bs3,unk='col col-xs-12 col-sm-10' bs4='col-12 col-sm-10'")>
+											@Html.Raw(group.Description)
+										</div>
+										<div  @Koi.Class("bs3,unk='col col-xs-12 col-sm-2' bs4='col-12 col-sm-2'")>
+											@if (!string.IsNullOrEmpty(group.Download))
+											{
+												<a class="btn btn-md btn-default co-kurs-pdf" href="@group.Download" target="_blank">
+													@Html.Raw(App.Resources.Download)
+												</a>
 											}
-            								@* toolbar to edit registrations of this course - opens the items and filters by this course-name *@
-            								@Edit.Toolbar(toolbar: new object[] { 
-            								    new { 
-            								        showCondition = true,
-                                                    command = new { action = "contentitems", 
-                										contentType= "CourseRegistration", 
-                										filters = new {Course = new[] { course.EntityTitle } } 
-                									}
-            									}
-            								}, settings: new { hover="none", show = "always" })
-            								</div>
-            							</div>
-            							</li>
-            						}
-            
-            						@* if no courses exist, show this *@
-            						@if(courses.Count() == 0) {
-            							<li class="list-group-item xsc-element">
-            								<div class="row">
-            									<div class="col-xs-12">
-            										@Html.Raw(App.Resources.NoCoursesFound)
-            									</div>
-            								</div>
-            							</li>
-            						}
-            					</ul>
-            				</div>
+										</div>
+									</div>
+								}
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapse_@group.EntityId" aria-expanded="true" aria-controls="collapse_@group.EntityId" class="panel-link-title @((group.InitiallyExpanded == true) ? "" : "collapsed" )">
+									<span class="co-panel-icon" style="margin-right: 10px;">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</span>
+									@group.Title
+									<span class="co-panel-icon-r">
+										
+									</span>
+								</a>
+            				<div id="collapse_@group.EntityId" class="panel-collapse collapse @((group.InitiallyExpanded == true) ? "show" : "")" role="tabpanel" aria-labelledby="heading_@group.EntityId">
+								<div class="list-group">
+									@Edit.Toolbar(actions: "new", contentType: "EventDate", settings: new { hover = "left" })
+									@foreach (var eventDate in courses.OrderBy(c => c.Date))
+									{
+										var course = eventDate.Event[0];
+										var registrations = AsDynamic(App.Data["CourseRegistration"]).Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity[0].EntityGuid == eventDate.EntityGuid);
+										var freeSeats = @eventDate.Seats - registrations.Count();
+
+										<div @Koi.Class("all='list-group-item app-event-item sc-element' bs3,unk='' bs4=''")>
+											<div @Koi.Class("all='sc-element' bs3,unk='row' bs4='row'")>
+												@Edit.Toolbar(eventDate)
+												<div @Koi.Class("bs3,unk='col-xs-12 col-sm-6 col-md-4' bs4='col-12 col-md-6 col-lg-4'")>
+													<div class="app-img @((String.IsNullOrEmpty(@course.Image)) ? "app-noimg" : "")">
+														<img @Koi.Class("bs3='img-responsive' bs4,unk='img-fluid'") src="@((!String.IsNullOrEmpty(@course.Image)) ? @course.Image + "?w=800&h=480&mode=crop&scale=both&quality=80&anchor=" + @course.CropAnchor : @App.Resources.PlaceholderMissingImage + "?max-height=210&mode=max&scale=both&quality=80")"alt="@course.Title" />
+													</div>
+												</div>
+												<div @Koi.Class("bs3,unk='col-xs-12 col-sm-6 col-md-8' bs4='col-12 col-md-6 col-lg-8'")>
+													@*Edit.Toolbar(course, actions: "edit", settings: new { hover = "right"} )
+													@Edit.Toolbar(toolbar: new object[] { 
+														new { 
+															showCondition = true,
+															command = new { action = "contentitems", 
+																contentType= "CourseRegistration", 
+																filters = new {Course = new[] { course.EntityTitle } } 
+															}
+														}
+													}, settings: new { hover="right" })*@
+													<div class="app-text">
+														<h2>@course.Title  @((!String.IsNullOrEmpty(eventDate.TitleAddition)) ? App.Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + App.Resources.TitleAdditionSuffix : "" )</h2>
+														<span class="app-date">@eventDate.Start.ToString("dd.MM.yyyy") | </span>
+														<span class="app-categories">                   
+															<span>@course.Topic[0].Title</span> 
+														</span>
+														@if(!string.IsNullOrEmpty(course.ShortDescription)) {
+															<p>@Html.Raw(course.ShortDescription.Replace("\n", "<br />"))</p>
+														}
+													</div>
+
+													@if(course.DetailsOpensLink == true) {
+														if(!string.IsNullOrEmpty(course.Document)) {
+															<a class="btn btn-md btn-default co-kurs-pdf" href="@course.Document" target="_blank">@Html.Raw(App.Resources.LabelReadMore)</a>
+														}
+													}
+													else {
+														<a @Koi.Class("all='co-btn-opendetails' bs3,unk='app-readmore' bs4='app-readmore'") href="@Link.To(parameters: "details=" + @eventDate.EntityId)">@Html.Raw(App.Resources.LabelReadMore)</a>
+													}
+													@if (course.Canceled == true) {
+													<div class="alert alert-warning" style="margin-top:15px;" role="alert">
+														@App.Resources.StatusCanceled
+													</div>
+													}
+													else if(App.Settings.RegistrationEnabled && eventDate.RegistrationEnabled) {
+														if(freeSeats <= 0 || eventDate.IsFullyBooked) {
+															<div class="alert alert-warning" style="margin-top:15px;" role="alert">
+																@App.Resources.StatusFullyBooked
+															</div>
+														}
+														else {
+															<br />
+															<a @Koi.Class("all='co-btn-openregister' bs3,unk='app-readmore' bs4='app-readmore'") href="@Link.To(parameters: "mid=" + Dnn.Module.ModuleID + "&cid=" + @course.EntityId)">@Html.Raw(App.Resources.Register) ›</a>
+														}
+													}
+												</div>
+											</div>
+										</div>
+									}
+            				
+									@* if no courses exist, show this *@
+									@if(courses.Count() == 0) {
+										<div class="list-group-item xsc-element">
+											<div class="row">
+												<div class="col-xs-12 sc-element">
+													@Edit.Toolbar(actions: "new", contentType: "EventDate" )
+													@Html.Raw(App.Resources.NoCoursesFound)
+												</div>
+											</div>
+										</div>
+									}
+								</div>
+							</div>
             			</div>
             		}
             </div>
         </div>
     </div>
 </div>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="@App.Path/dist/liststyles.css" />
+<script src="@App.Path/dist/script.js" ></script>

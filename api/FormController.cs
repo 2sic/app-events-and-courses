@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web.Compilation;
 using System.Runtime.CompilerServices;
 using DotNetNuke.Services.Mail;
-
+using Newtonsoft.Json;
 public class FormController : SxcApiController
 {
     
@@ -25,6 +25,13 @@ public class FormController : SxcApiController
 		contactFormRequest.Add("Status", "registered");
         App.Data.Create("CourseRegistration", contactFormRequest);
 
+        // added feature to create a full-save of each request into a system-protocol content-type
+        contactFormRequest.Add("Timestamp", DateTime.Now);
+        contactFormRequest.Add("ModuleId", Dnn.Module.ModuleID);
+        contactFormRequest.Add("Title", "Form " + DateTime.Now.ToString("s"));
+        // add raw-data, in case the content-type has a "RawData" field
+        contactFormRequest.Add("RawData", JsonConvert.SerializeObject(contactFormRequest));
+        App.Data.Create("SystemProtocol", contactFormRequest);
 
         // 2. assemble all settings to send the mail
         // background: some settings are made in this module,

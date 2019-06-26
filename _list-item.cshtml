@@ -1,0 +1,52 @@
+@{
+    var item = PageData["item"];
+
+    var detailslink = "test";
+
+    if(item.DetailsOpensLink == true)
+    {
+        if(!string.IsNullOrEmpty(item.Document))
+        {
+           detailslink = @item.Document;
+        }
+    }
+    else
+    {
+        detailslink = @Link.To(parameters: "details=" + @item.EntityId);
+    }
+}
+
+<div class="app-news-item sc-element" onclick="window.open('@detailslink','_self');">
+    <div class="sc-element">
+        @Edit.Toolbar(item)
+        @if (!String.IsNullOrEmpty(@item.Image))
+        {
+            <div class="app-news-imagecontainer">
+                <img src="@(item.Image.Replace("//", "/"))?w=400&h=300&mode=crop" alt />
+            </div>
+        }
+        <div class="@(!String.IsNullOrEmpty(@item.Image) ? "app-news-contentcontainer" : "")">
+            <h2>@item.Title</h2>
+            @*Old Date stuff*@
+            @*<span class="app-news-date">@item.Date.ToString("dd.MM.yyyy") | </span>*@
+            <span class="app-news-categories">                   
+                <span>@item.Topic[0].Title</span> 
+            </span>
+            <p>
+                @Html.Raw(item.ShortDescription.Replace("\n", "<br />"))
+            </p>
+
+            @if(item.DetailsOpensLink == true)
+            {
+                if(!string.IsNullOrEmpty(item.Document))
+                {
+                    <a class="btn btn-primary" href="@item.Document" target="_blank">@Html.Raw(App.Resources.Download)</a>
+                }
+            }
+            else
+            {
+                <a class="btn btn-primary" href="@Link.To(parameters: "details=" + @item.EntityId)">@Html.Raw(App.Resources.LabelReadMore)</a>
+            }
+        </div>
+    </div>
+</div>

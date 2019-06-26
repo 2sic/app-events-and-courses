@@ -1,0 +1,203 @@
+@using ToSic.SexyContent.Interfaces
+@using Connect.Koi;
+
+@{
+    var eventDate = AsDynamic(Data["Default"]).FirstOrDefault();
+    var item = eventDate.Event[0];
+    
+    var registrations = AsDynamic(App.Data["CourseRegistration"]).Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity[0].EntityGuid == eventDate.EntityGuid);
+    var freeSeats = eventDate.Seats - registrations.Count();
+
+    var pageHandler = HttpContext.Current.Handler as Page;
+    var tp = (DotNetNuke.Framework.CDefault)pageHandler; 
+
+     pageHandler.Title = eventDate.Start.ToString("dd.MM.yyyy") + ((eventDate.End != null) ? " - " + eventDate.End.ToString("dd.MM.yyyy") : "" ) + " - " + item.Title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
+}
+
+@functions {
+
+    public T GetFromFirst<T>(T valueInDate, T valueInEvent)
+    {
+        var value = valueInDate.ToString();
+        if(!string.IsNullOrEmpty(value)) {
+            return valueInDate;
+        }
+        return valueInEvent;
+    }
+}
+
+
+<div class="app-events app-events-detail sc-element">  
+    @Edit.Toolbar(eventDate)
+    @Edit.Toolbar(toolbar: new object[] { 
+          new { showCondition = true,
+              command = new { action = "contentitems", 
+                contentType = "CourseRegistration", 
+                filters = new { EventDateEntity = new[] { @eventDate.Start.ToString() } } 
+            }
+        }
+    }, settings: new { hover="left", show = "hover" })
+      
+      
+    @*
+    @Edit.Toolbar(toolbar: new object[] { 
+        new { showCondition = true,
+            command = new { action = "contentitems", 
+            contentType = "CourseRegistration", 
+            filters = new { Course.Guid == item.Guid } 
+        }
+    }
+    }, settings: new { hover="left", show = "hover" })        
+    *@
+    <div class="app-events-detail-contentcontainer @(!String.IsNullOrEmpty(@item.Image) ? "app-events-detail-withimage" : "")">
+        <div class="app-content">
+            <h2>@item.Title @((!String.IsNullOrEmpty(eventDate.TitleAddition)) ? App.Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + App.Resources.TitleAdditionSuffix : "" )</h2>
+            
+            <span class="app-date">@eventDate.Start.ToString("dd.MM.yyyy") @((eventDate.End != null) ? " - " + eventDate.End.ToString("dd.MM.yyyy") : "" ) | </span>
+            <span class="app-categories">                   
+                <span>@item.Topic[0].Title</span> 
+            </span>
+
+            <img class="co-content-image topimage" src="@item.Image?w=540&amp;quality=95" alt="@item.Title" />
+        </div>
+        
+        <div class="app-content">
+            <div class="row">
+                <div @Koi.Class("bs3='col col-lg-8' bs4,unk='col-12 col-lg-8'")>
+                    <p class="app-events-detail-teaser">@item.ShortDescription</p> 
+                    <p class="app-events-detail-body">
+                        
+                        @ToSic.SexyContent.ContentBlocks.Render.All(item, field: "BodyContentBlocks", merge: item.Description) 
+                        
+                        @if(!string.IsNullOrEmpty(eventDate.Document)) {
+                            <a @Koi.Class("all='co-kurs-pdf' bs3,unk='btn  btn-md btn-default' bs4='btn  btn-md btn-primary'") href="@eventDate.Document" target="_blank">@Html.Raw(App.Resources.Download)</a>
+                        } else {
+                            if(!string.IsNullOrEmpty(item.Document)) {
+                                <a @Koi.Class("all='co-kurs-pdf' bs3,unk='btn  btn-md btn-default' bs4='btn  btn-md btn-primary'") href="@item.Document" target="_blank">@Html.Raw(App.Resources.Download)</a>
+                            }
+                        }
+                    </p>
+
+                    @* TODO: Additional infos for time
+                    <strong>@Html.Raw(App.Resources.DateTime)</strong><br />
+                    Html.Raw(item.Time.Replace("\n", "<br/>"))
+                    *@
+
+
+                    <div class="clearfix">
+                    @if(!String.IsNullOrEmpty(GetFromFirst(eventDate.Location, item.Location)))
+                    {
+                        <div class="app-events-infocontainer">
+                            <strong>@App.Resources.Location</strong>
+                            @GetFromFirst(eventDate.Location, item.Location)
+                        </div>
+                    }
+
+                    @if(!String.IsNullOrEmpty(GetFromFirst(eventDate.Person, item.Person)))
+                    {
+                        <div class="app-events-infocontainer">
+                            <strong>@App.Resources.Management</strong>
+                            @GetFromFirst(eventDate.Person, item.Person)
+                        </div>
+                    }
+
+                    @if(!string.IsNullOrEmpty(item.Fee)) {
+                        <div class="app-events-infocontainer">
+                            <strong>@App.Resources.Fee</strong>
+                            @item.Fee
+                        </div>
+                    } else {
+                        if(!string.IsNullOrEmpty(eventDate.Fee)) {
+                            <div class="app-events-infocontainer">
+                                <strong>@App.Resources.Fee</strong>
+                                @eventDate.Fee
+                            </div>
+                        }
+                    }
+
+                    @if(eventDate.RegistrationEnabled && eventDate.IsFullyBooked == false && eventDate.IsCancelled == false && eventDate.Seats != null) {
+                        <div class="app-events-infocontainer">
+                            <strong>@App.Resources.Seats</strong>
+                            @freeSeats
+                        </div>
+                    }
+
+                    @if(!string.IsNullOrEmpty(eventDate.TimeSpecifics)) {
+                        <div class="app-events-infocontainer">
+                            <strong>@Html.Raw(App.Resources.DateTime)</strong>
+                            @eventDate.TimeSpecifics
+                        </div>
+                    }
+                    </div>
+
+                    @if (eventDate.IsCancelled == true) {
+                        <div class="alert alert-warning" style="margin-top:15px;" role="alert">
+                            @App.Resources.StatusCanceled
+                        </div>
+                    } else if(App.Settings.RegistrationEnabled && eventDate.RegistrationEnabled) {
+                        if(1 <= 0 || eventDate.IsFullyBooked) { // Turn 1 back to freeSeats after fix
+                            <div class="alert alert-warning" style="margin-top:15px;" role="alert">
+                                @App.Resources.StatusFullyBooked
+                            </div>
+                        }
+                        else {
+                            <a class="btn btn-md btn-primary btn-register" href="@Link.To(parameters: "mid=" + Dnn.Module.ModuleID + "&cid=" + @item.EntityId + "&did=" + eventDate.EntityId)/@item.UrlKey">@Html.Raw(App.Resources.ButtonRegister)</a>
+                        }
+                    }
+
+                    @if (AsDynamic(Data["SameEvent"]).Count() > 1)
+                    {
+                
+                        <strong class="app-events-furtherdates-title">@App.Resources.AllDatesOfThisEvent</strong>
+
+                        foreach (var d in AsDynamic(Data["SameEvent"]))
+                        {
+                            <div class="app-events-furtherdates @((d.EntityId == eventDate.EntityId) ? "active" : "")">
+                                <a href="@Link.To(parameters: "details=" + d.EntityId)">
+                                    <strong>@d.Start.ToString("dd.MM.yyyy")  @((d.End != null) ? " - " + d.End.ToString("dd.MM.yyyy") : "" )</strong>
+                                    @d.TitleAddition
+                                </a>
+                            </div>
+                        }
+                    }
+                    
+            
+                    <a @Koi.Class("all='app-events-backtolist' bs3,unk='btn btn-default' bs4='btn btn-secondary'")  href="@Link.To()">@Html.Raw(App.Resources.LabelBackToList)</a>
+                </div>
+                <div @Koi.Class("bs3='col col-md-4 d-none d-sm-block' bs4,unk='col-12 col-md-4 d-none d-sm-block'")>
+                    @if (!String.IsNullOrEmpty(@item.Image))
+                    {
+                        <div class="app-events-detail-imagecontainer img-fluid">
+                            <a title="@item.Title" class="fancybox" href="@item.Image?maxwidth=1400&amp;maxheight=990&amp;quality=95">
+                                <img class="co-content-image" src="@item.Image?w=540&amp;quality=95" alt="@item.Title" />
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #dnn_ctr630_ModuleContent .co-content p {
+        display: none;
+    }
+</style>
+
+<script>
+    $(document).ready(function(){
+	/* Fancybox */
+	if(jQuery().fancybox){
+		$(".fancybox").fancybox({
+			parent: "form:first",
+			padding: 1
+		});
+	}
+});
+</script>
+
+<link rel="stylesheet" href="@App.Path/dist/detailstyles.css" data-enableoptimizations="true" />
+<link rel="stylesheet" href="@App.Path/dist/liststyles.css" data-enableoptimizations="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" data-enableoptimizations="true" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js" data-enableoptimizations="true"></script>

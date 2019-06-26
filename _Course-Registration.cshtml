@@ -1,7 +1,9 @@
 @using System.Web.UI.HtmlControls
+@using Connect.Koi;
+
 <script type="text/javascript" src="/desktopmodules/tosic_sexycontent/js/2sxc.api.min.js" data-enableoptimizations="true"></script>
 <link rel="stylesheet" href="@App.Path/dist/styles.css" data-enableoptimizations="true" />
-<script src="@App.Path/bower_components/jquery-validation/dist/jquery.validate.min.js" data-enableoptimizations="true"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 
 <script>
     var courseRegResources = @Html.Raw(Json.Encode(Sxc.Serializer.Prepare(App.Resources)));
@@ -9,14 +11,24 @@
 <script src="@App.Path/dist/scripts.js"></script>
 
 @{
-    var course = AsDynamic(App.Data["Course"].List[Convert.ToInt32(Request.QueryString["cid"])]);
+    var course = AsDynamic(App.Data["Event"]).Where(x => x.EntityId == Convert.ToInt32(Request.QueryString["cid"])).FirstOrDefault();
+    
+    var eventDateRaw = AsDynamic(App.Data["EventDate"]).Where(evd => evd.Event.Count > 0);
+    var eventDate = eventDateRaw.Where(ed => ed.Event[0].EntityId == Convert.ToInt32(Request.QueryString["cid"])).FirstOrDefault();
+    
+    eventDate = AsDynamic(App.Data["EventDate"]).Where(ed => ed.EntityId == Convert.ToInt32(Request.QueryString["did"])).FirstOrDefault();;
+    
+    var pageHandler = HttpContext.Current.Handler as Page;
+    var tp = (DotNetNuke.Framework.CDefault)pageHandler; 
+
+     pageHandler.Title = "Anmeldung" + " | " + @course.Title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
 }
 
 <div class="ly-maxwrapper ly-maxwrapper-white">
-    <div class="container-fluid ly-content">
+    <div @Koi.Class("all='ly-content' bs3,unk='container-fluid' bs4='container-fluid'")>
         <div class="ly-container-inner">
 
-@if (course == null || (course.deleted is bool && course.deleted))
+@if (course == null)
 {
     <div class="alert alert-danger" role="alert">
 		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -26,29 +38,33 @@
 }
 else
 {
-    <div class="sc-element">
-		@Html.Raw(course.Toolbar)
-		<h1>@App.Resources.CourseRegistrationTitle - @course.Title</h1>
+    <div class="sc-element app-course">
+		<h1>@App.Resources.CourseRegistrationTitle - @course.Title @((!String.IsNullOrEmpty(eventDate.TitleAddition)) ? App.Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + App.Resources.TitleAdditionSuffix : "" )</h1>
         <div class="form form-horizontal cf-wrapper @("cform-id" + Dnn.Module.ModuleID) sc-element">
             @Edit.Toolbar(Content)
-            @Textbox(App.Resources.LabelCourseName, "CourseName", true, disabled: true, value: course.Number)
-            @Textbox(App.Resources.LabelCourseNumber, "CourseNumber", true, disabled: true, value: course.Title)
-            @Textbox(App.Resources.LabelCourseLocation, "CourseLocation", true, disabled: true, value: course.City)
+            @Textbox(App.Resources.LabelCourseNumber, "CourseNumber", true, disabled: true, value: ((eventDate.Id != null) ? eventDate.Id : course.id))
+            @Textbox(App.Resources.LabelCourseName, "CourseName", true, disabled: true, value: course.Title )
+            @Textbox(App.Resources.LabelCourseLocation, "CourseLocation", true, disabled: true, value: course.Location)
             
-            <div class="form-group">
+            <div class="form-group row">
             @Label(App.Resources.LabelCourseDate, "Date")
             <div class="@classControlWrapper">
-                <textarea required class="form-control" id="Date" name="Date" disabled="disabled" rows="3">@course.Time</textarea>
+                @{
+                    var compDate = eventDate.Start.ToString("dd.MM.yyyy") + ((eventDate.End != null) ? " - " + eventDate.End.ToString("dd.MM.yyyy")  : "");
+                }
+                <textarea required class="form-control" id="Date" name="Date" disabled="disabled" rows="3" >
+@((!String.IsNullOrEmpty(eventDate.TimeSpecifics)) ? eventDate.TimeSpecifics : compDate)
+                </textarea>
             </div>
             </div>
             
             <h3>@App.Resources.CourseParticipantData</h3>
-            <div class="form-group">
+            <div class="form-group row">
             @Label(App.Resources.LabelParticipantSalutation, "Salutation")
             <div class="@classControlWrapper">
                 <div class="radio">
                     <label>
-                        <input name="Salutation" type="radio" value="@App.Resources.LabelMrs" checked="checked">
+                        <input name="Salutation" type="radio" value="@App.Resources.LabelMrs">
                         @App.Resources.LabelMrs
                     </label>
                 </div>
@@ -67,7 +83,7 @@ else
             @Textbox(App.Resources.LabelParticipantStreet, "Street")
             @Textbox(App.Resources.LabelParticipantZIPCity, "ZIPCity")
             
-            <div class="form-group">
+            <div class="form-group row">
             @Label(App.Resources.LabelParticipantCountry, "Country")
             <div class="@classControlWrapper">
                 <select class="form-control" id="Country" name="Country" required>
@@ -80,28 +96,37 @@ else
             </div>
 
             @Textbox(App.Resources.LabelParticipantPhone, "Phone")
+            @Textbox(App.Resources.LabelParticipantMobilePhone, "MobilePhone")
             @Textbox(App.Resources.LabelParticipantMail, "Mail", true, "email")
             
-            <div class="form-group">
-            @Label(App.Resources.LabelParticipantBirthDate, "BirthDate")
-            <div class="@classControlWrapper">
-                <input type="text" class="form-control" id="BirthDate">
+            <div class="form-group row cf-required">
+                <label class="@classLabel" for="AGB">@App.Resources.AppAgbLabel</label>
+                <div class="@classControlWrapper check-class">
+                    <input type="checkbox" class="form-control" id="AGB" name="AGB" required />
+                    @Html.Raw(App.Resources.AcceptAgb)
+                </div>
             </div>
-            </div>
-
-            @Textbox(App.Resources.LabelParticipantNationality, "Nationality", true)
-
-            <div class="form-group">
-                <div class="col-sm-9 col-sm-offset-3">
-                    <button type="button" class="cf-submit btn btn-primary">@App.Resources.ButtonRegister</button>
+            
+            <div class="form-group row cf-required">
+                <label class="@classLabel" for="Accept">@App.Resources.AppCostsLabel</label>
+                <div class="@classControlWrapper check-class">
+                    <input type="checkbox" class="form-control" id="Accept" name="Accept" required />
+                    @Html.Raw(App.Resources.AcceptCosts)
                 </div>
             </div>
 
+            <div class="form-group row">
+                <div @Koi.Class("all='' bs3,unk='col-sm-9 col-sm-offset-3' bs4='col-md-9 offset-sm-3'")>
+                    <button type="button" class="cf-submit btn btn-primary">@Html.Raw(App.Resources.ButtonRegister)</button>
+                </div>
+            </div>
+
+            <input type="hidden" id="EventDateEntity" name="EventDateEntity" value="@eventDate.EntityGuid" >
             <input type="hidden" id="Course" name="Course" value="@course.EntityGuid">
         </div>
 
-        <div class="cf-info-sent bg-success">
-            <h2>@App.Resources.SuccessThanks</h2>
+        <div style="display:none;" @Koi.Class("all='cf-info-sent' bs3,unk='alert alert-success' bs4='alert alert-success'")>
+            <strong>@App.Resources.SuccessThanks</strong>
             @App.Resources.SuccessMessage
         </div>
 
@@ -119,10 +144,10 @@ else
 
 
 @helper Textbox(string label, string id, bool required = false, string type = "text", string value = "", bool disabled = false) {
-    <div class="form-group @(required ? "cf-required" : "")">
+    <div class="form-group row @(required ? "cf-required" : "")">
       @Label(label, id)
       <div class="@classControlWrapper">
-          <input value="@value" type="@type" required="@required" class="form-control" id="@id" name="@id" disabled="@disabled">
+          <input value="@value" type="@type" @((required) ? "required" : "") class="form-control" id="@id" name="@id" @((disabled) ? "disabled" : "")>
       </div>
     </div>
 }
@@ -132,3 +157,20 @@ else
     public string classLabel = "col-sm-3 ";
     public string classControlWrapper = "col-sm-9 ";
 }
+
+<style>
+    #dnn_ctr630_ModuleContent .co-content p {
+        display: none;
+    }
+    
+    input[type="checkbox"] {
+            width: 13px;
+    border: none;
+    box-shadow: none;
+    display: inline;
+    vertical-align: text-top;
+    height: 13px;
+    }
+    
+    .check-class p { display: inline; }
+</style>

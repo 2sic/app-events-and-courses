@@ -1,0 +1,153 @@
+@using Connect.Koi;
+
+@{
+    string detailsLink;
+
+    var events = AsDynamic(Data["Events"]);
+    var groupedDates = events.GroupBy(c => c.Start.ToString("MM.yyyy"));
+
+    var eventPage = Dnn.Tab.FullUrl;
+    var eventPageTab = Dnn.Module.TabID;
+}
+
+<div class="app-events app-event-list">
+    
+    @if(Permissions.UserMayEditContent)
+    {   
+        <div class="app-add-tools">
+            <div class="app-event-add">
+                @Edit.Toolbar(toolbar: new object[] { 
+                    new { 
+                        command = new { 
+                            action = "new", 
+                            contentType = "Event",
+                            prefill = new { PublicationMoment = @DateTime.Now }
+                        } 
+                    },
+                    new { 
+                        command = new { 
+                            action = "contentitems", 
+                            contentType = "Event"
+                        },
+                        showCondition = true
+                    }
+                })
+                
+                <span style="font-weight:bold;">@Html.Raw(App.Resources.AddNewEvent)</span>
+            </div>
+            
+            <div class="app-date-add">            
+                @Edit.Toolbar(toolbar: new object[] { 
+                    new { 
+                        command = new { 
+                            action = "new", 
+                            contentType = "EventDate",
+                            prefill = new { PublicationMoment = @DateTime.Now }
+                        } 
+                    },
+                    new { 
+                        command = new { 
+                            action = "contentitems", 
+                            contentType = "EventDate"
+                        },
+                        showCondition = true
+                    }
+                })
+            
+                <span style="font-weight:bold;">@Html.Raw(App.Resources.AddNewEventDate)</span>
+            </div>
+            
+            <div class="app-configure">            
+                @Edit.Toolbar(AsDynamic(App.Data["EventSettings"]).FirstOrDefault())
+            
+                <span style="font-weight:bold;">@Html.Raw(App.Resources.EventSettings)</span>
+            </div>
+        </div>
+    }
+    
+    <div class="app-list-container">        
+        @foreach (var e in @groupedDates.ToList()) 
+        {
+            <div class="row">
+                <div @Koi.Class("all='sc-element' bs3='col col-xs-12 col-sm-12 col-md-12 col-lg-12' bs4,unk='col-12 col-md-12 col-lg-12 col-xl-12'")>
+                    <h2 class="app-timing-header">
+                        @e.ToList()[0].Start.ToString("MMMM")
+                        
+                        @if (DateTime.Now.ToString("yyyy") != @e.ToList()[0].Start.ToString("yyyy"))
+                        {
+                            <span class="year">@e.ToList()[0].Start.ToString("yyyy")</span>
+                        }
+                    </h2>
+                </div>
+            </div> 
+
+            <div class="row">            
+            @foreach (var d in e.ToList())
+            {
+                if(DotNetNuke.Common.Globals.IsEditMode() || d.Event[0].ShowInLanguage != false)
+                {
+                    var item =  d.Event[0];
+                    var detailslink = "test";
+
+                    if(item.DetailsOpensLink == true)
+                    {
+                        if(!string.IsNullOrEmpty(item.Document))
+                        {
+                            detailslink = item.Document;
+                        }
+                    }
+                    else
+                    {
+                        detailslink = Link.To(parameters: "details=" + @d.EntityId);
+                        detailslink += "/" + item.UrlKey;
+                    }
+                    
+                    <div @Koi.Class("all='sc-element' bs3='col col-xs-12 col-sm-12 col-md-12 col-lg-12' bs4,unk='col-12 col-md-12 col-lg-12 col-xl-12'")>
+                        @Edit.Toolbar(d)
+                        <div class="app-details-link" onclick="window.open('@detailslink','_self');">
+                            <div class="row">
+                                <div @Koi.Class("bs3='col-xs-12 col-sm-6 col-md-4' bs4,unk='col-12 col-md-6 col-lg-4'")>
+                                    <!-- Image or Placeholder -->
+                                    <div class="app-img @((String.IsNullOrEmpty(@item.Image)) ? "app-noimg" : "")">
+                                        <img @Koi.Class("bs3='img-responsive' bs4,unk='img-fluid'") src="@((!String.IsNullOrEmpty(@item.Image)) ? @item.Image + "?w=800&h=480&mode=crop&scale=both&quality=80&anchor=" + @item.CropAnchor : @App.Resources.PlaceholderMissingImage + "?max-height=210&mode=max&scale=both&quality=80")"alt="@item.Title" />
+                                    </div>
+                                </div>
+                                <div @Koi.Class("bs3='col-xs-12 col-sm-6 col-md-8' bs4,unk='col-12 col-md-6 col-lg-8'")>
+                                    <div class="app-text">
+                                        @* ToDo: Have to change - to pre and after seperator *@                                    
+                                        <h2>@item.Title  @((!String.IsNullOrEmpty(d.TitleAddition)) ? " - " + d.TitleAddition : "" ) @if(d.Event[0].ShowInLanguage == false && DotNetNuke.Common.Globals.IsEditMode()) { <span style="color:red;">(in dieser Sprache ausgeblendet)</span> }</h2>
+                                        
+                                        <span class="app-date app-date-border">@d.Start.ToString("dd.MM.yyyy") @((d.End != null) ? " - " + d.End.ToString("dd.MM.yyyy") : "" )</span>
+                                        <span class="app-categories">@item.Topic[0].Title</span>
+                                        
+                                        <p>@item.ShortDescription.Replace("\n", "<br />")</p>
+                                    </div>
+
+                                    @if(item.DetailsOpensLink == true)
+                                    {
+                                        if(!string.IsNullOrEmpty(item.Document))
+                                        {
+                                            <a class="app-readmore" href="@item.Document" target="_blank">@Html.Raw(App.Resources.LabelReadMore)</a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <a class="app-readmore" href="@detailslink">@Html.Raw(App.Resources.LabelReadMore)</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            </div>
+        }
+    </div>
+
+    @RenderPage("_paging.cshtml", new { eventPage = eventPage }) 
+</div>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<link rel="stylesheet" href="@App.Path/dist/liststyles.css" />
+<script src="@App.Path/dist/script.js" ></script>

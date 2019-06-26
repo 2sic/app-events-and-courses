@@ -1,0 +1,194 @@
+// local variables file
+@import "_variables.scss";
+
+// later on it's usually better to use variables from the skins
+// so that you can re-build the css using the same values used in the skin
+// it would then look a bit like this:
+// @import "../../../_default/skins/2sxc-bootstrap-skin/src/_variables.scss";
+
+@media all {
+	/* Header */
+	.co-header {
+		img {
+			width: 100%;
+		}	
+	}
+
+	/* Default Content */
+	.co-content {
+		margin-bottom: $grid-gutter-width;
+	}
+
+	.co-text-beside-image {
+		h1, h2, h3, h4, h5, h6 {
+			margin-top: 0; 
+		}
+	}
+	.co-content-image {
+		margin-bottom: $grid-gutter-width;
+		width: 100%;
+	}
+	
+	/* Content Navigation */
+	.co-navigation {
+		.glyphicon.glyphicon-menu-right.glyphicon-right-custom {
+			font-size: 15px;
+			vertical-align: text-bottom;
+		}
+
+		&.co-navigation-image {
+			h3 {
+				margin-top: .3em;
+			}
+			a span.glyphicon  {
+				font-size: .6em;
+				margin-right: .2em;
+			}
+			.co-img-placeholder {
+				background: $brand-primary;
+				padding-bottom: 50%;
+			}
+		}
+		img {
+			width: 100%;
+		}
+		.col {
+			margin-bottom: $grid-gutter-width;
+		}
+		.co-img-wrapper {
+			margin-bottom: 20px;
+		}
+		a.co-link-box {
+			display: block;
+			text-decoration: none;
+			color: $text-color;
+			
+			.co-img-wrapper {
+				background: $brand-primary;
+				overflow: hidden;
+				img {
+					position: relative;
+					transition: opacity .3s;
+					backface-visibility: hidden;
+				}
+			}
+			
+			&:hover {
+				color: $text-color;
+				
+				img {
+					opacity: .4;
+				}
+			}
+		}
+	}
+
+	.co-navigation-icon {
+		h3 {
+			margin-top: 5px; 
+		}
+		.co-icon {
+			font-size: 2.8em; 
+		}
+	}
+	
+	/* Images */
+	.co-img-wrapper {
+		margin-bottom: $grid-gutter-width;
+	}
+	.co-img-wrapper.co-2colimg {
+		margin-bottom: 0;
+		.col {
+			margin-bottom: $grid-gutter-width;
+		}
+		img {
+			width: 100%;
+		}
+	}	
+	
+	/* Documents and Links */
+	
+	ul.co-documents {
+		padding: 0;
+		&, li {
+			list-style-type:none;
+		}
+		
+		.co-document { 
+			.glyphicon { 
+				font-size:17px;
+				line-height: 1.2em;
+			}
+			a, a:link, a:visited {
+				&, p { color:$text-color; text-decoration: none; }
+			}
+		}
+		.co-document-text { margin-left:$grid-gutter-width; }
+	}
+		
+	/* Google Maps */
+	.co-google-map-container {
+		@media(min-width: $screen-md-min){
+			margin-top:25px; margin-bottom:25px;
+		}
+	}
+	.ly-header-pane {
+		.co-google-map-container { 
+			@media(min-width: $screen-sm-min){
+				padding-bottom: 35%;
+			}
+		}
+	}
+	.ly-header-pane .co-google-map-container { margin-top:0; margin-bottom:0; }
+	.googlemap-apiwarning {
+		position: absolute;
+		z-index: 100;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+	
+	/* Kontakt Map */
+	.co-contactmap address { line-height: 1.2; padding: $grid-gutter-width/2 0; }
+	.co-contactmap .co-company, .co-contactmap .co-address, .co-contactmap .co-details {
+		margin-bottom: $grid-gutter-width/2;
+	}
+	
+	/* Sperating Line */
+	.role-admin .co-separatingline{
+		padding: 15px 0;
+	}
+	hr.ly-darkhr { border-color: $gray-light; }
+	hr.ly-primaryhr { border-color: $brand-primary; }
+	hr.ly-primaryhr-half { width: 50%; margin-right: auto; margin-left: auto }
+	
+	/* Person */
+	.co-person { overflow:hidden; margin:$grid-gutter-width 0; }
+	.co-person-wrapper img { width: 100%; }
+	.co-person-text { word-wrap: break-word; }
+	.co-person-placeholder { 
+		background: $gray-light;
+		padding-bottom: 128%;
+	}
+	.co-person-image-rounded {
+		img {
+			border-radius: 50%;
+		}
+		.co-person-placeholder {
+			border-radius: 50%;
+			padding-bottom: 100%;
+		}
+	}
+	@media all and (max-width:430px) { 
+		.co-person-wrapper .co-person-image { width: 50%; margin-bottom: 15px;  padding-right: 19px; }
+		.co-person-wrapper .co-person-text {width: 100%;}
+	}
+	
+	/* Youtube */
+	.role-admin .co-youtube-video-wrapper { padding-top: 40px; }
+}
+
+.cf-wrapper label { font-weight: normal; }
+.cf-required label:after { content:' *'; color:#C4151C; }
+.cf-info-sent { padding:10px; display:none; }
+.cf-info-sent h2 { margin-top:0; }
