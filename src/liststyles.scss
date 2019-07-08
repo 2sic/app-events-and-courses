@@ -35,12 +35,14 @@
                 }
 
                 img {
-                    max-width: 120px;
-                    margin-top: 50px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    max-width: 120px;                    
 
                     @media (max-width: 768px) {
                         max-width: 220px;
-                        margin-top: 130px;
                     }
 
                 }
@@ -136,7 +138,7 @@
             text-align: center;
             border-radius: 50%;
             font-size: 16px;
-            padding-top: 4px;
+            line-height: 30px;
             color: #666;
             transition: background .2s ease, color .2s ease;
             &:hover {

@@ -161,8 +161,9 @@
                         }
                     }
                     
-            
-                    <a @Koi.Class("all='app-events-backtolist' bs3,unk='btn btn-default' bs4='btn btn-secondary'")  href="@Link.To()">@Html.Raw(App.Resources.LabelBackToList)</a>
+                    <div class="clearfix">
+                        <a @Koi.Class("all='app-events-backtolist' bs3,unk='btn btn-default' bs4='btn btn-secondary'")  href="@Link.To()">@Html.Raw(App.Resources.LabelBackToList)</a>
+                    </div>
                 </div>
                 <div @Koi.Class("bs3='col col-md-4 d-none d-sm-block' bs4,unk='col-12 col-md-4 d-none d-sm-block'")>
                     @if (!String.IsNullOrEmpty(@item.Image))

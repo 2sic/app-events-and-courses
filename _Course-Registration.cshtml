@@ -20,8 +20,9 @@
     
     var pageHandler = HttpContext.Current.Handler as Page;
     var tp = (DotNetNuke.Framework.CDefault)pageHandler; 
+    var title = (course == null ? "" : course.Title);
 
-     pageHandler.Title = "Anmeldung" + " | " + @course.Title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
+    pageHandler.Title = "Anmeldung" + " | " + title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
 }
 
 <div class="ly-maxwrapper ly-maxwrapper-white">
@@ -83,7 +84,7 @@ else
             @Textbox(App.Resources.LabelParticipantStreet, "Street")
             @Textbox(App.Resources.LabelParticipantZIPCity, "ZIPCity")
             
-            <div class="form-group row">
+            <div class="form-group row cf-required">
             @Label(App.Resources.LabelParticipantCountry, "Country")
             <div class="@classControlWrapper">
                 <select class="form-control" id="Country" name="Country" required>

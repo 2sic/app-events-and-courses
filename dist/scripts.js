@@ -6,10 +6,7 @@ $(document).ready(function() {
 
     var validator = $("form").validate();
 
-    $(".cf-submit").click(function(e) {
-        console.log("test");
-
-        
+    $(".cf-submit").click(function(e) {       
         if(validator.form()) {
             var inputs = $(".cf-wrapper :input");
             var obj = {};

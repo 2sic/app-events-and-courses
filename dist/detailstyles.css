@@ -12,11 +12,11 @@
 
 .app-events-detail .app-events-backtolist {
   background: #fff;
-  border: 1px solid #4A148C;
+  border: 1px solid #5c4384;
   transition: .3s ease background-color; }
   .app-events-detail .app-events-backtolist:hover {
     color: #fff;
-    background-color: #4A148C; }
+    background-color: #5c4384; }
 
 .app-events-detail .app-date, .app-events-detail .app-categories {
   font-size: 0.8rem;
@@ -28,7 +28,7 @@
   text-transform: uppercase;
   margin-top: 30px;
   display: block;
-  color: #4A148C; }
+  color: #5c4384; }
 
 .app-events-furtherdates {
   border-bottom: 1px solid #bcbcbc; }
@@ -39,11 +39,11 @@
       padding: 3px 0; }
     .app-events-furtherdates > a:hover {
       text-decoration: none;
-      color: #4A148C !important; }
+      color: #5c4384 !important; }
     .app-events-furtherdates > a:visited, .app-events-furtherdates > a:link {
       color: #333; }
   .app-events-furtherdates.active > a {
-    color: #4A148C !important; }
+    color: #5c4384 !important; }
 
 .app-events.app-events-detail .app-events-infocontainer {
   margin-top: 15px;
@@ -103,19 +103,19 @@
 
 .app-events-detail a.btn {
   transition: .3s ease background-color;
-  border: 1px solid #4A148C; }
+  border: 1px solid #5c4384; }
   .app-events-detail a.btn.btn-default, .app-events-detail a.btn.btn-secondary {
     background: #fff;
-    color: #4A148C; }
+    color: #5c4384; }
     .app-events-detail a.btn.btn-default:hover, .app-events-detail a.btn.btn-secondary:hover {
       color: #fff;
-      background-color: #4A148C; }
+      background-color: #5c4384; }
   .app-events-detail a.btn.btn-primary {
     color: #fff;
-    background-color: #4A148C; }
+    background-color: #5c4384; }
     .app-events-detail a.btn.btn-primary:hover {
       background: #fff;
-      color: #4A148C; }
+      color: #5c4384; }
 
 .topimage {
   display: none;
