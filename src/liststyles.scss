@@ -6,121 +6,120 @@
 	// Column View Bootstrap
     &.app-event-list {
         .col,
-        > .row > .col-12  {
+        > .row:not(.app-timing-header) > .col-12  {
             margin-bottom: $grid-gutter-width;
             @include media-breakpoint-up(lg) {
                 margin-bottom: $grid-gutter-width*1.5;
             }
         }
 
-        .app-details-link {
-            cursor: pointer; 
+        > .row.app-timing-header > .col-12  {
+            margin-bottom: 0;
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 0;
+            }
+        }
+
+        // Categorie Info
+        .app-catinfo {
             margin-bottom: $grid-gutter-width/1.5;
         }
+        .app-details-link {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height:100%;
 
-        // App-Image with overlay and fallback
-        .app-img {
-            position: relative;            
-            text-align: center;
-
-            &.app-noimg {
-                background: #e9ecef;
+            .link-overlay {
+                position: absolute;
+                display: block;
+                top: 0px;
+                left: 0px;
                 height: 100%;
                 width: 100%;
-                max-height: 209px;
+                z-index: 20;
+            }
 
-                @media (max-width: 768px) {
-                    height: 431px;
-                    max-height: inherit;
-                }
-
-                img {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%,-50%);
-                    max-width: 120px;                    
-
-                    @media (max-width: 768px) {
-                        max-width: 220px;
-                    }
-
-                }
+            a:not(.link-overlay) {
+                position: relative;
+                z-index: 30;
             }
             
-            span {
-                position: absolute;
-                background: rgba($primary, .8);
-                opacity: 0;
-                top: 0;
-                bottom: 0;
-                width: 100%;
-                z-index: 10;
-                transition: opacity ease-in 0.18s;
-                i {
-                    display: block;
-                    text-align: center;
-                    color: #FFF;
-                    font-size: 30px;
-                    top: 50%;
-                    line-height: 0;
-                }
-            }
-            &.app-no-img {
-                background: $gray-200 url(../res/missing_img.png) center center no-repeat;
-                background-size: 35%;
-            }
-        } 
+			// App-Image with overlay and fallback
+            .app-img {
+                position: relative;
+                text-align: center;
 
-        // App-Text with readmore
-        .app-text {
-             h3, h2 {
-                &.app-list {
-                    margin-top: $grid-gutter-width/2;
-                    @include media-breakpoint-up(xs) {
-                        margin-top: 0;
+                &.app-noimg {
+                    background: #e9ecef;
+                    height: 100%;
+                    position: relative;
+                }
+                
+                span {
+                    position: absolute;
+                    background-color: rgba($dark, .0);
+                    top: 0;
+                    bottom: 0;
+                    width: 100%;
+                    z-index: 10;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    transition: background-color .3s ease-in-out;
+                }
+			} 
+
+			// App-Text with readmore
+            .app-text {
+                flex: 1 1 auto;
+                 h3, h2 {
+                    &.app-list {
+                        margin-top: $grid-gutter-width/2;
+                        @include media-breakpoint-up(xs) {
+                            margin-top: 0;
+                        }
                     }
                 }
-            }
-            span {
-                font-size: $font-size-base * 0.8;
-                font-weight: bold;
-            }
-            .app-date {
-                &.app-date-border {
-                    border-right: 1px solid $body-color;
-                    padding-right: 4px;
-                    margin-right: 8px;
-                }
-            }
-            .app-categories {
-                color: $link-color;
-                letter-spacing: 1px;
-                text-transform: uppercase;
-                margin-right: 8px;
-            }
-            p {
-                margin-top: $grid-gutter-width/2;
-            }
-        }
-        .app-readmore {
-            color: $primary;
-        }
-        
-        // Hover Styling
-        &:hover {
-            .app-img {
                 span {
-                    opacity: 1;
+                    font-size: $font-size-base * 0.8;
+                    font-weight: bold;
                 }
-            }
-            .app-text {
-                h3, h2 {
+                .app-date {
+                    &.app-date-border {
+                        border-right: 1px solid $body-color;
+                        padding-right: 8px;
+                        margin-right: 4px;
+                    }
+                }
+                .app-categories {
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    margin-right: 8px;
                     color: $primary;
+                }
+                p {
+                    margin-top: $grid-gutter-width/2;
                 }
             }
             .app-readmore {
-                color: $body-color;
+                color: $primary;
+			}
+			
+			// Hover Styling
+            &:hover {
+                .app-img {
+                    span {
+                        background-color: rgba($dark, .4);
+                    }
+                }
+                .app-text {
+                    h3, h2 {
+                        color: $primary;
+                    }
+                }
+                .app-readmore {
+                    color: $body-color;
+                }
             }
         }
 	} 
