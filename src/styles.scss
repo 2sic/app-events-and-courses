@@ -1,0 +1,10 @@
+.cf-wrapper label { font-weight: normal; }
+.cf-required label:after { content:' *'; color:#C4151C; }
+.cf-info-sent { padding:10px; display:none; }
+.cf-info-sent h2 { margin-top:0; } 
+
+.form-control {
+  &.error {
+    border-color: #C4151C;
+  }
+}
