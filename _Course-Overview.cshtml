@@ -12,7 +12,7 @@
 						.SelectMany(c => c.Relationships.AllParents.Where(p => p.Type.Name == "EventDate"))
 						.Select(c => AsDynamic(c))	// now only the courses
 						.Where(c => c.Start.Date >= DateTime.Now || c.Event[0].individual == true);
-	
+
 					<div class="panel panel-default">
 						@* Checked divs from here on  *@
 						<div class="panel-heading sc-element"  id="heading_@group.EntityId">
@@ -62,20 +62,20 @@
 											</div>
 											<div @Koi.Class("bs3,unk='col-xs-12 col-sm-6 col-md-8' bs4='col-12 col-md-6 col-lg-8'")>
 												@*Edit.Toolbar(course, actions: "edit", settings: new { hover = "right"} )
-												@Edit.Toolbar(toolbar: new object[] { 
-													new { 
+												@Edit.Toolbar(toolbar: new object[] {
+													new {
 														showCondition = true,
-														command = new { action = "contentitems", 
-															contentType= "CourseRegistration", 
-															filters = new {Course = new[] { course.EntityTitle } } 
+														command = new { action = "contentitems",
+															contentType= "CourseRegistration",
+															filters = new {Course = new[] { course.EntityTitle } }
 														}
 													}
 												}, settings: new { hover="right" })*@
 												<div class="app-text">
 													<h2>@course.Title  @((!String.IsNullOrEmpty(eventDate.TitleAddition)) ? App.Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + App.Resources.TitleAdditionSuffix : "" )</h2>
 													<span class="app-date">@eventDate.Start.ToString("dd.MM.yyyy") | </span>
-													<span class="app-categories">                   
-														<span>@course.Topic[0].Title</span> 
+													<span class="app-categories">
+														<span>@course.Topic[0].Title</span>
 													</span>
 													@if (!string.IsNullOrEmpty(course.ShortDescription)) {
 														<p>@Html.Raw(course.ShortDescription.Replace("\n", "<br />"))</p>
@@ -103,14 +103,14 @@
 													}
 													else {
 														<br />
-														<a @Koi.Class("all='co-btn-openregister' bs3,unk='app-readmore' bs4='app-readmore'") href="@Link.To(parameters: "mid=" + Dnn.Module.ModuleID + "&cid=" + @course.EntityId)">@Html.Raw(App.Resources.Register) ›</a>
+														<a @Koi.Class("all='co-btn-openregister' bs3,unk='app-readmore' bs4='app-readmore'") href="@Link.To(parameters: "mid=" + Dnn.Module.ModuleID + "&cid=" + @course.EntityId + "&did=" + eventDate.EntityId)">@Html.Raw(App.Resources.Register) ›</a>
 													}
 												}
 											</div>
 										</div>
 									</div>
 								}
-            				
+
 								@* if no courses exist, show this *@
 								@if (courses.Count() == 0) {
 									<div class="list-group-item xsc-element">
