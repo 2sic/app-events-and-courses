@@ -4,12 +4,12 @@
 @{
     var eventDate = AsDynamic(Data["Default"]).FirstOrDefault();
     var item = eventDate.Event[0];
-    
+
     var registrations = AsDynamic(App.Data["CourseRegistration"]).Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity[0].EntityGuid == eventDate.EntityGuid);
     var freeSeats = eventDate.Seats - registrations.Count();
 
     var pageHandler = HttpContext.Current.Handler as Page;
-    var tp = (DotNetNuke.Framework.CDefault)pageHandler; 
+    var tp = (DotNetNuke.Framework.CDefault)pageHandler;
 
      pageHandler.Title = eventDate.Start.ToString("dd.MM.yyyy") + ((eventDate.End != null) ? " - " + eventDate.End.ToString("dd.MM.yyyy") : "" ) + " - " + item.Title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
 }
@@ -27,48 +27,48 @@
 }
 
 
-<div class="app-events app-events-detail sc-element">  
+<div class="app-events app-events-detail sc-element">
     @Edit.Toolbar(eventDate)
-    @Edit.Toolbar(toolbar: new object[] { 
+    @Edit.Toolbar(toolbar: new object[] {
           new { showCondition = true,
-              command = new { action = "contentitems", 
-                contentType = "CourseRegistration", 
-                filters = new { EventDateEntity = new[] { @eventDate.Start.ToString() } } 
+              command = new { action = "contentitems",
+                contentType = "CourseRegistration",
+                filters = new { EventDateEntity = new[] { @eventDate.Start.ToString() } }
             }
         }
     }, settings: new { hover="left", show = "hover" })
-      
-      
+
+
     @*
-    @Edit.Toolbar(toolbar: new object[] { 
+    @Edit.Toolbar(toolbar: new object[] {
         new { showCondition = true,
-            command = new { action = "contentitems", 
-            contentType = "CourseRegistration", 
-            filters = new { Course.Guid == item.Guid } 
+            command = new { action = "contentitems",
+            contentType = "CourseRegistration",
+            filters = new { Course.Guid == item.Guid }
         }
     }
-    }, settings: new { hover="left", show = "hover" })        
+    }, settings: new { hover="left", show = "hover" })
     *@
     <div class="app-events-detail-contentcontainer @(!String.IsNullOrEmpty(@item.Image) ? "app-events-detail-withimage" : "")">
         <div class="app-content">
             <h2>@item.Title @((!String.IsNullOrEmpty(eventDate.TitleAddition)) ? App.Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + App.Resources.TitleAdditionSuffix : "" )</h2>
-            
+
             <span class="app-date">@eventDate.Start.ToString("dd.MM.yyyy") @((eventDate.End != null) ? " - " + eventDate.End.ToString("dd.MM.yyyy") : "" ) | </span>
-            <span class="app-categories">                   
-                <span>@item.Topic[0].Title</span> 
+            <span class="app-categories">
+                <span>@item.Topic[0].Title</span>
             </span>
 
             <img class="co-content-image topimage" src="@item.Image?w=540&amp;quality=95" alt="@item.Title" />
         </div>
-        
+
         <div class="app-content">
             <div class="row">
                 <div @Koi.Class("bs3='col col-lg-8' bs4,unk='col-12 col-lg-8'")>
-                    <p class="app-events-detail-teaser">@item.ShortDescription</p> 
+                    <p class="app-events-detail-teaser">@item.ShortDescription</p>
                     <p class="app-events-detail-body">
-                        
-                        @ToSic.SexyContent.ContentBlocks.Render.All(item, field: "BodyContentBlocks", merge: item.Description) 
-                        
+
+                        @ToSic.SexyContent.ContentBlocks.Render.All(item, field: "BodyContentBlocks", merge: item.Description)
+
                         @if(!string.IsNullOrEmpty(eventDate.Document)) {
                             <a @Koi.Class("all='co-kurs-pdf' bs3,unk='btn  btn-md btn-default' bs4='btn  btn-md btn-primary'") href="@eventDate.Document" target="_blank">@Html.Raw(App.Resources.Download)</a>
                         } else {
@@ -82,7 +82,6 @@
                     <strong>@Html.Raw(App.Resources.DateTime)</strong><br />
                     Html.Raw(item.Time.Replace("\n", "<br/>"))
                     *@
-
 
                     <div class="clearfix">
                     @if(!String.IsNullOrEmpty(GetFromFirst(eventDate.Location, item.Location)))
@@ -147,7 +146,7 @@
 
                     @if (AsDynamic(Data["SameEvent"]).Count() > 1)
                     {
-                
+
                         <strong class="app-events-furtherdates-title">@App.Resources.AllDatesOfThisEvent</strong>
 
                         foreach (var d in AsDynamic(Data["SameEvent"]))
@@ -160,7 +159,7 @@
                             </div>
                         }
                     }
-                    
+
                     <div class="clearfix">
                         <a @Koi.Class("all='app-events-backtolist' bs3,unk='btn btn-default' bs4='btn btn-secondary'")  href="@Link.To()">@Html.Raw(App.Resources.LabelBackToList)</a>
                     </div>
