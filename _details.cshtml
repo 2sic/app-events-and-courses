@@ -1,5 +1,9 @@
+@inherits ToSic.Sxc.Dnn.RazorComponent
+@using ToSic.Razor.Blade;
 @using ToSic.SexyContent.Interfaces
 @using Connect.Koi;
+
+@RenderPage("shared/_Assets.cshtml") 
 
 @{
     var eventDate = AsDynamic(Data["Default"]).FirstOrDefault();
@@ -196,8 +200,3 @@
 	}
 });
 </script>
-
-<link rel="stylesheet" href="@App.Path/dist/detailstyles.css" data-enableoptimizations="true" />
-<link rel="stylesheet" href="@App.Path/dist/liststyles.css" data-enableoptimizations="true" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" data-enableoptimizations="true" />
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js" data-enableoptimizations="true"></script>

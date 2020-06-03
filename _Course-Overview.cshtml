@@ -1,4 +1,10 @@
+
+@inherits ToSic.Sxc.Dnn.RazorComponent
+@using ToSic.Razor.Blade;
 @using Connect.Koi;
+
+@RenderPage("shared/_Assets.cshtml") 
+
 
 <div class="app-events app-event-list ly-maxwrapper ly-maxwrapper-white">
 	<div class="container-fluid ly-content">
@@ -130,7 +136,3 @@
 		</div>
 	</div>
 </div>
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<link rel="stylesheet" href="@App.Path/dist/liststyles.css" />
-<script src="@App.Path/dist/script.js" ></script>
