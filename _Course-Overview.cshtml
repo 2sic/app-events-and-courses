@@ -10,13 +10,13 @@
 	<div class="container-fluid ly-content">
 		<div class="ly-container-inner app-course">
 			<div class="panel-group co-kurs-wrapper" id="accordion" role="tablist" aria-multiselectable="true">
-				@foreach (var group in AsDynamic(Data["Default"])) {
+				@foreach (var group in AsList(Data["Default"])) {
 					// Here's the short version for the list of course-parents
 					var courses = ((ToSic.Eav.Interfaces.IEntity)AsEntity(group))	// cast to use power-API
 						.Relationships.AllParents	// all parents, no matter what type
 						.Where(c => c.Type.Name == "Event")
 						.SelectMany(c => c.Relationships.AllParents.Where(p => p.Type.Name == "EventDate"))
-						.Select(c => AsDynamic(c))	// now only the courses
+						.Select(c => AsList(c))	// now only the courses
 						.Where(c => c.Start.Date >= DateTime.Now || c.Event[0].individual == true);
 
 					<div class="panel panel-default">
@@ -55,7 +55,7 @@
 								@Edit.Toolbar(actions: "new", contentType: "EventDate", settings: new { hover = "left" })
 								@foreach (var eventDate in courses.OrderBy(c => c.Date)) {
 									var course = eventDate.Event[0];
-									var registrations = AsDynamic(App.Data["CourseRegistration"]).Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity[0].EntityGuid == eventDate.EntityGuid);
+									var registrations = AsList(App.Data["CourseRegistration"]).Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity[0].EntityGuid == eventDate.EntityGuid);
 									var freeSeats = @eventDate.Seats - registrations.Count();
 
 									<div @Koi.Class("all='list-group-item app-event-item sc-element' bs3,unk='' bs4=''")>

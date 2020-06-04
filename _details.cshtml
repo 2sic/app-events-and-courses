@@ -6,10 +6,10 @@
 @RenderPage("shared/_Assets.cshtml") 
 
 @{
-    var eventDate = AsDynamic(Data["Default"]).FirstOrDefault();
+    var eventDate = AsList(Data["Default"]).FirstOrDefault();
     var item = eventDate.Event[0];
 
-    var registrations = AsDynamic(App.Data["CourseRegistration"]).Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity[0].EntityGuid == eventDate.EntityGuid);
+    var registrations = AsList(App.Data["CourseRegistration"]).Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity[0].EntityGuid == eventDate.EntityGuid);
     var freeSeats = eventDate.Seats - registrations.Count();
 
     var pageHandler = HttpContext.Current.Handler as Page;
@@ -148,12 +148,12 @@
                         }
                     }
 
-                    @if (AsDynamic(Data["SameEvent"]).Count() > 1)
+                    @if (AsList(Data["SameEvent"]).Count() > 1)
                     {
 
                         <strong class="app-events-furtherdates-title">@App.Resources.AllDatesOfThisEvent</strong>
 
-                        foreach (var d in AsDynamic(Data["SameEvent"]))
+                        foreach (var d in AsList(Data["SameEvent"]))
                         {
                             <div class="app-events-furtherdates @((d.EntityId == eventDate.EntityId) ? "active" : "")">
                                 <a href="@Link.To(parameters: "details=" + d.EntityId)">

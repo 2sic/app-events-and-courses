@@ -13,12 +13,12 @@
 <script src="@App.Path/dist/scripts.js"></script>
 
 @{
-    var course = AsDynamic(App.Data["Event"]).Where(x => x.EntityId == Convert.ToInt32(Request.QueryString["cid"])).FirstOrDefault();
+    var course = AsList(App.Data["Event"]).Where(x => x.EntityId == Convert.ToInt32(Request.QueryString["cid"])).FirstOrDefault();
     
-    var eventDateRaw = AsDynamic(App.Data["EventDate"]).Where(evd => evd.Event.Count > 0);
+    var eventDateRaw = AsList(App.Data["EventDate"]).Where(evd => evd.Event.Count > 0);
     var eventDate = eventDateRaw.Where(ed => ed.Event[0].EntityId == Convert.ToInt32(Request.QueryString["cid"])).FirstOrDefault();
     
-    eventDate = AsDynamic(App.Data["EventDate"]).Where(ed => ed.EntityId == Convert.ToInt32(Request.QueryString["did"])).FirstOrDefault();;
+    eventDate = AsList(App.Data["EventDate"]).Where(ed => ed.EntityId == Convert.ToInt32(Request.QueryString["did"])).FirstOrDefault();;
     
     var pageHandler = HttpContext.Current.Handler as Page;
     var tp = (DotNetNuke.Framework.CDefault)pageHandler; 

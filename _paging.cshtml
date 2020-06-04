@@ -1,7 +1,7 @@
 @inherits ToSic.Sxc.Dnn.RazorComponent
 @using ToSic.Razor.Blade;
 @{
-    var paging = AsDynamic(Data["Paging"]).FirstOrDefault();
+    var paging = AsList(Data["Paging"]).FirstOrDefault();
     var eventPage = PageData["eventPage"];
 }
 
