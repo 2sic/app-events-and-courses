@@ -1,4 +1,4 @@
-require('../scss/_styles.scss');
+require('../styles/_styles.scss');
 
 // $(document).ready(function() {
 //     jQuery.extend($.validator.messages, {
