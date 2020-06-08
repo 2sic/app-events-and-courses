@@ -89,7 +89,7 @@
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-img @(Text.Has(item.Image) ? "" : "app-noimg")'>
                 <span class="overlay" style='@(Text.Has(item.Image) ? "" : "background-image: url('" + App.Resources.PlaceHolderImg + "?max-width=600&amp;mode=max&amp;scale=both&amp;quality=80')")'></span>
-                <img class="img-fluid" src="@(Text.Has(item.Image) ? item.Image : App.Path + "/res/trans.png")?w=800&h=480&mode=crop&scale=both&quality=80&anchor=@item.CropAnchor" alt="@item.Title" />
+                <img class="img-fluid" src="@(Text.Has(item.Image) ? item.Image : App.Path + "/src/images/trans.png")?w=800&h=480&mode=crop&scale=both&quality=80&anchor=@item.CropAnchor" alt="@item.Title" />
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
