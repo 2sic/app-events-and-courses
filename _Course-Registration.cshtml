@@ -1,16 +1,11 @@
 @inherits ToSic.Sxc.Dnn.RazorComponent
 @using ToSic.Razor.Blade;
-@using System.Web.UI.HtmlControls
 @using Connect.Koi;
 @{
   var helpers = CreateInstance("shared/_Helpers.cshtml");
 }
 
 @RenderPage("shared/_Assets.cshtml") 
-
-<script>
-    @* var courseRegResources = @Html.Raw(Json.Encode(Sxc.Serializer.Prepare(App.Resources))); *@
-</script>
 
 @{
     var course = AsList(App.Data["Event"]).Where(x => x.EntityId == Convert.ToInt32(Request.QueryString["cid"])).FirstOrDefault();
@@ -31,9 +26,9 @@
         @App.Resources.CourseNotFoundError
     </div>
 } else {
-    <div class="sc-element app-course">
+    <div class="app-course app-course-form" @Edit.TagToolbar(Content) data-string-required="@App.Resources.ValidationRequired" data-string-email="@App.Resources.ValidationEmail">
         <h1>@App.Resources.CourseRegistrationTitle - @course.Title @((!String.IsNullOrEmpty(eventDate.TitleAddition)) ? App.Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + App.Resources.TitleAdditionSuffix : "" )</h1>
-        <div class="form cf-wrapper @("cform-id" + Dnn.Module.ModuleID)" @Edit.TagToolbar(Content)>
+        <div class="form cf-wrapper cform-id-@Dnn.Module.ModuleID">
             @helpers.Textbox(App.Resources.LabelCourseNumber, "CourseNumber", true, disabled: true, value: ((eventDate.Id != null) ? eventDate.Id : course.id))
             @helpers.Textbox(App.Resources.LabelCourseName, "CourseName", true, disabled: true, value: course.Title )
             @helpers.Textbox(App.Resources.LabelCourseLocation, "CourseLocation", true, disabled: true, value: course.Location)
@@ -121,9 +116,13 @@
             <input type="hidden" id="Course" name="Course" value="@course.EntityGuid">
         </div>
 
-        <div style="display:none;" class="cf-info-sent alert alert-success">
+        <div class="cf-info-sent alert alert-success" style="display:none;">
             <strong>@App.Resources.SuccessThanks</strong>
             @App.Resources.SuccessMessage
+        </div>
+
+        <div class="cf-info-error alert alert-danger" style="display:none;">
+            @App.Resources.CourseRegistrationError
         </div>
     </div>
 }
