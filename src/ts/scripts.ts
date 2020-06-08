@@ -41,10 +41,3 @@ $(document).ready(function() {
     }
   });
 });
-
-$(function() {
-  /* Fancybox */
-  if (($('.fancybox') as any).fancybox) {
-    ($('.fancybox') as any).fancybox();
-  }
-});
