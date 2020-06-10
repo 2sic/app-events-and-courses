@@ -52,46 +52,24 @@
 						<div class="row mb-4">
 							@if(Text.Has(Text.First(eventDate.Location, item.Location)))
 							{
-									<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
-											<h6>@App.Resources.Location</h6>
-											@Text.First(eventDate.Location, item.Location)
-									</div>
+								@Code.DetailsBox(App.Resources.Location, Text.First(eventDate.Location, item.Location));
 							}
 
 							@if(Text.Has(Text.First(eventDate.Person, item.Person)))
 							{
-									<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
-											<h6>@App.Resources.Management</h6>
-											@Text.First(eventDate.Person, item.Person)
-									</div>
+								@Code.DetailsBox(App.Resources.Management, Text.First(eventDate.Person, item.Person));
 							}
 
-							@if(Text.Has(item.Fee)) {
-									<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
-											<h6>@App.Resources.Fee</h6>
-											@item.Fee
-									</div>
-							} else {
-									if(Text.Has(eventDate.Fee)) {
-											<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
-													<h6>@App.Resources.Fee</h6>
-													@eventDate.Fee
-											</div>
-									}
+							@if(Text.Has(Text.First(eventDate.Fee, item.Fee))) {
+								@Code.DetailsBox(App.Resources.Fee, Text.First(eventDate.Fee, item.Fee));
 							}
 
 							@if(eventDate.RegistrationEnabled && eventDate.IsFullyBooked == false && eventDate.IsCancelled == false && eventDate.Seats != null) {
-									<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
-											<h6>@App.Resources.Seats</h6>
-											@freeSeats
-									</div>
+								@Code.DetailsBox(App.Resources.Seats, freeSeats.ToString());
 							}
 
 							@if(Text.Has(eventDate.TimeSpecifics)) {
-									<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
-											<h6>@Html.Raw(App.Resources.DateTime)</h6>
-											@eventDate.TimeSpecifics
-									</div>
+								@Code.DetailsBox(App.Resources.DateTime, eventDate.TimeSpecifics);
 							}
 						</div>
 
@@ -126,7 +104,7 @@
 							</div>
 						}
 
-						<a class="btn btn-outline-primary" href="@Link.To()">@Html.Raw(App.Resources.LabelBackToList)</a>
+						@Code.BackToListButton()
 					</div>
 
 					@if (Text.Has(item.Image)) {
