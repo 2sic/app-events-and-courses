@@ -6,162 +6,136 @@
 @RenderPage("shared/_Assets.cshtml") 
 
 @{
-    var eventDate = AsList(Data).FirstOrDefault();
-    var item = eventDate.Event[0];
+	var eventDate = AsList(Data).FirstOrDefault();
+	var item = eventDate.Event[0];
 
-    var registrations = AsList(App.Data["CourseRegistration"]).Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity[0].EntityGuid == eventDate.EntityGuid);
-    var freeSeats = eventDate.Seats - registrations.Count();
+	var registrations = AsList(App.Data["CourseRegistration"]).Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity[0].EntityGuid == eventDate.EntityGuid);
+	var freeSeats = eventDate.Seats - registrations.Count();
 
-     HtmlPage.Title = eventDate.Start.ToString("d") + ((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) + " - " + item.Title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
+	HtmlPage.Title = eventDate.Start.ToString("d") + ((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) + " - " + item.Title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
 }
 
-<div class="app-events app-events-detail sc-element">
-    @Edit.Toolbar(eventDate)
-    @Edit.Toolbar(toolbar: new object[] {
-          new { showCondition = true,
-              command = new { action = "contentitems",
-                contentType = "CourseRegistration",
-                filters = new { EventDateEntity = new[] { @eventDate.Start.ToString() } }
-            }
-        }
-    }, settings: new { hover="left", show = "hover" })
+<div class="app-events app-events-detail" @Edit.TagToolbar(eventDate)>
+	<div class="app-events-detail-contentcontainer @(Text.Has(item.Image) ? "app-events-detail-withimage" : "")">
+		<div class="app-content mb-4">
+			<h1 class="m-0">@item.Title @((Text.Has(eventDate.TitleAddition)) ? App.Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + App.Resources.TitleAdditionSuffix : "" )</h1>
 
+			<span class="app-date">@eventDate.Start.ToString("d") @((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) | </span>
+			<span class="app-categories">
+				@item.Topic[0].Title
+			</span>
 
-    @*
-    @Edit.Toolbar(toolbar: new object[] {
-        new { showCondition = true,
-            command = new { action = "contentitems",
-            contentType = "CourseRegistration",
-            filters = new { Course.Guid == item.Guid }
-        }
-    }
-    }, settings: new { hover="left", show = "hover" })
-    *@
-    <div class="app-events-detail-contentcontainer @(Text.Has(@item.Image) ? "app-events-detail-withimage" : "")">
-        <div class="app-content">
-            <h2>@item.Title @((Text.Has(eventDate.TitleAddition)) ? App.Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + App.Resources.TitleAdditionSuffix : "" )</h2>
+			<img class="d-block d-md-none m-auto img-fluid" src="@item.Image?w=540&amp;quality=95" alt="@item.Title" />
+		</div>
 
-            <span class="app-date">@eventDate.Start.ToString("d") @((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) | </span>
-            <span class="app-categories">
-                <span>@item.Topic[0].Title</span>
-            </span>
+		<div class="app-content">
+			<div class="row">
+					<div class='col-12 @(Text.Has(item.Image) ? "col-md-8" : "")'>
+						<h2 class="h5">@item.ShortDescription</h2>
+						<div class="app-events-detail-body mb-4">
+							@ToSic.SexyContent.ContentBlocks.Render.All(item, field: "BodyContentBlocks", merge: item.Description)
 
-            <img class="co-content-image topimage" src="@item.Image?w=540&amp;quality=95" alt="@item.Title" />
-        </div>
+							@if(Text.Has(eventDate.Document)) {
+								<a class="btn btn-md btn-primary" href="@eventDate.Document" target="_blank">@Html.Raw(App.Resources.Download)</a>
+							} else {
+								if(Text.Has(item.Document)) {
+									<a class="btn btn-md btn-primary" href="@item.Document" target="_blank">@Html.Raw(App.Resources.Download)</a>
+								}
+							}
+						</div>
 
-        <div class="app-content">
-            <div class="row">
-                <div @Koi.Class("bs3='col col-lg-8' bs4,unk='col-12 col-lg-8'")>
-                    <p class="app-events-detail-teaser">@item.ShortDescription</p>
-                    <p class="app-events-detail-body">
+						@* TODO: Additional infos for time
+						<strong>@Html.Raw(App.Resources.DateTime)</strong><br />
+						Html.Raw(item.Time.Replace("\n", "<br/>"))
+						*@
 
-                        @ToSic.SexyContent.ContentBlocks.Render.All(item, field: "BodyContentBlocks", merge: item.Description)
+						<div class="row mb-4">
+							@if(Text.Has(Text.First(eventDate.Location, item.Location)))
+							{
+									<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
+											<h6>@App.Resources.Location</h6>
+											@Text.First(eventDate.Location, item.Location)
+									</div>
+							}
 
-                        @if(Text.Has(eventDate.Document)) {
-                            <a @Koi.Class("all='co-kurs-pdf' bs3,unk='btn  btn-md btn-default' bs4='btn  btn-md btn-primary'") href="@eventDate.Document" target="_blank">@Html.Raw(App.Resources.Download)</a>
-                        } else {
-                            if(Text.Has(item.Document)) {
-                                <a @Koi.Class("all='co-kurs-pdf' bs3,unk='btn  btn-md btn-default' bs4='btn  btn-md btn-primary'") href="@item.Document" target="_blank">@Html.Raw(App.Resources.Download)</a>
-                            }
-                        }
-                    </p>
+							@if(Text.Has(Text.First(eventDate.Person, item.Person)))
+							{
+									<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
+											<h6>@App.Resources.Management</h6>
+											@Text.First(eventDate.Person, item.Person)
+									</div>
+							}
 
-                    @* TODO: Additional infos for time
-                    <strong>@Html.Raw(App.Resources.DateTime)</strong><br />
-                    Html.Raw(item.Time.Replace("\n", "<br/>"))
-                    *@
+							@if(Text.Has(item.Fee)) {
+									<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
+											<h6>@App.Resources.Fee</h6>
+											@item.Fee
+									</div>
+							} else {
+									if(Text.Has(eventDate.Fee)) {
+											<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
+													<h6>@App.Resources.Fee</h6>
+													@eventDate.Fee
+											</div>
+									}
+							}
 
-                    <div class="clearfix">
-                    @if(Text.Has(Text.First(eventDate.Location, item.Location)))
-                    {
-                        <div class="app-events-infocontainer">
-                            <strong>@App.Resources.Location</strong>
-                            @Text.First(eventDate.Location, item.Location)
-                        </div>
-                    }
+							@if(eventDate.RegistrationEnabled && eventDate.IsFullyBooked == false && eventDate.IsCancelled == false && eventDate.Seats != null) {
+									<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
+											<h6>@App.Resources.Seats</h6>
+											@freeSeats
+									</div>
+							}
 
-                    @if(Text.Has(Text.First(eventDate.Person, item.Person)))
-                    {
-                        <div class="app-events-infocontainer">
-                            <strong>@App.Resources.Management</strong>
-                            @Text.First(eventDate.Person, item.Person)
-                        </div>
-                    }
+							@if(Text.Has(eventDate.TimeSpecifics)) {
+									<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
+											<h6>@Html.Raw(App.Resources.DateTime)</h6>
+											@eventDate.TimeSpecifics
+									</div>
+							}
+						</div>
 
-                    @if(Text.Has(item.Fee)) {
-                        <div class="app-events-infocontainer">
-                            <strong>@App.Resources.Fee</strong>
-                            @item.Fee
-                        </div>
-                    } else {
-                        if(Text.Has(eventDate.Fee)) {
-                            <div class="app-events-infocontainer">
-                                <strong>@App.Resources.Fee</strong>
-                                @eventDate.Fee
-                            </div>
-                        }
-                    }
+						@if (eventDate.IsCancelled == true) {
+							<div class="alert alert-warning">
+								@App.Resources.StatusCanceled
+							</div>
+						} else if(App.Settings.RegistrationEnabled && eventDate.RegistrationEnabled) {
+							if(1 <= 0 || eventDate.IsFullyBooked) { // Turn 1 back to freeSeats after fix
+								<div class="alert alert-warning">
+									@App.Resources.StatusFullyBooked
+								</div>
+							}
+							else {
+								<a class="btn btn-md btn-primary btn-register" href="@Link.To(parameters: "mid=" + Dnn.Module.ModuleID + "&cid=" + @item.EntityId + "&did=" + eventDate.EntityId)/@item.UrlKey">@Html.Raw(App.Resources.ButtonRegister)</a>
+							}
+						}
 
-                    @if(eventDate.RegistrationEnabled && eventDate.IsFullyBooked == false && eventDate.IsCancelled == false && eventDate.Seats != null) {
-                        <div class="app-events-infocontainer">
-                            <strong>@App.Resources.Seats</strong>
-                            @freeSeats
-                        </div>
-                    }
+						@if (AsList(Data["SameEvent"]).Count() > 1) {
+							<div class="">
+								<h5>@App.Resources.AllDatesOfThisEvent</h5>
+								<ul class="list-group list-group-flush">
+									@foreach (var d in AsList(Data["SameEvent"])) {
+										<li class="list-group-item pl-0 @((d.EntityId == eventDate.EntityId) ? "current" : "")">
+											<a href="@Link.To(parameters: "details=" + d.EntityId)" class="p-1">
+												<strong>@d.Start.ToString("d")  @((d.End != null) ? " - " + d.End.ToString("d") : "" )</strong>
+												@d.TitleAddition
+											</a>
+										</li>
+									}
+								</ul>
+							</div>
+						}
 
-                    @if(Text.Has(eventDate.TimeSpecifics)) {
-                        <div class="app-events-infocontainer">
-                            <strong>@Html.Raw(App.Resources.DateTime)</strong>
-                            @eventDate.TimeSpecifics
-                        </div>
-                    }
-                    </div>
+						<a class="btn btn-outline-primary" href="@Link.To()">@Html.Raw(App.Resources.LabelBackToList)</a>
+					</div>
 
-                    @if (eventDate.IsCancelled == true) {
-                        <div class="alert alert-warning" style="margin-top:15px;" role="alert">
-                            @App.Resources.StatusCanceled
-                        </div>
-                    } else if(App.Settings.RegistrationEnabled && eventDate.RegistrationEnabled) {
-                        if(1 <= 0 || eventDate.IsFullyBooked) { // Turn 1 back to freeSeats after fix
-                            <div class="alert alert-warning" style="margin-top:15px;" role="alert">
-                                @App.Resources.StatusFullyBooked
-                            </div>
-                        }
-                        else {
-                            <a class="btn btn-md btn-primary btn-register" href="@Link.To(parameters: "mid=" + Dnn.Module.ModuleID + "&cid=" + @item.EntityId + "&did=" + eventDate.EntityId)/@item.UrlKey">@Html.Raw(App.Resources.ButtonRegister)</a>
-                        }
-                    }
-
-                    @if (AsList(Data["SameEvent"]).Count() > 1)
-                    {
-
-                        <strong class="app-events-furtherdates-title">@App.Resources.AllDatesOfThisEvent</strong>
-
-                        foreach (var d in AsList(Data["SameEvent"]))
-                        {
-                            <div class="app-events-furtherdates @((d.EntityId == eventDate.EntityId) ? "active" : "")">
-                                <a href="@Link.To(parameters: "details=" + d.EntityId)">
-                                    <strong>@d.Start.ToString("d")  @((d.End != null) ? " - " + d.End.ToString("d") : "" )</strong>
-                                    @d.TitleAddition
-                                </a>
-                            </div>
-                        }
-                    }
-
-                    <div class="clearfix">
-                        <a @Koi.Class("all='app-events-backtolist' bs3,unk='btn btn-default' bs4='btn btn-secondary'")  href="@Link.To()">@Html.Raw(App.Resources.LabelBackToList)</a>
-                    </div>
-                </div>
-                <div @Koi.Class("bs3='col col-md-4 d-none d-sm-block' bs4,unk='col-12 col-md-4 d-none d-sm-block'")>
-                    @if (Text.Has(@item.Image))
-                    {
-                        <div class="app-events-detail-imagecontainer img-fluid">
-                            <img class="co-content-image" src="@item.Image?w=540&amp;quality=95" alt="@item.Title" />
-                        </div>
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
+					@if (Text.Has(item.Image)) {
+						<div class="col-12 col-md-4 d-none d-md-block")>
+							<img class="img-fluid" src="@item.Image?w=540&amp;quality=95" alt="@item.Title" />
+						</div>
+					}
+			</div>
+		</div>
+	</div>
 </div>
 

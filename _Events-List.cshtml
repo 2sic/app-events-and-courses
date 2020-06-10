@@ -11,47 +11,28 @@
 @if(Edit.Enabled) {   
   <div class="app-add-tools">
     <div class="app-event-add">
-      @Edit.Toolbar(toolbar: new object[] { 
-        new { 
-          command = new { 
-            action = "new", 
-            contentType = "Event",
-            prefill = new { PublicationMoment = @DateTime.Now }
-          } 
-        },
-        new { 
-          command = new { 
-            action = "contentitems", 
-            contentType = "Event"
-          },
-          showCondition = true
-        }
-      })
+      @Edit.Toolbar(toolbar: new [] { 
+        "toolbar=empty",
+        "+new&title=New Event?contentType=Event",
+        "contentitems?contentType=Event"
+      })      
       <span style="font-weight:bold;">@Html.Raw(App.Resources.AddNewEvent)</span>
     </div>
         
-    <div class="app-date-add">            
-      @Edit.Toolbar(toolbar: new object[] { 
-        new { 
-          command = new { 
-            action = "new", 
-            contentType = "EventDate",
-            prefill = new { PublicationMoment = @DateTime.Now }
-          } 
-        },
-        new { 
-          command = new { 
-            action = "contentitems", 
-            contentType = "EventDate"
-          },
-          showCondition = true
-        }
+    <div class="app-date-add">  
+      @Edit.Toolbar(toolbar: new [] { 
+        "toolbar=empty",
+        "+new&title=New Eventdate?contentType=EventDate",
+        "contentitems?contentType=EventDate"
       })
       <span style="font-weight:bold;">@Html.Raw(App.Resources.AddNewEventDate)</span>
     </div>
         
-    <div class="app-configure">            
-        @Edit.Toolbar(AsList(App.Data["EventSettings"]).FirstOrDefault())
+    <div class="app-configure" >            
+        @Edit.Toolbar(
+          AsList(App.Data["EventSettings"]).FirstOrDefault(),
+          toolbar: new [] { "settings&hover=none&autoAddMore=start" }
+        )
     
         <span style="font-weight:bold;">@Html.Raw(App.Resources.EventSettings)</span>
     </div>
@@ -88,8 +69,8 @@
         <div class="row position-relative app-event-list-details mb-4" @Edit.TagToolbar(d)>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-img @(Text.Has(item.Image) ? "" : "app-noimg")'>
-                <span class="overlay" style='@(Text.Has(item.Image) ? "" : "background-image: url('" + App.Resources.PlaceHolderImg + "?max-width=600&amp;mode=max&amp;scale=both&amp;quality=80')")'></span>
-                <img class="img-fluid" src="@(Text.Has(item.Image) ? item.Image : App.Path + "/src/images/trans.png")?w=800&h=480&mode=crop&scale=both&quality=80&anchor=@item.CropAnchor" alt="@item.Title" />
+                <span class="overlay" style='@(Text.Has(item.Image) ? "" : "background-image: url('" + App.Path + "/src/images/trans.png?max-width=600&amp;mode=max&amp;scale=both&amp;quality=80')")'></span>
+                <img class="img-fluid" src="@(Text.Has(item.Image) ? item.Image : App.Resources.PlaceHolderImg)?w=800&h=480&mode=crop&scale=both&quality=80&anchor=@item.CropAnchor" alt="@item.Title" />
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">

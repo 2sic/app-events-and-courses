@@ -10,7 +10,7 @@
 	<div class="container-fluid ly-content">
 		<div class="ly-container-inner app-course">
 			<div class="panel-group co-kurs-wrapper" id="accordion" role="tablist" aria-multiselectable="true">
-				@foreach (var group in AsList(Data["Default"])) {
+				@foreach (var group in AsList(Data)) {
 					// Here's the short version for the list of course-parents
 					var courses = ((ToSic.Eav.Interfaces.IEntity)AsEntity(group))	// cast to use power-API
 						.Relationships.AllParents	// all parents, no matter what type
