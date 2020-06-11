@@ -1,31 +1,6 @@
 @import "../../../_default/Skins/2sxcBootstrap-B4/src/scss/_variables.scss";
 @import "../../../_default/Skins/2sxcBootstrap-B4/node_modules/bootstrap/scss/mixins/_breakpoints.scss";
 
-
-.cf-wrapper label {
-  font-weight: normal;
-}
-
-.cf-required label:after {
-  content: ' *';
-  color: #C4151C;
-}
-
-.cf-info-sent {
-  padding: 10px;
-  display: none;
-}
-
-.cf-info-sent h2 {
-  margin-top: 0;
-}
-
-.form-control {
-  &.error {
-    border-color: #C4151C;
-  }
-}
-
 .app-events {
   &.app-event-list {
     .app-event-list-item {
@@ -119,7 +94,32 @@
           background: #fff;
       }
     }
+  }  
+}
+
+// FORM VALIDATION
+.event-form {
+  .form-required {
+    label {
+      &:after {
+        content: ' *';
+        color: #C4151C;
+      }
+    }
+  }
+  
+  .form-info-success {
+    padding: 10px;
+    display: none;
+  
+    h2 {
+      margin-top: 0;
+    }
   }
 
-  
+  .form-control {
+    &.error {
+      border-color: #C4151C;
+    }
+  }
 }

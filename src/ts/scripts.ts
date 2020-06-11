@@ -7,14 +7,14 @@ $(document).ready(function() {
   const validator = ($("form") as any).validate();
 
   jQuery.extend(($ as any).validator.messages, {
-      required: $('.app-course-form').data('string-required'),
-      email: $('.app-course-form').data('string-email')
+      required: $('.app-events-form').data('string-required'),
+      email: $('.app-events-form').data('string-email')
   });
 
-  $(".cf-submit").click(function(e) { 
+  $(".form-submit").click(function(e) { 
           
     if(validator.form()) {
-        const inputs = $(".cf-wrapper :input");
+        const inputs = $(".event-form :input");
         const obj: any = {};
         $.each(inputs, function(i: any, e: any) {
           const propName = e.name;
@@ -23,19 +23,19 @@ $(document).ready(function() {
         
         const sxc = $2sxc(this);
         sxc.webApi.post("Form/ProcessForm", {}, obj).then(function() {
-          $('.cf-wrapper').hide();
-          $('.cf-info-sent').show();$
-          $('.cf-submit').prop('disabled', true);
+          $('.event-form').hide();
+          $('.form-info-success').show();
+          $('.form-submit').prop('disabled', true);
         }, function() {
-          $('.cf-info-error').show();
-          $('.cf-submit').prop('disabled', false);
+          $('.form-info-error').show();
+          $('.form-submit').prop('disabled', false);
         });
 
     }
 
     // Add and remove has-error classes
-    $('.cf-wrapper .form-group').removeClass('has-error');
-    $('.cf-info-error').hide(); 
+    $('.event-form .form-group').removeClass('has-error');
+    $('.form-info-error').hide(); 
     for (let i=0;i<validator.errorList.length;i++){
         $(validator.errorList[i].element).parents('.form-group').addClass('has-error');
     }
