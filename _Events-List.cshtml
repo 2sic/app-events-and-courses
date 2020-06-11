@@ -7,6 +7,7 @@
   string detailsLink;
   var events = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
   var eventPage = Dnn.Tab.FullUrl;
+  var resources = App.Resources;
 }
 @if(Edit.Enabled) {   
   <div class="app-add-tools">
@@ -16,16 +17,16 @@
         "+new&title=New Event?contentType=Event",
         "contentitems?contentType=Event"
       })      
-      <span style="font-weight:bold;">@Html.Raw(App.Resources.AddNewEvent)</span>
+      <span style="font-weight:bold;">@Html.Raw(resources.AddNewEvent)</span>
     </div>
         
-    <div class="app-date-add">  
+    <div class="app-events-date-add">  
       @Edit.Toolbar(toolbar: new [] { 
         "toolbar=empty",
         "+new&title=New Eventdate?contentType=EventDate",
         "contentitems?contentType=EventDate"
       })
-      <span style="font-weight:bold;">@Html.Raw(App.Resources.AddNewEventDate)</span>
+      <span style="font-weight:bold;">@Html.Raw(resources.AddNewEventDate)</span>
     </div>
         
     <div class="app-configure" >            
@@ -34,13 +35,14 @@
           toolbar: new [] { "settings&hover=none&autoAddMore=start" }
         )
     
-        <span style="font-weight:bold;">@Html.Raw(App.Resources.EventSettings)</span>
+        <span style="font-weight:bold;">@Html.Raw(resources.EventSettings)</span>
     </div>
   </div>
 }
 
 <div class="app-events app-event-list">
   @foreach (var e in events) {
+    @* Grouped months *@
     <div class="row">
       <div class="col-12">
         <h2>
@@ -52,6 +54,7 @@
         </h2>
       </div>
     </div> 
+    @* Events in month *@
     foreach (var d in e) {
       if (DotNetNuke.Common.Globals.IsEditMode() || d.Event[0].ShowInLanguage != false) {
         var item =  d.Event[0];
@@ -66,11 +69,11 @@
           detailslink += "/" + item.UrlKey;
         }
           
-        <div class="row position-relative app-event-list-details mb-4" @Edit.TagToolbar(d)>
+        <div class="row position-relative app-event-list-item mb-4" @Edit.TagToolbar(d)>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-img @(Text.Has(item.Image) ? "" : "app-noimg")'>
-                <span class="overlay" style='@(Text.Has(item.Image) ? "" : "background-image: url('" + App.Path + "/src/images/trans.png?max-width=600&amp;mode=max&amp;scale=both&amp;quality=80')")'></span>
-                <img class="img-fluid" src="@(Text.Has(item.Image) ? item.Image : App.Resources.PlaceHolderImg)?w=800&h=480&mode=crop&scale=both&quality=80&anchor=@item.CropAnchor" alt="@item.Title" />
+                <div class="overlay" style='@(Text.Has(item.Image) ? "" : "background-image: url('" + App.Path + "/src/images/trans.png?max-width=600&amp;mode=max&amp;scale=both&amp;quality=80')")'></div>
+                <img class="img-fluid" src="@(Text.Has(item.Image) ? item.Image : resources.PlaceHolderImg)?w=800&h=480&mode=crop&scale=both&quality=80&anchor=@item.CropAnchor" alt="@item.Title" />
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
@@ -78,8 +81,8 @@
               @* ToDo: Have to change - to pre and after seperator *@                                    
               <h2>@item.Title @((Text.Has(d.TitleAddition)) ? " - " + d.TitleAddition : "" ) @if(d.Event[0].ShowInLanguage == false && DotNetNuke.Common.Globals.IsEditMode()) { <span style="color:red;">(in dieser Sprache ausgeblendet)</span> }</h2>
               <div class="event-meta mb-3">
-                <span class="app-date app-date-border">@d.Start.ToString("d")@((d.End != null) ? " - " + d.End.ToString("d") : "")</span>
-                <span class="app-categories">@item.Topic[0].Title</span>
+                <span class="app-events-date">@d.Start.ToString("d")@((d.End != null) ? " - " + d.End.ToString("d") : "")</span>
+                <span class="app-events-categories"> | @item.Topic[0].Title</span>
               </div>
               
               @if(Text.Has(item.ShortDescription)) {
@@ -88,10 +91,10 @@
 
               @if (item.DetailsOpensLink == true) {
                 if (Text.Has(item.Document)) {
-                  <a class="stretched-link" href="@item.Document" target="_blank">@Html.Raw(App.Resources.LabelReadMore)</a>
+                  <a class="stretched-link" href="@item.Document" target="_blank">@Html.Raw(resources.LabelReadMore)</a>
                 }
               } else {
-                <a class="stretched-link" href="@detailslink">@Html.Raw(App.Resources.LabelReadMore)</a>
+                <a class="stretched-link" href="@detailslink">@Html.Raw(resources.LabelReadMore)</a>
               }
             </div>
           </div>

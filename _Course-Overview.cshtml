@@ -79,8 +79,8 @@
 												}, settings: new { hover="right" })*@
 												<div class="app-text">
 													<h2>@course.Title  @((!String.IsNullOrEmpty(eventDate.TitleAddition)) ? App.Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + App.Resources.TitleAdditionSuffix : "" )</h2>
-													<span class="app-date">@eventDate.Start.ToString("dd.MM.yyyy") | </span>
-													<span class="app-categories">
+													<span class="app-events-date">@eventDate.Start.ToString("dd.MM.yyyy") | </span>
+													<span class="app-events-categories">
 														<span>@course.Topic[0].Title</span>
 													</span>
 													@if (!string.IsNullOrEmpty(course.ShortDescription)) {
