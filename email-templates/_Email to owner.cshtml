@@ -1,12 +1,12 @@
 @* This generates the e-mail subject *@
 @functions {
-	public string Subject(dynamic request, dynamic helpers) {
-		return helpers.App.Resources.MailOwnerSubject;
+	public string Subject() {
+		return App.Resources.MailOwnerSubject;
 	}
 }
 
 @* This generates the e-mail body *@
-@helper Message(Dictionary<string,object> request, ToSic.SexyContent.IAppAndDataHelpers helpers)
+@helper Message(Dictionary<string,object> request)
 {
     <!doctype html>
     <html>
@@ -18,16 +18,10 @@
         </style>
     </head>
     <body>
-        @(new HtmlString(helpers.App.Resources.MailOwnerIntroduction))
-        <table>
-            @foreach (var item in request)
-            {
-                <tr>
-                    <th>@item.Key</th>
-                    <td>@item.Value</td>
-                </tr>
-            }
-        </table>
+        @(new HtmlString(App.Resources.MailOwnerIntroduction))
+        @foreach (var item in request) {
+            <div><strong>@item.Key</strong>: @item.Value</div>
+        }
     </body>
 </html>
 }

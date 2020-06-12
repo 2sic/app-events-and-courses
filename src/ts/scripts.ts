@@ -20,7 +20,7 @@ $(document).ready(function() {
           const propName = e.name;
           obj[propName] = $(e).val();
         });
-        
+
         const sxc = $2sxc(this);
         sxc.webApi.post("Form/ProcessForm", {}, obj).then(function() {
           $('.event-form').hide();

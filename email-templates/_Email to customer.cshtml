@@ -1,12 +1,12 @@
 @* This generates the e-mail subject *@
 @functions {
-	public string Subject(dynamic request, dynamic helpers) {
-		return helpers.App.Resources.MailCustomerSubject;
+	public string Subject() {
+		return App.Resources.MailCustomerSubject;
 	}
 }
 
 @* This generates the e-mail body *@
-@helper Message(dynamic request, ToSic.SexyContent.IAppAndDataHelpers helpers)
+@helper Message(Dictionary<string,object> request)
 {
     <!doctype html>
     <html>
@@ -18,7 +18,7 @@
         </style>
     </head>
     <body>
-        @(new HtmlString(helpers.App.Resources.MailCustomerBody))
+        @(new HtmlString(App.Resources.MailCustomerBody))
     </body>
 </html>
 }
