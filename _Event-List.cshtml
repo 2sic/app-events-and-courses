@@ -32,7 +32,7 @@
     <div class="app-configure" >            
         @Edit.Toolbar(
           AsList(App.Data["EventSettings"]).FirstOrDefault(),
-          toolbar: new [] { "settings&hover=none&autoAddMore=start" }
+          toolbar: "settings&hover=none&autoAddMore=start"
         )
     
         <span style="font-weight:bold;">@Html.Raw(resources.EventSettings)</span>

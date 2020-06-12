@@ -49,6 +49,14 @@
     }
   }
 
+  .app-events-further-events {
+    li {
+      &.current {
+        background-color: #e9ecef;
+      }
+    }
+  }
+
   .btn {
     &.btn-primary {
       &:hover {
