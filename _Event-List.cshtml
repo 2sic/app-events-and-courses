@@ -1,0 +1,103 @@
+@inherits ToSic.Sxc.Dnn.RazorComponent
+@using ToSic.Razor.Blade;
+
+@RenderPage("shared/_Assets.cshtml") 
+
+@{
+  string detailsLink;
+  var events = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
+  var eventPage = Dnn.Tab.FullUrl;
+  var resources = App.Resources;
+}
+@if(Edit.Enabled) {   
+  <div class="app-add-tools">
+    <div class="app-event-add">
+      @Edit.Toolbar(toolbar: new [] { 
+        "toolbar=empty",
+        "+new&title=New Event?contentType=Event",
+        "contentitems?contentType=Event"
+      })      
+      <span style="font-weight:bold;">@Html.Raw(resources.AddNewEvent)</span>
+    </div>
+        
+    <div class="app-events-date-add">  
+      @Edit.Toolbar(toolbar: new [] { 
+        "toolbar=empty",
+        "+new&title=New Eventdate?contentType=EventDate",
+        "contentitems?contentType=EventDate"
+      })
+      <span style="font-weight:bold;">@Html.Raw(resources.AddNewEventDate)</span>
+    </div>
+        
+    <div class="app-configure" >            
+        @Edit.Toolbar(
+          AsList(App.Data["EventSettings"]).FirstOrDefault(),
+          toolbar: "settings&hover=none&autoAddMore=start"
+        )
+    
+        <span style="font-weight:bold;">@Html.Raw(resources.EventSettings)</span>
+    </div>
+  </div>
+}
+
+<div class="app-events app-event-list">
+  @foreach (var e in events) {
+    @* Grouped months *@
+    <div class="row">
+      <div class="col-12">
+        <h2>
+          @e.First().Start.ToString("MMMM")
+          
+          @if (DateTime.Now.ToString("yyyy") != @e.First().Start.ToString("yyyy")) {
+            <span class="year">@e.First().Start.ToString("yyyy")</span>
+          }
+        </h2>
+      </div>
+    </div> 
+    @* Events in month *@
+    foreach (var d in e) {
+      if (DotNetNuke.Common.Globals.IsEditMode() || d.Event.ShowInLanguage != false) {
+        var item = d.Event;
+        var detailslink = "";
+          
+        <div class="row position-relative app-event-list-item mb-4" @Edit.TagToolbar(d)>
+          <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
+            <div class='app-img @(Text.Has(item.Image) ? "" : "app-noimg")'>
+                <div class="overlay" style='@(Text.Has(item.Image) ? "" : "background-image: url('" + App.Path + "/src/images/trans.png?max-width=600&amp;mode=max&amp;scale=both&amp;quality=80')")'></div>
+                <img class="img-fluid" src="@(Text.Has(item.Image) ? item.Image : resources.PlaceHolderImg)?w=800&h=480&mode=crop&scale=both&quality=80&anchor=@item.CropAnchor" alt="@item.Title" />
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-8 position-static">
+            <div class="app-text">
+              @* ToDo: Have to change - to pre and after seperator *@                                    
+              <h2>@item.Title @((Text.Has(d.TitleAddition)) ? " - " + d.TitleAddition : "" ) @if(d.Event.ShowInLanguage == false && DotNetNuke.Common.Globals.IsEditMode()) { <span style="color:red;">(in dieser Sprache ausgeblendet)</span> }</h2>
+              <div class="event-meta mb-3">
+                <span class="app-events-date">@d.Start.ToString("d")@((d.End != null) ? " - " + d.End.ToString("d") : "")</span>
+                <span class="app-events-categories"> | @item.Topic.Title</span>
+              </div>
+              
+              @if(Text.Has(item.ShortDescription)) {
+                <p>@item.ShortDescription.Replace("\n", "<br />")</p>
+              }
+
+              @if (item.DetailsOpensLink == true) {
+                if (Text.Has(item.Document)) {
+                  detailslink = item.Document;
+                }
+              } else {
+                detailslink = Link.To(parameters: "details=" + @d.EntityId) + "/" + item.UrlKey;
+              }
+
+              @if(Text.Has(detailslink)) {
+                <a class="stretched-link" href="@detailslink" target='@(item.DetailsOpensLink ? "_blank" : "")'>@Html.Raw(resources.LabelReadMore)</a>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    }
+  }
+
+  @RenderPage("shared/_Paging.cshtml", new { eventPage = eventPage }) 
+</div>
+
