@@ -56,18 +56,9 @@
     </div> 
     @* Events in month *@
     foreach (var d in e) {
-      if (DotNetNuke.Common.Globals.IsEditMode() || d.Event[0].ShowInLanguage != false) {
-        var item =  d.Event[0];
+      if (DotNetNuke.Common.Globals.IsEditMode() || d.Event.ShowInLanguage != false) {
+        var item = d.Event;
         var detailslink = "";
-
-        if (item.DetailsOpensLink == true) {
-          if (Text.Has(item.Document)) {
-            detailslink = item.Document;
-          }
-        } else {
-          detailslink = Link.To(parameters: "details=" + @d.EntityId);
-          detailslink += "/" + item.UrlKey;
-        }
           
         <div class="row position-relative app-event-list-item mb-4" @Edit.TagToolbar(d)>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
@@ -79,10 +70,10 @@
           <div class="col-12 col-md-6 col-lg-8 position-static">
             <div class="app-text">
               @* ToDo: Have to change - to pre and after seperator *@                                    
-              <h2>@item.Title @((Text.Has(d.TitleAddition)) ? " - " + d.TitleAddition : "" ) @if(d.Event[0].ShowInLanguage == false && DotNetNuke.Common.Globals.IsEditMode()) { <span style="color:red;">(in dieser Sprache ausgeblendet)</span> }</h2>
+              <h2>@item.Title @((Text.Has(d.TitleAddition)) ? " - " + d.TitleAddition : "" ) @if(d.Event.ShowInLanguage == false && DotNetNuke.Common.Globals.IsEditMode()) { <span style="color:red;">(in dieser Sprache ausgeblendet)</span> }</h2>
               <div class="event-meta mb-3">
                 <span class="app-events-date">@d.Start.ToString("d")@((d.End != null) ? " - " + d.End.ToString("d") : "")</span>
-                <span class="app-events-categories"> | @item.Topic[0].Title</span>
+                <span class="app-events-categories"> | @item.Topic.Title</span>
               </div>
               
               @if(Text.Has(item.ShortDescription)) {
@@ -91,10 +82,14 @@
 
               @if (item.DetailsOpensLink == true) {
                 if (Text.Has(item.Document)) {
-                  <a class="stretched-link" href="@item.Document" target="_blank">@Html.Raw(resources.LabelReadMore)</a>
+                  detailslink = item.Document;
                 }
               } else {
-                <a class="stretched-link" href="@detailslink">@Html.Raw(resources.LabelReadMore)</a>
+                detailslink = Link.To(parameters: "details=" + @d.EntityId) + "/" + item.UrlKey;
+              }
+
+              @if(Text.Has(detailslink)) {
+                <a class="stretched-link" href="@detailslink" target='@(item.DetailsOpensLink ? "_blank" : "")'>@Html.Raw(resources.LabelReadMore)</a>
               }
             </div>
           </div>

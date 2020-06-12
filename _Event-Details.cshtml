@@ -5,10 +5,10 @@
 
 @{
 	var eventDate = AsList(Data).FirstOrDefault();
-	var item = eventDate.Event[0];
+	var item = eventDate.Event;
 
 	var registrations = AsList(App.Data["CourseRegistration"])
-											.Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity[0].EntityGuid == eventDate.EntityGuid);
+											.Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity.EntityGuid == eventDate.EntityGuid);
 	var freeSeats = eventDate.Seats - registrations.Count();
 
 	HtmlPage.Title = eventDate.Start.ToString("d") + ((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) + " - " + item.Title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
@@ -24,7 +24,7 @@
 
 		<div class="event-meta">
 			<span class="app-events-date">@eventDate.Start.ToString("d") @((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) | </span>
-			<span class="app-events-categories">@item.Topic[0].Title</span>
+			<span class="app-events-categories">@item.Topic.Title</span>
 		</div>
 
 		<img class="d-block d-md-none m-auto img-fluid" src="@item.Image?w=540&amp;quality=95" alt="@item.Title" />
@@ -83,10 +83,10 @@
 				}
 
 				@if (AsList(Data["SameEvent"]).Count() > 1) {
-					<div class="app-events-further-events mt-4">
-						<h5>@resources.AllDatesOfThisEvent</h5>
+					<div class="app-events-further-events my-4">
+						<h5 class="mb-3">@resources.AllDatesOfThisEvent</h5>
 						<ul class="list-group list-group-flush">
-							@foreach (var d in AsList(Data["SameEvent"])) {
+							@foreach (var d in AsList(Data["SameEvent"]).OrderBy(d => d.Start)) {
 								<li class="list-group-item mb-0 @((d.EntityId == eventDate.EntityId) ? "current" : "")">
 									<a href="@Link.To(parameters: "details=" + d.EntityId)">
 										<strong>@d.Start.ToString("d")  @((d.End != null) ? " - " + d.End.ToString("d") : "")</strong>

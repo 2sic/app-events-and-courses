@@ -51,8 +51,15 @@
 
   .app-events-further-events {
     li {
+      padding: 0;
+
       &.current {
         background-color: #e9ecef;
+      }
+
+      a {
+        display: block;
+        padding: $list-group-item-padding-y $list-group-item-padding-x;
       }
     }
   }

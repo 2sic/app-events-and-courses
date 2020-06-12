@@ -7,14 +7,11 @@
 @{
     var helpers = CreateInstance("shared/_Helpers.cshtml");
     var course = AsList(App.Data["Event"]).Where(x => x.EntityId == Convert.ToInt32(Request.QueryString["cid"])).FirstOrDefault();
-    var eventDateRaw = AsList(App.Data["EventDate"]).Where(evd => evd.Event.Count > 0);
-    var eventDate = eventDateRaw.Where(ed => ed.Event[0].EntityId == Convert.ToInt32(Request.QueryString["cid"])).FirstOrDefault();
-    eventDate = AsList(App.Data["EventDate"]).Where(ed => ed.EntityId == Convert.ToInt32(Request.QueryString["did"])).FirstOrDefault();;
-    var title = (course == null ? "" : course.Title);
-
-    HtmlPage.Title = "Anmeldung" + " | " + title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
-
+    var eventDate = AsList(App.Data["EventDate"]).Where(ed => ed.EntityId == Convert.ToInt32(Request.QueryString["did"])).FirstOrDefault();;
     var resources = App.Resources;
+    var title = course == null ? "" : course.Title;
+
+    HtmlPage.Title = resources.CourseRegistrationTitle + " | " + title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
 }
 
 @if (course == null) {
