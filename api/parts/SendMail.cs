@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Compilation;
 using System.Runtime.CompilerServices;
 using DotNetNuke.Services.Mail;
-using Dynlist = System.Collections.Generic.IEnumerable<dynamic>;
 
 public class SendMail : ToSic.Sxc.Dnn.DynamicCode
 {

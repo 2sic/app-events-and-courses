@@ -76,37 +76,35 @@
   .app-events-date,
   .app-events-categories {
     font-size: $font-size-base * 0.8;
-    font-weight: bold;
     text-transform: uppercase;
   }
 
   .app-events-paging {
     width: 100%;
     text-align: center;
-    margin-top: $grid-gutter-width;
+    
     > a {
       display: inline-block;
       height: 30px;
       width: 30px;
-      text-align: center;
-      border-radius: 50%;
       font-size: 16px;
       line-height: 30px;
-      color: #666;
+      text-align: center;
+      border-radius: 50%;
       transition: background .2s ease, color .2s ease;
+
+      &.app-events-paging-active,
       &:hover {
           background: $primary;
           color: #fff;
       }
-      &.app-events-paging-active {
-          background: $primary;
-          color: #fff;
-      }
-      &.app-events-prev-pager {
-          background: #fff;
-      }
+
+      &.app-events-prev-pager,
       &.app-events-next-pager {
-          background: #fff;
+          &:hover {
+            background: #fff;
+            color: $primary;
+          }
       }
     }
   }  

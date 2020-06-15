@@ -5,7 +5,7 @@
     var eventPage = PageData["eventPage"];
 }
 
-<div class="app-events-paging">
+<div class="app-events-paging mt-4">
         @if (!(paging.PageNumber <= 1)) {
             <a class="app-events-prev-pager" href="@Code.LinkToPageNumber((int)(paging.PageNumber) - 1, eventPage)">&lsaquo;</a>
         }

@@ -5,15 +5,23 @@
 
 @{
 	var eventDate = AsList(Data).FirstOrDefault();
-	var item = eventDate.Event;
+	var resources = App.Resources;
 
+	if(eventDate == null) {
+		<h1>@resources.LabelEventNotExists</h1>
+    <p>@resources.LabelEventNotExistsText</p>
+
+		@Code.BackToListButton();
+    Code.SetNotFoundHttpHeaders();
+		return ;
+	}
+
+	var item = eventDate.Event;
 	var registrations = AsList(App.Data["CourseRegistration"])
 											.Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity.EntityGuid == eventDate.EntityGuid);
 	var freeSeats = eventDate.Seats - registrations.Count();
 
 	HtmlPage.Title = eventDate.Start.ToString("d") + ((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) + " - " + item.Title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
-
-	var resources = App.Resources;
 }
 
 @RenderPage("shared/_Assets.cshtml") 
@@ -82,9 +90,10 @@
 					}
 				}
 
-				@if (AsList(Data["SameEvent"]).Count() > 1) {
+				@if (AsList(Data["SameEvent"]).Any()) {
 					<div class="app-events-further-events my-4">
 						<h5 class="mb-3">@resources.AllDatesOfThisEvent</h5>
+						
 						<ul class="list-group list-group-flush">
 							@foreach (var d in AsList(Data["SameEvent"]).OrderBy(d => d.Start)) {
 								<li class="list-group-item mb-0 @((d.EntityId == eventDate.EntityId) ? "current" : "")">
