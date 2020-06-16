@@ -45,12 +45,8 @@
 				<div class="app-events-detail-body mb-4">
 					@Render.All(item, field: "BodyContentBlocks", merge: item.Description)
 
-					@if(Text.Has(eventDate.Document)) {
-						<a class="btn btn-md btn-primary" href="@eventDate.Document" target="_blank">@Html.Raw(resources.Download)</a>
-					} else {
-						if(Text.Has(item.Document)) {
-							<a class="btn btn-md btn-primary" href="@item.Document" target="_blank">@Html.Raw(resources.Download)</a>
-						}
+					@if(Text.Has(Text.First(eventDate.Document, item.Document))) {
+						<a class="btn btn-md btn-primary" href="@Text.First(eventDate.Document, item.Document)" target="_blank">@Html.Raw(resources.Download)</a>
 					}
 				</div>
 
@@ -90,7 +86,7 @@
 					}
 				}
 
-				@if (AsList(Data["SameEvent"]).Any()) {
+				@if (AsList(Data["SameEvent"]).Count() > 1) {
 					<div class="app-events-further-events my-4">
 						<h5 class="mb-3">@resources.AllDatesOfThisEvent</h5>
 						
