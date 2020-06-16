@@ -22,7 +22,7 @@
 } else {
   if(!Text.Has(App.Settings.OwnerMail) || !Text.Has(App.Settings.MailFrom)) {
     <div class="alert alert-warning" @Edit.TagToolbar()>
-      @Html.Raw(App.Resources.MessageDefaultMailSettings.Replace("<p>", "").Replace("</p>", ""))
+      @Html.Raw(resources.MessageDefaultMailSettings.Replace("<p>", "").Replace("</p>", ""))
     </div>
   }
 
