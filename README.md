@@ -10,10 +10,6 @@ You can install the app with the ["Installing Events and Courses" checklist](htt
 
 ## Customizing the app
 
-### Configuration (Settings, Resources)
-
-
-
 ### Style
 
 If you want to customize the CSS, you will usually follow the ["Create Custom Styles in a Standard 2sxc App" checklist](https://azing.org/2sxc/r/gg_aB9FD)
