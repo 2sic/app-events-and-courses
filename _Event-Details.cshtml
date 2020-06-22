@@ -1,7 +1,6 @@
 @inherits ToSic.Sxc.Dnn.RazorComponent
 @using ToSic.Razor.Blade;
 @using ToSic.SexyContent.ContentBlocks;
-@using Connect.Koi;
 
 @{
 	var eventDate = AsList(Data).FirstOrDefault();
@@ -21,7 +20,13 @@
 											.Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity.EntityGuid == eventDate.EntityGuid);
 	var freeSeats = eventDate.Seats - registrations.Count();
 
-	HtmlPage.Title = eventDate.Start.ToString("d") + ((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) + " - " + item.Title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
+	HtmlPage.Title = eventDate.Start.ToString("d") 
+    + ((eventDate.End != null) 
+      ? " - " + eventDate.End.ToString("d") 
+      : "" ) 
+    + " - " + item.Title + " | "
+    + Dnn.Module.ParentTab.TabName + " | " 
+    + Dnn.Portal.PortalName;
 }
 
 @RenderPage("shared/_Assets.cshtml") 

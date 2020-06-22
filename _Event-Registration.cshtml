@@ -1,13 +1,14 @@
 @inherits ToSic.Sxc.Dnn.RazorComponent
 @using ToSic.Razor.Blade;
-@using Connect.Koi;
 
 @RenderPage("shared/_Assets.cshtml") 
 
 @{
     var helpers = CreateInstance("shared/_Helpers.cshtml");
-    var course = AsList(App.Data["Event"]).Where(x => x.EntityId == Convert.ToInt32(Request.QueryString["cid"])).FirstOrDefault();
-    var eventDate = AsList(App.Data["EventDate"]).Where(ed => ed.EntityId == Convert.ToInt32(Request.QueryString["did"])).FirstOrDefault();;
+    var course = AsList(App.Data["Event"])
+                  .FirstOrDefault(x => x.EntityId == Convert.ToInt32(Request.QueryString["cid"]));
+    var eventDate = AsList(App.Data["EventDate"])
+                    .FirstOrDefault(ed => ed.EntityId == Convert.ToInt32(Request.QueryString["did"]));
     var resources = App.Resources;
     var title = course == null ? "" : course.Title;
 
