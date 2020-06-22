@@ -6,6 +6,12 @@
 	Response.TrySkipIisCustomErrors = true;
 }
 
+@* Show Title *@
+@helper Title(dynamic item, dynamic eventDate) {
+var resources = App.Resources;
+<text>@item.Title @((Text.Has(eventDate.TitleAddition)) ? resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + resources.TitleAdditionSuffix : "" )</text>
+}
+
 @* Shows Event Details boxes *@
 @helper DetailsBox(string label, string copy) {
 	if(Text.Has(copy)) {
