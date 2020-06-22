@@ -51,25 +51,17 @@
 				</div>
 
 				<div class="app-events-detail-infos row mb-4">
-					@if(Text.Has(Text.First(eventDate.Location, item.Location))) {
-						@Code.DetailsBox(resources.Location, Text.First(eventDate.Location, item.Location));
-					}
+					@Code.DetailsBox(resources.Location, Text.First(eventDate.Location, item.Location))
 
-					@if(Text.Has(Text.First(eventDate.Person, item.Person))) {
-						@Code.DetailsBox(resources.Management, Text.First(eventDate.Person, item.Person));
-					}
+					@Code.DetailsBox(resources.Management, Text.First(eventDate.Person, item.Person))
 
-					@if(Text.Has(Text.First(eventDate.Fee, item.Fee))) {
-						@Code.DetailsBox(resources.Fee, Text.First(eventDate.Fee, item.Fee));
-					}
+					@Code.DetailsBox(resources.Fee, Text.First(eventDate.Fee, item.Fee))
 
 					@if(eventDate.RegistrationEnabled && eventDate.IsFullyBooked == false && eventDate.IsCancelled == false && eventDate.Seats != null) {
-						@Code.DetailsBox(resources.Seats, freeSeats.ToString());
+						@Code.DetailsBox(resources.Seats, Text.First(freeSeats.ToString()))
 					}
 
-					@if(Text.Has(eventDate.TimeSpecifics)) {
-						@Code.DetailsBox(resources.DateTime, eventDate.TimeSpecifics);
-					}
+					@Code.DetailsBox(resources.DateTime, Text.First(eventDate.TimeSpecifics))
 				</div>
 
 				@if (eventDate.IsCancelled == true) {
