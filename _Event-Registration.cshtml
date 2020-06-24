@@ -15,12 +15,14 @@
     HtmlPage.Title = resources.CourseRegistrationTitle + " | " + title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
 }
 
+@* Show warning if 404, event not found *@
 @if (course == null) {
     <div class="alert alert-danger" role="alert">
         <span class="sr-only">Error:</span>
         @resources.CourseNotFoundError
     </div>
 } else {
+  @* Show warning if App-Settings not configured *@
   if(!Text.Has(App.Settings.OwnerMail) || !Text.Has(App.Settings.MailFrom)) {
     <div class="alert alert-warning" @Edit.TagToolbar()>
       @Html.Raw(resources.MessageDefaultMailSettings.Replace("<p>", "").Replace("</p>", ""))
@@ -28,13 +30,16 @@
   }
 
   <div class="app-course app-events-form" @Edit.TagToolbar(eventDate) data-string-required="@resources.ValidationRequired" data-string-email="@resources.ValidationEmail">
+    @* Title *@
     <h1 class="mb-4">@resources.CourseRegistrationTitle - @course.Title @((!String.IsNullOrEmpty(eventDate.TitleAddition)) ? resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + resources.TitleAdditionSuffix : "" )</h1>
     
     <div class="form event-form cform-id-@Dnn.Module.ModuleID">
+      @* Inputs *@
       @helpers.Textbox(resources.LabelCourseNumber, "CourseNumber", true, disabled: true, value: ((eventDate.Id != null) ? eventDate.Id : course.id))
       @helpers.Textbox(resources.LabelCourseName, "CourseName", true, disabled: true, value: course.Title )
       @helpers.Textbox(resources.LabelCourseLocation, "CourseLocation", true, disabled: true, value: course.Location)
       
+      @* Event Notes *@
       <div class="form-group row">
         @helpers.Label(resources.LabelCourseDate, "Date")
         <div class="col-sm-9">
@@ -45,6 +50,7 @@
         </div>
       </div>
       
+      @* Salutation *@
       <h3>@resources.CourseParticipantData</h3>
       <div class="form-group row">
         @helpers.Label(resources.LabelParticipantSalutation, "Salutation")
@@ -65,11 +71,13 @@
         </div>
       </div>
 
+      @* Inputs *@
       @helpers.Textbox(resources.LabelParticipantFirstName, "FirstName", true)
       @helpers.Textbox(resources.LabelParticipantLastName, "LastName", true)
       @helpers.Textbox(resources.LabelParticipantStreet, "Street")
       @helpers.Textbox(resources.LabelParticipantZIPCity, "ZIPCity")
       
+      @* Country Select *@
       <div class="form-group row form-required">
         @helpers.Label(resources.LabelParticipantCountry, "Country")
         <div class="col-sm-9">
@@ -82,10 +90,12 @@
         </div>
       </div>
 
+      @* Inputs *@
       @helpers.Textbox(resources.LabelParticipantPhone, "Phone")
       @helpers.Textbox(resources.LabelParticipantMobilePhone, "MobilePhone")
       @helpers.Textbox(resources.LabelParticipantMail, "Mail", true, "email")
       
+      @* Privacy/Terms Checkbox *@
       <div class="form-group row form-required">
         <label class="col-sm-3" for="AGB">@resources.AppAgbLabel</label>
         <div class="col-sm-9">
@@ -108,6 +118,7 @@
         </div>
       </div>
 
+      @* Submit Button *@
       <div class="form-group row">
         <div class="col-md-9 offset-sm-3")>
           <button type="button" class="form-submit btn btn-primary">@Html.Raw(resources.ButtonRegister)</button>
@@ -118,6 +129,7 @@
       <input type="hidden" id="Course" name="Course" value="@course.EntityGuid">
     </div>
 
+    @* Response Messages *@
     <div class="form-info-success alert alert-success" style="display:none;">
       <strong>@resources.SuccessThanks</strong>
       @resources.SuccessMessage
