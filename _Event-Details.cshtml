@@ -16,7 +16,7 @@
 	}
 
 	var item = eventDate.Event;
-	var registrations = AsList(App.Data["CourseRegistration"])
+	var registrations = AsList(App.Data["Registration"])
 											.Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity.EntityGuid == eventDate.EntityGuid);
 	var freeSeats = eventDate.Seats - registrations.Count();
 
@@ -31,13 +31,13 @@
 
 @RenderPage("shared/_Assets.cshtml") 
 
-<div class="app-events app-events-detail" @Edit.TagToolbar(eventDate)>
+<div class="app-events app-events-detail" @Edit.TagToolbar(item, toolbar: new [] {"toolbar=empty", "+edit", "+app"})>
 	<div class="app-events-detail-content mb-4">
 		<h1 class="m-0">@Code.Title(item, eventDate)</h1>
 
 		<div class="event-meta">
 			<span class="app-events-date">@eventDate.Start.ToString("d") @((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) | </span>
-			<span class="app-events-categories">@item.Topic.Title</span>
+			<span class="app-events-categories">@item.Category.Title</span>
 		</div>
 
 		<img class="d-block d-md-none m-auto img-fluid" src="@item.Image?w=540&amp;quality=95" alt="@item.Title" />
@@ -67,11 +67,11 @@
 
 					@* Event Registration / Seat Info *@
 					@if(eventDate.RegistrationEnabled && eventDate.IsFullyBooked == false && eventDate.IsCancelled == false && eventDate.Seats != null) {
-						@Code.DetailsBox(resources.Seats, Text.First(freeSeats.ToString()))
+						@Code.DetailsBox(resources.Seats, freeSeats.ToString())
 					}
 
 					@* Event Time *@
-					@Code.DetailsBox(resources.DateTime, Text.First(eventDate.TimeSpecifics))
+					@Code.DetailsBox(resources.DateTime, eventDate.TimeSpecifics)
 				</div>
 
 				@* Event Status (Registration, Canceled, Overbooked) *@
@@ -90,22 +90,25 @@
 				}
 
 				@* Other Dates of Event *@
-				@if (AsList(Data["SameEvent"]).Count() > 1) {
-					<div class="app-events-further-events my-4">
-						<h5 class="mb-3">@resources.AllDatesOfThisEvent</h5>
-						
-						<ul class="list-group list-group-flush">
-							@foreach (var d in AsList(Data["SameEvent"]).OrderBy(d => d.Start)) {
-								<li class="list-group-item mb-0 @((d.EntityId == eventDate.EntityId) ? "current" : "")">
-									<a href="@Link.To(parameters: "details=" + d.EntityId)">
-										<strong>@d.Start.ToString("d")  @((d.End != null) ? " - " + d.End.ToString("d") : "")</strong>
-										@(Text.Has(d.TitleAddition) ? " - " + d.TitleAddition : "")
-									</a>
-								</li>
-							}
-						</ul>
-					</div>
-				}
+				<div class="app-events-further-events my-4">
+					<h5 class="mb-3">@resources.AllDatesOfThisEvent</h5>
+					
+					<ul class="list-group list-group-flush">
+						@foreach (var d in AsList(Data["SameEvent"]).OrderBy(d => d.Start)) {
+							<li class="list-group-item mb-0 @((d.EntityId == eventDate.EntityId) ? "current" : "")"
+								@Edit.TagToolbar(d, toolbar: new [] {
+          				"toolbar=empty", "+edit", "+new&color=red?contentType=EventDate", "+app"
+        				})
+							>
+								<a href="@Link.To(parameters: "details=" + d.EntityId)">
+									<strong>@d.Start.ToString("d")  @((d.End != null) ? " - " + d.End.ToString("d") : "")</strong>
+									@(Text.Has(d.TitleAddition) ? " - " + d.TitleAddition : "")
+									@(Text.Has(d.TimeSpecifics) ? " - " + d.TimeSpecifics : "")
+								</a>
+							</li>
+						}
+					</ul>
+				</div>
 
 				@Code.BackToListButton()
 			</div>

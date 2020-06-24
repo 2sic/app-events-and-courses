@@ -23,7 +23,7 @@ public class FormController : ToSic.Sxc.Dnn.ApiController
         contactFormRequest.Add("SubmitDate", DateTime.Now);
         contactFormRequest.Add("SenderIp", System.Web.HttpContext.Current.Request.UserHostAddress);
 		contactFormRequest.Add("Status", "registered");
-        App.Data.Create("CourseRegistration", contactFormRequest);
+        App.Data.Create("Registration", contactFormRequest);
 
         // added feature to create a full-save of each request into a system-protocol content-type
         contactFormRequest.Add("Timestamp", DateTime.Now);

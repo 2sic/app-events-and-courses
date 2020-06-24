@@ -9,7 +9,7 @@
   var eventPage = Dnn.Tab.FullUrl;
   var resources = App.Resources;
 }
-@if(Edit.Enabled) {   
+@* @if(Edit.Enabled) {   
   <div class="app-add-tools">
     <div class="app-event-add">
       @Edit.Toolbar(toolbar: new [] { 
@@ -28,19 +28,10 @@
       })
       <span style="font-weight:bold;">@Html.Raw(resources.AddNewEventDate)</span>
     </div>
-        
-    <div class="app-configure" >            
-        @Edit.Toolbar(
-          AsList(App.Data["EventSettings"]).FirstOrDefault(),
-          toolbar: "settings&hover=none&autoAddMore=start"
-        )
-    
-        <span style="font-weight:bold;">@Html.Raw(resources.EventSettings)</span>
-    </div>
   </div>
-}
+} *@
 
-<div class="app-events app-event-list">
+<div class="app-events app-event-list" @Edit.TagToolbar(AsList(App.Data["EventSettings"]).FirstOrDefault(), toolbar: "settings&hover=left&autoAddMore=start")>
   @foreach (var e in events) {
     var eventDate = e.First().Start;
     @* Grouped months *@
@@ -58,7 +49,9 @@
         var item = d.Event;
         var detailslink = Link.To(parameters: "details=" + @d.EntityId) + "/" + item.UrlKey;
           
-        <div class="row position-relative app-event-list-item mb-4" @Edit.TagToolbar(d)>
+        <div class="row position-relative app-event-list-item mb-4" @Edit.TagToolbar(d.Event, toolbar: new [] {
+          "toolbar=empty", "+edit", "+new", "+contentitems?contentType=Event", "+app"
+        })>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-img @(Text.Has(item.Image) ? "" : "app-noimg")'>
                 <div class="overlay" style='@(Text.Has(item.Image) ? "" : "background-image: url('" + App.Path + "/src/images/trans.png?max-width=600&amp;mode=max&amp;scale=both&amp;quality=80')")'></div>
@@ -70,14 +63,14 @@
               <h2>@item.Title @((Text.Has(d.TitleAddition)) ? "- " + d.TitleAddition : "" ) @if(d.Event.ShowInLanguage == false && Edit.Enabled) { <span style="color:red;">(in dieser Sprache ausgeblendet)</span> }</h2>
               <div class="event-meta mb-3">
                 <span class="app-events-date">@d.Start.ToString("d") @((d.End != null) ? "- " + d.End.ToString("d") : "")</span>
-                <span class="app-events-categories"> | @item.Topic.Title</span>
+                <span class="app-events-categories"> | @item.Category.Title</span>
               </div>
 
               @if(Text.Has(item.ShortDescription)) {
                 <p>@item.ShortDescription.Replace("\n", "<br />")</p>
               }
 
-              <a class="stretched-link" href="@detailslink" target='@(item.DetailsOpensLink ? "_blank" : "")'>@Html.Raw(resources.LabelReadMore)</a>
+              <a class="stretched-link" href="@detailslink">@Html.Raw(resources.LabelReadMore)</a>
             </div>
           </div>
         </div>
