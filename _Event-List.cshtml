@@ -50,7 +50,7 @@
         var detailslink = Link.To(parameters: "details=" + @d.EntityId) + "/" + item.UrlKey;
           
         <div class="row position-relative app-event-list-item mb-4" @Edit.TagToolbar(d.Event, toolbar: new [] {
-          "toolbar=empty", "+edit", "+new", "+contentitems?contentType=Event", "+app"
+          "toolbar=empty", "+edit", "+new", "+contentitems?contentType=Event"
         })>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-img @(Text.Has(item.Image) ? "" : "app-noimg")'>

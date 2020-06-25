@@ -31,7 +31,9 @@
 
 @RenderPage("shared/_Assets.cshtml") 
 
-<div class="app-events app-events-detail" @Edit.TagToolbar(item, toolbar: new [] {"toolbar=empty", "+edit", "+app"})>
+<div class="app-events app-events-detail" @Edit.TagToolbar(item, toolbar: new [] { 
+  "-new"
+})>
 	<div class="app-events-detail-content mb-4">
 		<h1 class="m-0">@Code.Title(item, eventDate)</h1>
 
@@ -92,7 +94,7 @@
 				@* Other Dates of Event *@
 				<div class="app-events-further-events my-4" 
 					@Edit.TagToolbar(toolbar: new [] {
-          				"toolbar=empty", "+new?title=New-Event&contentType=EventDate&prefill:Event="+item.EntityGuid, "+app"
+						"toolbar=empty", "+new?title=New-Event&contentType=EventDate&prefill:Event="+item.EntityGuid
 					})
 				>
 					<h5 class="mb-3">@resources.AllDatesOfThisEvent</h5>
@@ -101,7 +103,7 @@
 						@foreach (var d in AsList(Data["SameEvent"]).OrderBy(d => d.Start)) {
 							<li class="list-group-item mb-0 @((d.EntityId == eventDate.EntityId) ? "current" : "")"
 								@Edit.TagToolbar(d, toolbar: new [] {
-          				"toolbar=empty", "+edit", "+app"
+          				"toolbar=empty", "+edit"
         				})
 							>
 								<a href="@Link.To(parameters: "details=" + d.EntityId)">
