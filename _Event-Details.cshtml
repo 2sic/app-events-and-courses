@@ -90,14 +90,18 @@
 				}
 
 				@* Other Dates of Event *@
-				<div class="app-events-further-events my-4">
+				<div class="app-events-further-events my-4" 
+					@Edit.TagToolbar(toolbar: new [] {
+          				"toolbar=empty", "+new?title=New-Event&contentType=EventDate&prefill:Event="+item.EntityGuid, "+app"
+					})
+				>
 					<h5 class="mb-3">@resources.AllDatesOfThisEvent</h5>
 					
 					<ul class="list-group list-group-flush">
 						@foreach (var d in AsList(Data["SameEvent"]).OrderBy(d => d.Start)) {
 							<li class="list-group-item mb-0 @((d.EntityId == eventDate.EntityId) ? "current" : "")"
 								@Edit.TagToolbar(d, toolbar: new [] {
-          				"toolbar=empty", "+edit", "+new&color=red?contentType=EventDate", "+app"
+          				"toolbar=empty", "+edit", "+app"
         				})
 							>
 								<a href="@Link.To(parameters: "details=" + d.EntityId)">
