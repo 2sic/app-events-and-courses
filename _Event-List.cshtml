@@ -9,27 +9,6 @@
   var eventPage = Dnn.Tab.FullUrl;
   var resources = App.Resources;
 }
-@* @if(Edit.Enabled) {   
-  <div class="app-add-tools">
-    <div class="app-event-add">
-      @Edit.Toolbar(toolbar: new [] { 
-        "toolbar=empty",
-        "+new&title=New Event?contentType=Event",
-        "contentitems?contentType=Event"
-      })      
-      <span style="font-weight:bold;">@Html.Raw(resources.AddNewEvent)</span>
-    </div>
-        
-    <div class="app-events-date-add">  
-      @Edit.Toolbar(toolbar: new [] { 
-        "toolbar=empty",
-        "+new&title=New Eventdate?contentType=EventDate",
-        "contentitems?contentType=EventDate"
-      })
-      <span style="font-weight:bold;">@Html.Raw(resources.AddNewEventDate)</span>
-    </div>
-  </div>
-} *@
 
 <div class="app-events app-event-list" @Edit.TagToolbar(AsList(App.Data["EventSettings"]).FirstOrDefault(), toolbar: "settings&hover=left&autoAddMore=start")>
   @foreach (var e in events) {

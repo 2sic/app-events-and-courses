@@ -31,9 +31,7 @@
 
 @RenderPage("shared/_Assets.cshtml") 
 
-<div class="app-events app-events-detail" @Edit.TagToolbar(item, toolbar: new [] { 
-  "-new"
-})>
+<div class="app-events app-events-detail" @Edit.TagToolbar(item, toolbar: "-new")>
 	<div class="app-events-detail-content mb-4">
 		<h1 class="m-0">@Code.Title(item, eventDate)</h1>
 
