@@ -8,7 +8,7 @@ const WebpackBar = require('webpackbar');
 module.exports = {
   entry: ['./src/ts/scripts.ts'],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'live/dist'),
     filename: 'scripts.min.js',
   },
   mode: 'production',
