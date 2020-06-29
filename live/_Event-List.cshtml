@@ -10,7 +10,14 @@
   var resources = App.Resources;
 }
 
-<div class="app-events app-event-list" @Edit.TagToolbar(AsList(App.Data["EventSettings"]).FirstOrDefault(), toolbar: "settings&hover=left&autoAddMore=start")>
+<div class="app-events app-event-list"
+  @Edit.TagToolbar(
+    AsList(App.Data["EventSettings"]).FirstOrDefault(), toolbar: new [] {
+      "settings&hover=left&autoAddMore=start",
+      "+new&title=new event?contentType=Event&entityId=0"
+    }
+  )
+>
   @foreach (var e in events) {
     var eventDate = e.First().Start;
     @* Grouped months *@
