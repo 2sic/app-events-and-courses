@@ -14,7 +14,8 @@
   @Edit.TagToolbar(
     AsList(App.Data["EventSettings"]).FirstOrDefault(), toolbar: new [] {
       "settings&hover=left&autoAddMore=start",
-      "+new&title=new event?contentType=Event&entityId=0"
+      "+new&title=new event?contentType=Event&entityId=0",
+      "+contentitems?contentType=Event"
     }
   )
 >
@@ -36,7 +37,7 @@
         var detailslink = Link.To(parameters: "details=" + @d.EntityId) + "/" + item.UrlKey;
           
         <div class="row position-relative app-event-list-item mb-4" @Edit.TagToolbar(d.Event, toolbar: new [] {
-          "toolbar=empty", "+edit", "+new", "+contentitems?contentType=Event"
+          "toolbar=empty", "+edit"
         })>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-img @(Text.Has(item.Image) ? "" : "app-noimg")'>
