@@ -4,15 +4,16 @@
 @RenderPage("shared/_Assets.cshtml") 
 
 @{
-    var helpers = CreateInstance("shared/_Helpers.cshtml");
-    var course = AsList(App.Data["Event"])
-                  .FirstOrDefault(x => x.EntityId == Convert.ToInt32(Request.QueryString["cid"]));
-    var eventDate = AsList(App.Data["EventDate"])
-                    .FirstOrDefault(ed => ed.EntityId == Convert.ToInt32(Request.QueryString["did"]));
-    var resources = App.Resources;
-    var title = course == null ? "" : course.Title;
+  // todo: rename formParts
+  var formParts = CreateInstance("shared/_FormParts.cshtml");
+  var course = AsList(App.Data["Event"])
+                .FirstOrDefault(x => x.EntityId == Convert.ToInt32(Request.QueryString["cid"]));
+  var eventDate = AsList(App.Data["EventDate"])
+                  .FirstOrDefault(ed => ed.EntityId == Convert.ToInt32(Request.QueryString["did"]));
+  var resources = App.Resources;
+  var title = course == null ? "" : course.Title;
 
-    HtmlPage.Title = resources.CourseRegistrationTitle + " | " + title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
+  HtmlPage.Title = resources.CourseRegistrationTitle + " | " + title + " | " + Dnn.Module.ParentTab.TabName + " | " + Dnn.Portal.PortalName;
 }
 
 @* Show warning if 404, event not found *@
@@ -35,13 +36,13 @@
     
     <div class="form event-form cform-id-@Dnn.Module.ModuleID">
       @* Inputs *@
-      @helpers.Textbox(resources.LabelCourseNumber, "CourseNumber", true, disabled: true, value: ((eventDate.Id != null) ? eventDate.Id : course.id))
-      @helpers.Textbox(resources.LabelCourseName, "CourseName", true, disabled: true, value: course.Title )
-      @helpers.Textbox(resources.LabelCourseLocation, "CourseLocation", true, disabled: true, value: course.Location)
+      @formParts.Textbox(resources.LabelCourseNumber, "CourseNumber", true, disabled: true, value: ((eventDate.Id != null) ? eventDate.Id : course.id))
+      @formParts.Textbox(resources.LabelCourseName, "CourseName", true, disabled: true, value: course.Title )
+      @formParts.Textbox(resources.LabelCourseLocation, "CourseLocation", true, disabled: true, value: course.Location)
       
       @* Event Notes *@
       <div class="form-group row">
-        @helpers.Label(resources.LabelCourseDate, "Date")
+        @formParts.Label(resources.LabelCourseDate, "Date")
         <div class="col-sm-9">
           @{
               var compDate = eventDate.Start.ToString("d") + ((eventDate.End != null) ? " - " + eventDate.End.ToString("d")  : "");
@@ -53,7 +54,7 @@
       @* Salutation *@
       <h3>@resources.CourseParticipantData</h3>
       <div class="form-group row">
-        @helpers.Label(resources.LabelParticipantSalutation, "Salutation")
+        @formParts.Label(resources.LabelParticipantSalutation, "Salutation")
         <div class="col-sm-9">
           <div class="radio">
             <label>
@@ -72,14 +73,14 @@
       </div>
 
       @* Inputs *@
-      @helpers.Textbox(resources.LabelParticipantFirstName, "FirstName", true)
-      @helpers.Textbox(resources.LabelParticipantLastName, "LastName", true)
-      @helpers.Textbox(resources.LabelParticipantStreet, "Street")
-      @helpers.Textbox(resources.LabelParticipantZIPCity, "ZIPCity")
+      @formParts.Textbox(resources.LabelParticipantFirstName, "FirstName", true)
+      @formParts.Textbox(resources.LabelParticipantLastName, "LastName", true)
+      @formParts.Textbox(resources.LabelParticipantStreet, "Street")
+      @formParts.Textbox(resources.LabelParticipantZIPCity, "ZIPCity")
       
       @* Country Select *@
       <div class="form-group row form-required">
-        @helpers.Label(resources.LabelParticipantCountry, "Country")
+        @formParts.Label(resources.LabelParticipantCountry, "Country")
         <div class="col-sm-9">
           <select class="form-control" id="Country" name="Country" required>
             <option value="">@resources.PleaseSelectCountry</option>
@@ -91,9 +92,9 @@
       </div>
 
       @* Inputs *@
-      @helpers.Textbox(resources.LabelParticipantPhone, "Phone")
-      @helpers.Textbox(resources.LabelParticipantMobilePhone, "MobilePhone")
-      @helpers.Textbox(resources.LabelParticipantMail, "Mail", true, "email")
+      @formParts.Textbox(resources.LabelParticipantPhone, "Phone")
+      @formParts.Textbox(resources.LabelParticipantMobilePhone, "MobilePhone")
+      @formParts.Textbox(resources.LabelParticipantMail, "Mail", true, "email")
       
       @* Privacy/Terms Checkbox *@
       <div class="form-group row form-required">

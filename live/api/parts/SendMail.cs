@@ -10,14 +10,14 @@ using DotNetNuke.Services.Mail;
 public class SendMail : ToSic.Sxc.Dnn.DynamicCode
 {
   public void sendMails(Dictionary<string,object> contactFormRequest) {
-		var settings = new {
-			MailFrom = App.Settings.MailFrom,
-			OwnerMail = App.Settings.OwnerMail,
-			OwnerMailCC = "",
-			OwnerMailTemplateFile = App.Settings.OwnerMailTemplateFile,
-			CustomerMailCC = "",
-			CustomerMailTemplateFile = App.Settings.CustomerMailTemplateFile
-		};
+    var settings = new {
+      MailFrom = App.Settings.MailFrom,
+      OwnerMail = App.Settings.OwnerMail,
+      OwnerMailCC = "",
+      OwnerMailTemplateFile = App.Settings.OwnerMailTemplateFile,
+      CustomerMailCC = "",
+      CustomerMailTemplateFile = App.Settings.CustomerMailTemplateFile
+    };
 
     var customerMail = contactFormRequest["Mail"].ToString();
 
@@ -47,13 +47,13 @@ public class SendMail : ToSic.Sxc.Dnn.DynamicCode
     string MailReply)
   {
     var mailEngine = CreateInstance("../../email-templates/" + emailTemplateFilename);
-		var mailSubj = mailEngine.Subject();
-		var mailBody = mailEngine.Message(contactFormRequest).ToString();
+    var mailSubj = mailEngine.Subject();
+    var mailBody = mailEngine.Message(contactFormRequest).ToString();
 
-		// Send Mail
-		// uses the DNN command: http://www.dnnsoftware.com/dnn-api/html/886d0ac8-45e8-6472-455a-a7adced60ada.htm
-		var sendMailResult = Mail.SendMail(MailFrom, MailTo,	MailCC,	"", MailReply, MailPriority.Normal,
-    	mailSubj, MailFormat.Html, System.Text.Encoding.UTF8, mailBody, new string[0], "", "", "", "", false);
+    // Send Mail
+    // uses the DNN command: http://www.dnnsoftware.com/dnn-api/html/886d0ac8-45e8-6472-455a-a7adced60ada.htm
+    var sendMailResult = Mail.SendMail(MailFrom, MailTo,	MailCC,	"", MailReply, MailPriority.Normal,
+      mailSubj, MailFormat.Html, System.Text.Encoding.UTF8, mailBody, new string[0], "", "", "", "", false);
 
     // Log to DNN - just as a last resort in case something is lost, to track down why
     var logInfo = new DotNetNuke.Services.Log.EventLog.LogInfo

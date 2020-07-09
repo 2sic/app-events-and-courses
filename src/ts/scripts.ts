@@ -1,5 +1,4 @@
 declare let $2sxc: any;
-declare let fancybox: any;
 
 require('../styles/_styles.scss');
 
@@ -12,25 +11,23 @@ $(document).ready(function() {
   });
 
   $(".form-submit").click(function(e) { 
-          
     if(validator.form()) {
-        const inputs = $(".event-form :input");
-        const obj: any = {};
-        $.each(inputs, function(i: any, e: any) {
-          const propName = e.name;
-          obj[propName] = $(e).val();
-        });
+      const inputs = $(".event-form :input");
+      const obj: any = {};
+      $.each(inputs, function(i: any, e: any) {
+        const propName = e.name;
+        obj[propName] = $(e).val();
+      });
 
-        const sxc = $2sxc(this);
-        sxc.webApi.post("Form/ProcessForm", {}, obj).then(function() {
-          $('.event-form').hide();
-          $('.form-info-success').show();
-          $('.form-submit').prop('disabled', true);
-        }, function() {
-          $('.form-info-error').show();
-          $('.form-submit').prop('disabled', false);
-        });
-
+      const sxc = $2sxc(this);
+      sxc.webApi.post("Form/ProcessForm", {}, obj).then(function() {
+        $('.event-form').hide();
+        $('.form-info-success').show();
+        $('.form-submit').prop('disabled', true);
+      }, function() {
+        $('.form-info-error').show();
+        $('.form-submit').prop('disabled', false);
+      });
     }
 
     // Add and remove has-error classes

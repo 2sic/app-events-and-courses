@@ -3,7 +3,7 @@
 
 @helper SetNotFoundHttpHeaders() {
   Response.StatusCode = 404;
-	Response.TrySkipIisCustomErrors = true;
+  Response.TrySkipIisCustomErrors = true;
 }
 
 @* Show Title *@
@@ -14,15 +14,15 @@ var resources = App.Resources;
 
 @* Shows Event Details boxes *@
 @helper DetailsBox(string label, string copy) {
-	if(Text.Has(copy)) {
-	<div class="col-12 col-md-6 mb-3 app-events-infocontainer">
-		<h6>@label</h6>
-		@copy
-	</div>
-	}
+  if(Text.Has(copy)) {
+  <div class="col-12 col-md-6 mb-3 app-events-infocontainer">
+    <h6>@label</h6>
+    @copy
+  </div>
+  }
 }
 
 @* Shows a back to list button *@
 @helper BackToListButton() {
-	<a class="btn btn-outline-primary" href='@Tags.SafeUrl(Link.To())'>@Html.Raw(App.Resources.LabelBackToList)</a>
+  <a class="btn btn-outline-primary" href='@Tags.SafeUrl(Link.To())'>@Html.Raw(App.Resources.LabelBackToList)</a>
 }

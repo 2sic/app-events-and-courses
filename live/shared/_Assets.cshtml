@@ -1,8 +1,8 @@
 @inherits ToSic.Sxc.Dnn.RazorComponent
 @using DotNetNuke.Framework.JavaScriptLibraries;
 @{
-    var Edition = (Dnn.User.IsSuperUser ? "staging" : "live");
-    JavaScript.RequestRegistration(CommonJs.jQuery);
+  var Edition = (Dnn.User.IsSuperUser ? "staging" : "live");
+  JavaScript.RequestRegistration(CommonJs.jQuery);
 }
 @Edit.Enable(js: true)
 
