@@ -11,11 +11,13 @@
   "devDependencies": {
     "@types/fancybox": "^3.5.2",
     "@types/jquery": "^3.3.38",
+    "@types/jquery.validation": "^1.16.6",
     "@types/node": "^13.13.11",
     "autoprefixer": "^9.8.0",
     "css-loader": "^2.1.1",
     "file-loader": "^4.2.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "jquery": "^3.5.1",
     "jquery-validation": "^1.19.2",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.14.1",

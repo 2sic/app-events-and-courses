@@ -1,4 +1,5 @@
 declare let $2sxc: any;
+const validate = require("jquery-validation");
 
 require('../styles/_styles.scss');
 
