@@ -14,8 +14,10 @@
   @Edit.TagToolbar(
     AsList(App.Data["EventSettings"]).FirstOrDefault(), toolbar: new [] {
       "settings&hover=left&autoAddMore=start",
-      "+new&title=new event?contentType=Event&entityId=0",
-      "+contentitems?contentType=Event"
+      "group=add-event-buttons",
+      "+new&title=new event&group=add-event-buttons?contentType=Event&entityId=0",
+      "+contentitems&group=add-event-buttons?contentType=Event",
+      "+new&color=red&title=new event date&group=add-event-buttons?contentType=EventDate&entityId=0",
     }
   )
 >
