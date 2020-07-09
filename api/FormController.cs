@@ -1,14 +1,9 @@
-using ToSic.SexyContent.WebApi;
 using System;
-using System.Linq;
 using System.Web.Http;
-using System.Web.Compilation;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 using DotNetNuke.Security;
 using DotNetNuke.Web.Api;
-using DotNetNuke.Services.Mail;
 public class FormController : ToSic.Sxc.Dnn.ApiController
 {
     

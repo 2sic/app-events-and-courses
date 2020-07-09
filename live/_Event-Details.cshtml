@@ -48,11 +48,36 @@
       <div class='col-12 @(Text.Has(item.Image) ? "col-md-8" : "")'>
         <h2 class="h5">@item.ShortDescription</h2>
         <div class="app-events-detail-body mb-4">
-          @Render.All(item, field: "BodyContentBlocks", merge: item.Description)
+          @Render.All(item, field: "BodyContentBlocks", merge: item.Description)          
+        </div>
 
-          @if(Text.Has(Text.First(eventDate.Document, item.Document))) {
-            <a class="btn btn-md btn-primary" href="@Text.First(eventDate.Document, item.Document)" target="_blank">@Html.Raw(resources.Download)</a>
+        @* Other Dates of Event *@
+        @{
+          var sameEvents = AsList(Data["SameEvent"]).OrderBy(d => d.Start);
+        }
+        <div class="app-events-further-events my-4" 
+          @Edit.TagToolbar(toolbar: new [] {
+            "toolbar=empty", "+new?title=New-Event&contentType=EventDate&prefill:Event="+item.EntityGuid
+          })
+        >
+          @if(sameEvents.Count() > 1) {
+            <h5 class="mb-3">@resources.AllDatesOfThisEvent (@sameEvents.Count())</h5>
           }
+          <ul class="list-group list-group-flush">
+            @foreach (var d in sameEvents) {
+              <li class="list-group-item mb-0 @((d.EntityId == eventDate.EntityId) ? "current" : "")"
+                @Edit.TagToolbar(d, toolbar: new [] {
+                  "toolbar=empty", "+edit"
+                })
+              >
+                <a href="@Link.To(parameters: "details=" + d.EntityId)">
+                  <strong>@d.Start.ToString("d")  @((d.End != null) ? " - " + d.End.ToString("d") : "")</strong>
+                  @(Text.Has(d.TitleAddition) ? " - " + d.TitleAddition : "")
+                  @(Text.Has(d.TimeSpecifics) ? " - " + d.TimeSpecifics : "")
+                </a>
+              </li>
+            }
+          </ul>
         </div>
 
         <div class="app-events-detail-infos row mb-4">
@@ -72,6 +97,18 @@
 
           @* Event Time *@
           @Code.DetailsBox(resources.DateTime, eventDate.TimeSpecifics)
+
+          @* Event more detail file/link *@
+          @{
+            var moreDetailsLink = Text.First(eventDate.Document, item.Document);
+          }
+          @if(Text.Has(moreDetailsLink)) {
+            var fileName = Path.GetFileName(moreDetailsLink);
+            <div class="col-12 col-md-6 mb-3 app-events-infocontainer">
+              <h6>@resources.DetailsLink</h6>
+              <a href="@moreDetailsLink" target="_blank">@(Text.Has(fileName) ? fileName : moreDetailsLink)</a>
+            </div>
+          }
         </div>
 
         @* Event Status (Registration, Canceled, Overbooked) *@
@@ -87,32 +124,7 @@
           } else {
             <a class="btn btn-md btn-primary" href="@Link.To(parameters: "mid=" + Dnn.Module.ModuleID + "&cid=" + @item.EntityId + "&did=" + eventDate.EntityId)/@item.UrlKey">@Html.Raw(resources.ButtonRegister)</a>
           }
-        }
-
-        @* Other Dates of Event *@
-        <div class="app-events-further-events my-4" 
-          @Edit.TagToolbar(toolbar: new [] {
-            "toolbar=empty", "+new?title=New-Event&contentType=EventDate&prefill:Event="+item.EntityGuid
-          })
-        >
-          <h5 class="mb-3">@resources.AllDatesOfThisEvent</h5>
-          
-          <ul class="list-group list-group-flush">
-            @foreach (var d in AsList(Data["SameEvent"]).OrderBy(d => d.Start)) {
-              <li class="list-group-item mb-0 @((d.EntityId == eventDate.EntityId) ? "current" : "")"
-                @Edit.TagToolbar(d, toolbar: new [] {
-                  "toolbar=empty", "+edit"
-                })
-              >
-                <a href="@Link.To(parameters: "details=" + d.EntityId)">
-                  <strong>@d.Start.ToString("d")  @((d.End != null) ? " - " + d.End.ToString("d") : "")</strong>
-                  @(Text.Has(d.TitleAddition) ? " - " + d.TitleAddition : "")
-                  @(Text.Has(d.TimeSpecifics) ? " - " + d.TimeSpecifics : "")
-                </a>
-              </li>
-            }
-          </ul>
-        </div>
+        }        
 
         @Code.BackToListButton()
       </div>

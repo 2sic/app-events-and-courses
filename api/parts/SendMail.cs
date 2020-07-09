@@ -1,10 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
-using System.Web.Compilation;
-using System.Runtime.CompilerServices;
 using DotNetNuke.Services.Mail;
 
 public class SendMail : ToSic.Sxc.Dnn.DynamicCode
@@ -46,7 +41,7 @@ public class SendMail : ToSic.Sxc.Dnn.DynamicCode
     string MailCC,
     string MailReply)
   {
-    var mailEngine = CreateInstance("../../email-templates/" + emailTemplateFilename);
+    var mailEngine = CreateInstance("../../live/email-templates/" + emailTemplateFilename);
     var mailSubj = mailEngine.Subject();
     var mailBody = mailEngine.Message(contactFormRequest).ToString();
 
