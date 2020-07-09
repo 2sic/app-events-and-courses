@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.00.00" ModuleVersion="11.03.00" ExportDate="2020-07-09T15:29:10.2157866+02:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.00.00" ModuleVersion="11.03.00" ExportDate="2020-07-09T15:42:16.8264344+02:00">
   <Header>
     <App Guid="39d5e0dc-5dfc-4e6e-b67b-5b8b041691ac" />
     <Language Default="en-US" />
@@ -7066,7 +7066,7 @@
       <Value Key="NoCoursesFound" Value="Zurzeit sind keine Kurse zu diesem Anlass vorhanden." Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
-      <Value Key="PlaceHolderImg" Value="file:4143" Type="Hyperlink">
+      <Value Key="PlaceHolderImg" Value="file:4564" Type="Hyperlink">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="PlaceHolderImg" Value="file:4143" Type="Hyperlink">
@@ -8091,7 +8091,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Document" Value="file:4142" Type="Hyperlink">
+      <Value Key="Document" Value="file:4566" Type="Hyperlink">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -8103,7 +8103,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Image" Value="file:553" Type="Hyperlink">
+      <Value Key="Image" Value="" Type="Hyperlink">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -9496,25 +9496,18 @@
     </Entity>
   </Entities>
   <PortalFiles>
-    <File Id="4143" RelativePath="adam\Events and Courses\r5NOpxGsUkmx5uQodtskbA\PlaceHolderImg\placeholder-01-1.svg" />
-    <File Id="941" RelativePath="2sxc\Content\thumbnails\ct image.png" />
-    <File Id="940" RelativePath="2sxc\Content\thumbnails\ct basic content.png" />
-    <File Id="944" RelativePath="2sxc\Content\thumbnails\ct location.png" />
-    <File Id="943" RelativePath="2sxc\Content\thumbnails\ct links.png" />
-    <File Id="945" RelativePath="2sxc\Content\thumbnails\ct person.png" />
-    <File Id="942" RelativePath="2sxc\Content\thumbnails\ct layout element.png" />
-    <File Id="946" RelativePath="2sxc\Content\thumbnails\ct video.png" />
-    <File Id="4142" RelativePath="adam\Events and Courses\E1UBfLSAYUekGYJM99kXDg\Document\dummy.pdf" />
-    <File Id="553" RelativePath="adam\blueimp Gallery\kBlTi7EW70eEacfL5NkuyQ\Images\IGP2768W.jpg" />
+    <File Id="4564" RelativePath="adam\Events and Courses 5\r5NOpxGsUkmx5uQodtskbA\PlaceHolderImg\placeholder.svg" />
+    <File Id="4566" RelativePath="adam\Events and Courses 5\E1UBfLSAYUekGYJM99kXDg\Document\dummy.pdf" />
     <File Id="4561" RelativePath="adam\Events and Courses 5\Wf2pg416bUe4oinKzjl_5Q\Image\Demo-2.jpg" />
   </PortalFiles>
   <PortalFolders>
-    <Folder Id="6935" RelativePath="adam/Events and Courses/r5NOpxGsUkmx5uQodtskbA/PlaceHolderImg/" />
-    <Folder Id="1322" RelativePath="2sxc/Content/thumbnails/" />
-    <Folder Id="6933" RelativePath="adam/Events and Courses/E1UBfLSAYUekGYJM99kXDg/Document/" />
-    <Folder Id="604" RelativePath="adam/blueimp Gallery/kBlTi7EW70eEacfL5NkuyQ/Images/" />
+    <Folder Id="10186" RelativePath="adam/Events and Courses 5/r5NOpxGsUkmx5uQodtskbA/PlaceHolderImg/" />
+    <Folder Id="10189" RelativePath="adam/Events and Courses 5/E1UBfLSAYUekGYJM99kXDg/Document/" />
     <Folder Id="10184" RelativePath="adam/Events and Courses 5/Wf2pg416bUe4oinKzjl_5Q/Image/" />
     <Folder Id="10182" RelativePath="adam/Events and Courses 5/" />
+    <Folder Id="10187" RelativePath="adam/Events and Courses 5/E1UBfLSAYUekGYJM99kXDg/" />
+    <Folder Id="10188" RelativePath="adam/Events and Courses 5/E1UBfLSAYUekGYJM99kXDg/Image/" />
+    <Folder Id="10185" RelativePath="adam/Events and Courses 5/r5NOpxGsUkmx5uQodtskbA/" />
     <Folder Id="10183" RelativePath="adam/Events and Courses 5/Wf2pg416bUe4oinKzjl_5Q/" />
   </PortalFolders>
 </SexyContent>
