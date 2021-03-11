@@ -36,9 +36,13 @@
     
     <div class="form event-form cform-id-@Dnn.Module.ModuleID">
       @* Inputs *@
+      @{
+        var additionalTitle = !String.IsNullOrEmpty(eventDate.TitleAddition) ? " " + resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + resources.TitleAdditionSuffix : "";
+        var inputTitle = Text.First(eventDate.Title, course.Title) + additionalTitle;
+      }
       @formParts.Textbox(resources.LabelCourseNumber, "CourseNumber", true, disabled: true, value: ((eventDate.Id != null) ? eventDate.Id : course.id))
-      @formParts.Textbox(resources.LabelCourseName, "CourseName", true, disabled: true, value: course.Title )
-      @formParts.Textbox(resources.LabelCourseLocation, "CourseLocation", true, disabled: true, value: course.Location)
+      @formParts.Textbox(resources.LabelCourseName, "CourseName", true, disabled: true, value: inputTitle )
+      @formParts.Textbox(resources.LabelCourseLocation, "CourseLocation", true, disabled: true, value: Text.First(eventDate.Location, course.Location))
       
       @* Event Notes *@
       <div class="form-group row">

@@ -18,7 +18,14 @@ $(document).ready(function() {
       const obj: any = {};
       $.each(inputs, function(i: any, e: any) {
         const propName = e.name;
-        obj[propName] = $(e).val();
+
+        if ($(e).attr('type') && $(e).attr('type').toLowerCase() == 'radio') { // For radio fields get checked values
+          if ($(e).is(':checked')) {
+            obj[propName] = $(e).val();
+          }
+        } else {
+          obj[propName] = $(e).val();
+        }
       });
 
       const sxc = $2sxc(this);
