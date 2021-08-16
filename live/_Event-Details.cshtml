@@ -53,7 +53,7 @@
 
         @* Other Dates of Event *@
         @{
-          var sameEvents = AsList(Data["SameEvent"]).OrderBy(d => d.Start);
+          var sameEvents = AsList(Data["SameEvent"]).Where(c => c.Start.Date >= DateTime.Today).OrderBy(d => d.Start);
         }
         <div class="app-events-further-events my-4" 
           @Edit.TagToolbar(toolbar: new [] {
