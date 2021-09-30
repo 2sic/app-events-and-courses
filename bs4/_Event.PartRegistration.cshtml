@@ -1,8 +1,5 @@
-@inherits ToSic.Sxc.Dnn.RazorComponent
+@inherits Custom.Hybrid.Razor12
 @using ToSic.Razor.Blade;
-
-@RenderPage("shared/_Assets.cshtml") 
-
 @{
   // todo: rename formParts
   var formParts = CreateInstance("shared/_FormParts.cshtml");
@@ -30,11 +27,11 @@
     </div>
   }
 
-  <div class="app-course app-events-form" @Edit.TagToolbar(eventDate) data-string-required="@resources.ValidationRequired" data-string-email="@resources.ValidationEmail">
+  <div class="app-events6 app-events6-form" @Edit.TagToolbar(eventDate) data-string-required="@resources.ValidationRequired" data-string-email="@resources.ValidationEmail">
     @* Title *@
     <h1 class="mb-4">@resources.CourseRegistrationTitle - @course.Title @((!String.IsNullOrEmpty(eventDate.TitleAddition)) ? resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + resources.TitleAdditionSuffix : "" )</h1>
     
-    <div class="form event-form cform-id-@Dnn.Module.ModuleID">
+    <div class="form app-events6-form cform-id-@Dnn.Module.ModuleID">
       @* Inputs *@
       @{
         var additionalTitle = !String.IsNullOrEmpty(eventDate.TitleAddition) ? " " + resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + resources.TitleAdditionSuffix : "";
@@ -145,3 +142,5 @@
     </div>
   </div>
 }
+
+@Html.Partial("shared/_Assets.cshtml") 

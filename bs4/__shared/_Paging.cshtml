@@ -1,4 +1,4 @@
-@inherits ToSic.Sxc.Dnn.RazorComponent
+@inherits Custom.Hybrid.Razor12
 @using ToSic.Razor.Blade;
 @{
   var paging = AsList(Data["Paging"]).FirstOrDefault();
@@ -19,7 +19,7 @@
     }
   }
   @if (!(paging.PageNumber >= paging.PageCount)) {
-    <a class="app-events-next-pager" href="@LinkToPageNumber((int)(paging.PageNumber) + 1, eventPage)">&rsaquo;</a>
+    <a class="app-events6-next-pager" href="@LinkToPageNumber((int)(paging.PageNumber) + 1, eventPage)">&rsaquo;</a>
   }
 </div>
 

@@ -6,7 +6,6 @@ using DotNetNuke.Security;
 using DotNetNuke.Web.Api;
 public class FormController : ToSic.Sxc.Dnn.ApiController
 {
-    
   [HttpPost]
   [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Anonymous)]
   [ValidateAntiForgeryToken]

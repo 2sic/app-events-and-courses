@@ -1,7 +1,7 @@
 @* This generates the e-mail subject *@
 @functions {
   public string Subject() {
-    return App.Resources.MailCustomerSubject;
+    return Resources.MailCustomerSubject;
   }
 }
 
@@ -18,7 +18,7 @@
     </style>
   </head>
   <body>
-    @(new HtmlString(App.Resources.MailCustomerBody))
+    @(new HtmlString(Resources.MailCustomerBody))
   </body>
 </html>
 }

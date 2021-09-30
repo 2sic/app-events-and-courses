@@ -1,8 +1,5 @@
-@inherits ToSic.Sxc.Dnn.RazorComponent
+@inherits Custom.Hybrid.Razor12
 @using ToSic.Razor.Blade;
-
-@RenderPage("shared/_Assets.cshtml") 
-
 @{
   string detailsLink;
   var events = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
@@ -10,7 +7,7 @@
   var resources = App.Resources;
 }
 
-<div class="app-events app-event-list"
+<div class="app-events6 app-events6-list"
   @Edit.TagToolbar(
     AsList(App.Data["EventSettings"]).FirstOrDefault(), toolbar: new [] {
       "settings&hover=left&autoAddMore=start",
@@ -40,21 +37,21 @@
         var item = d.Event;
         var detailslink = Link.To(parameters: "details=" + @d.EntityId) + "/" + item.UrlKey;
           
-        <div class="row position-relative app-event-list-item mb-4" @Edit.TagToolbar(d.Event, toolbar: new [] {
+        <div class="row position-relative app-events6-list-item mb-4" @Edit.TagToolbar(d.Event, toolbar: new [] {
           "toolbar=empty", "+edit"
         })>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
-            <div class='app-img @(Text.Has(item.Image) ? "" : "app-noimg")'>
+            <div class='app-events6-img @(Text.Has(item.Image) ? "" : "app-noimg")'>
                 <div class="overlay" style='@(Text.Has(item.Image) ? "" : "background-image: url('" + App.Path + "/src/images/trans.png?max-width=600&amp;mode=max&amp;scale=both&amp;quality=80')")'></div>
                 <img class="img-fluid" src="@(Text.Has(item.Image) ? item.Image : resources.PlaceHolderImg)?w=800&h=480&mode=crop&scale=both&quality=80&anchor=@item.CropAnchor" alt="@item.Title" />
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
-            <div class="app-text">
+            <div class="app-events6-text">
               <h2>@item.Title @((Text.Has(d.TitleAddition)) ? "- " + d.TitleAddition : "" ) @if(d.Event.ShowInLanguage == false && Edit.Enabled) { <span style="color:red;">(in dieser Sprache ausgeblendet)</span> }</h2>
               <div class="event-meta mb-3">
-                <span class="app-events-date">@d.Start.ToString("d") @((d.End != null) ? "- " + d.End.ToString("d") : "")</span>
-                <span class="app-events-categories"> | @item.Category.Title</span>
+                <span class="app-events6-date">@d.Start.ToString("d") @((d.End != null) ? "- " + d.End.ToString("d") : "")</span>
+                <span class="app-events6-categories"> | @item.Category.Title</span>
               </div>
 
               @if(Text.Has(item.ShortDescription)) {
@@ -69,6 +66,7 @@
     }
   }
 
-  @RenderPage("shared/_Paging.cshtml", new { eventPage = eventPage }) 
+  @Html.Partial("shared/_Paging.cshtml", new { eventPage = eventPage }) 
 </div>
 
+@Html.Partial("_Assets.cshtml") 
