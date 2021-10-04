@@ -3,7 +3,7 @@
 @{
   string detailsLink;
   var events = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
-  var eventPage = Dnn.Tab.FullUrl;
+  var eventPage = CmsContext.Site.Url;
   var resources = App.Resources;
 }
 
@@ -69,4 +69,4 @@
   @Html.Partial("shared/_Paging.cshtml", new { eventPage = eventPage }) 
 </div>
 
-@Html.Partial("_Assets.cshtml") 
+@Html.Partial("_Event.PartAssets.cshtml") 

@@ -15,79 +15,29 @@ public class Helpers: Custom.Hybrid.Code12
     if(Text.Has(copy)) {
       return Tag.Div(copy, Tag.H6(label)).Class("ol-12 col-md-6 mb-3 app-events6-infocontainer");
     }
+    return null;
   }
 
   // Shows a back to list button
   public dynamic BackToListButton() {
+    return Tag.A(Resources.LabelBackToList).Class("btn btn-outline-primary").Href(Tags.SafeUrl(Link.To()));
     // <a class="btn btn-outline-primary" href='@Tags.SafeUrl(Link.To())'>@Html.Raw(App.Resources.LabelBackToList)</a>
   }
 
-//   @* This generates the e-mail subject *@
-// @functions {
-//   public string Subject() {
-//     return Resources.MailCustomerSubject;
-//   }
-// }
+  public dynamic Label(string label, string forControl) {
+    return Tag.Label(label).For(forControl);
+    // <label class="col-sm-3" for="@forControl">@label</label>
+  }
 
-// @* This generates the e-mail body *@
-// @helper Message(Dictionary<string,object> request)
-// {
-// <!doctype html>
-// <html>
-//   <head>
-//     <meta name="viewport" content="width=device-width">
-//     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-//     <style type="text/css">
-//       body { font-family: Helvetica, sans-serif; }
-//     </style>
-//   </head>
-//   <body>
-//     @(new HtmlString(Resources.MailCustomerBody))
-//   </body>
-// </html>
-// }
-
-// @* This generates the e-mail subject *@
-// @functions {
-//   public string Subject() {
-//     return App.Resources.MailOwnerSubject;
-//   }
-// }
-
-// @* This generates the e-mail body *@
-// @helper Message(Dictionary<string,object> request)
-// {
-// <!doctype html>
-// <html>
-//   <head>
-//     <meta name="viewport" content="width=device-width">
-//     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-//     <style type="text/css">
-//         body { font-family: Helvetica, sans-serif; }
-//     </style>
-//   </head>
-//   <body>
-//     @(new HtmlString(App.Resources.MailOwnerIntroduction))
-//     @foreach (var item in request) {
-//         <div><strong>@item.Key</strong>: @item.Value</div>
-//     }
-//   </body>
-// </html>
-// }
-
-
-// @helper Label(string label, string forControl) {
-//   <label class="col-sm-3" for="@forControl">@label</label>
-// }
-
-// @helper Textbox(string label, string id, bool required = false, string type = "text", string value = "", bool disabled = false) {
-//   <div class="form-group row @(required ? "form-required" : "")">
-//     @Label(label, id)
-//     <div class="col-sm-9">
-//         <input value="@value" type="@type" @((required) ? "required" : "") class="form-control" id="@id" name="@id" @((disabled) ? "disabled" : "")>
-//     </div>
-//   </div>
-// }
+  public dynamic Textbox(string label, string id, bool required = false, string type = "text", string value = "", bool disabled = false) {
+    return Tag.Div(Label(label, id), Tag.Div(Tag.Input()));
+    // <div class="form-group row @(required ? "form-required" : "")">
+    //   @Label(label, id)
+    //   <div class="col-sm-9">
+    //       <input value="@value" type="@type" @((required) ? "required" : "") class="form-control" id="@id" name="@id" @((disabled) ? "disabled" : "")>
+    //   </div>
+    // </div>
+  }
 
 // @{
 //   var paging = AsList(Data["Paging"]).FirstOrDefault();
@@ -112,12 +62,10 @@ public class Helpers: Custom.Hybrid.Code12
 //   }
 // </div>
 
-// @functions {
-//   // generate a paging-link number
-//   public string LinkToPageNumber(int pageNumber, String eventP){
-//     string url = (@eventP + "/page/" + pageNumber);
-//     return url.ToLower();
-//   }
-// }
+  // generate a paging-link number
+  public string LinkToPageNumber(int pageNumber, string eventP){
+    string url = (@eventP + "/page/" + pageNumber);
+    return url.ToLower();
+  }
 
 }

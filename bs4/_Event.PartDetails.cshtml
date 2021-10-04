@@ -22,13 +22,14 @@
                       .Where(c => c.Status == "registered" && c.EventDateEntity.Count > 0 && c.EventDateEntity.EntityGuid == eventDate.EntityGuid);
   var freeSeats = eventDate.Seats - registrations.Count();
 
-  HtmlPage.Title = item.Title + " | "
+  page.SetTitle(item.Title + " | "
     + eventDate.Start.ToString("d") 
     + ((eventDate.End != null) 
       ? " - " + eventDate.End.ToString("d") 
-      : "" ) 
+      : "" ));
+  @* HtmlPage.Title = 
     + " | " + Dnn.Module.ParentTab.TabName + " | " 
-    + Dnn.Portal.PortalName;
+    + Dnn.Portal.PortalName; *@
 }
 
 <div class="app-events6 app-events6-detail" @Edit.TagToolbar(item, toolbar: "-new")>

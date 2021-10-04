@@ -1,32 +1,26 @@
 @inherits Custom.Hybrid.Razor12
 @using ToSic.Razor.Blade;
 @{
+  // Get some helpers for later on
+  var helpers = CreateInstance("../Helpers.cs");
   var paging = AsList(Data["Paging"]).FirstOrDefault();
   var eventPage = PageData["eventPage"];
 }
 
 <div class="app-events-paging mt-4">
   @if (!(paging.PageNumber <= 1)) {
-    <a class="app-events-prev-pager" href="@LinkToPageNumber((int)(paging.PageNumber) - 1, eventPage)">&lsaquo;</a>
+    <a class="app-events-prev-pager" href="@helpers.LinkToPageNumber((int)(paging.PageNumber) - 1, eventPage)">&lsaquo;</a>
   }
   @if (@paging.PageSize >= 0) {
     for(int i = 1; i <= @paging.PageCount; i++) {
       if (i == paging.PageNumber) {
         <a class="app-events-paging-active">@i</a>
       } else {
-        <a href="@LinkToPageNumber(i, eventPage)">@i</a>
+        <a href="@helpers.LinkToPageNumber(i, eventPage)">@i</a>
       }
     }
   }
   @if (!(paging.PageNumber >= paging.PageCount)) {
-    <a class="app-events6-next-pager" href="@LinkToPageNumber((int)(paging.PageNumber) + 1, eventPage)">&rsaquo;</a>
+    <a class="app-events6-next-pager" href="@helpers.LinkToPageNumber((int)(paging.PageNumber) + 1, eventPage)">&rsaquo;</a>
   }
 </div>
-
-@functions {
-  // generate a paging-link number
-  public string LinkToPageNumber(int pageNumber, String eventP){
-    string url = (@eventP + "/page/" + pageNumber);
-    return url.ToLower();
-  }
-}
