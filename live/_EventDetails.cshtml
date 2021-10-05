@@ -27,9 +27,6 @@
     + ((eventDate.End != null) 
       ? " - " + eventDate.End.ToString("d") 
       : "" ));
-  @* HtmlPage.Title = 
-    + " | " + Dnn.Module.ParentTab.TabName + " | " 
-    + Dnn.Portal.PortalName; *@
 }
 
 <div class="app-events6 app-events6-detail" @Edit.TagToolbar(item, toolbar: "-new")>
@@ -41,7 +38,7 @@
       <span class="app-events6-categories">@item.Category.Title</span>
     </div>
 
-    <img class="d-block d-md-none m-auto img-fluid" src="@item.Image?w=540&amp;quality=95" alt="@item.Title" />
+    <img loading="lazy" class="d-block d-md-none m-auto img-fluid" src="@Link.Image(url: item.Image, width: 540, quality: 95)" alt="@item.Title" />
   </div>
 
   <div class="app-events6-detail-content">
@@ -104,7 +101,7 @@
             var moreDetailsLink = Text.First(eventDate.Document, item.Document);
           }
           @if(Text.Has(moreDetailsLink)) {
-            var fileName = Path.GetFileName(moreDetailsLink);
+            var fileName = System.IO.Path.GetFileName(moreDetailsLink);
             <div class="col-12 col-md-6 mb-3 app-events6-infocontainer">
               <h6>@Resources.DetailsLink</h6>
               <a href="@moreDetailsLink" target="_blank">@(Text.Has(fileName) ? fileName : moreDetailsLink)</a>
@@ -117,13 +114,13 @@
           <div class="alert alert-warning">
             @Resources.StatusCanceled
           </div>
-        } else if(App.Settings.RegistrationEnabled && eventDate.RegistrationEnabled) {
+        } else if(Settings.RegistrationEnabled && eventDate.RegistrationEnabled) {
           if(1 <= 0 || eventDate.IsFullyBooked) { // Turn 1 back to freeSeats after fix
             <div class="alert alert-warning">
               @Resources.StatusFullyBooked
             </div>
           } else {
-            <a class="btn btn-md btn-primary" href="@Link.To(parameters: "mid=" + Dnn.Module.ModuleID + "&cid=" + @item.EntityId + "&did=" + eventDate.EntityId)/@item.UrlKey">@Html.Raw(Resources.ButtonRegister)</a>
+            <a class="btn btn-md btn-primary" href="@Link.To(parameters: "mid=" + CmsContext.Module.Id + "&cid=" + @item.EntityId + "&did=" + eventDate.EntityId)/@item.UrlKey">@Html.Raw(Resources.ButtonRegister)</a>
           }
         }        
 
@@ -132,11 +129,11 @@
 
       @if (Text.Has(item.Image)) {
         <div class="col-12 col-md-4 d-none d-md-block")>
-          <img class="img-fluid" src="@item.Image?w=540&amp;quality=95" alt="@item.Title" />
+          <img loading="lazy" class="img-fluid" src="@Link.Image(url: item.Image, width: 540, quality: 95)" alt="@item.Title" />
         </div>
       }
     </div>
   </div>
 </div>
 
-@Html.Partial("_Assets.cshtml") 
+@Html.Partial("shared/_Assets.cshtml") 

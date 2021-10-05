@@ -7,7 +7,7 @@ public class Helpers: Custom.Hybrid.Code12
   // Show Title
   public string Title(dynamic item, dynamic eventDate) {
     var resources = Resources;
-    return item.Title + Text.Has(eventDate.TitleAddition) ? resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + resources.TitleAdditionSuffix : "";
+    return item.Title + (Text.Has(eventDate.TitleAddition) ? resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + resources.TitleAdditionSuffix : "");
   }
 
   // Shows Event Details boxes
@@ -20,7 +20,7 @@ public class Helpers: Custom.Hybrid.Code12
 
   // Shows a back to list button
   public dynamic BackToListButton() {
-    return Tag.A(Resources.LabelBackToList).Class("btn btn-outline-primary").Href(Tags.SafeUrl(Link.To()));
+    return Tag.A(Resources.LabelBackToList).Class("btn btn-outline-primary").Href(Link.To());
     // <a class="btn btn-outline-primary" href='@Tags.SafeUrl(Link.To())'>@Html.Raw(App.Resources.LabelBackToList)</a>
   }
 

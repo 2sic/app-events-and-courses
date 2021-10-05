@@ -2,7 +2,7 @@
 @using ToSic.Razor.Blade;
 @{
   // Get some helpers for later on
-  var helpers = CreateInstance("../Helpers.cs");
+  var helpers = CreateInstance("Helpers.cs");
   var paging = AsList(Data["Paging"]).FirstOrDefault();
   var eventPage = PageData["eventPage"];
 }
