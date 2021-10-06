@@ -11,17 +11,18 @@ let Pristine = require('../../node_modules/pristinejs')
 declare let $2sxc: any;
 
 function initAppEvents6({ domId } : { domId: string }) {
-  const mobuisWrapper = document.getElementsByClassName(domId)[0];
-  console.log(mobuisWrapper);
+  const eventsWrapper = document.getElementsByClassName(domId)[0];
 
   if (document.getElementsByTagName('form').length) {
     document.getElementsByTagName('form')[0]?.setAttribute('novalidate', '');
   }
 
-  mobuisWrapper.getElementsByClassName('btn-send-events-form')[0].addEventListener('click', (event: Event) => {
-    event.preventDefault();
-    send(mobuisWrapper, event)
-  })
+  if (eventsWrapper?.getElementsByClassName('btn-send-events-form').length) {
+    eventsWrapper.getElementsByClassName('btn-send-events-form')[0].addEventListener('click', (event: Event) => {
+      event.preventDefault();
+      send(eventsWrapper, event)
+    })
+  }
 }
 
 function send(wrapper: Element, event: Event) {
@@ -38,14 +39,11 @@ function send(wrapper: Element, event: Event) {
   document.dispatchEvent(trackingEvent);
   
   const valid = pristine.validate();
-  console.log(pristine);
   if (!valid)
     return helperFunc.showOneAlert(wrapper, 'msgIncomplete');
 
   const ws = "Form/ProcessForm";
-
   let data = collectFieldsAutomatic.collect(wrapper);
-  console.log(data);
 
   helperFunc.disableInputs(wrapper, true);
   helperFunc.showOneAlert(wrapper, 'msgSending');
