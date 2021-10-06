@@ -1,11 +1,12 @@
 @inherits Custom.Hybrid.Razor12
 @using ToSic.Razor.Blade;
+@* @using System.Web; *@
 @{
   var fieldBuilder = CreateInstance("shared/FieldBuilder.cs");
   var course = AsList(App.Data["Event"])
-              .FirstOrDefault(x => x.EntityId == System.Convert.ToInt32(Request.QueryString["cid"]));
+              .FirstOrDefault(x => x.EntityId == System.Convert.ToInt32(CmsContext.Page.Parameters["courseId"]));
   var eventDate = AsList(App.Data["EventDate"])
-              .FirstOrDefault(ed => ed.EntityId == System.Convert.ToInt32(Request.QueryString["did"]));
+              .FirstOrDefault(ed => ed.EntityId == System.Convert.ToInt32(CmsContext.Page.Parameters["dateId"].Split("/")[0]));
   var title = course == null ? "" : course.Title;
   var page = GetService<ToSic.Sxc.Web.IPageService>(); // Service to set titles etc. on the page
   page.SetTitle(Resources.CourseRegistrationTitle + " | " + title);

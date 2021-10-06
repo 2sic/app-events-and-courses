@@ -120,7 +120,7 @@
               @Resources.StatusFullyBooked
             </div>
           } else {
-            var reqisterParams = "mid=" + CmsContext.Module.Id + "&cid=" + item.EntityId + "&did=" + eventDate.EntityId;
+            var reqisterParams = "mid=" + CmsContext.Module.Id + "&courseId=" + item.EntityId + "&dateId=" + eventDate.EntityId;
             <a class="btn btn-md btn-primary" href="@Link.To(parameters: reqisterParams)/@item.UrlKey">@Html.Raw(Resources.ButtonRegister)</a>
           }
         }        
