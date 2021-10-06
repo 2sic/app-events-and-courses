@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.00.00" ModuleVersion="11.11.05" ExportDate="2021-03-11T13:38:59.0805742+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="12.05.00" ExportDate="2021-10-06T11:21:07.354599+02:00">
   <Header>
-    <App Guid="39d5e0dc-5dfc-4e6e-b67b-5b8b041691ac" />
+    <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
     <Dimensions>
       <Dimension DimensionID="45" Name="English (United States)" SystemKey="" ExternalKey="en-US" Active="true" />
@@ -2575,6 +2575,13 @@
           </Entity>
           <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="26408fdd-b156-47b6-ad4a-d22fe7f585de" Json="True" KeyNumber="2441" />
         </Attribute>
+        <Attribute StaticName="MessageSending" Type="String" IsTitle="false">
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="07150a0c-e81d-4431-a1aa-cb5d36d6a426" Json="True" KeyNumber="4883">
+            <Value Key="InputType" Value="string-wysiwyg" Type="String" />
+            <Value Key="Name" Value="MessageSending" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
         <Attribute StaticName="GroupMailFields" Type="Empty" IsTitle="false">
           <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="ccc41586-3e55-456b-8dc3-d479c4d61972" Json="True" KeyNumber="2448">
             <Value Key="CustomJavaScript" Value="" Type="String">
@@ -3747,6 +3754,9 @@
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
             <Value Key="InputType" Value="entity-default" Type="String" />
             <Value Key="Name" Value="Category" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -3756,6 +3766,9 @@
             </Value>
             <Value Key="Notes" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Required" Value="True" Type="Boolean">
@@ -3796,8 +3809,11 @@
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="EntityType" Value="CourseGroup" Type="String">
+            <Value Key="EntityType" Value="Categories" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Prefill" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
           </Entity>
@@ -6707,7 +6723,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Folder" Value="Events and Courses 5" Type="String">
+      <Value Key="Folder" Value="EventsAndCourses6" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -6723,7 +6739,10 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="RequiredVersion" Value="11.00.00" Type="String">
+      <Value Key="RequiredOqtaneVersion" Value="02.02.00" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RequiredVersion" Value="12.05.00" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -6731,25 +6750,25 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Version" Value="05.00.01" Type="String">
+      <Value Key="Version" Value="06.00.00" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
     <Entity AssignmentObjectType="App" AttributeSetStaticName="App-Settings" AttributeSetName="App-Settings" EntityGUID="3ce1dc79-808f-4206-8e65-5031bbfcdc1a" KeyNumber="144">
-      <Value Key="CustomerMailTemplateFile" Value="_Email to customer.cshtml" Type="String">
+      <Value Key="CustomerMailTemplateFile" Value="EmailToCustomer.cs" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="MailFrom" Value="" Type="String">
+      <Value Key="MailFrom" Value="roman.opalko@2sic.com" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="OwnerMail" Value="" Type="String">
+      <Value Key="OwnerMail" Value="roman.opalko@2sic.com" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="OwnerMailTemplateFile" Value="_Email to owner.cshtml" Type="String">
+      <Value Key="OwnerMailTemplateFile" Value="EmailToOwner.cs" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -6825,7 +6844,7 @@
       <Value Key="CourseParticipantData" Value="Teilnehmer-Daten" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
-      <Value Key="CourseRegistrationError" Value="An error occurred while ragistration." Type="String">
+      <Value Key="CourseRegistrationError" Value="An error occurred while registration." Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="CourseRegistrationError" Value="Bei Ihrer Anmeldung ist ein Fehler aufgetreten." Type="String">
@@ -7032,6 +7051,9 @@
       <Value Key="MessageDefaultMailSettings" Value="&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Mail settings have not yet been set correctly. Enter an e-mail address in the in the App Settings. Change the Settings using &lt;a class=&quot;alert-link target=&quot; href=&quot;https://azing.org/2sxc/r/K_RhCB2l&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;these instructions&lt;/a&gt;&lt;/p&gt;" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="MessageSending" Value="&lt;p&gt;Signing up, please wait...&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="NoCoursesFound" Value="There are currently no courses available for this occasion" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7110,6 +7132,12 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Identifier" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="IsHidden" Value="True" Type="Boolean">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
@@ -7122,7 +7150,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Location" Value="Portal File System" Type="String">
+      <Value Key="Location" Value="Site" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7130,7 +7158,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Path" Value="live/_Event-Registration.cshtml" Type="String">
+      <Value Key="Path" Value="live/_EventRegistration.cshtml" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7140,6 +7168,12 @@
       </Value>
       <Value Key="PublishData" Value="False" Type="Boolean">
         <Dimension DimensionID="46" ReadOnly="false" />
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingDisabled" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingStreams" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="StreamsToPublish" Value="" Type="String">
@@ -7152,6 +7186,9 @@
       </Value>
       <Value Key="UseForList" Value="False" Type="Boolean">
         <Dimension DimensionID="46" ReadOnly="false" />
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewController" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="ViewNameInUrl" Value="cid/.*" Type="String">
@@ -7193,6 +7230,12 @@
       <Value Key="ContentTypeStaticName" Value="889fe838-fd3f-4297-88bb-038ea36a2ea8" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Identifier" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="IsHidden" Value="False" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7204,7 +7247,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Location" Value="Portal File System" Type="String">
+      <Value Key="Location" Value="Site" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Name" Value="Event Auflistung" Type="String">
@@ -7213,7 +7256,7 @@
       <Value Key="Name" Value="Events Liste" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
-      <Value Key="Path" Value="live/_Event-List.cshtml" Type="String">
+      <Value Key="Path" Value="live/_EventList.cshtml" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Pipeline" Value="5c56ca72-a5c1-4456-8198-dbf012dc7d48" Type="Entity">
@@ -7227,6 +7270,12 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="SearchIndexingDisabled" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingStreams" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="StreamsToPublish" Value="" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
@@ -7238,6 +7287,9 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="ViewController" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="ViewNameInUrl" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7245,6 +7297,12 @@
     <Entity AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-Template" AttributeSetName="2SexyContent-Template" EntityGUID="d21dc085-4a4d-495e-bbe1-1ec701cd1521" Json="True">
       <Value Key="ContentTypeStaticName" Value="" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Identifier" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="IsHidden" Value="True" Type="Boolean">
@@ -7259,7 +7317,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Location" Value="Portal File System" Type="String">
+      <Value Key="Location" Value="Site" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7267,7 +7325,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Path" Value="live/_Event-Details.cshtml" Type="String">
+      <Value Key="Path" Value="live/_EventDetails.cshtml" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7283,6 +7341,12 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="SearchIndexingDisabled" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingStreams" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="StreamsToPublish" Value="" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
@@ -7293,6 +7357,9 @@
       </Value>
       <Value Key="UseForList" Value="False" Type="Boolean">
         <Dimension DimensionID="46" ReadOnly="false" />
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewController" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="ViewNameInUrl" Value="details/.*" Type="String">
@@ -7679,32 +7746,18 @@
       </Value>
     </Entity>
     <Entity AssignmentObjectType="Default" AttributeSetStaticName="DataPipeline" AttributeSetName="DataPipeline" EntityGUID="5c56ca72-a5c1-4456-8198-dbf012dc7d48" Json="True">
-      <Value Key="AllowEdit" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Description" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Name" Value="EventsData" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Params" Value="ReplaceThis=27&#xA;ReplaceThisAsWell=[QueryString:Id]" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="StreamsOut" Value="ListContent,Default,Date,Events,Paging" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="StreamWiring" Value="8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Default&gt;03ba7361-27bc-45f1-8988-a647da72072f:Default&#xD;&#xA;8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Published&gt;03ba7361-27bc-45f1-8988-a647da72072f:Published&#xD;&#xA;8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Drafts&gt;03ba7361-27bc-45f1-8988-a647da72072f:Drafts&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;184d9bb0-2bbb-4ecf-afd5-12643f2fd80e:Default&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;d19aa6a4-3540-4dcd-917e-59218d53d7f7:Default&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;8d5e16c0-0657-40b8-afd1-79039e0514cb:Default&#xD;&#xA;184d9bb0-2bbb-4ecf-afd5-12643f2fd80e:Default&gt;3e4ce88d-ae71-441d-9553-1d9659bbeab2:Default&#xD;&#xA;3e4ce88d-ae71-441d-9553-1d9659bbeab2:Default&gt;31c52cfb-0da3-4e7b-b8a6-b836e11fe79d:Default&#xD;&#xA;31c52cfb-0da3-4e7b-b8a6-b836e11fe79d:Default&gt;Out:Date&#xD;&#xA;d19aa6a4-3540-4dcd-917e-59218d53d7f7:Default&gt;Out:Default&#xD;&#xA;8d5e16c0-0657-40b8-afd1-79039e0514cb:ListContent&gt;Out:ListContent&#xD;&#xA;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Default&gt;Out:Events&#xD;&#xA;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Paging&gt;Out:Paging&#xD;&#xA;31c52cfb-0da3-4e7b-b8a6-b836e11fe79d:Default&gt;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Default&#xD;&#xA;8d5e16c0-0657-40b8-afd1-79039e0514cb:Default&gt;8891226e-049a-435a-8cf3-3fb08ab6aeb3:EventSettings" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TestParameters" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
+      <Value Key="AllowEdit" Value="True" Type="Boolean" />
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="EventsData" Type="String" />
+      <Value Key="Params" Value="ReplaceThis=27&#xA;ReplaceThisAsWell=[QueryString:Id]" Type="String" />
+      <Value Key="StreamsOut" Value="ListContent,Default,Date,Events,Paging" Type="String" />
+      <Value Key="StreamWiring" Value="8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Default&gt;03ba7361-27bc-45f1-8988-a647da72072f:Default&#xD;&#xA;8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Published&gt;03ba7361-27bc-45f1-8988-a647da72072f:Published&#xD;&#xA;8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Drafts&gt;03ba7361-27bc-45f1-8988-a647da72072f:Drafts&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;184d9bb0-2bbb-4ecf-afd5-12643f2fd80e:Default&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;d19aa6a4-3540-4dcd-917e-59218d53d7f7:Default&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;8d5e16c0-0657-40b8-afd1-79039e0514cb:Default&#xD;&#xA;184d9bb0-2bbb-4ecf-afd5-12643f2fd80e:Default&gt;3e4ce88d-ae71-441d-9553-1d9659bbeab2:Default&#xD;&#xA;3e4ce88d-ae71-441d-9553-1d9659bbeab2:Default&gt;31c52cfb-0da3-4e7b-b8a6-b836e11fe79d:Default&#xD;&#xA;31c52cfb-0da3-4e7b-b8a6-b836e11fe79d:Default&gt;Out:Date&#xD;&#xA;d19aa6a4-3540-4dcd-917e-59218d53d7f7:Default&gt;Out:Default&#xD;&#xA;8d5e16c0-0657-40b8-afd1-79039e0514cb:ListContent&gt;Out:ListContent&#xD;&#xA;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Default&gt;Out:Events&#xD;&#xA;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Paging&gt;Out:Paging&#xD;&#xA;31c52cfb-0da3-4e7b-b8a6-b836e11fe79d:Default&gt;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Default&#xD;&#xA;8d5e16c0-0657-40b8-afd1-79039e0514cb:Default&gt;8891226e-049a-435a-8cf3-3fb08ab6aeb3:EventSettings" Type="String" />
+      <Value Key="TestParameters" Value="" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3" Json="True" KeyGuid="5c56ca72-a5c1-4456-8198-dbf012dc7d48">
       <Value Key="Description" Value="" Type="String" />
       <Value Key="Name" Value="ICache" Type="String" />
-      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.Caches.ICache, ToSic.Eav.DataSources" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.IAppRoot, ToSic.Eav.DataSources" Type="String" />
       <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 800,&#xD;&#xA;  &quot;Left&quot;: 440&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="03ba7361-27bc-45f1-8988-a647da72072f" Json="True" KeyGuid="5c56ca72-a5c1-4456-8198-dbf012dc7d48">
@@ -7716,7 +7769,7 @@
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="8d5e16c0-0657-40b8-afd1-79039e0514cb" Json="True" KeyGuid="5c56ca72-a5c1-4456-8198-dbf012dc7d48">
       <Value Key="Description" Value="" Type="String" />
       <Value Key="Name" Value="ModuleDataSource" Type="String" />
-      <Value Key="PartAssemblyAndType" Value="ToSic.SexyContent.DataSources.ModuleDataSource, ToSic.SexyContent" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="ToSic.Sxc.DataSources.CmsBlock, ToSic.Sxc" Type="String" />
       <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 440,&#xD;&#xA;  &quot;Left&quot;: 660&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="|Config ToSic.Eav.DataSources.ValueSort" AttributeSetName="ToSic.Eav.DataSources.ValueSort" EntityGUID="6168a151-7928-444d-be94-8bce31016468" Json="True" KeyGuid="3f9fed34-1f84-44ff-9533-75c846b22ed2">
@@ -7835,83 +7888,44 @@
     </Entity>
     <Entity AssignmentObjectType="Default" AttributeSetStaticName="DataPipeline" AttributeSetName="DataPipeline" EntityGUID="213052c9-cc86-4913-b155-b5f794eb732f" Json="True">
       <Value Key="AllowEdit" Value="True" Type="Boolean">
-        <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Description" Value="" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Name" Value="Data for Detail" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Params" Value="ReplaceThis=27&#xA;ReplaceThisAsWell=[QueryString:Id]" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="StreamsOut" Value="ListContent,Default,SameEvent" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="StreamWiring" Value="0ee621f9-9b2b-432d-9509-c94dec258536:Drafts&gt;daac574c-3521-4739-8331-c17a22160178:Drafts&#xD;&#xA;0ee621f9-9b2b-432d-9509-c94dec258536:Published&gt;daac574c-3521-4739-8331-c17a22160178:Published&#xD;&#xA;541711e3-ee3b-40d5-9a9e-57f7907364c8:ListContent&gt;Out:ListContent&#xD;&#xA;0ee621f9-9b2b-432d-9509-c94dec258536:Default&gt;daac574c-3521-4739-8331-c17a22160178:Default&#xD;&#xA;daac574c-3521-4739-8331-c17a22160178:Default&gt;541711e3-ee3b-40d5-9a9e-57f7907364c8:Default&#xD;&#xA;daac574c-3521-4739-8331-c17a22160178:Default&gt;c86f8401-14f1-4e66-8021-823ecf6f1e54:Default&#xD;&#xA;96c68e11-6967-4277-bd6d-284694076961:Default&gt;Out:Default&#xD;&#xA;c86f8401-14f1-4e66-8021-823ecf6f1e54:Default&gt;1712cbaf-4a04-41f1-93d4-4b1ab44cd379:Default&#xD;&#xA;1712cbaf-4a04-41f1-93d4-4b1ab44cd379:Default&gt;Out:SameEvent&#xD;&#xA;c86f8401-14f1-4e66-8021-823ecf6f1e54:Default&gt;96c68e11-6967-4277-bd6d-284694076961:Default&#xD;&#xA;96c68e11-6967-4277-bd6d-284694076961:Default&gt;1712cbaf-4a04-41f1-93d4-4b1ab44cd379:InStream" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="TestParameters" Value="[Module:ModuleID]=3424&#xA;[QueryString:details]=7503" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
+      <Value Key="TestParameters" Value="[QueryString:details]=7503" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="0ee621f9-9b2b-432d-9509-c94dec258536" Json="True" KeyGuid="213052c9-cc86-4913-b155-b5f794eb732f">
-      <Value Key="Description" Value="" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Name" Value="ICache" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.Caches.ICache, ToSic.Eav.DataSources" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 1120,&#xD;&#xA;  &quot;Left&quot;: 400&#xD;&#xA;}" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="ICache" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.IAppRoot, ToSic.Eav.DataSources" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 1120,&#xD;&#xA;  &quot;Left&quot;: 400&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="daac574c-3521-4739-8331-c17a22160178" Json="True" KeyGuid="213052c9-cc86-4913-b155-b5f794eb732f">
-      <Value Key="Description" Value="" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Name" Value="PublishingFilter" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.PublishingFilter, ToSic.Eav.DataSources" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 940,&#xD;&#xA;  &quot;Left&quot;: 391&#xD;&#xA;}" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="PublishingFilter" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.PublishingFilter, ToSic.Eav.DataSources" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 940,&#xD;&#xA;  &quot;Left&quot;: 391&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="541711e3-ee3b-40d5-9a9e-57f7907364c8" Json="True" KeyGuid="213052c9-cc86-4913-b155-b5f794eb732f">
-      <Value Key="Description" Value="" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Name" Value="ModuleDataSource" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="PartAssemblyAndType" Value="ToSic.SexyContent.DataSources.ModuleDataSource, ToSic.SexyContent" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 769,&#xD;&#xA;  &quot;Left&quot;: 230&#xD;&#xA;}" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="ModuleDataSource" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="ToSic.Sxc.DataSources.CmsBlock, ToSic.Sxc" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 769,&#xD;&#xA;  &quot;Left&quot;: 230&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="|Config ToSic.Eav.DataSources.EntityTypeFilter" AttributeSetName="ToSic.Eav.DataSources.EntityTypeFilter" EntityGUID="8a2b173a-c827-48e1-8b35-10b981d31e11" Json="True" KeyGuid="7743c701-4d96-4b71-b78d-f2ee49a13724">
       <Value Key="TypeName" Value="b571d918-f9f3-43fb-8673-deecbf29ea83" Type="String">
@@ -7920,22 +7934,10 @@
       </Value>
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="c86f8401-14f1-4e66-8021-823ecf6f1e54" Json="True" KeyGuid="213052c9-cc86-4913-b155-b5f794eb732f">
-      <Value Key="Description" Value="" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Name" Value="Filter Date" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.EntityTypeFilter, ToSic.Eav.DataSources" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 766,&#xD;&#xA;  &quot;Left&quot;: 530&#xD;&#xA;}" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="Filter Date" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.EntityTypeFilter, ToSic.Eav.DataSources" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 766,&#xD;&#xA;  &quot;Left&quot;: 530&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="|Config ToSic.Eav.DataSources.EntityTypeFilter" AttributeSetName="ToSic.Eav.DataSources.EntityTypeFilter" EntityGUID="a0d2d041-6cc0-4c91-ba80-deedb3595f65" Json="True" KeyGuid="c86f8401-14f1-4e66-8021-823ecf6f1e54">
       <Value Key="TypeName" Value="c3bfb791-42f9-4c2a-8314-06e21447b150" Type="String">
@@ -7962,22 +7964,10 @@
       </Value>
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="96c68e11-6967-4277-bd6d-284694076961" Json="True" KeyGuid="213052c9-cc86-4913-b155-b5f794eb732f">
-      <Value Key="Description" Value="" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Name" Value="Filter ID from QueryString" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.EntityIdFilter, ToSic.Eav.DataSources" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 600,&#xD;&#xA;  &quot;Left&quot;: 414&#xD;&#xA;}" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="Filter ID from QueryString" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.EntityIdFilter, ToSic.Eav.DataSources" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 600,&#xD;&#xA;  &quot;Left&quot;: 414&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="|Config ToSic.Eav.DataSources.EntityIdFilter" AttributeSetName="ToSic.Eav.DataSources.EntityIdFilter" EntityGUID="7e27338a-6b6b-4c43-b81a-4a7d66ec7fee" Json="True" KeyGuid="96c68e11-6967-4277-bd6d-284694076961">
       <Value Key="EntityIds" Value="[QueryString:details]" Type="String">
@@ -7986,22 +7976,10 @@
       </Value>
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="1712cbaf-4a04-41f1-93d4-4b1ab44cd379" Json="True" KeyGuid="213052c9-cc86-4913-b155-b5f794eb732f">
-      <Value Key="Description" Value="" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Name" Value="RelationshipFilter" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.RelationshipFilter, ToSic.Eav.DataSources" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 373,&#xD;&#xA;  &quot;Left&quot;: 694&#xD;&#xA;}" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="RelationshipFilter" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.RelationshipFilter, ToSic.Eav.DataSources" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 373,&#xD;&#xA;  &quot;Left&quot;: 694&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="|Config ToSic.Eav.DataSources.RelationshipFilter" AttributeSetName="ToSic.Eav.DataSources.RelationshipFilter" EntityGUID="8d6311a0-612c-4977-98df-66c0f1c7b35b" Json="True" KeyGuid="1712cbaf-4a04-41f1-93d4-4b1ab44cd379">
       <Value Key="AttributeOnRelationship" Value="EntityId" Type="String">
@@ -8105,6 +8083,11 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="8701369a-1782-4ab1-bf47-aaa2c6d29880" Json="True">
+      <Value Key="Content" Value="c221dba3-1099-4cf1-8172-42fe91a272ce,null,null" Type="Entity" />
+      <Value Key="Presentation" Value="null,null,null" Type="Entity" />
+      <Value Key="Template" Value="null" Type="Entity" />
     </Entity>
     <Entity AssignmentObjectType="Default" AttributeSetStaticName="c58f78db-0b39-46ee-9c37-6c445d14b090" AttributeSetName="Categories" EntityGUID="c221dba3-1099-4cf1-8172-42fe91a272ce">
       <Value Key="Title" Value="Demo Kategorie" Type="String">
@@ -8333,7 +8316,7 @@
       <Value Key="Seats" Value="100" Type="Number">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Start" Value="2022-07-19T00:00:00" Type="DateTime">
+      <Value Key="Start" Value="2022-04-18T00:00:00" Type="DateTime">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="TimeSpecifics" Value="" Type="String">
@@ -9523,6 +9506,808 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registration" EntityGUID="50ee8162-dcf4-47c8-a865-4024e7c22756">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDateEntity" Value="174513f9-d96a-4d47-af85-15000bce8b7f" Type="Entity" />
+      <Value Key="FirstName" Value="Roman" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Opalko" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MobilePhone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Salutation" Value="Mrs" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="31.10.140.185" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2021-03-12T11:33:21" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="f3d67724-fc6b-4d60-90b6-ac7a4b73de25">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;CourseNumber&quot;:&quot;&quot;,&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Date&quot;:&quot;7/19/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mrs&quot;,&quot;FirstName&quot;:&quot;Roman&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Langäulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;AGB&quot;:&quot;on&quot;,&quot;Accept&quot;:&quot;on&quot;,&quot;&quot;:&quot;&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-03-12T11:33:21.3093373+01:00&quot;,&quot;SenderIp&quot;:&quot;31.10.140.185&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-03-12T11:33:21.824969+01:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-03-12T11:33:21&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="31.10.140.185" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-03-12T11:33:21" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-03-12T11:33:21" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registration" EntityGUID="9fcc7eeb-6174-4c56-947b-7733eb7c34aa">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDateEntity" Value="174513f9-d96a-4d47-af85-15000bce8b7f" Type="Entity" />
+      <Value Key="FirstName" Value="Roman" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Opalko" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MobilePhone" Value="123123123" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="+41 81 750 67 87" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Salutation" Value="Mr" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="31.10.140.185" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2021-03-12T11:39:38" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="a25adf2b-7c7b-40e9-824f-c0430f1efe3c">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;CourseNumber&quot;:&quot;&quot;,&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Date&quot;:&quot;7/19/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Roman&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Langäulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;+41 81 750 67 87&quot;,&quot;MobilePhone&quot;:&quot;123123123&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;AGB&quot;:&quot;on&quot;,&quot;Accept&quot;:&quot;on&quot;,&quot;&quot;:&quot;&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-03-12T11:39:38.6652494+01:00&quot;,&quot;SenderIp&quot;:&quot;31.10.140.185&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-03-12T11:39:38.8058763+01:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-03-12T11:39:38&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="31.10.140.185" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-03-12T11:39:38" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-03-12T11:39:38" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registration" EntityGUID="f3da4bb5-c29d-45d3-a4db-d5a3bbd3b2de">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDateEntity" Value="174513f9-d96a-4d47-af85-15000bce8b7f" Type="Entity" />
+      <Value Key="FirstName" Value="Roman" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Opalko" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MobilePhone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Salutation" Value="Mrs" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="31.10.140.185" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2021-03-12T12:01:38" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="4ebf1b23-fa7f-4798-aa31-d029c5f71d21">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;CourseNumber&quot;:&quot;&quot;,&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Date&quot;:&quot;7/19/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mrs&quot;,&quot;FirstName&quot;:&quot;Roman&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Langäulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;AGB&quot;:&quot;on&quot;,&quot;Accept&quot;:&quot;on&quot;,&quot;&quot;:&quot;&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-03-12T12:01:38.6870823+01:00&quot;,&quot;SenderIp&quot;:&quot;31.10.140.185&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-03-12T12:01:38.7964492+01:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-03-12T12:01:38&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="31.10.140.185" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-03-12T12:01:38" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-03-12T12:01:38" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="2de5983d-a1a7-4397-9fc8-16d7882411d5">
+      <Value Key="ModuleId" Value="5737" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T08:29:21.5638107+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T08:29:21.8294316+02:00&quot;,&quot;ModuleId&quot;:5737,&quot;Title&quot;:&quot;Form 2021-10-06T08:29:21&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T08:29:21" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T08:29:21" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="afd6bb7d-ad4c-45d4-b67c-41213daf01f4">
+      <Value Key="ModuleId" Value="5737" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T08:30:29.6229346+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T08:30:29.7791867+02:00&quot;,&quot;ModuleId&quot;:5737,&quot;Title&quot;:&quot;Form 2021-10-06T08:30:29&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T08:30:29" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T08:30:29" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="8a645a0a-1ad1-4bd6-b673-85e08541e7d9">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T08:33:39.2934525+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T08:33:39.4141007+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T08:33:39&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T08:33:39" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T08:33:39" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="6b0b2f86-b0ad-493f-bd1a-c18090c1b553">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T08:34:38.2637067+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T08:34:38.3886972+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T08:34:38&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T08:34:38" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T08:34:38" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="7ec9b17d-ef02-4116-a2d3-13b6c34650f1">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T08:56:10.4988015+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T08:56:10.6394224+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T08:56:10&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T08:56:10" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T08:56:10" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="c408597e-c169-4021-b34d-83d1ae2d1d50">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:09:43.4994776+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:09:44.3276053+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:09:44&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:09:44" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:09:44" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="1442be15-a6c5-4f18-9396-54ad02e01835">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:14:17.3012728+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:14:17.4262781+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:14:17&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:14:17" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:14:17" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="749a9072-1410-4275-ae84-30b6e86b4e30">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:16:14.5387807+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:16:14.6645862+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:16:14&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:16:14" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:16:14" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="ef13e9a5-ee5b-4545-972d-99dbc7627d73">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:17:22.571475+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:17:22.6964784+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:17:22&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:17:22" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:17:22" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="37ab8ffd-fe0b-4e19-8ae4-5090e05c85c1">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:18:00.0205703+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:18:00.1611876+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:18:00&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:18:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:18:00" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="936f99cb-dfff-4502-b2f3-aba23bda7eeb">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:18:46.2522989+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:18:46.3616758+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:18:46&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:18:46" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:18:46" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="68f4d3e6-f5c3-4d16-bcce-1a22415948db">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:19:38.386812+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:19:38.5118072+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:19:38&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:19:38" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:19:38" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="6e39813e-b57d-45c3-afb9-0a5ed26c6412">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:22:28.5497494+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:22:28.6747464+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:22:28&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:22:28" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:22:28" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="31348ddd-ec48-4fc3-908b-343a97317015">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:23:02.6027405+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:23:02.7433614+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:23:02&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:23:02" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:23:02" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="4eb33567-75d2-4dd9-96f9-761a18d140af">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:23:26.8166456+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:23:26.9416469+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:23:26&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:23:26" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:23:26" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="f246dd69-2594-47b5-8645-29b3a8de3cc8">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:27:09.099626+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:27:09.2558602+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:27:09&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:27:09" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:27:09" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="95561bc9-3181-4113-b1ad-e17ef0177e2e">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;Event ID / Number&quot;:&quot;&quot;,&quot;Event&quot;:&quot;Demo Kurs&quot;,&quot;Location&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;First name&quot;:&quot;Maxim&quot;,&quot;Last name&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;Zip / City&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;Mobile phone&quot;:&quot;&quot;,&quot;E-Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T09:45:52.5736614+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T09:45:52.823868+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T09:45:52&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T09:45:52" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T09:45:52" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registration" EntityGUID="e66ade09-9331-449b-bf5a-48024ce5549c">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDateEntity" Value="174513f9-d96a-4d47-af85-15000bce8b7f" Type="Entity" />
+      <Value Key="FirstName" Value="Maxim" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Hüsler" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="Maxim.Huesler@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MobilePhone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0798487505" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Salutation" Value="Mr" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Wiedenstrasse 15" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2021-10-06T10:14:09" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs SG" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="ec45b420-41f1-41cf-b730-918ba452134a">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;CourseNumber&quot;:&quot;&quot;,&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Maxim&quot;,&quot;LastName&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;ZIPCity&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T10:14:09.1192755+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T10:14:10.0098886+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T10:14:10&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T10:14:10" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T10:14:10" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registration" EntityGUID="4c23e6ef-22d3-4930-98a0-e7282e250bb0">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDateEntity" Value="174513f9-d96a-4d47-af85-15000bce8b7f" Type="Entity" />
+      <Value Key="FirstName" Value="Maxim" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Hüsler" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="Maxim.Huesler@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MobilePhone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0798487505" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Salutation" Value="Mr" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Wiedenstrasse 15" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2021-10-06T10:14:37" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs SG" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="0788da96-219c-4589-9b6c-d67bc012d973">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;CourseNumber&quot;:&quot;&quot;,&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Maxim&quot;,&quot;LastName&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;ZIPCity&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T10:14:37.5435242+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T10:14:37.6685108+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T10:14:37&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T10:14:37" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T10:14:37" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registration" EntityGUID="f00449a1-6a08-452d-9d65-305e3f0bb9bb">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDateEntity" Value="174513f9-d96a-4d47-af85-15000bce8b7f" Type="Entity" />
+      <Value Key="FirstName" Value="Maxim" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Hüsler" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="Maxim.Huesler@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MobilePhone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0798487505" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Salutation" Value="Mr" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Wiedenstrasse 15" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2021-10-06T10:17:21" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs SG" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="48564c5a-a34e-41ba-833f-5661f8dbf882">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;CourseNumber&quot;:&quot;&quot;,&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Maxim&quot;,&quot;LastName&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;ZIPCity&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T10:17:21.4788024+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T10:17:21.6194204+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T10:17:21&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T10:17:21" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T10:17:21" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registration" EntityGUID="9c41eb3b-8326-42d0-af45-16f8017e25f3">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDateEntity" Value="174513f9-d96a-4d47-af85-15000bce8b7f" Type="Entity" />
+      <Value Key="FirstName" Value="Maxim" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Hüsler" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="Maxim.Huesler@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MobilePhone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0798487505" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Salutation" Value="Mr" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Wiedenstrasse 15" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2021-10-06T10:17:32" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs SG" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="ea31ec07-e0cb-4d4b-b9db-c4fd2a883c5f">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;CourseNumber&quot;:&quot;&quot;,&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Maxim&quot;,&quot;LastName&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;ZIPCity&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T10:17:32.467158+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T10:17:32.5921477+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T10:17:32&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T10:17:32" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T10:17:32" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registration" EntityGUID="beb7a55c-7797-4ec9-989a-e89245fd0477">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDateEntity" Value="174513f9-d96a-4d47-af85-15000bce8b7f" Type="Entity" />
+      <Value Key="FirstName" Value="Maxim" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Hüsler" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="Maxim.Huesler@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MobilePhone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0798487505" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Salutation" Value="Mr" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Wiedenstrasse 15" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2021-10-06T10:19:15" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs SG" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="b04dea27-b89b-4bec-9ed4-6dd10fd75d27">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;CourseNumber&quot;:&quot;&quot;,&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Maxim&quot;,&quot;LastName&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;ZIPCity&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T10:19:15.203858+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T10:19:15.3444871+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T10:19:15&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T10:19:15" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T10:19:15" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registration" EntityGUID="8aad44d8-497d-4f00-accd-f66f2de48874">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDateEntity" Value="174513f9-d96a-4d47-af85-15000bce8b7f" Type="Entity" />
+      <Value Key="FirstName" Value="Maxim" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Hüsler" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="Maxim.Huesler@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MobilePhone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0798487505" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Salutation" Value="Mrs" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Wiedenstrasse 15" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2021-10-06T10:43:22" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs SG" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="65decb77-010f-4158-8975-e83e2fbe8ad3">
+      <Value Key="ModuleId" Value="3692" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;CourseNumber&quot;:&quot;&quot;,&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mrs&quot;,&quot;FirstName&quot;:&quot;Maxim&quot;,&quot;LastName&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;ZIPCity&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T10:43:22.9097852+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T10:43:23.0507374+02:00&quot;,&quot;ModuleId&quot;:3692,&quot;Title&quot;:&quot;Form 2021-10-06T10:43:23&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T10:43:23" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T10:43:23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
   </Entities>
   <PortalFiles>
     <File Id="4564" RelativePath="adam\Events and Courses 5\r5NOpxGsUkmx5uQodtskbA\PlaceHolderImg\placeholder.svg" />
@@ -9533,26 +10318,6 @@
     <Folder Id="10186" RelativePath="adam/Events and Courses 5/r5NOpxGsUkmx5uQodtskbA/PlaceHolderImg/" />
     <Folder Id="10189" RelativePath="adam/Events and Courses 5/E1UBfLSAYUekGYJM99kXDg/Document/" />
     <Folder Id="10184" RelativePath="adam/Events and Courses 5/Wf2pg416bUe4oinKzjl_5Q/Image/" />
-    <Folder Id="10182" RelativePath="adam/Events and Courses 5/" />
-    <Folder Id="10252" RelativePath="adam/Events and Courses 5/bGP4EbxSckupFhiUDi8CJw/" />
-    <Folder Id="10254" RelativePath="adam/Events and Courses 5/bGP4EbxSckupFhiUDi8CJw/Document/" />
-    <Folder Id="10253" RelativePath="adam/Events and Courses 5/bGP4EbxSckupFhiUDi8CJw/Image/" />
-    <Folder Id="10187" RelativePath="adam/Events and Courses 5/E1UBfLSAYUekGYJM99kXDg/" />
-    <Folder Id="10188" RelativePath="adam/Events and Courses 5/E1UBfLSAYUekGYJM99kXDg/Image/" />
-    <Folder Id="10249" RelativePath="adam/Events and Courses 5/NUQEYX_wQ0aqnX-EdhdqRw/" />
-    <Folder Id="10251" RelativePath="adam/Events and Courses 5/NUQEYX_wQ0aqnX-EdhdqRw/Document/" />
-    <Folder Id="10250" RelativePath="adam/Events and Courses 5/NUQEYX_wQ0aqnX-EdhdqRw/Image/" />
-    <Folder Id="10255" RelativePath="adam/Events and Courses 5/PiWDmGvCYEGhjFloPkvl2g/" />
-    <Folder Id="10257" RelativePath="adam/Events and Courses 5/PiWDmGvCYEGhjFloPkvl2g/Document/" />
-    <Folder Id="10256" RelativePath="adam/Events and Courses 5/PiWDmGvCYEGhjFloPkvl2g/Image/" />
-    <Folder Id="10185" RelativePath="adam/Events and Courses 5/r5NOpxGsUkmx5uQodtskbA/" />
-    <Folder Id="10215" RelativePath="adam/Events and Courses 5/-RNFF2rZR02vhRUAC86Lfw/" />
-    <Folder Id="10216" RelativePath="adam/Events and Courses 5/-RNFF2rZR02vhRUAC86Lfw/Document/" />
-    <Folder Id="10258" RelativePath="adam/Events and Courses 5/sgY8SiGzZEiMs3PqYPj0ew/" />
-    <Folder Id="10259" RelativePath="adam/Events and Courses 5/sgY8SiGzZEiMs3PqYPj0ew/Document/" />
-    <Folder Id="10246" RelativePath="adam/Events and Courses 5/VQa5FBLcLUyYYfcHxK7ZvQ/" />
-    <Folder Id="10248" RelativePath="adam/Events and Courses 5/VQa5FBLcLUyYYfcHxK7ZvQ/Document/" />
-    <Folder Id="10247" RelativePath="adam/Events and Courses 5/VQa5FBLcLUyYYfcHxK7ZvQ/Image/" />
-    <Folder Id="10183" RelativePath="adam/Events and Courses 5/Wf2pg416bUe4oinKzjl_5Q/" />
+    <Folder Id="13454" RelativePath="adam/EventsAndCourses6/" />
   </PortalFolders>
 </SexyContent>
