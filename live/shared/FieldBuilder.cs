@@ -38,7 +38,7 @@ public class FieldBuilder : Custom.Hybrid.Code12
   internal string LabelClasses(bool required)
   {
     return "control-label "
-      + (required ? "data-pristine-required-message " : "")
+      + (required ? "app-events6-field-required " : "")
       + (PageCss.Is("bs3") ? "col col-xs-12 col-sm-3" : "col-12 col-sm-3");
   }
 
@@ -56,7 +56,7 @@ public class FieldBuilder : Custom.Hybrid.Code12
   // returns a Label
   public dynamic Label(string label, string forControl, bool required = false)
   {
-    return Tag.Label(label).Class("col-sm-3" + (required ? " data-pristine-required-message " : "")).Attr("for", forControl);
+    return Tag.Label(label).Class("col-sm-3" + (required ? " app-events6-field-required " : "")).Attr("for", forControl);
   }
 
   // returns an input with common attributes and a possible placeholder
@@ -131,7 +131,7 @@ public class FieldBuilder : Custom.Hybrid.Code12
   public dynamic Field(string idString, bool required, dynamic contents)
   {
     InputWrapperClasses = _inputWrapperClasses ?? (_inputWrapperClasses = (PageCss.Is("bs3") ? "col col-xs-12 col-sm-9" : "col-12  col-sm-9"));
-    var labelTranslated = Resources.Get("Label" + idString);
+    var labelTranslated = Resources.Get("LabelParticipant" + idString);
 
     var labelInPlaceholder = Tag.Label();
     if (!LabelInPlaceholder) {

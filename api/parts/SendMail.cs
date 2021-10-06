@@ -2,16 +2,16 @@ using System;
 using System.Collections.Generic;
 using DotNetNuke.Services.Mail;
 
-public class SendMail : ToSic.Sxc.Dnn.DynamicCode
+public class SendMail : Custom.Hybrid.Code12
 {
   public void sendMails(Dictionary<string,object> contactFormRequest) {
     var settings = new {
-      MailFrom = App.Settings.MailFrom,
-      OwnerMail = App.Settings.OwnerMail,
+      MailFrom = Settings.MailFrom,
+      OwnerMail = Settings.OwnerMail,
       OwnerMailCC = "",
-      OwnerMailTemplateFile = App.Settings.OwnerMailTemplateFile,
+      OwnerMailTemplateFile = Settings.OwnerMailTemplateFile,
       CustomerMailCC = "",
-      CustomerMailTemplateFile = App.Settings.CustomerMailTemplateFile
+      CustomerMailTemplateFile = Settings.CustomerMailTemplateFile
     };
 
     var customerMail = contactFormRequest["Mail"].ToString();
@@ -21,7 +21,7 @@ public class SendMail : ToSic.Sxc.Dnn.DynamicCode
         settings.OwnerMailTemplateFile, contactFormRequest, settings.MailFrom, settings.OwnerMail, settings.OwnerMailCC, customerMail
       );
     } catch(Exception ex) {
-      throw new Exception("OwnwerSend mail failed: " + ex.Message);
+      throw new Exception("OwnerSend mail failed: " + ex.Message);
     }
 
     try {
@@ -29,7 +29,7 @@ public class SendMail : ToSic.Sxc.Dnn.DynamicCode
         settings.CustomerMailTemplateFile, contactFormRequest, settings.MailFrom, customerMail, Content.CustomerMailCC, settings.OwnerMail
       );
     } catch(Exception ex) {
-      throw new Exception("OwnwerSend mail failed: " + ex.Message);
+      throw new Exception("OwnerSend mail failed: " + ex.Message);
     }
   }
 

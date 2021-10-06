@@ -1,14 +1,24 @@
+// Add namespaces to enable security in Oqtane & Dnn despite the differences
+#if NETCOREAPP
+using Microsoft.AspNetCore.Authorization; // .net core [AllowAnonymous] & [Authorize]
+using Microsoft.AspNetCore.Mvc;           // .net core [HttpGet] / [HttpPost] etc.
+#else
+using System.Web.Http;		// this enables [HttpGet] and [AllowAnonymous]
+using DotNetNuke.Web.Api;	// this is to verify the AntiForgeryToken
+using DotNetNuke.Services.Log.EventLog;
+using DotNetNuke.Services.Mail;
+using DotNetNuke.Security;
+using DotNetNuke.Web.Api;
+#endif
 using System;
 using System.Web.Http;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using DotNetNuke.Security;
-using DotNetNuke.Web.Api;
-public class FormController : ToSic.Sxc.Dnn.ApiController
+using ToSic.Razor.Blade;
+
+[AllowAnonymous]	// define that all commands can be accessed without a login
+public class FormController : Custom.Hybrid.Api12
 {
   [HttpPost]
-  [DnnModuleAuthorize(AccessLevel = SecurityAccessLevel.Anonymous)]
-  [ValidateAntiForgeryToken]
   public void ProcessForm([FromBody]Dictionary<string,object> contactFormRequest)
   {
     // 1. add IP / host, and save all fields
@@ -21,10 +31,10 @@ public class FormController : ToSic.Sxc.Dnn.ApiController
 
     // added feature to create a full-save of each request into a system-protocol content-type
     contactFormRequest.Add("Timestamp", DateTime.Now);
-    contactFormRequest.Add("ModuleId", Dnn.Module.ModuleID);
+    contactFormRequest.Add("ModuleId", CmsContext.Module.Id);
     contactFormRequest.Add("Title", "Form " + DateTime.Now.ToString("s"));
     // add raw-data, in case the content-type has a "RawData" field
-    contactFormRequest.Add("RawData", JsonConvert.SerializeObject(contactFormRequest));
+    contactFormRequest.Add("RawData", Convert.Json.ToJson(contactFormRequest));
     App.Data.Create("SystemProtocol", contactFormRequest);
 
     var sendMail = CreateInstance("parts/SendMail.cs");

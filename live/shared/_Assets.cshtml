@@ -11,8 +11,10 @@
   }
 
   page.Activate("turnOn", "fancybox"); // see https://r.2sxc.org/turnon
-  var mobiusDomId = "app-events6-" + @CmsContext.Module.Id;
+  var eventsDomId = "app-events6-js" + CmsContext.Module.Id;
 }
-<turnOn turn-on='{"await": ["window.appEvents6"], "run": "window.appEvents6.init()", "data": { "domId": "@mobiusDomId" }}'></turnOn>
+@Edit.Enable(js: true)
+
+<turnOn turn-on='{"await": ["window.appEvents6"], "run": "window.appEvents6.init()", "data": { "domId": "@eventsDomId" }}'></turnOn>
 <link rel="stylesheet" href="@App.Path/live/dist/styles.min.css" data-enableoptimizations="true">
 <script src="@App.Path/live/dist/scripts.min.js" data-enableoptimizations="false"></script>

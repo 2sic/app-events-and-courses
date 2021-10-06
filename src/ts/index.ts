@@ -38,15 +38,11 @@ function send(wrapper: Element, event: Event) {
   document.dispatchEvent(trackingEvent);
   
   const valid = pristine.validate();
+  console.log(pristine);
   if (!valid)
     return helperFunc.showOneAlert(wrapper, 'msgIncomplete');
 
-  const ws = (wrapper as HTMLElement).dataset.webservice; // should be "Form/ProcessForm" or a custom override
-  // get data
-  // alternative example with manual build, but we prefer automatic
-  // const collectFieldsManual = new CollectFieldsManual();
-  // let data;
-  // data = collectFieldsManual.collect(wrapper);
+  const ws = "Form/ProcessForm";
 
   let data = collectFieldsAutomatic.collect(wrapper);
   console.log(data);
@@ -54,70 +50,20 @@ function send(wrapper: Element, event: Event) {
   helperFunc.disableInputs(wrapper, true);
   helperFunc.showOneAlert(wrapper, 'msgSending');
 
-//   sxc.webApi.post(ws, null, data, true)
-//     .success(() => {
-//       const msg = 'msgOk';
-//       helperFunc.showOneAlert(wrapper, msg);
+  sxc.webApi.post(ws, null, data, true)
+    .success(() => {
+      const msg = 'msgOk';
+      helperFunc.showOneAlert(wrapper, msg);
 
-//       const trackingEvent = new CustomEvent('trackEventsForm', { detail: { category: 'events-form', action: 'success', label: label } });
-//       document.dispatchEvent(trackingEvent);
-//     })
-//     .error(() => {
-//       const msg = 'msgError';
-//       helperFunc.showOneAlert(wrapper, msg);
-//       helperFunc.disableInputs(wrapper, false);
+      const trackingEvent = new CustomEvent('trackEventsForm', { detail: { category: 'events-form', action: 'success', label: label } });
+      document.dispatchEvent(trackingEvent);
+    })
+    .error(() => {
+      const msg = 'msgError';
+      helperFunc.showOneAlert(wrapper, msg);
+      helperFunc.disableInputs(wrapper, false);
 
-//       const trackingEvent = new CustomEvent('trackEventsForm', { detail: { category: 'events-form', action: 'error', label: label } });
-//       document.dispatchEvent(trackingEvent);
-//     });
+      const trackingEvent = new CustomEvent('trackEventsForm', { detail: { category: 'events-form', action: 'error', label: label } });
+      document.dispatchEvent(trackingEvent);
+    });
 }
-
-// declare let $2sxc: any;
-// import * as $ from 'jquery';
-// const validate = require("jquery-validation");
-
-// require('../styles/_styles.scss');
-
-// $(document).ready(function() {
-//   const validator = ($("form") as any).validate();
-
-//   jQuery.extend(($ as any).validator.messages, {
-//       required: $('.app-events-form').data('string-required'),
-//       email: $('.app-events-form').data('string-email')
-//   });
-
-//   $(".form-submit").click(function(e) { 
-//     if(validator.form()) {
-//       const inputs = $(".event-form :input");
-//       const obj: any = {};
-//       $.each(inputs, function(i: any, e: any) {
-//         const propName = e.name;
-
-//         if ($(e).attr('type') && $(e).attr('type').toLowerCase() == 'radio') { // For radio fields get checked values
-//           if ($(e).is(':checked')) {
-//             obj[propName] = $(e).val();
-//           }
-//         } else {
-//           obj[propName] = $(e).val();
-//         }
-//       });
-
-//       const sxc = $2sxc(this);
-//       sxc.webApi.post("Form/ProcessForm", {}, obj).then(function() {
-//         $('.event-form').hide();
-//         $('.form-info-success').show();
-//         $('.form-submit').prop('disabled', true);
-//       }, function() {
-//         $('.form-info-error').show();
-//         $('.form-submit').prop('disabled', false);
-//       });
-//     }
-
-//     // Add and remove has-error classes
-//     $('.event-form .form-group').removeClass('has-error');
-//     $('.form-info-error').hide(); 
-//     for (let i=0;i<validator.errorList.length;i++){
-//         $(validator.errorList[i].element).parents('.form-group').addClass('has-error');
-//     }
-//   });
-// });

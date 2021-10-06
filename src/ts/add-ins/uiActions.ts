@@ -5,6 +5,8 @@ export class UiActions {
       });
       
       if (responseMessageElement !== '') {
+        console.log(responseMessageElement);
+        console.log(wrapper);
         (wrapper.querySelector(`#${responseMessageElement}`) as HTMLElement).style.display = 'block';
       }
     }

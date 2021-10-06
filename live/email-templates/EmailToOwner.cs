@@ -1,7 +1,7 @@
 using ToSic.Razor.Blade;
 using System.Collections.Generic;
 using System;
-public class EmailToCustomer: Custom.Hybrid.Code12
+public class EmailToOwner: Custom.Hybrid.Code12
 {
   // This generates the e-mail subject
   public string Subject() {

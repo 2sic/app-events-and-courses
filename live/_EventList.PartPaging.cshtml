@@ -7,14 +7,14 @@
   var eventPage = PageData["eventPage"];
 }
 
-<div class="app-events-paging mt-4">
+<div class="app-events6-paging mt-4">
   @if (!(paging.PageNumber <= 1)) {
-    <a class="app-events-prev-pager" href="@helpers.LinkToPageNumber((int)(paging.PageNumber) - 1, eventPage)">&lsaquo;</a>
+    <a class="app-events6-prev-pager" href="@helpers.LinkToPageNumber((int)(paging.PageNumber) - 1, eventPage)">&lsaquo;</a>
   }
   @if (@paging.PageSize >= 0) {
     for(int i = 1; i <= @paging.PageCount; i++) {
       if (i == paging.PageNumber) {
-        <a class="app-events-paging-active">@i</a>
+        <a class="app-events6-paging-active">@i</a>
       } else {
         <a href="@helpers.LinkToPageNumber(i, eventPage)">@i</a>
       }
