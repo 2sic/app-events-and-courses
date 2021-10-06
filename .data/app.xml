@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="12.05.00" ExportDate="2021-10-06T11:21:07.354599+02:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="12.05.00" ExportDate="2021-10-06T13:59:56.1338165+02:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -7750,8 +7750,8 @@
       <Value Key="Description" Value="" Type="String" />
       <Value Key="Name" Value="EventsData" Type="String" />
       <Value Key="Params" Value="ReplaceThis=27&#xA;ReplaceThisAsWell=[QueryString:Id]" Type="String" />
-      <Value Key="StreamsOut" Value="ListContent,Default,Date,Events,Paging" Type="String" />
-      <Value Key="StreamWiring" Value="8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Default&gt;03ba7361-27bc-45f1-8988-a647da72072f:Default&#xD;&#xA;8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Published&gt;03ba7361-27bc-45f1-8988-a647da72072f:Published&#xD;&#xA;8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Drafts&gt;03ba7361-27bc-45f1-8988-a647da72072f:Drafts&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;184d9bb0-2bbb-4ecf-afd5-12643f2fd80e:Default&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;d19aa6a4-3540-4dcd-917e-59218d53d7f7:Default&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;8d5e16c0-0657-40b8-afd1-79039e0514cb:Default&#xD;&#xA;184d9bb0-2bbb-4ecf-afd5-12643f2fd80e:Default&gt;3e4ce88d-ae71-441d-9553-1d9659bbeab2:Default&#xD;&#xA;3e4ce88d-ae71-441d-9553-1d9659bbeab2:Default&gt;31c52cfb-0da3-4e7b-b8a6-b836e11fe79d:Default&#xD;&#xA;31c52cfb-0da3-4e7b-b8a6-b836e11fe79d:Default&gt;Out:Date&#xD;&#xA;d19aa6a4-3540-4dcd-917e-59218d53d7f7:Default&gt;Out:Default&#xD;&#xA;8d5e16c0-0657-40b8-afd1-79039e0514cb:ListContent&gt;Out:ListContent&#xD;&#xA;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Default&gt;Out:Events&#xD;&#xA;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Paging&gt;Out:Paging&#xD;&#xA;31c52cfb-0da3-4e7b-b8a6-b836e11fe79d:Default&gt;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Default&#xD;&#xA;8d5e16c0-0657-40b8-afd1-79039e0514cb:Default&gt;8891226e-049a-435a-8cf3-3fb08ab6aeb3:EventSettings" Type="String" />
+      <Value Key="StreamsOut" Value="Default,Header,Events,Paging" Type="String" />
+      <Value Key="StreamWiring" Value="8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Default&gt;03ba7361-27bc-45f1-8988-a647da72072f:Default&#xD;&#xA;8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Published&gt;03ba7361-27bc-45f1-8988-a647da72072f:Published&#xD;&#xA;8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3:Drafts&gt;03ba7361-27bc-45f1-8988-a647da72072f:Drafts&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;184d9bb0-2bbb-4ecf-afd5-12643f2fd80e:Default&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;d19aa6a4-3540-4dcd-917e-59218d53d7f7:Default&#xD;&#xA;03ba7361-27bc-45f1-8988-a647da72072f:Default&gt;8d5e16c0-0657-40b8-afd1-79039e0514cb:Default&#xD;&#xA;184d9bb0-2bbb-4ecf-afd5-12643f2fd80e:Default&gt;3e4ce88d-ae71-441d-9553-1d9659bbeab2:Default&#xD;&#xA;3e4ce88d-ae71-441d-9553-1d9659bbeab2:Default&gt;31c52cfb-0da3-4e7b-b8a6-b836e11fe79d:Default&#xD;&#xA;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Default&gt;Out:Events&#xD;&#xA;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Paging&gt;Out:Paging&#xD;&#xA;31c52cfb-0da3-4e7b-b8a6-b836e11fe79d:Default&gt;8891226e-049a-435a-8cf3-3fb08ab6aeb3:Default&#xD;&#xA;8d5e16c0-0657-40b8-afd1-79039e0514cb:Default&gt;8891226e-049a-435a-8cf3-3fb08ab6aeb3:EventSettings&#xD;&#xA;8d5e16c0-0657-40b8-afd1-79039e0514cb:Default&gt;Out:Default" Type="String" />
       <Value Key="TestParameters" Value="" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="8e42c92b-a9f6-4d65-b3cb-1d7dc27f90b3" Json="True" KeyGuid="5c56ca72-a5c1-4456-8198-dbf012dc7d48">
@@ -7874,7 +7874,7 @@
       <Value Key="Description" Value="" Type="String" />
       <Value Key="Name" Value="ValueSort" Type="String" />
       <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.ValueSort, ToSic.Eav.DataSources" Type="String" />
-      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 171,&#xD;&#xA;  &quot;Left&quot;: 100&#xD;&#xA;}" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 260,&#xD;&#xA;  &quot;Left&quot;: 100&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="|Config ToSic.Eav.DataSources.ValueSort" AttributeSetName="ToSic.Eav.DataSources.ValueSort" EntityGUID="d39314e6-6015-4c58-8047-98569abe375f" Json="True" KeyGuid="31c52cfb-0da3-4e7b-b8a6-b836e11fe79d">
       <Value Key="Attributes" Value="Start" Type="String">
@@ -8015,7 +8015,7 @@
       <Value Key="Description" Value="" Type="String" />
       <Value Key="Name" Value="ValueFilter" Type="String" />
       <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.ValueFilter, ToSic.Eav.DataSources" Type="String" />
-      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 320,&#xD;&#xA;  &quot;Left&quot;: 88&#xD;&#xA;}" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 360,&#xD;&#xA;  &quot;Left&quot;: 100&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="|Config ToSic.Eav.DataSources.ValueFilter" AttributeSetName="ToSic.Eav.DataSources.ValueFilter" EntityGUID="fc4a09ca-eb46-47ab-9ac4-5d75e75080df" Json="True" KeyGuid="3e4ce88d-ae71-441d-9553-1d9659bbeab2">
       <Value Key="Attribute" Value="Start" Type="String">
@@ -8109,7 +8109,7 @@
       <Value Key="Description" Value="" Type="String" />
       <Value Key="Name" Value="Paging" Type="String" />
       <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.Paging, ToSic.Eav.DataSources" Type="String" />
-      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 227,&#xD;&#xA;  &quot;Left&quot;: 940&#xD;&#xA;}" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 140,&#xD;&#xA;  &quot;Left&quot;: 160&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity AssignmentObjectType="Entity" AttributeSetStaticName="|Config ToSic.Eav.DataSources.Paging" AttributeSetName="ToSic.Eav.DataSources.Paging" EntityGUID="90d362b4-210b-44f8-b289-7d7ab52cc688" Json="True" KeyGuid="8891226e-049a-435a-8cf3-3fb08ab6aeb3">
       <Value Key="PageNumber" Value="[QueryString:Page||1]" Type="String">
@@ -10308,16 +10308,103 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="0c9653cc-053a-4cfd-9045-4949462a0960" Json="True">
+      <Value Key="Content" Value="60812334-e9d0-4ab7-a195-f3c321487866" Type="Entity" />
+      <Value Key="Presentation" Value="null" Type="Entity" />
+      <Value Key="Template" Value="b418e3aa-77fc-463d-965e-69038ae89076" Type="Entity" />
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="889fe838-fd3f-4297-88bb-038ea36a2ea8" AttributeSetName="EventSettings" EntityGUID="60812334-e9d0-4ab7-a195-f3c321487866">
+      <Value Key="ItemsPerPage" Value="" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registration" EntityGUID="60361b12-3a07-412e-815f-aea62fd2b6a3">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDateEntity" Value="174513f9-d96a-4d47-af85-15000bce8b7f" Type="Entity" />
+      <Value Key="FirstName" Value="Maxim" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Hüsler" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="Maxim.Huesler@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MobilePhone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0798487505" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Salutation" Value="Mr" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Wiedenstrasse 15" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2021-10-06T13:46:14" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs SG" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="b329f4d1-7b7a-4f05-95c2-2777a524516d">
+      <Value Key="ModuleId" Value="5737" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;CourseNumber&quot;:&quot;&quot;,&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Maxim&quot;,&quot;LastName&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;ZIPCity&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T13:46:14.1233541+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T13:46:14.3108467+02:00&quot;,&quot;ModuleId&quot;:5737,&quot;Title&quot;:&quot;Form 2021-10-06T13:46:14&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T13:46:14" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T13:46:14" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="2260866e-7c5c-498d-a0c6-b9e00d915c2b">
+      <Value Key="ModuleId" Value="5737" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;Files&quot;:[],&quot;CourseNumber&quot;:&quot;&quot;,&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;4/18/2022 - 7/30/2022&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Sorry für den EMail spamm&quot;,&quot;LastName&quot;:&quot;Letzter Test&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;ZIPCity&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;Maxim.Huesler@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDateEntity&quot;:&quot;174513f9-d96a-4d47-af85-15000bce8b7f&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SubmitDate&quot;:&quot;2021-10-06T13:56:14.4002312+02:00&quot;,&quot;SenderIp&quot;:&quot;194.0.212.23&quot;,&quot;Status&quot;:&quot;registered&quot;,&quot;Timestamp&quot;:&quot;2021-10-06T13:56:14.5252294+02:00&quot;,&quot;ModuleId&quot;:5737,&quot;Title&quot;:&quot;Form 2021-10-06T13:56:14&quot;}" Type="Custom">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-10-06T13:56:14" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-10-06T13:56:14" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
   </Entities>
   <PortalFiles>
     <File Id="4564" RelativePath="adam\Events and Courses 5\r5NOpxGsUkmx5uQodtskbA\PlaceHolderImg\placeholder.svg" />
     <File Id="4566" RelativePath="adam\Events and Courses 5\E1UBfLSAYUekGYJM99kXDg\Document\dummy.pdf" />
     <File Id="4561" RelativePath="adam\Events and Courses 5\Wf2pg416bUe4oinKzjl_5Q\Image\Demo-2.jpg" />
+    <File Id="6038" RelativePath="adam\EventsAndCourses6\E1UBfLSAYUekGYJM99kXDg\Image\Platzhalterbild_Inhalt-1.jpg" />
   </PortalFiles>
   <PortalFolders>
     <Folder Id="10186" RelativePath="adam/Events and Courses 5/r5NOpxGsUkmx5uQodtskbA/PlaceHolderImg/" />
     <Folder Id="10189" RelativePath="adam/Events and Courses 5/E1UBfLSAYUekGYJM99kXDg/Document/" />
     <Folder Id="10184" RelativePath="adam/Events and Courses 5/Wf2pg416bUe4oinKzjl_5Q/Image/" />
+    <Folder Id="13456" RelativePath="adam/EventsAndCourses6/E1UBfLSAYUekGYJM99kXDg/Image/" />
     <Folder Id="13454" RelativePath="adam/EventsAndCourses6/" />
+    <Folder Id="13455" RelativePath="adam/EventsAndCourses6/E1UBfLSAYUekGYJM99kXDg/" />
   </PortalFolders>
 </SexyContent>
