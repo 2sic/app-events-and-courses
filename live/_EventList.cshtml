@@ -7,19 +7,18 @@
   var resources = App.Resources;
 }
 
-<div class="app-events6 app-events6-list"
-  @Edit.TagToolbar(
-    AsList(App.Data["EventSettings"]).FirstOrDefault(), toolbar: new [] {
-      "settings&hover=left&autoAddMore=start",
+<div class="app-events6 app-events6-list">
+<div class="text-right text-end" >
+  @Edit.Toolbar(AsList(App.Data["EventSettings"]).FirstOrDefault(), toolbar: new [] {
+      "settings&autoAddMore=start",
       "group=add-event-buttons",
       "+new&title=new event&group=add-event-buttons?contentType=Event&entityId=0",
       "+contentitems&group=add-event-buttons?contentType=Event",
       "+new&color=red&title=new event date&group=add-event-buttons?contentType=EventDate&entityId=0",
       "+contentitems&color=red&group=add-event-buttons?contentType=EventDate",
       "+contentitems&color=orange&group=add-event-buttons?contentType=Registration",
-    }
-  )
->
+    })
+</div>
   @foreach (var e in events) {
     var eventDate = e.First().Start;
     @* Grouped months *@
