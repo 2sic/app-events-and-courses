@@ -4,21 +4,17 @@
   string detailsLink;
   var events = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
   var eventPage = CmsContext.Site.Url;
-  var resources = App.Resources;
-}
-
-<div class="app-events6 app-events6-list">
-<div class="text-right text-end" >
-  @Edit.Toolbar(AsList(App.Data["EventSettings"]).FirstOrDefault(), toolbar: new [] {
-      "settings&autoAddMore=start",
+  var listSettings = Content;
+  var listToolbar = new [] {
       "group=add-event-buttons",
-      "+new&title=new event&group=add-event-buttons?contentType=Event&entityId=0",
-      "+contentitems&group=add-event-buttons?contentType=Event",
-      "+new&color=red&title=new event date&group=add-event-buttons?contentType=EventDate&entityId=0",
-      "+contentitems&color=red&group=add-event-buttons?contentType=EventDate",
-      "+contentitems&color=orange&group=add-event-buttons?contentType=Registration",
-    })
-</div>
+      "+new&title=new event&group=add-event-buttons?contentType=Event&entityId=0", // adds new event
+      "+contentitems&title=show event data&group=add-event-buttons?contentType=Event", // shows event data
+      "+new&color=red&title=new event date&group=add-event-buttons?contentType=EventDate&entityId=0", // adds new event date
+      "+contentitems&title=show event date data&color=red&group=add-event-buttons?contentType=EventDate", // shows event date data
+      "+contentitems&title=show registration data&color=orange&group=add-event-buttons?contentType=Registration", // shows registration data
+    };
+}
+<div class="app-events6 app-events6-list" @Edit.TagToolbar(listSettings, toolbar: listToolbar)>
   @foreach (var e in events) {
     var eventDate = e.First().Start;
     @* Grouped months *@
@@ -42,7 +38,7 @@
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-events6-img @(Text.Has(item.Image) ? "" : "app-noimg")'>
                 <div class="overlay" style='@(Text.Has(item.Image) ? "" : "background-image: url('" + App.Path + "/src/images/trans.png?max-width=600&amp;mode=max&amp;scale=both&amp;quality=80')")'></div>
-                <img loading="lazy" class="img-fluid" src='@Link.Image(url: (Text.Has(item.Image) ? item.Image : resources.PlaceHolderImg), width: 800, height: 480, resizeMode: "crop", quality: 80)' alt="@item.Title" />
+                <img loading="lazy" class="img-fluid" src='@Link.Image(url: (Text.Has(item.Image) ? item.Image : Resources.PlaceHolderImg), width: 800, height: 480, resizeMode: "crop", quality: 80)' alt="@item.Title" />
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
@@ -57,7 +53,7 @@
                 <p>@item.ShortDescription.Replace("\n", "<br />")</p>
               }
 
-              <a class="stretched-link" href="@detailslink">@Html.Raw(resources.LabelReadMore)</a>
+              <a class="stretched-link" href="@detailslink">@Html.Raw(Resources.LabelReadMore)</a>
             </div>
           </div>
         </div>

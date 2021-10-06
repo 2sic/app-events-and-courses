@@ -3,9 +3,9 @@
 @{
   var fieldBuilder = CreateInstance("shared/FieldBuilder.cs");
   var course = AsList(App.Data["Event"])
-  .FirstOrDefault(x => x.EntityId == System.Convert.ToInt32(Request.QueryString["cid"]));
+              .FirstOrDefault(x => x.EntityId == System.Convert.ToInt32(Request.QueryString["cid"]));
   var eventDate = AsList(App.Data["EventDate"])
-  .FirstOrDefault(ed => ed.EntityId == System.Convert.ToInt32(Request.QueryString["did"]));
+              .FirstOrDefault(ed => ed.EntityId == System.Convert.ToInt32(Request.QueryString["did"]));
   var title = course == null ? "" : course.Title;
   var page = GetService<ToSic.Sxc.Web.IPageService>(); // Service to set titles etc. on the page
   page.SetTitle(Resources.CourseRegistrationTitle + " | " + title);
@@ -31,18 +31,23 @@ else
     </div>
   }
 
-  <div class="app-events6 app-events6-form" @Edit.TagToolbar(eventDate)
-  data-string-required="@Resources.ValidationRequired" data-string-email="@Resources.ValidationEmail">
+  @* additional text in title if set *@
+  var titleAddition = (!String.IsNullOrEmpty(eventDate.TitleAddition)) 
+    ? Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix 
+    : "";
+
+  <div class="app-events6 app-events6-form" 
+    @Edit.TagToolbar(eventDate) 
+    data-string-required="@Resources.ValidationRequired" 
+    data-string-email="@Resources.ValidationEmail"
+  >
     @* Title *@
-    <h1 class="mb-4">@Resources.CourseRegistrationTitle - @course.Title @((!String.IsNullOrEmpty(eventDate.TitleAddition))
-    ? Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix : "" )</h1>
+    <h1 class="mb-4">@Resources.CourseRegistrationTitle - @course.Title @titleAddition</h1>
 
     <div class="form app-events6-form @eventsDomId">
       @* Inputs *@
       @{
-        var additionalTitle = !String.IsNullOrEmpty(eventDate.TitleAddition) ? " " + Resources.TitleAdditionPrefix + " " +
-          eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix : "";
-        var inputTitle = Text.First(eventDate.Title, course.Title) + additionalTitle;
+        var inputTitle = Text.First(eventDate.Title, course.Title) + titleAddition;
       }
       @fieldBuilder.Text("CourseNumber", false, true, ((eventDate.Id != null) ? eventDate.Id : course.id))
       @fieldBuilder.Text("CourseName", true, true, inputTitle)
@@ -52,8 +57,7 @@ else
       @{
         var compDate = eventDate.Start.ToString("d") + ((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "");
       }
-      @fieldBuilder.Multiline(Resources.LabelCourseDate, true, true, (Text.Has(eventDate.TimeSpecifics) ?
-      eventDate.TimeSpecifics : compDate))
+      @fieldBuilder.Multiline(Resources.LabelCourseDate, true, true, (Text.Has(eventDate.TimeSpecifics) ? eventDate.TimeSpecifics : compDate))
 
       @* Salutation *@
       <h3>@Resources.CourseParticipantData</h3>

@@ -63,16 +63,13 @@ public class FieldBuilder : Custom.Hybrid.Code12
   public dynamic Text(string idString, bool required, bool disabled = false, string value = "")
   {
     var content = Tag.Input().Type("text").Id(idString).Attr("placeholder", Placeholder(idString, required)).Class("form-control");
-    if (value != null)
-    {
+    if (value != null) {
         content.Attr("value", value);
     }
-    if (required)
-    {
+    if (required) {
         content = content.Attr("data-pristine-required-message", Resources.LabelRequired).Required();
     }
-    if (disabled)
-    {
+    if (disabled) {
         content = content.Disabled();
     }
     return Field(idString, required, content);
@@ -82,8 +79,7 @@ public class FieldBuilder : Custom.Hybrid.Code12
   public dynamic EMail(string idString, bool required)
   {
     var content = Tag.Input().Type("email").Id(idString).Attr("placeholder", Placeholder(idString, required)).Class("form-control");
-    if (required)
-    {
+    if (required) {
         content = content.Attr("data-smk-msg", Resources.LabelValidEmail).Required();
     }
     return Field(idString, required, content);
@@ -93,16 +89,13 @@ public class FieldBuilder : Custom.Hybrid.Code12
   public dynamic Multiline(string idString, bool required, bool disabled = false, string value = "")
   {
     var content = Tag.Textarea().Id(idString).Attr("placeholder", Placeholder(idString, required)).Class("form-control");
-    if (value != null)
-    {
+    if (value != null) {
         content.Add(value);
     }
-    if (required)
-    {
+    if (required) {
         content = content.Attr("data-smk-msg", Resources.LabelRequired).Required();
     }
-    if (disabled)
-    {
+    if (disabled) {
         content = content.Disabled();
     }
     return Field(idString, required, content);
@@ -112,15 +105,13 @@ public class FieldBuilder : Custom.Hybrid.Code12
   public dynamic DropDown(string idString, bool required, string[] values)
   {
     var content = Tag.Select().Id(idString).Class("form-control");
-    if (required)
-    {
+    if (required) {
         content = content.Attr("data-smk-msg", Resources.LabelRequired).Required();
     }
 
     content.Add(Tag.Option("--Please Select--").Attr("value", ""));
 
-    foreach (var value in values)
-    {
+    foreach (var value in values) {
         content.Add(Tag.Option(value));
     }
 
