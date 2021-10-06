@@ -38,7 +38,7 @@
       <span class="app-events6-categories">@item.Category.Title</span>
     </div>
 
-    <img loading="lazy" class="d-block d-md-none m-auto img-fluid" src="@Link.Image(url: item.Image, width: 540, quality: 95)" alt="@item.Title" />
+    <img loading="lazy" class="d-block d-md-none m-auto img-fluid" src='@Link.Image(item.Image, Settings.Images.Content, factor: "5:3")' alt="@item.Title" />
   </div>
 
   <div class="app-events6-detail-content">
@@ -129,7 +129,7 @@
 
       @if (Text.Has(item.Image)) {
         <div class="col-12 col-md-4 d-none d-md-block")>
-          <img loading="lazy" class="img-fluid" src="@Link.Image(url: item.Image, width: 540, quality: 95)" alt="@item.Title" />
+          <img loading="lazy" class="img-fluid" src='@Link.Image(item.Image, Settings.Images.Content, factor: "5:3")' alt="@item.Title" />
         </div>
       }
     </div>

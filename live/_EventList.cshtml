@@ -31,15 +31,15 @@
       if (Edit.Enabled || d.Event.ShowInLanguage != false) {
         var item = d.Event;
         var detailslink = Link.To(parameters: "details=" + @d.EntityId + "&" + item.UrlKey);
+        var overlayStyle = Text.Has(item.Image) ? "" : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", Settings.Images.Content, factor: "5:3") + "');";
           
         <div class="row position-relative app-events6-list-item mb-4" @Edit.TagToolbar(d.Event, toolbar: new [] {
           "toolbar=empty", "+edit"
         })>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-events6-img @(Text.Has(item.Image) ? "" : "app-noimg")'>
-            @* TODO: image factor using settigs *@
-                <div class="overlay" style='@(Text.Has(item.Image) ? "" : "background-image: url('" + App.Path + "/src/images/trans.png?max-width=600&amp;mode=max&amp;scale=both&amp;quality=80')")'></div>
-                <img loading="lazy" class="img-fluid" src='@Link.Image(url: (Text.Has(item.Image) ? item.Image : Resources.PlaceHolderImg), width: 800, height: 480, resizeMode: "crop", quality: 80)' alt="@item.Title" />
+                <div class="overlay" style="@overlayStyle"></div>
+                <img loading="lazy" class="img-fluid" src='@Link.Image((Text.Has(item.Image) ? item.Image : Resources.PlaceHolderImg), Settings.Images.Content, factor: "5:3")' alt="@item.Title" />
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
