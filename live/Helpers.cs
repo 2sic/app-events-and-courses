@@ -25,7 +25,7 @@ public class Helpers: Custom.Hybrid.Code12
 
   // generate a paging-link number
   public string LinkToPageNumber(int pageNumber, string eventP){
-    string url = (@eventP + "/page/" + pageNumber);
+    string url = Link.To(parameters: "page=" + pageNumber);
     return url.ToLower();
   }
 }

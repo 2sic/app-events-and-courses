@@ -3,7 +3,6 @@
 @{
   string detailsLink;
   var events = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
-  var eventPage = CmsContext.Site.Url;
   var listSettings = Content;
   var listToolbar = new [] {
       "group=add-event-buttons",
@@ -62,7 +61,7 @@
     }
   }
 
-  @Html.Partial("_EventList.PartPaging.cshtml", new { EventPage = eventPage }) 
+  @Html.Partial("_EventList.PartPaging.cshtml") 
 </div>
 
 @Html.Partial("shared/_Assets.cshtml") 
