@@ -7,6 +7,7 @@
   var helpers = CreateInstance("Helpers.cs");
   var eventDate = AsList(Data).FirstOrDefault();
   var page = GetService<ToSic.Sxc.Web.IPageService>();  // Service to set titles etc. on the page
+  var render = GetService<ToSic.Sxc.Blocks.IRenderService>();
 
   if(eventDate == null) {
     <h1>@Resources.LabelEventNotExists</h1>
@@ -46,7 +47,7 @@
       <div class='col-12 @(Text.Has(item.Image) ? "col-md-8" : "")'>
         <h2 class="h5">@item.ShortDescription</h2>
         <div class="app-events6-detail-body mb-4">
-          @Render.All(item, field: "BodyContentBlocks", merge: item.Description)          
+          @render.All(item, field: "BodyContentBlocks", merge: item.Description)          
         </div>
 
         @* Other Dates of Event *@

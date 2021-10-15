@@ -1,17 +1,21 @@
 @inherits Custom.Hybrid.Razor12
 @using ToSic.Razor.Blade;
+@using System;
 @{
   var fieldBuilder = CreateInstance("shared/FieldBuilder.cs");
   var course = AsList(App.Data["Event"])
-              .FirstOrDefault(x => x.EntityId == System.Convert.ToInt32(CmsContext.Page.Parameters["courseId"]));
+              .FirstOrDefault(x => x.EntityId == 18102);
+              @* .FirstOrDefault(x => x.EntityId == System.Convert.ToInt32(CmsContext.Page.Parameters["courseId"])); *@
   var eventDate = AsList(App.Data["EventDate"])
-              .FirstOrDefault(ed => ed.EntityId == System.Convert.ToInt32(CmsContext.Page.Parameters["dateId"].Split("/")[0]));
+              .FirstOrDefault(ed => ed.EntityId == 18103);
+              @* .FirstOrDefault(ed => ed.EntityId == System.Convert.ToInt32(CmsContext.Page.Parameters["dateId"])); *@
   var title = course == null ? "" : course.Title;
   var page = GetService<ToSic.Sxc.Web.IPageService>(); // Service to set titles etc. on the page
   page.SetTitle(Resources.CourseRegistrationTitle + " | " + title);
 
   var eventsDomId = "app-events6-js" + CmsContext.Module.Id;
 }
+@CmsContext.Page.Parameters;
 
 @* Show warning if 404, event not found *@
 @if (course == null)
@@ -32,7 +36,7 @@ else
   }
 
   @* additional text in title if set *@
-  var titleAddition = (!String.IsNullOrEmpty(eventDate.TitleAddition)) 
+  var titleAddition = (!Text.Has(eventDate.TitleAddition)) 
     ? Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix 
     : "";
 
