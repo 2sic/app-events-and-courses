@@ -3,15 +3,13 @@
 using Microsoft.AspNetCore.Authorization; // .net core [AllowAnonymous] & [Authorize]
 using Microsoft.AspNetCore.Mvc;           // .net core [HttpGet] / [HttpPost] etc.
 #else
-using DotNetNuke.Web.Api;	// this is to verify the AntiForgeryToken
-using DotNetNuke.Services.Log.EventLog;
-using DotNetNuke.Services.Mail;
-using DotNetNuke.Security;
-using DotNetNuke.Web.Api;
+// 2sxclint:disable:no-dnn-namespaces 2sxclint:disable:no-web-namespaces
+using System.Web.Http;
 #endif
 using System;
 using System.Collections.Generic;
-using ToSic.Razor.Blade;
+using System.IO;
+using System.Linq;
 
 [AllowAnonymous]	// define that all commands can be accessed without a login
 public class FormController : Custom.Hybrid.Api12
