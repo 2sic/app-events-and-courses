@@ -14,7 +14,7 @@
   var page = GetService<ToSic.Sxc.Web.IPageService>(); // Service to set titles etc. on the page
   page.SetTitle(Resources.CourseRegistrationTitle + " | " + title);
 
-  var eventsDomId = "app-events6-js" + CmsContext.Module.Id;
+  var domAttribute = "events-" + CmsContext.Module.Id;
 }
 
 @* Show warning if 404, event not found *@
@@ -42,13 +42,14 @@ else
 
   <div class="app-events6 app-events6-form" 
     @Edit.TagToolbar(eventDate) 
+    @domAttribute
     data-string-required="@Resources.ValidationRequired" 
     data-string-email="@Resources.ValidationEmail"
   >
     @* Title *@
     <h1 class="mb-4">@Resources.CourseRegistrationTitle - @course.Title @titleAddition</h1>
 
-    <div class="form app-events6-form @eventsDomId">
+    <div class="form app-events6-form">
       @* Inputs *@
       @{
         var inputTitle = Text.First(eventDate.Title, course.Title) + titleAddition;
@@ -127,7 +128,7 @@ else
       @* Submit Button *@
       <div class="form-group row">
         <div class="col-md-9 offset-sm-3" )>
-          <button type="button" class="btn-send-events-form btn btn-primary">@Html.Raw(Resources.ButtonRegister)</button>
+          <button type="button" app-events6-send class="btn btn-primary">@Html.Raw(Resources.ButtonRegister)</button>
         </div>
       </div>
 
@@ -150,4 +151,15 @@ else
   </div>
 }
 
-@Html.Partial("shared/_Assets.cshtml")
+@functions {
+  dynamic AddHiddenMessage(string message, string type = "warning", string id = "", string attribute = "") {
+    var classes = "alert alert-" + type + " app-mobius5-message";
+    var rawMessage = message.Replace("<p>", "").Replace("</p>", "");
+    var messageDiv = Tag.Div(rawMessage).Class(classes).Id(id).Attr("role", "alert");
+    if (attribute != "") { messageDiv.Attr(attribute, ""); }
+    return messageDiv;
+  }
+}
+
+
+@Html.Partial("shared/_Assets.cshtml", new { DomAttribute = domAttribute })

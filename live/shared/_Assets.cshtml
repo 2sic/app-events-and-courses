@@ -15,6 +15,6 @@
 }
 @Edit.Enable(js: true)
 
-<turnOn turn-on='{"await": ["window.appEvents6"], "run": "window.appEvents6.init()", "data": { "domId": "@eventsDomId" }}'></turnOn>
+<turnOn turn-on='{"await": ["window.appEvents6"], "run": "window.appEvents6.init()", "data": { "domAttribute": "@DynamicModel.DomAttribute" }}'></turnOn>
 <link rel="stylesheet" href="@App.Path/live/dist/styles.min.css" data-enableoptimizations="true">
 <script src="@App.Path/live/dist/scripts.min.js" data-enableoptimizations="false"></script>

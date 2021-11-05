@@ -1,7 +1,12 @@
 using System;
 using System.Collections.Generic;
-using DotNetNuke.Services.Mail;
+using System.IO;
+using System.Linq;
+using System.Net.Mail;
+using System.Text;
+using ToSic.Razor.Blade;
 using ToSic.Sxc.Services; // platformLogService, mailService
+
 
 public class SendMail : Custom.Hybrid.Code12
 {
@@ -34,25 +39,35 @@ public class SendMail : Custom.Hybrid.Code12
     }
   }
 
-  public bool Send(string emailTemplateFilename, Dictionary<string,object> contactFormRequest, string from, string to, string cc, string replyTo)
+  public bool Send(string emailTemplateFilename, Dictionary<string,object> valuesWithMailLabels, string from, string to, string cc, string replyTo)
   {
-    var mailEngine = CreateInstance("../../live/email-templates/" + emailTemplateFilename);
-    var subject = mailEngine.Subject();
-    var mailBody = mailEngine.Message(contactFormRequest).ToString();
+    // Log what's happening in case we run into problems
+    var wrapLog = Log.Call("template:" + emailTemplateFilename + ", from:" + from + ", to:" + to + ", cc:" + cc + ", reply:" + replyTo);
 
+    Log.Add("Get MailEngine");
+    var mailEngine = CreateInstance("../../live/email-templates/" + emailTemplateFilename);
+    var mailBody = mailEngine.Message(valuesWithMailLabels).ToString();
+    var subject = mailEngine.Subject();
+
+    // Send Mail
+    // Note that if an error occurs, this will bubble up, the caller will convert it to format for the client
+    Log.Add("sending...");
     var mailService = GetService<IMailService>();
     mailService.Send(from: from, to: to, cc: cc, replyTo: replyTo, subject: subject, body: mailBody, attachments: new List<ToSic.Sxc.Adam.IFile>());
 
-    // Log to DNN - just as a last resort in case something is lost, to track down why
-    var logInfo = new DotNetNuke.Services.Log.EventLog.LogInfo
-    {
-        LogTypeKey = DotNetNuke.Services.Log.EventLog.EventLogController.EventLogType.ADMIN_ALERT.ToString()
-    };
-    logInfo.AddProperty("MailFrom", from);
-    logInfo.AddProperty("MailTo", to);
-    logInfo.AddProperty("MailCC", cc);
-    logInfo.AddProperty("MailReply", replyTo);
-    logInfo.AddProperty("MailSubject", subject);
+    // Log to Platform - just as a last resort in case something is lost, to track down why
+    var message = new StringBuilder()
+      .AppendLine("Send Mail")
+      .AppendLine("From:    " + from)
+      .AppendLine("To:      " + to)
+      .AppendLine("CC:      " + cc)
+      .AppendLine("Reply:   " + replyTo)
+      .AppendLine("Subject: " + subject)
+      .ToString();
+
+
+    GetService<ILogService>().Add("SendMail", message);
+    wrapLog("ok");
 
     return true;
   }
