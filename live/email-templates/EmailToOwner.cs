@@ -1,6 +1,4 @@
-using ToSic.Razor.Blade;
 using System.Collections.Generic;
-using System;
 public class EmailToOwner: Custom.Hybrid.Code12
 {
   // This generates the e-mail subject
@@ -23,11 +21,11 @@ public class EmailToOwner: Custom.Hybrid.Code12
       </head>
       <body>" + Resources.MailOwnerIntroduction;
 
-        foreach (var item in request) {
-          message += "<div><strong>"  + item.Key + "</strong>: " + item.Value + "</div>";
-        }
+    foreach (var item in request) {
+      message += "<div><strong>"  + item.Key + "</strong>: " + item.Value + "</div>";
+    }
 
-      message +=
+    message +=
       @"</body>
     </html>";
 

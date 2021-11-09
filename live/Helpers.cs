@@ -6,6 +6,7 @@ public class Helpers: Custom.Hybrid.Code12
 {
   // Show Title
   public string Title(dynamic item, dynamic eventDate) {
+    // TODO: @2hm - this variable doesn't do much, don't use it
     var resources = Resources;
     return item.Title + (Text.Has(eventDate.TitleAddition) ? resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + resources.TitleAdditionSuffix : "");
   }
@@ -21,11 +22,5 @@ public class Helpers: Custom.Hybrid.Code12
   // Shows a back to list button
   public dynamic BackToListButton() {
     return Tag.A(Resources.LabelBackToList).Class("btn btn-outline-primary").Href(Link.To());
-  }
-
-  // generate a paging-link number
-  public string LinkToPageNumber(int pageNumber, string eventP){
-    string url = Link.To(parameters: "page=" + pageNumber);
-    return url.ToLower();
   }
 }

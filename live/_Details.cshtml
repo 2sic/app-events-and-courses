@@ -9,6 +9,7 @@
   var page = GetService<ToSic.Sxc.Web.IPageService>();  // Service to set titles etc. on the page
   var render = GetService<ToSic.Sxc.Blocks.IRenderService>();
 
+  // Check if this event exists - if not, 404 not-found
   if(eventDate == null) {
     <h1>@Resources.LabelEventNotExists</h1>
     <p>@Resources.LabelEventNotExistsText</p>
@@ -19,11 +20,7 @@
   }
 
   var item = eventDate.Event;
-  var registrations = AsList(App.Data["Registration"])
-                      .Where(
-                        c => c.Status == "registered" 
-                        && c.EventDateEntity.Count > 0 
-                        && c.EventDateEntity.EntityGuid == eventDate.EntityGuid);
+  var registrations = AsList(App.Data["Registrations"]);
   var freeSeats = eventDate.Seats - registrations.Count();
 
   var titleEventDateEnd = (eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "";
@@ -39,7 +36,7 @@
       <span class="app-events6-categories">@item.Category.Title</span>
     </div>
 
-    <img loading="lazy" class="d-block d-md-none m-auto img-fluid" src='@Link.Image(item.Image, Settings.Images.Content, factor: "5:3")' alt="@item.Title" />
+    <img loading="lazy" class="d-block d-md-none m-auto img-fluid" src='@Link.Image(item.Image, Settings.Images.Content)' alt="@item.Title" />
   </div>
 
   <div class="app-events6-detail-content">
@@ -52,17 +49,17 @@
 
         @* Other Dates of Event *@
         @{
-          var sameEvents = AsList(Data["SameEvent"]).Where(c => c.Start.Date >= DateTime.Today).OrderBy(d => d.Start);
+          var futureDates = AsList(Data["FutureDates"]);
           var eventToolbar = new [] {
             "toolbar=empty", "+new?title=New-Event&contentType=EventDate&prefill:Event="+item.EntityGuid
           };
         }
         <div class="app-events6-further-events my-4" @Edit.TagToolbar(toolbar: eventToolbar)>
-          @if(sameEvents.Count() > 1) {
-            <h5 class="mb-3">@Resources.AllDatesOfThisEvent (@sameEvents.Count())</h5>
+          @if(futureDates.Count() > 1) {
+            <h5 class="mb-3">@Resources.AllDatesOfThisEvent (@futureDates.Count())</h5>
           }
           <ul class="list-group list-group-flush">
-            @foreach (var d in sameEvents) {
+            @foreach (var d in futureDates) {
               var currentEventClass = (d.EntityId == eventDate.EntityId) ? "current" : "";
               <li class="list-group-item mb-0 @currentEventClass"
                 @Edit.TagToolbar(d, toolbar: new [] {
@@ -130,7 +127,7 @@
 
       @if (Text.Has(item.Image)) {
         <div class="col-12 col-md-4 d-none d-md-block")>
-          <img loading="lazy" class="img-fluid" src='@Link.Image(item.Image, Settings.Images.Content, factor: "5:3")' alt="@item.Title" />
+          <img loading="lazy" class="img-fluid" src='@Link.Image(item.Image, Settings.Images.Content)' alt="@item.Title" />
         </div>
       }
     </div>

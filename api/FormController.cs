@@ -50,7 +50,7 @@ public class FormController : Custom.Hybrid.Api12
     // in the request with the correct name, they will be added automatically
     contactFormRequest.Add("SubmitDate", DateTime.Now);
     contactFormRequest.Add("Status", "registered");
-    App.Data.Create("Registration", contactFormRequest);
+    App.Data.Create("Registrations", contactFormRequest);
 
     contactFormRequest.Add("Title", "Form " + DateTime.Now.ToString("s"));
     // Automatically full-save each request into a system-protocol content-type
