@@ -4,7 +4,7 @@
 
 @{
   // get some helper functions for later on
-  var helpers = CreateInstance("Helpers.cs");
+  var helpers = CreateInstance("DetailsHelpers.cs");
   var eventDate = AsList(Data).FirstOrDefault();
   var page = GetService<ToSic.Sxc.Web.IPageService>();  // Service to set titles etc. on the page
   var render = GetService<ToSic.Sxc.Blocks.IRenderService>();
@@ -20,7 +20,7 @@
   }
 
   var item = eventDate.Event;
-  var registrations = AsList(App.Data["Registrations"]);
+  var registrations = AsList(Data["Registrations"]);
   var freeSeats = eventDate.Seats - registrations.Count();
 
   var titleEventDateEnd = (eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "";

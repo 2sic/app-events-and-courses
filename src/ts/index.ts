@@ -37,11 +37,16 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
       formValues.Recaptcha = token
     }
 
+
+    // imply that message is sending by ui modifications 
+
     disableInputs(eventsWrapper, true)
     showAlert(eventsWrapper, 'msgSending')
 
     const result = sendForm(formValues, eventsWrapper)
 
+    //#region request handling
+    
     result.success((successData: unknown) => {
       if(debug) console.log('success', successData)
       let btn = (eventsWrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement)
@@ -63,5 +68,7 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
 
       addTrackingEvent('trackEventsForm', 'events-form', btn.innerText)
     });
+
+    //#endregion
   })
 }

@@ -4,6 +4,9 @@
 @using System.Text.RegularExpressions;
 @{
   var fieldBuilder = CreateInstance("shared/FieldBuilder.cs");
+
+  // TODO: @2mh - get events & eventDate using query, not with code
+  // TODO: @2mh - you used the CmsContext.Page.Parameters wrong, best discuss w/2dm to understand
   Match courseParam = Regex.Match(CmsContext.Page.Parameters.ToString(), @"courseId=([^&]*)");
   var course = AsList(App.Data["Event"])
               .FirstOrDefault(x => x.EntityId == System.Convert.ToInt32(courseParam.Groups[1].Value));
@@ -49,6 +52,7 @@ var titleAddition = (!Text.Has(eventDate.TitleAddition))
     @{
       var inputTitle = Text.First(eventDate.Title, course.Title) + titleAddition;
     }
+    @* TODO: @2mh - hide the CourseNumber if there is none *@
     @fieldBuilder.Text("CourseNumber", false, true, ((eventDate.Id != null) ? eventDate.Id : course.id))
     @fieldBuilder.Text("CourseName", true, true, inputTitle)
     @fieldBuilder.Text("CourseLocation", true, true, Text.First(eventDate.Location, course.Location))
@@ -139,6 +143,7 @@ var titleAddition = (!Text.Has(eventDate.TitleAddition))
       @Html.Raw(Resources.SuccessMessage)
     </div>
 
+    @* @2mh - I would not put an if() around this - it's hidden anyhow, keep it simple ;) *@
     @if (!Text.Has(Settings.OwnerMail) || !Text.Has(Settings.MailFrom)) {
       @AddHiddenMessage(Resources.MessageDefaultMailSettings, "warning", "", "app-events6-config-warning")
     }

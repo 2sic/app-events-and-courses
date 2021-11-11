@@ -2,13 +2,11 @@ using ToSic.Razor.Blade;
 using System.Linq;
 using System;
 
-public class Helpers: Custom.Hybrid.Code12
+public class DetailsHelpers: Custom.Hybrid.Code12
 {
   // Show Title
   public string Title(dynamic item, dynamic eventDate) {
-    // TODO: @2hm - this variable doesn't do much, don't use it
-    var resources = Resources;
-    return item.Title + (Text.Has(eventDate.TitleAddition) ? resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + resources.TitleAdditionSuffix : "");
+    return item.Title + (Text.Has(eventDate.TitleAddition) ? Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix : "");
   }
 
   // Shows Event Details boxes
