@@ -1,19 +1,16 @@
 @inherits Custom.Hybrid.Razor12
 @using ToSic.Razor.Blade;
 @{
+  // TODO: @2mh - I think this file shouldn't be called "DetailsList" - is it details or list?
+
   string detailsLink;
   var events = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
   var listSettings = Content;
-  var listToolbar = new [] {
-      "group=add-event-buttons",
-      "+new&title=new event&group=add-event-buttons?contentType=Event&entityId=0", // adds new event
-      "+contentitems&title=show event data&group=add-event-buttons?contentType=Event", // shows event data
-      "+new&color=red&title=new event date&group=add-event-buttons?contentType=EventDate&entityId=0", // adds new event date
-      "+contentitems&title=show event date data&color=red&group=add-event-buttons?contentType=EventDate", // shows event date data
-      "+contentitems&title=show registration data&color=orange&group=add-event-buttons?contentType=Registration", // shows registration data
-    };
 }
-<div class="app-events6 app-events6-list" @Edit.TagToolbar(listSettings, toolbar: listToolbar)>
+<div class="app-events6 app-events6-list" @Edit.TagToolbar(listSettings)>
+  @* Special buttons for admin *@
+  @Html.Partial("_List.PartAdmin.cshtml")
+
   @foreach (var e in events) {
     var eventDate = e.First().Start;
     @* Grouped months *@

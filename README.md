@@ -22,6 +22,10 @@ A standard Events and Courses app to use with 2sxc
 | Bootstrap 4         | ✅    | 
 | Bootstrap 5         | ✔️    | Works, but not optimized
 
+## Todo
+
+TODO: @2mh - colors are off, pager and title don't seem to use the correct primary color
+
 ## Customize the App
 
 TODO: 2dm/2ro - more instructions
