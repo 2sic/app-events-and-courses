@@ -2,14 +2,22 @@
 @using ToSic.Razor.Blade;
 @{
   string detailsLink;
-  var events = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
+  var queryEvents = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
   var listSettings = Content;
 }
 <div class="app-events6 app-events6-list" @Edit.TagToolbar(listSettings)>
   @* Special buttons for admin *@
   @Html.Partial("_List.PartAdmin.cshtml")
 
-  @foreach (var e in events) {
+  @if(Edit.Enabled) {
+    var eventsData = AsList(App.Data["Event"]);
+
+    foreach(var ev in eventsData) {
+      
+    }
+  }
+
+  @foreach (var e in queryEvents) {
     var eventDate = e.First().Start;
     @* Grouped months *@
     <h2>
@@ -24,7 +32,7 @@
     foreach (var d in e) {
       if (Edit.Enabled || d.Event.ShowInLanguage != false) {
         var item = d.Event;
-        var detailslink = Link.To(parameters: "details=" + @d.EntityId + "&" + item.UrlKey);
+        var detailslink = Link.To(parameters: "details=" + @item.EntityId + "&dateid=" + d.EntityId + "&" + item.UrlKey);
         var overlayStyle = Text.Has(item.Image) ? "" : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", Settings.Images.Content) + "');";
           
         <div class="row position-relative app-events6-list-item mb-4" @Edit.TagToolbar(d.Event, toolbar: new [] {

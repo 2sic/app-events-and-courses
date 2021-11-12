@@ -5,12 +5,16 @@
 @{
   // get some helper functions for later on
   var helpers = CreateInstance("DetailsHelpers.cs");
-  var eventDate = AsList(Data).FirstOrDefault();
+  
+  var eventData = AsList(Data["Event"]).FirstOrDefault();
+  var hasEventDate = AsList(Data["Current"]).FirstOrDefault() != null;
+  var eventDate =  AsList(Data["Current"]).FirstOrDefault() ?? AsDynamic("");
+
   var page = GetService<ToSic.Sxc.Web.IPageService>();  // Service to set titles etc. on the page
   var render = GetService<ToSic.Sxc.Blocks.IRenderService>();
 
   // Check if this event exists - if not, 404 not-found
-  if(eventDate == null) {
+  if(eventDate == null && eventData == null) {
     <h1>@Resources.LabelEventNotExists</h1>
     <p>@Resources.LabelEventNotExistsText</p>
 
@@ -19,12 +23,17 @@
     return ;
   }
 
-  var item = eventDate.Event;
+  var item = hasEventDate ? eventDate.Event : eventData;
   var registrations = AsList(Data["Registrations"]);
-  var freeSeats = eventDate.Seats - registrations.Count();
+  var freeSeats = (eventDate == null ? 0 : eventDate.Seats) - registrations.Count();
 
-  var titleEventDateEnd = (eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "";
-  page.SetTitle(item.Title + " | " + eventDate.Start.ToString("d") + titleEventDateEnd);
+  if(hasEventDate) {
+    var titleEventDateEnd = (eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "";
+    page.SetTitle(item.Title + " | " + eventDate.Start.ToString("d") + titleEventDateEnd);
+  } else {
+    page.SetTitle(item.Title + " | ");
+  }
+  
 }
 
 <div class="app-events6 app-events6-detail" @Edit.TagToolbar(item, toolbar: "-new")>
@@ -32,7 +41,9 @@
     <h1 class="m-0">@helpers.Title(item, eventDate)</h1>
 
     <div class="event-meta">
-      <span class="app-events6-date">@eventDate.Start.ToString("d") @((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) | </span>
+      @if(hasEventDate) {
+        <span class="app-events6-date">@eventDate.Start.ToString("d") @((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) | </span>
+      }
       <span class="app-events6-categories">@item.Category.Title</span>
     </div>
 
@@ -46,7 +57,7 @@
         <div class="app-events6-detail-body mb-4">
           @render.All(item, field: "BodyContentBlocks", merge: item.Description)          
         </div>
-
+    
         @* Other Dates of Event *@
         @{
           var futureDates = AsList(Data["FutureDates"]);
@@ -60,13 +71,13 @@
           }
           <ul class="list-group list-group-flush">
             @foreach (var d in futureDates) {
-              var currentEventClass = (d.EntityId == eventDate.EntityId) ? "current" : "";
+              var currentEventClass = (hasEventDate && d.EntityId == eventDate.EntityId) ? "current" : "";
               <li class="list-group-item mb-0 @currentEventClass"
                 @Edit.TagToolbar(d, toolbar: new [] {
                   "toolbar=empty", "+edit"
                 })
               >
-                <a href="@Link.To(parameters: "details=" + d.EntityId)">
+                <a href="@Link.To(parameters: "details=" + item.EntityId + "&dateid=" + d.EntityId)">
                   <strong>@d.Start.ToString("d")  @((d.End != null) ? " - " + d.End.ToString("d") : "")</strong>
                   @(Text.Has(d.TitleAddition) ? " - " + d.TitleAddition : "")
                   @(Text.Has(d.TimeSpecifics) ? " - " + d.TimeSpecifics : "")
@@ -87,7 +98,7 @@
           @helpers.DetailsBox(Resources.Fee, Text.First(eventDate.Fee, item.Fee))
 
           @* Event Registration / Seat Info *@
-          @if(eventDate.RegistrationEnabled && eventDate.IsFullyBooked == false && eventDate.IsCancelled == false && eventDate.Seats != null) {
+          @if(hasEventDate && eventDate.RegistrationEnabled && eventDate.IsFullyBooked == false && eventDate.IsCancelled == false && eventDate.Seats != null) {
             @helpers.DetailsBox(Resources.Seats, freeSeats.ToString())
           }
 
@@ -96,7 +107,7 @@
 
           @* Event more detail file/link *@
           @{
-            var moreDetailsLink = Text.First(eventDate.Document, item.Document);
+            var moreDetailsLink = ""; //Text.First(eventDate.Document, item.Document);
           }
           @if(Text.Has(moreDetailsLink)) {
             var fileName = System.IO.Path.GetFileName(moreDetailsLink);
@@ -108,11 +119,11 @@
         </div>
 
         @* Event Status (Registration, Canceled, Overbooked) *@
-        @if (eventDate.IsCancelled == true) {
+        @if (hasEventDate && eventDate.IsCancelled == true) {
           <div class="alert alert-warning">
             @Resources.StatusCanceled
           </div>
-        } else if(Settings.RegistrationEnabled && eventDate.RegistrationEnabled) {
+        } else if(Settings.RegistrationEnabled && hasEventDate && eventDate.RegistrationEnabled) {
           if(1 <= 0 || eventDate.IsFullyBooked) { // Turn 1 back to freeSeats after fix
             <div class="alert alert-warning">
               @Resources.StatusFullyBooked
