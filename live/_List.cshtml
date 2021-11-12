@@ -1,8 +1,6 @@
 @inherits Custom.Hybrid.Razor12
 @using ToSic.Razor.Blade;
 @{
-  // TODO: @2mh - I think this file shouldn't be called "DetailsList" - is it details or list?
-
   string detailsLink;
   var events = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
   var listSettings = Content;

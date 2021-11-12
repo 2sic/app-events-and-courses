@@ -51,9 +51,11 @@ var titleAddition = (!Text.Has(eventDate.TitleAddition))
     @* Inputs *@
     @{
       var inputTitle = Text.First(eventDate.Title, course.Title) + titleAddition;
+      var courseNumber = (eventDate.Id != null) ? eventDate.Id : course.id;
     }
-    @* TODO: @2mh - hide the CourseNumber if there is none *@
-    @fieldBuilder.Text("CourseNumber", false, true, ((eventDate.Id != null) ? eventDate.Id : course.id))
+    @if (Text.Has(courseNumber)) {
+      @fieldBuilder.Text("CourseNumber", false, true, courseNumber)
+    }
     @fieldBuilder.Text("CourseName", true, true, inputTitle)
     @fieldBuilder.Text("CourseLocation", true, true, Text.First(eventDate.Location, course.Location))
 
