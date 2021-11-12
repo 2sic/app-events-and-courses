@@ -11,9 +11,11 @@
   }
 
   page.Activate("turnOn"); // see https://r.2sxc.org/turnon
+
+  var domAttribute = "events-" + CmsContext.Module.Id;
 }
 
 @Edit.Enable(js: true)
-<turnOn turn-on='{"run": "window.appEvents6.init()", "data": { "domAttribute": "@DynamicModel.DomAttribute" }}'></turnOn>
+<turnOn turn-on='{"run": "window.appEvents6.init()", "data": { "domAttribute": "@domAttribute" }}'></turnOn>
 <link rel="stylesheet" href="@App.Path/live/dist/styles.min.css" data-enableoptimizations="true">
 <script src="@App.Path/live/dist/scripts.min.js" data-enableoptimizations="false"></script>
