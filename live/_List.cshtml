@@ -1,21 +1,17 @@
 @inherits Custom.Hybrid.Razor12
 @using ToSic.Razor.Blade;
+@using System.Linq;
+@using System;
 @{
   string detailsLink;
   var queryEvents = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
   var listSettings = Content;
 }
+
 <div class="app-events6 app-events6-list" @Edit.TagToolbar(listSettings)>
   @* Special buttons for admin *@
   @Html.Partial("_List.PartAdmin.cshtml")
-
-  @if(Edit.Enabled) {
-    var eventsData = AsList(App.Data["Event"]);
-
-    foreach(var ev in eventsData) {
-      
-    }
-  }
+  @Html.Partial("_List.EventsWithoutDate.cshtml")
 
   @foreach (var e in queryEvents) {
     var eventDate = e.First().Start;
@@ -51,7 +47,7 @@
                 @if(d.Event.ShowInLanguage == false && Edit.Enabled) { <span style="color:red;">@Resources.LanguageHidden.Replace("<p>", "").Replace("</p>", "")</span> }
               </h2>
               <div class="event-meta mb-3">
-                <span class="app-events6-date">@d.Start.ToString("d") @((d.End != null) ? "- " + d.End.ToString("d") : "")</span>
+                <span class="app-events6-date">@d.Start.ToString("d") @(!d.EndDateIsStartDate ? "- " + d.End.ToString("d") : "")</span>
                 <span class="app-events6-categories"> | @item.Category.Title</span>
               </div>
 

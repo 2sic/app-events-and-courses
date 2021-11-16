@@ -28,7 +28,7 @@
   var freeSeats = (eventDate == null ? 0 : eventDate.Seats) - registrations.Count();
 
   if(hasEventDate) {
-    var titleEventDateEnd = (eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "";
+    var titleEventDateEnd = (!eventDate.EndDateIsStartDate) ? " - " + eventDate.End.ToString("d") : " | ";
     page.SetTitle(item.Title + " | " + eventDate.Start.ToString("d") + titleEventDateEnd);
   } else {
     page.SetTitle(item.Title + " | ");
@@ -42,7 +42,7 @@
 
     <div class="event-meta">
       @if(hasEventDate) {
-        <span class="app-events6-date">@eventDate.Start.ToString("d") @((eventDate.End != null) ? " - " + eventDate.End.ToString("d") : "" ) | </span>
+        <span class="app-events6-date">@eventDate.Start.ToString("d") @(!eventDate.EndDateIsStartDate ? " - " + eventDate.End.ToString("d") : "" ) | </span>
       }
       <span class="app-events6-categories">@item.Category.Title</span>
     </div>
@@ -61,30 +61,45 @@
         @* Other Dates of Event *@
         @{
           var futureDates = AsList(Data["FutureDates"]);
+          var pastDates = futureDates.Where(d => d.End.Date < DateTime.Now.Date).Count();
           var eventToolbar = new [] {
-            "toolbar=empty", "+new?title=New-Event&contentType=EventDate&prefill:Event="+item.EntityGuid
+            "settings?show=always", "toolbar=empty", "+new?title=New-Event&contentType=EventDate&prefill:Event="+item.EntityGuid
           };
         }
-        <div class="app-events6-further-events my-4" @Edit.TagToolbar(toolbar: eventToolbar)>
-          @if(futureDates.Count() > 1) {
-            <h5 class="mb-3">@Resources.AllDatesOfThisEvent (@futureDates.Count())</h5>
-          }
-          <ul class="list-group list-group-flush">
-            @foreach (var d in futureDates) {
-              var currentEventClass = (hasEventDate && d.EntityId == eventDate.EntityId) ? "current" : "";
-              <li class="list-group-item mb-0 @currentEventClass"
-                @Edit.TagToolbar(d, toolbar: new [] {
-                  "toolbar=empty", "+edit"
-                })
-              >
-                <a href="@Link.To(parameters: "details=" + item.EntityId + "&dateid=" + d.EntityId)">
-                  <strong>@d.Start.ToString("d")  @((d.End != null) ? " - " + d.End.ToString("d") : "")</strong>
-                  @(Text.Has(d.TitleAddition) ? " - " + d.TitleAddition : "")
-                  @(Text.Has(d.TimeSpecifics) ? " - " + d.TimeSpecifics : "")
-                </a>
-              </li>
+        <div class="app-events6-further-events">
+          <div @Edit.TagToolbar(toolbar: eventToolbar)>
+            @if(futureDates.Count() == 0 && Edit.Enabled) {
+              <h5 class="mb-4 mt-4">@Resources.NoEventDates</h5>
+            } else if(futureDates.Count() > 1 || Edit.Enabled) {              
+              <h5 class="mb-3 mt-4">@Resources.AllDatesOfThisEvent (@(futureDates.Count() - pastDates))</h5>
+            } else {
+              
             }
-          </ul>
+          </div>
+
+          @if(futureDates.Count() > 0) {
+            if(Edit.Enabled && pastDates > 0) {
+              <small><a href="javascript:void(0)" class="js-app-events6-toggle-expired-dates">@App.Resources.BtnToggleExpiredDate</a></small>
+            }
+            <ul class="list-group list-group-flush mb-4">
+              @foreach (var d in futureDates) {
+                var currentEventClass = (hasEventDate && d.EntityId == eventDate.EntityId) ? "current" : "";
+                var hiddenEvent = (hasEventDate && d.End.Date < DateTime.Now.Date ? "event-hidden" : "");
+                <li class="list-group-item mb-0 @currentEventClass @hiddenEvent"
+                  @Edit.TagToolbar(d, toolbar: new [] {
+                    "toolbar=empty", "+edit", "+contentitems?contentType=Registrations&filter:Course=" + d.Event
+                  })
+                >
+                  <a href="@Link.To(parameters: "details=" + item.EntityId + "&dateid=" + d.EntityId)">
+                    <strong>@d.Start.ToString("d")  @(!d.EndDateIsStartDate ? " - " + d.End.ToString("d") : "")</strong>
+                    @(Text.Has(d.TitleAddition) ? " - " + d.TitleAddition : "")
+                    @(Text.Has(d.TimeSpecifics) ? " - " + d.TimeSpecifics : "")
+                  </a>
+                </li>
+              }
+            </ul>
+          }
+          
         </div>
 
         <div class="app-events6-detail-infos row mb-4">

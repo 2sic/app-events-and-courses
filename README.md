@@ -23,8 +23,6 @@ A standard Events and Courses app to use with 2sxc
 | Bootstrap 5         | ✔️    | Works, but not optimized
 
 
-TODO: @2mh - colors are off, pager and title don't seem to use the correct primary color
-
 ## Customize the App
 
 If you want to customize the CSS, you will usually follow the ["Create Custom Styles in a Standard 2sxc App" checklist](https://azing.org/2sxc/r/gg_aB9FD)

@@ -14,8 +14,22 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
   if (document.getElementsByTagName('form').length) document.getElementsByTagName('form')[0]?.setAttribute('novalidate', '')
   if (debug) console.log("Events6 loading, debug is enabled");
 
+  var btnToggleExpired = document.querySelector('.js-app-events6-toggle-expired-dates');
+  console.log(btnToggleExpired)
+  if(btnToggleExpired != null) {
+    btnToggleExpired.addEventListener('click', () => {
+      document.querySelectorAll('.event-hidden').forEach((elem: HTMLElement, index) => {
+        console.log(elem.style.display)
+        if (elem.style.display == '' || elem.style.display == "none") {
+          elem.style.display = "block";
+        } else {
+          elem.style.display = "none";
+        }
+      })
+    })
+  }
   const eventsWrapper = document.querySelectorAll(`[${domAttribute}]`)[0];
-  if(eventsWrapper != null) {
+  if(eventsWrapper != null) {    
     eventsWrapper.querySelectorAll('[app-events6-send]')[0].addEventListener('click', async (event: Event) => {
       event.preventDefault();
   

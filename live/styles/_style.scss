@@ -54,6 +54,10 @@
         background-color: #e9ecef;
       }
 
+      &.event-hidden {
+        display: none;
+      }
+
       a {
         display: block;
         padding: $list-group-item-padding-y $list-group-item-padding-x;
