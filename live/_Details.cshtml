@@ -87,7 +87,7 @@
                 var hiddenEvent = (hasEventDate && d.End.Date < DateTime.Now.Date ? "event-hidden" : "");
                 <li class="list-group-item mb-0 @currentEventClass @hiddenEvent"
                   @Edit.TagToolbar(d, toolbar: new [] {
-                    "toolbar=empty", "+edit", "+contentitems?contentType=Registrations&filter:Course=" + d.Event
+                    "toolbar=empty", "+edit", "+contentitems?contentType=Registrations&filter:EventDate=" + d.Start
                   })
                 >
                   <a href="@Link.To(parameters: "details=" + item.EntityId + "&dateid=" + d.EntityId)">
