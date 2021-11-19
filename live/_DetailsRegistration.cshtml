@@ -3,6 +3,7 @@
 @using System;
 @using System.Text.RegularExpressions;
 @{
+  // TODO: @2mh - rename to "_Registration.cshtml"
   var fieldBuilder = CreateInstance("shared/FieldBuilder.cs");
   
   var course = AsList(Data["Course"]).FirstOrDefault();
@@ -22,6 +23,7 @@
     @Resources.CourseNotFoundError
   </div>
 
+  // TODO: @2mh set 404 in header
   return;
 }
 
@@ -122,7 +124,8 @@ var titleAddition = (!Text.Has(eventDate.TitleAddition))
 
     @* Submit Button *@
     <div class="form-group row">
-      <div class="col-md-9 offset-sm-3" )>
+      @* TODO: @2ro - back button to details or list *@
+      <div class="col-md-9 offset-sm-3">
         <button type="button" app-events6-send class="btn btn-primary">@Html.Raw(Resources.ButtonRegister)</button>
       </div>
     </div>

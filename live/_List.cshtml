@@ -3,15 +3,17 @@
 @using System.Linq;
 @using System;
 @{
+  // TODO: @2ro - pls set image effect just like we have on content now
   string detailsLink;
   var queryEvents = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
   var listSettings = Content;
+
+  // TODO: @2mh - pls add a + button on the main toolbar to create a new event
 }
 
 <div class="app-events6 app-events6-list" @Edit.TagToolbar(listSettings)>
-  @* Special buttons for admin *@
-  @Html.Partial("_List.PartAdmin.cshtml")
-  @Html.Partial("_List.EventsWithoutDate.cshtml")
+  @* Events for Admin which don't have a date yet *@
+  @Html.Partial("_List.PartEventsWithoutDates.cshtml")
 
   @foreach (var e in queryEvents) {
     var eventDate = e.First().Start;
@@ -37,7 +39,7 @@
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-events6-img @(Text.Has(item.Image) ? "" : "app-events6-noimg")'>
                 <div class="overlay" style="@overlayStyle"></div>
-                <img loading="lazy" class="img-fluid" src='@Link.Image((Text.Has(item.Image) ? item.Image : Resources.PlaceHolderImg), Settings.Images.Content)' alt="@item.Title" />
+                <img loading="lazy" class="img-fluid" src='@Link.Image(Text.First(item.Image, Resources.PlaceHolderImg), Settings.Images.Content, factor: "1/3")' alt="@item.Title" />
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
@@ -64,6 +66,8 @@
   }
 
   @Html.Partial("_DetailsList.PartPaging.cshtml") 
+
+  @Html.Partial("_List.PartAdmin.cshtml")
 </div>
 
 @Html.Partial("shared/_Assets.cshtml") 
