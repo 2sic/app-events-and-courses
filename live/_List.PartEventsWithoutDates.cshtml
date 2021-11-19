@@ -8,8 +8,7 @@
       @foreach(var ev in AsList(App.Data["Event"])) {
         var eventCount = AsList(App.Data["EventDate"]).Where(d => d.Start.Date >= DateTime.Now.Date).Where(d => d.Event.EntityId == ev.EntityId).Count();
         if(eventCount == 0) {
-          // TODO: @2mh - on this toolbar edit only
-          <li class="list-group-item list-group-item-light mb-0" @Edit.TagToolbar(ev)>
+          <li class="list-group-item list-group-item-light mb-0" @Edit.TagToolbar(ev, toolbar: new [] { "toolbar=empty", "+edit" })>
             <a href="@Link.To(parameters: "details=" + @ev.EntityId + "&" + ev.UrlKey)">@ev.Title</a>
           </li>
           i++;

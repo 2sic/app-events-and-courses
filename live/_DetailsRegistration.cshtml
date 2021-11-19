@@ -22,15 +22,16 @@
     <span class="sr-only">Error:</span>
     @Resources.CourseNotFoundError
   </div>
+  @Tag.A(Resources.LabelBackToList).Class("btn btn-outline-primary").Href(Link.To());
 
-  // TODO: @2mh set 404 in header
+  page.SetHttpStatus(404);
   return;
 }
 
 @* additional text in title if set *@
 @{
-var titleAddition = (!Text.Has(eventDate.TitleAddition)) 
-  ? Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix 
+var titleAddition = (Text.Has(eventDate.TitleAddition)) 
+  ? " " + Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix 
   : "";
 }
 
@@ -124,8 +125,8 @@ var titleAddition = (!Text.Has(eventDate.TitleAddition))
 
     @* Submit Button *@
     <div class="form-group row">
-      @* TODO: @2ro - back button to details or list *@
       <div class="col-md-9 offset-sm-3">
+        <a href="@Link.To(parameters: "details=" + course.EntityId + "&dateid=" + eventDate.EntityId)" class="btn btn-outline-primary">@Html.Raw(Resources.LabelBack)</a>
         <button type="button" app-events6-send class="btn btn-primary">@Html.Raw(Resources.ButtonRegister)</button>
       </div>
     </div>

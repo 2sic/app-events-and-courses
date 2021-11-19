@@ -1,8 +1,27 @@
 .app-events6 {
   &.app-events6-list {
     .app-events6-list-item {
+      &:hover {
+        .effect-zoom {
+          img {
+            transform: scale(1.05);
+          }
+        }
+    
+        .effect-darken {
+          img {
+            opacity: 0.8;
+          }
+        }
+      }
+
       .app-events6-img {
         position: relative;
+        overflow: hidden;
+
+        img {
+          transition: transform .5s ease, opacity 0.3s ease-in-out;
+        }
 
         &.app-events6-noimg {
           background: #e9ecef;
@@ -27,13 +46,13 @@
 
         h2 {
           color: $primary;
-        }
+        }           
       }
     }
   }
 
   a {
-    text-decoration: none;
+    text-decoration: none;     
   }
 
   .app-events6-infocontainer {

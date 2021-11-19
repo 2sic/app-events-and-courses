@@ -6,7 +6,7 @@ public class DetailsHelpers: Custom.Hybrid.Code12
 {
   // Show Title
   public string Title(dynamic item, dynamic eventDate) {
-    return item.Title + (eventDate != null && Text.Has(eventDate.TitleAddition) ? Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix : "");
+    return item.Title + (eventDate != null && Text.Has(eventDate.TitleAddition) ? " " + Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix : "");
   }
 
   // Shows Event Details boxes
