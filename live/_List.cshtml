@@ -5,11 +5,9 @@
 @{
   var queryEvents = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
   var listSettings = Content;
-
-  // TODO: @2mh - pls add a + button on the main toolbar to create a new event
 }
 
-<div class="app-events6 app-events6-list" @Edit.TagToolbar(listSettings)>
+<div class="app-events6 app-events6-list" @Edit.TagToolbar(listSettings, toolbar: new [] { "+new&title=" + Resources.LabelAddEvent + "?contentType=Event" })>
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("_List.PartEventsWithoutDates.cshtml")
 
