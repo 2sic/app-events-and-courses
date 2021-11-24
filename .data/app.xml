@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="12.08.02" ExportDate="2021-11-23T10:48:56.3351239+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="12.08.02" ExportDate="2021-11-24T08:39:25.037613+01:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -3461,6 +3461,225 @@
             <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
           </Entity>
         </Attribute>
+        <Attribute StaticName="Recaptcha" Type="Empty" IsTitle="false">
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="fc7e9e1b-8369-4fde-bb69-9453f0f4a39d" Json="True" KeyNumber="4949">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="empty-default" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Recaptcha Lebels and Messages" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@empty-default" AttributeSetName="@empty-default" EntityGUID="3e809fc0-23e7-445e-8982-d432dfd4544e" Json="True" KeyNumber="4949">
+            <Value Key="DefaultCollapsed" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="MessageRecaptchaMissing" Type="String" IsTitle="false">
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="a555ed8e-42df-4fa6-b101-6b070635e02c" Json="True" KeyNumber="4951">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="string-wysiwyg" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Message: Recaptcha Missing" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@String" AttributeSetName="@String" EntityGUID="9fe9a823-fbcc-4e91-b47f-515cc1594988" Json="True" KeyNumber="4951">
+            <Value Key="DropdownValues" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-wysiwyg" AttributeSetName="@string-wysiwyg" EntityGUID="b26a367f-859d-4c6d-9c24-2d147a6f084f" Json="True" KeyNumber="4951">
+            <Value Key="ButtonAdvanced" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ButtonSource" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ContentCss" Value="" Type="Hyperlink">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Dialog" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="MessageRecaptchaWarning" Type="String" IsTitle="false">
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="3fb88583-c933-49b6-a7c9-49810e6fd1de" Json="True" KeyNumber="4952">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="string-wysiwyg" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Message: Show Recaptcha Warning" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@String" AttributeSetName="@String" EntityGUID="26aeb0a6-5ec5-469f-9122-9ab9df13c8a4" Json="True" KeyNumber="4952">
+            <Value Key="DropdownValues" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-wysiwyg" AttributeSetName="@string-wysiwyg" EntityGUID="52e9199e-ab3d-474c-9e94-d671a46e2e0c" Json="True" KeyNumber="4952">
+            <Value Key="ButtonAdvanced" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ButtonSource" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ContentCss" Value="" Type="Hyperlink">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Dialog" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="MessageContainsRecaptcha" Type="String" IsTitle="false">
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="a31ae525-f3e0-4aba-b408-bb4806bc1f95" Json="True" KeyNumber="4953">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="string-wysiwyg" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Message: Contains Recaptcha" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@String" AttributeSetName="@String" EntityGUID="adf92419-f2ce-467e-811c-72f7ce61b746" Json="True" KeyNumber="4953">
+            <Value Key="DropdownValues" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-wysiwyg" AttributeSetName="@string-wysiwyg" EntityGUID="15fc9fa8-50a2-4d09-9c88-7a71a4d1f774" Json="True" KeyNumber="4953">
+            <Value Key="ButtonAdvanced" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ButtonSource" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ContentCss" Value="" Type="Hyperlink">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Dialog" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
       </Attributes>
     </AttributeSet>
     <AttributeSet StaticName="App-Settings" Name="App-Settings" Description="Stores settings for an app" Scope="2SexyContent-App" AlwaysShareConfiguration="false">
@@ -3735,6 +3954,60 @@
             </Value>
           </Entity>
           <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@Boolean" AttributeSetName="@Boolean" EntityGUID="a8185e15-ab7b-4186-8cb9-511aefcc7836" Json="True" KeyNumber="2470" />
+        </Attribute>
+        <Attribute StaticName="Recaptcha" Type="Boolean" IsTitle="false">
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="7fa54bd7-5d31-43b2-9ef6-3301a95764a8" Json="True" KeyNumber="4948">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="boolean-default" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Recaptcha" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@Boolean" AttributeSetName="@Boolean" EntityGUID="f781eb96-0892-4c98-99fd-d3463eacf2f7" Json="True" KeyNumber="4948">
+            <Value Key="TitleFalse" Value="Recaptcha disabled" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="TitleFalse" Value="Recaptcha deaktiviert" Type="String">
+              <Dimension DimensionID="46" ReadOnly="false" />
+            </Value>
+            <Value Key="TitleIndeterminate" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="TitleTrue" Value="Recaptcha enabled" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="TitleTrue" Value="Recaptcha aktiviert" Type="String">
+              <Dimension DimensionID="46" ReadOnly="false" />
+            </Value>
+          </Entity>
         </Attribute>
       </Attributes>
     </AttributeSet>
@@ -7140,6 +7413,9 @@
       <Value Key="OwnerMailTemplateFile" Value="EmailToOwner.cs" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="Recaptcha" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7439,7 +7715,16 @@
       <Value Key="Management" Value="Leitung" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
+      <Value Key="MessageContainsRecaptcha" Value="&lt;p&gt;Events: This app contains reCAPTCHA.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="MessageDefaultMailSettings" Value="&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Mail settings have not yet been set correctly. Enter an e-mail address in the in the App Settings. Change the Settings using &lt;a class=&quot;alert-link target=&quot; href=&quot;https://azing.org/2sxc/r/K_RhCB2l&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;these instructions&lt;/a&gt;&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MessageRecaptchaMissing" Value="&lt;p&gt;Please fill in all required fields before sending.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MessageRecaptchaWarning" Value="&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; This recaptcha uses a demo API-Key, which will cause problems on live web sites. Change the RecaptchaApiKey using &lt;a class=&quot;alert-link target=&quot; href=&quot;https://azing.org/2sxc/r/mVhYG02x&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;these instructions&lt;/a&gt;&lt;/p&gt;" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="MessageSending" Value="&lt;p&gt;Signing up, please wait...&lt;/p&gt;" Type="String">
@@ -10488,6 +10773,51 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="TitleAddition" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="71352afa-6c2f-4d68-8264-acdd229fc318" Json="True">
+      <Value Key="Content" Value="dd5e0b65-114f-4a9a-a25b-e5aafe40b661" Type="Entity" />
+      <Value Key="Presentation" Value="null" Type="Entity" />
+      <Value Key="Template" Value="b418e3aa-77fc-463d-965e-69038ae89076" Type="Entity" />
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="889fe838-fd3f-4297-88bb-038ea36a2ea8" AttributeSetName="EventSettings" EntityGUID="dd5e0b65-114f-4a9a-a25b-e5aafe40b661">
+      <Value Key="Categories" Value="55c247bb-2b59-4569-a08f-0847f7e1fbb5" Type="Entity" />
+      <Value Key="ItemsPerPage" Value="" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="9b54501d-b949-48ba-b753-610999be219f">
+      <Value Key="ModuleId" Value="5800" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;12/18/2021&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Maxim&quot;,&quot;LastName&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;ZIPCity&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;testmail@2sic.net&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDate&quot;:&quot;4bbcd4f3-f102-4862-9fac-a2e1b221dbb8&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;Timestamp&quot;:&quot;2021-11-23T15:11:29.7923644+01:00&quot;,&quot;SenderIP&quot;:&quot;194.0.212.23&quot;,&quot;ModuleId&quot;:5800}" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-11-23T15:11:29" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-11-23T15:11:30" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="4a833692-d7f0-4b4b-9653-e8ee541c150a">
+      <Value Key="ModuleId" Value="5800" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;12/18/2021&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Maxim&quot;,&quot;LastName&quot;:&quot;Hüsler&quot;,&quot;Street&quot;:&quot;Wiedenstrasse 15&quot;,&quot;ZIPCity&quot;:&quot;Buchs SG&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0798487505&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;testmail@2sic.net&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDate&quot;:&quot;4bbcd4f3-f102-4862-9fac-a2e1b221dbb8&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;Timestamp&quot;:&quot;2021-11-23T15:14:22.501684+01:00&quot;,&quot;SenderIP&quot;:&quot;194.0.212.23&quot;,&quot;ModuleId&quot;:5800}" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-11-23T15:14:22" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-11-23T15:14:22" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
