@@ -18,7 +18,7 @@ A standard Events and Courses app to use with 2sxc
 | App Catalog         | ✅    | See [app catalog](https://2sxc.org/en/apps/app/courses-events-and-registrations)
 | Screenshots         | ✅    | See [app catalog](https://2sxc.org/en/apps/app/courses-events-and-registrations)
 | Best Practices      | ✅    | Uses v12.05 conventions
-| Bootstrap 3         | ✅    | 
+| Bootstrap 3         | ✔️    | Works, but not optimized 
 | Bootstrap 4         | ✅    | 
 | Bootstrap 5         | ✔️    | Works, but not optimized
 
@@ -32,7 +32,7 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
 1. 2017-03 v1.0
 1. 2017-05 v2.0
 1. ...
-1. 2021-11 v6.0
+1. 2021-11 v6.0 for 2sxc 12.08
     1. Now hybrid, runs on Dnn and Oqtane
     1. Updated to v12 best-practices
     1. Improved code, clean-up etc.

@@ -146,6 +146,8 @@ var titleAddition = (Text.Has(eventDate.TitleAddition))
     @if (!Text.Has(Settings.OwnerMail) || !Text.Has(Settings.MailFrom)) {
       @AddHiddenMessage(Resources.MessageDefaultMailSettings, "warning", "", "app-events6-config-warning")
     }
+
+    @if (Settings.Recaptcha ?? false)  { @Html.Partial("_Registration.PartRecaptcha.cshtml") }
   </div>
 </div>
 
