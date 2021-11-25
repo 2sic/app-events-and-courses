@@ -1,6 +1,6 @@
 @inherits Custom.Hybrid.Razor12
 @using ToSic.Razor.Blade;
-@using ToSic.SexyContent.ContentBlocks;
+@using ToSic.Sxc.Services;
 
 @{
   // get some helper functions for later on
@@ -11,8 +11,8 @@
   // Generate a dynamic object that always works, no matter if there is a Current date or not
   var eventDate =  AsList(Data["Current"]).FirstOrDefault() ?? AsDynamic("");
 
-  var page = GetService<ToSic.Sxc.Web.IPageService>();  // Service to set titles etc. on the page
-  var render = GetService<ToSic.Sxc.Blocks.IRenderService>();
+  var page = GetService<IPageService>();  // Service to set titles etc. on the page
+  var render = GetService<IRenderService>();
 
   // Check if this event exists - if not, 404 not-found
   if(eventDate == null && eventData == null) {
@@ -34,7 +34,6 @@
   } else {
     page.SetTitle(item.Title + " | ");
   }
-  
 }
 
 <div class="app-events6 app-events6-detail" @Edit.TagToolbar(item, toolbar: "-new")>

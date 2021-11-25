@@ -7,7 +7,6 @@ using System.Text;
 using ToSic.Razor.Blade;
 using ToSic.Sxc.Services; // platformLogService, mailService
 
-
 public class SendMail : Custom.Hybrid.Code12
 {
   public void sendMails(Dictionary<string,object> contactFormRequest) {

@@ -2,13 +2,14 @@
 @using ToSic.Razor.Blade;
 @using System;
 @using System.Text.RegularExpressions;
+@using ToSic.Sxc.Services;
 @{
   var fieldBuilder = CreateInstance("shared/FieldBuilder.cs");
   
   var course = AsList(Data["Course"]).FirstOrDefault();
   var eventDate = AsList(Data["EventDate"]).FirstOrDefault();
   var title = course == null ? "" : course.Title;
-  var page = GetService<ToSic.Sxc.Web.IPageService>(); // Service to set titles etc. on the page
+  var page = GetService<IPageService>(); // Service to set titles etc. on the page
   page.SetTitle(Resources.CourseRegistrationTitle + " | " + title);
 
   var domAttribute = "events-" + CmsContext.Module.Id;
