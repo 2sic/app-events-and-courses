@@ -28,13 +28,13 @@ export async function getFormValues(formWrapper: Element): Promise<any> {
     if (formField.getAttribute('type') && formField.getAttribute('type').toLowerCase() == 'file') {
       data['Files'].push(getFieldValue(formField))
       return
-    }    
+    }
     data[fieldKey] = getFieldValue(formField)
   })
 
   return Promise.all(data.Files.map(promiseFileMap)).then(loadedFiles => {
-    return {...data, Files: loadedFiles }
-  })  
+    return { ...data, Files: loadedFiles }
+  })
 }
 
 function getFieldKey(formField: HTMLInputElement): string {
@@ -42,17 +42,17 @@ function getFieldKey(formField: HTMLInputElement): string {
   return formField.getAttribute('name') || formField.getAttribute('id');
 }
 
-function getFieldValue(formField: HTMLInputElement): Promise<unknown> |unknown  {
+function getFieldValue(formField: HTMLInputElement): Promise<unknown> | unknown {
   // extract data from file fields
-  if(!formField.getAttribute('type')) return formField.value
-  switch(formField.getAttribute('type').toLowerCase()) {
-    case 'file': 
-    const file = formField.files[0];
-    if (!file) return;
-    return Promise.resolve(() => {
-      const reader = new FileReader()
-      reader.readAsDataURL(file);
-    })
+  if (!formField.getAttribute('type')) return formField.value
+  switch (formField.getAttribute('type').toLowerCase()) {
+    case 'file':
+      const file = formField.files[0];
+      if (!file) return;
+      return Promise.resolve(() => {
+        const reader = new FileReader()
+        reader.readAsDataURL(file);
+      })
     case 'radio': return formField.value
     case 'checkbox': return formField.checked ? "True" : "False"
     default: return formField.value
@@ -67,7 +67,7 @@ export function validateForm(formWrapper: Element): boolean {
 export function sendForm(formData: any, wrapper: Element): any {
   const btn = (wrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement);
   const sxc = $2sxc(btn);
-  return sxc.webApi.post("Form/ProcessForm", null, formData, true);
+  return sxc.webApi.fetch("Form/ProcessForm", formData)
 }
 
 export function disableInputs(wrapper: Element, state: boolean) {

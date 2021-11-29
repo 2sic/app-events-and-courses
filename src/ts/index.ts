@@ -15,7 +15,6 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
   if (debug) console.log("Events6 loading, debug is enabled");
 
   var btnToggleExpired = document.querySelector('.js-app-events6-toggle-expired-dates');
-  console.log(btnToggleExpired)
   if(btnToggleExpired != null) {
     btnToggleExpired.addEventListener('click', () => {
       document.querySelectorAll('.event-hidden').forEach((elem: HTMLElement, index) => {
@@ -58,32 +57,34 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
       disableInputs(eventsWrapper, true)
       showAlert(eventsWrapper, 'msgSending')
   
-      const result = sendForm(formValues, eventsWrapper)
-  
-      //#region request handling
       
-      result.success((successData: unknown) => {
-        if(debug) console.log('success', successData)
-        let btn = (eventsWrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement)
-        btn.setAttribute("disabled", "")
-  
-        showAlert(eventsWrapper, 'msgOk')
-        showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
-        disableInputs(eventsWrapper, false)
-  
-        addTrackingEvent('trackEventsForm', 'events-form', btn.innerText)
-      });
+      //#region request handling
+
+      sendForm(formValues, eventsWrapper)
+        .then((result: any) => {
+          // error
+          if(!result.ok) {
+            if(debug) console.log('error', result.status);
+            let btn = (eventsWrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement)
+      
+            showAlert(eventsWrapper, 'msgError')
+            showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
+      
+            addTrackingEvent('trackEventsForm', 'events-form', btn.innerText)
+          }
+          
+          // success
+          if(debug) console.log('success', result.json())
+          let btn = (eventsWrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement)
+          btn.setAttribute("disabled", "")
     
-      result.error((errorData: unknown) => {
-        if(debug) console.log('error', errorData);
-        let btn = (eventsWrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement)
-  
-        showAlert(eventsWrapper, 'msgError')
-        showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
-  
-        addTrackingEvent('trackEventsForm', 'events-form', btn.innerText)
-      });
-  
+          showAlert(eventsWrapper, 'msgOk')
+          showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
+          disableInputs(eventsWrapper, false)
+    
+          addTrackingEvent('trackEventsForm', 'events-form', btn.innerText)
+        })
+
       //#endregion
     })
   }
