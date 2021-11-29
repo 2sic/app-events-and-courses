@@ -26,6 +26,7 @@ public class SendMail : Custom.Hybrid.Code12
         settings.OwnerMailTemplateFile, contactFormRequest, settings.MailFrom, settings.OwnerMail, settings.OwnerMailCC, customerMail
       );
     } catch(Exception ex) {
+      Log.Exception(ex);
       throw new Exception("OwnerSend mail failed: " + ex.Message);
     }
 
@@ -34,6 +35,7 @@ public class SendMail : Custom.Hybrid.Code12
         settings.CustomerMailTemplateFile, contactFormRequest, settings.MailFrom, customerMail, Content.CustomerMailCC, settings.OwnerMail
       );
     } catch(Exception ex) {
+      Log.Exception(ex);
       throw new Exception("OwnerSend mail failed: " + ex.Message);
     }
   }

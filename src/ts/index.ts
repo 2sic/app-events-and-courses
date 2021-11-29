@@ -1,5 +1,5 @@
 import { showAlert, showConfigWarnings } from './lib-2sxc-alerts';
-import { disableInputs, getFormValues, sendForm, validateForm } from './lib-2sxc-forms';
+import { disableInputs, enableInputs, getFormValues, sendForm, validateForm } from './lib-2sxc-forms';
 import { getRecaptchaToken, requiresRecaptcha } from './lib-2sxc-recaptcha';
 import { addTrackingEvent } from './lib-2sxc-tracking';
 
@@ -69,6 +69,7 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
       
             showAlert(eventsWrapper, 'msgError')
             showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
+            enableInputs(eventsWrapper)
       
             addTrackingEvent('trackEventsForm', 'events-form', btn.innerText)
             return
