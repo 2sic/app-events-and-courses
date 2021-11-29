@@ -71,6 +71,7 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
             showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
       
             addTrackingEvent('trackEventsForm', 'events-form', btn.innerText)
+            return
           }
           
           // success
