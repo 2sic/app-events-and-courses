@@ -29,7 +29,8 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
   }
   const eventsWrapper = document.querySelectorAll(`[${domAttribute}]`)[0];
   if(eventsWrapper != null) {    
-    eventsWrapper.querySelectorAll('[app-events6-send]')[0].addEventListener('click', async (event: Event) => {
+    const submitButtom = (eventsWrapper.querySelectorAll('[app-mobius5-send]')[0] as HTMLButtonElement)
+    submitButtom.addEventListener('click', async (event: Event) => {
       event.preventDefault();
   
       const eventBtn = event.currentTarget as HTMLElement;
@@ -56,35 +57,32 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
   
       disableInputs(eventsWrapper, true)
       showAlert(eventsWrapper, 'msgSending')
-  
       
       //#region request handling
 
-      sendForm(formValues, eventsWrapper)
+      sendForm(formValues, submitButtom)
         .then((result: any) => {
           // error
           if(!result.ok) {
             if(debug) console.log('error', result.status);
-            let btn = (eventsWrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement)
       
             showAlert(eventsWrapper, 'msgError')
             showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
             enableInputs(eventsWrapper)
       
-            addTrackingEvent('trackEventsForm', 'events-form', btn.innerText)
+            addTrackingEvent('trackEventsForm', 'events-form', submitButtom.innerText)
             return
           }
           
           // success
           if(debug) console.log('success', result.json())
-          let btn = (eventsWrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement)
-          btn.setAttribute("disabled", "")
+          submitButtom.setAttribute("disabled", "")
     
           showAlert(eventsWrapper, 'msgOk')
           showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
           disableInputs(eventsWrapper, false)
     
-          addTrackingEvent('trackEventsForm', 'events-form', btn.innerText)
+          addTrackingEvent('trackEventsForm', 'events-form', submitButtom.innerText)
         })
 
       //#endregion

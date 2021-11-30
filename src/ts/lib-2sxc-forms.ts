@@ -65,10 +65,9 @@ export function validateForm(formWrapper: Element): boolean {
   return pristine.validate();
 }
 
-export function sendForm(formData: any, wrapper: Element): Promise<unknown> {
-  const btn = (wrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement);
-  const sxc = $2sxc(btn);
-  return sxc.webApi.fetch("Form/ProcessForm", formData)
+export function sendForm(formData: any, submitButtom: HTMLButtonElement, endpoint: string = "Form/ProcessForm"): Promise<unknown> {
+  const sxc = $2sxc(submitButtom);
+  return sxc.webApi.fetch(endpoint, formData)
 }
 
 export function disableInputs(wrapper: Element, state: boolean) {
