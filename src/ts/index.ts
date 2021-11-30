@@ -27,66 +27,66 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
       })
     })
   }
+  
   const eventsWrapper = document.querySelectorAll(`[${domAttribute}]`)[0];
-  if(eventsWrapper != null) {    
-    const submitButtom = (eventsWrapper.querySelectorAll('[app-mobius5-send]')[0] as HTMLButtonElement)
-    submitButtom.addEventListener('click', async (event: Event) => {
-      event.preventDefault();
-  
-      const eventBtn = event.currentTarget as HTMLElement;
-      addTrackingEvent('trackEventsForm', 'events-form', eventBtn.innerText)
-      
-      var valid = validateForm(eventsWrapper)
-      if (!valid) {
-        showAlert(eventsWrapper, 'msgIncomplete')
-        return
-      }
-      
-      const formValues = await getFormValues(eventsWrapper)
-  
-      if (requiresRecaptcha(eventsWrapper)) {
-        let token = await getRecaptchaToken(eventsWrapper)
-        if (!token) return showAlert(eventsWrapper, 'msgRecap')
-    
-        // set token for backend
-        formValues.Recaptcha = token
-      }
-  
-  
-      // imply that message is sending by ui modifications 
-  
-      disableInputs(eventsWrapper, true)
-      showAlert(eventsWrapper, 'msgSending')
-      
-      //#region request handling
+  if(!eventsWrapper) return
 
-      sendForm(formValues, submitButtom)
-        .then((result: any) => {
-          // error
-          if(!result.ok) {
-            if(debug) console.log('error', result.status);
-      
-            showAlert(eventsWrapper, 'msgError')
-            showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
-            enableInputs(eventsWrapper)
-      
-            addTrackingEvent('trackEventsForm', 'events-form', submitButtom.innerText)
-            return
-          }
-          
-          // success
-          if(debug) console.log('success', result.json())
-          submitButtom.setAttribute("disabled", "")
+  const submitButtom = (eventsWrapper.querySelectorAll('[app-mobius5-send]')[0] as HTMLButtonElement)
+  submitButtom.addEventListener('click', async (event: Event) => {
+    event.preventDefault();
+
+    const eventBtn = event.currentTarget as HTMLElement;
+    addTrackingEvent('trackEventsForm', 'events-form', eventBtn.innerText)
     
-          showAlert(eventsWrapper, 'msgOk')
+    var valid = validateForm(eventsWrapper)
+    if (!valid) {
+      showAlert(eventsWrapper, 'msgIncomplete')
+      return
+    }
+    
+    const formValues = await getFormValues(eventsWrapper)
+
+    if (requiresRecaptcha(eventsWrapper)) {
+      let token = await getRecaptchaToken(eventsWrapper)
+      if (!token) return showAlert(eventsWrapper, 'msgRecap')
+  
+      // set token for backend
+      formValues.Recaptcha = token
+    }
+
+
+    // imply that message is sending by ui modifications 
+
+    disableInputs(eventsWrapper, true)
+    showAlert(eventsWrapper, 'msgSending')
+    
+    //#region request handling
+
+    sendForm(formValues, submitButtom)
+      .then((result: any) => {
+        // error
+        if(!result.ok) {
+          if(debug) console.log('error', result.status);
+    
+          showAlert(eventsWrapper, 'msgError')
           showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
-          disableInputs(eventsWrapper, false)
+          enableInputs(eventsWrapper)
     
           addTrackingEvent('trackEventsForm', 'events-form', submitButtom.innerText)
-        })
-
-      //#endregion
-    })
-  }
+          return
+        }
+        
+        // success
+        if(debug) console.log('success', result.json())
+        submitButtom.setAttribute("disabled", "")
   
+        showAlert(eventsWrapper, 'msgOk')
+        showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
+        disableInputs(eventsWrapper, false)
+  
+        addTrackingEvent('trackEventsForm', 'events-form', submitButtom.innerText)
+      })
+
+    //#endregion
+  })  
 }
