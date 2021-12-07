@@ -31,7 +31,7 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
   const eventsWrapper = document.querySelectorAll(`[${domAttribute}]`)[0];
   if(!eventsWrapper) return
 
-  const submitButtom = (eventsWrapper.querySelectorAll('[app-mobius5-send]')[0] as HTMLButtonElement)
+  const submitButtom = (eventsWrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement)
   submitButtom.addEventListener('click', async (event: Event) => {
     event.preventDefault();
 
