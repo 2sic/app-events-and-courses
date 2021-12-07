@@ -15,8 +15,8 @@ A standard Events and Courses app to use with 2sxc
 | Live Demo           | ➖    |
 | Install Checklist   | ✅    | See [Installation](https://azing.org/2sxc/r/j3DB7UTx) on [azing.org](https://azing.org/2sxc)
 | Source & License    | ✅    | included, ISC/MIT
-| App Catalog         | ✅    | See [app catalog](https://2sxc.org/en/apps/app/courses-events-and-registrations)
-| Screenshots         | ✅    | See [app catalog](https://2sxc.org/en/apps/app/courses-events-and-registrations)
+| App Catalog         | ✅    | See [app catalog](https://2sxc.org/en/apps/app/course-and-events-v6-for-dnn-and-oqtane)
+| Screenshots         | ✅    | See [app catalog](https://2sxc.org/en/apps/app/course-and-events-v6-for-dnn-and-oqtane)
 | Best Practices      | ✅    | Uses v12.05 conventions
 | Bootstrap 3         | ✔️    | Works, but not optimized 
 | Bootstrap 4         | ✅    | 
