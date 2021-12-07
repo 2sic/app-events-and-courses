@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="12.10.00" ExportDate="2021-11-30T09:40:14.4808178+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="13.00.00" ExportDate="2021-12-07T09:17:32.6381264+01:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -7364,7 +7364,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="DisplayName" Value="Events and Courses" Type="String">
+      <Value Key="DisplayName" Value="Events, Courses and Registration" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -9829,6 +9829,63 @@
     <Entity AssignmentObjectType="Default" AttributeSetStaticName="889fe838-fd3f-4297-88bb-038ea36a2ea8" AttributeSetName="EventSettings" EntityGUID="dd5e0b65-114f-4a9a-a25b-e5aafe40b661">
       <Value Key="Categories" Value="55c247bb-2b59-4569-a08f-0847f7e1fbb5" Type="Entity" />
       <Value Key="ItemsPerPage" Value="" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registrations" EntityGUID="9f6f6cf0-2be8-4dc7-839f-21913e4966d2">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDate" Value="4bbcd4f3-f102-4862-9fac-a2e1b221dbb8" Type="Entity" />
+      <Value Key="FirstName" Value="Roman" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Opalko" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MobilePhone" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0817506787" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Salutation" Value="Mr" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2021-12-06T14:01:05" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="22f9601f-9ed1-4d23-80f6-d1dc466908f0">
+      <Value Key="ModuleId" Value="5737" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;12/18/2021&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Roman&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Langäulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0817506787&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDate&quot;:&quot;4bbcd4f3-f102-4862-9fac-a2e1b221dbb8&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;Timestamp&quot;:&quot;2021-12-06T14:01:05.3922495+01:00&quot;,&quot;SenderIP&quot;:&quot;194.0.212.23&quot;,&quot;ModuleId&quot;:5737}" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2021-12-06T14:01:05" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2021-12-06T14:01:07" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
