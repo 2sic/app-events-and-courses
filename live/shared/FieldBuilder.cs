@@ -28,7 +28,7 @@ public class FieldBuilder : Custom.Hybrid.Code12
   private dynamic _pageCss;
   internal string FormClasses()
   {
-    return "form-group " + (LabelInPlaceholder ? "" : "row");
+    return "mb-3 " + (LabelInPlaceholder ? "" : "row");
   }
 
   // Choose CSS classes based on the framework
