@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="13.00.00" ExportDate="2021-12-07T09:17:32.6381264+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="13.00.00" ExportDate="2021-12-14T17:00:08.7980186+01:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -9,7 +9,7 @@
     </Dimensions>
   </Header>
   <AttributeSets>
-    <AttributeSet StaticName="App-Resources" Name="App-Resources" Description="Stores resources like translations for an app" Scope="2SexyContent-App" AlwaysShareConfiguration="false">
+    <AttributeSet StaticName="App-Resources" Name="App-Resources" Description="Stores resources like translations for an app" Scope="System.App" AlwaysShareConfiguration="false">
       <Attributes>
         <Attribute StaticName="GroupButtons" Type="Empty" IsTitle="true">
           <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="9d9003b4-16bb-41f7-b3d4-845386097061" Json="True" KeyNumber="2400">
@@ -3682,7 +3682,7 @@
         </Attribute>
       </Attributes>
     </AttributeSet>
-    <AttributeSet StaticName="App-Settings" Name="App-Settings" Description="Stores settings for an app" Scope="2SexyContent-App" AlwaysShareConfiguration="false">
+    <AttributeSet StaticName="App-Settings" Name="App-Settings" Description="Stores settings for an app" Scope="System.App" AlwaysShareConfiguration="false">
       <Attributes>
         <Attribute StaticName="OwnerMail" Type="String" IsTitle="true">
           <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="e2c754ac-93c1-4564-b6e0-d86b065dac70" Json="True" KeyNumber="2466">
@@ -4011,7 +4011,7 @@
         </Attribute>
       </Attributes>
     </AttributeSet>
-    <AttributeSet StaticName="c58f78db-0b39-46ee-9c37-6c445d14b090" Name="Categories" Description="Categories" Scope="2SexyContent" AlwaysShareConfiguration="false">
+    <AttributeSet StaticName="c58f78db-0b39-46ee-9c37-6c445d14b090" Name="Categories" Description="Categories" Scope="Default" AlwaysShareConfiguration="false">
       <Attributes>
         <Attribute StaticName="Title" Type="String" IsTitle="true">
           <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="1f40d01d-5204-4d16-9c90-130f839015cd" Json="True" KeyNumber="2472">
@@ -4072,7 +4072,7 @@
         </Attribute>
       </Attributes>
     </AttributeSet>
-    <AttributeSet StaticName="b571d918-f9f3-43fb-8673-deecbf29ea83" Name="Event" Description="Event" Scope="2SexyContent" AlwaysShareConfiguration="false">
+    <AttributeSet StaticName="b571d918-f9f3-43fb-8673-deecbf29ea83" Name="Event" Description="Event" Scope="Default" AlwaysShareConfiguration="false">
       <Attributes>
         <Attribute StaticName="Basics" Type="Empty" IsTitle="false">
           <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="19dadd2a-eeed-4b35-8b5d-67c462679d81" Json="True" KeyNumber="2494">
@@ -5100,7 +5100,7 @@
         </Attribute>
       </Attributes>
     </AttributeSet>
-    <AttributeSet StaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" Name="EventDate" Description="Event Dates" Scope="2SexyContent" AlwaysShareConfiguration="false">
+    <AttributeSet StaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" Name="EventDate" Description="Event Dates" Scope="Default" AlwaysShareConfiguration="false">
       <Attributes>
         <Attribute StaticName="Event" Type="Entity" IsTitle="false">
           <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="12bbc61f-37e6-4977-b298-af492a8ae563" Json="True" KeyNumber="2513">
@@ -6152,7 +6152,7 @@
         </Attribute>
       </Attributes>
     </AttributeSet>
-    <AttributeSet StaticName="889fe838-fd3f-4297-88bb-038ea36a2ea8" Name="EventSettings" Description="" Scope="2SexyContent" AlwaysShareConfiguration="false">
+    <AttributeSet StaticName="889fe838-fd3f-4297-88bb-038ea36a2ea8" Name="EventSettings" Description="" Scope="Default" AlwaysShareConfiguration="false">
       <Attributes>
         <Attribute StaticName="ItemsPerPage" Type="Number" IsTitle="true">
           <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="80bb2e93-86c9-4935-a01b-66415fef857d" Json="True" KeyNumber="2816">
@@ -6317,7 +6317,7 @@
         </Attribute>
       </Attributes>
     </AttributeSet>
-    <AttributeSet StaticName="e92a4857-276f-45de-9363-b052684e65fe" Name="Registrations" Description="Registrations" Scope="2SexyContent" AlwaysShareConfiguration="false">
+    <AttributeSet StaticName="e92a4857-276f-45de-9363-b052684e65fe" Name="Registrations" Description="Registrations" Scope="Default" AlwaysShareConfiguration="false">
       <Attributes>
         <Attribute StaticName="Course" Type="Entity" IsTitle="false">
           <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="5a2c8a4c-9b41-42f5-b767-a3f6d045d163" Json="True" KeyNumber="2477">
@@ -7258,7 +7258,7 @@
         </Attribute>
       </Attributes>
     </AttributeSet>
-    <AttributeSet StaticName="d21cdde4-28fa-458e-b395-586fde923411" Name="SystemProtocol" Description="" Scope="2SexyContent" AlwaysShareConfiguration="false">
+    <AttributeSet StaticName="d21cdde4-28fa-458e-b395-586fde923411" Name="SystemProtocol" Description="" Scope="Default" AlwaysShareConfiguration="false">
       <Attributes>
         <Attribute StaticName="Title" Type="String" IsTitle="true">
           <Entity AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="53e7f944-01e7-4b58-b2df-cbff3a82db83" Json="True" KeyNumber="2530">
@@ -7395,7 +7395,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Version" Value="06.00.00" Type="String">
+      <Value Key="Version" Value="06.01.00" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -9829,63 +9829,6 @@
     <Entity AssignmentObjectType="Default" AttributeSetStaticName="889fe838-fd3f-4297-88bb-038ea36a2ea8" AttributeSetName="EventSettings" EntityGUID="dd5e0b65-114f-4a9a-a25b-e5aafe40b661">
       <Value Key="Categories" Value="55c247bb-2b59-4569-a08f-0847f7e1fbb5" Type="Entity" />
       <Value Key="ItemsPerPage" Value="" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registrations" EntityGUID="9f6f6cf0-2be8-4dc7-839f-21913e4966d2">
-      <Value Key="Country" Value="Switzerland" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
-      <Value Key="EventDate" Value="4bbcd4f3-f102-4862-9fac-a2e1b221dbb8" Type="Entity" />
-      <Value Key="FirstName" Value="Roman" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LastName" Value="Opalko" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="MobilePhone" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Phone" Value="0817506787" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Salutation" Value="Mr" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Status" Value="registered" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SubmitDate" Value="2021-12-06T14:01:05" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="ZIPCity" Value="Buchs" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="22f9601f-9ed1-4d23-80f6-d1dc466908f0">
-      <Value Key="ModuleId" Value="5737" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;Note(s)&quot;:&quot;12/18/2021&quot;,&quot;Salutation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Roman&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Langäulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0817506787&quot;,&quot;MobilePhone&quot;:&quot;&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;AGB&quot;:&quot;True&quot;,&quot;Accept&quot;:&quot;True&quot;,&quot;EventDate&quot;:&quot;4bbcd4f3-f102-4862-9fac-a2e1b221dbb8&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;Timestamp&quot;:&quot;2021-12-06T14:01:05.3922495+01:00&quot;,&quot;SenderIP&quot;:&quot;194.0.212.23&quot;,&quot;ModuleId&quot;:5737}" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SenderIp" Value="194.0.212.23" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Timestamp" Value="2021-12-06T14:01:05" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Title" Value="Form 2021-12-06T14:01:07" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
