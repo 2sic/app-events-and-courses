@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="13.00.00" ExportDate="2021-12-14T17:00:08.7980186+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="13.00.01" ExportDate="2022-01-05T08:26:28.3089174+01:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -7395,7 +7395,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Version" Value="06.01.00" Type="String">
+      <Value Key="Version" Value="06.01.01" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -9832,6 +9832,10 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
+    <Entity AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="74ee3f3f-d29c-46fc-ab35-b1c6950ac4a0" Json="True">
+      <Value Key="Template" Value="b418e3aa-77fc-463d-965e-69038ae89076" Type="Entity" />
+    </Entity>
+    <Entity AssignmentObjectType="Entity" AttributeSetStaticName="529ba3a2-d7d4-4f40-a81b-ff819de03a9e" AttributeSetName="IsDefaultDecorator" EntityGUID="13e8aa05-29cb-4fc7-9247-6c929de4f025" Json="True" KeyGuid="b418e3aa-77fc-463d-965e-69038ae89076" />
   </Entities>
   <PortalFiles>
     <File Id="6059" RelativePath="adam\EventsAndCourses6\r5NOpxGsUkmx5uQodtskbA\PlaceHolderImg\placeholder.png" />
