@@ -29,11 +29,13 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
 
 ## History
 
-1. 2017-03 v1.0
-1. 2017-05 v2.0
-1. ...
-1. 2021-11 v6.0 for 2sxc 12.08
-    1. Now hybrid, runs on Dnn and Oqtane
-    1. Updated to v12 best-practices
-    1. Improved code, clean-up etc.
-    1. No more jQuery
+* 2017-03 v1.0
+* 2017-05 v2.0
+* ...
+* 2021-11 v6.0 for 2sxc 12.08
+  * Now hybrid, runs on Dnn and Oqtane
+  * Updated to v12 best-practices
+  * Improved code, clean-up etc.
+  * No more jQuery
+* 2022-02 v6.1
+  * Enabled dataoptimizations
