@@ -32,7 +32,7 @@
         var regCount = dateRegistrations == null ? 0 : dateRegistrations.Count;
         <li class="list-group-item mb-0 @currentEventClass @hiddenEvent"
           @Edit.TagToolbar(d, toolbar: new [] {
-            "toolbar=empty", "+edit", "+contentitems&title=" + Resources.LabelRegistrations + "?contentType=Registrations&filter:EventDate=" + d.Start
+            "toolbar=empty", "+edit", "+delete?entityId=" + d.EntityId + "&show=true", "+contentitems&title=" + Resources.LabelRegistrations + "?contentType=Registrations&filter:EventDate=" + d.Start
           })
         >
           <a href="@Link.To(parameters: "details=" + DynamicModel.Item.EntityId + "&dateid=" + d.EntityId)">

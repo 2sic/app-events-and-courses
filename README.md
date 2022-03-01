@@ -39,3 +39,5 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
   * No more jQuery
 * 2022-02 v6.1
   * Enabled dataoptimizations
+* 2022-03 v6.1.2
+  * Improvements toolbar
