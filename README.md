@@ -41,3 +41,6 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
   * Enabled dataoptimizations
 * 2022-03 v6.1.2
   * Improvements toolbar
+* 2022-04 v6.2.0 
+  * Changed all access to Services to ToSic.Sxc.Services
+  * Changed all images to use the IImageService
