@@ -3,6 +3,7 @@
 @using ToSic.Sxc.Services;
 
 @{
+  var imgSvc = GetService<IImageService>();
   // get some helper functions for later on
   var helpers = CreateInstance("DetailsHelpers.cs");
   
