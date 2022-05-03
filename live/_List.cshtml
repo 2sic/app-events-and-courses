@@ -4,9 +4,11 @@
 @using System;
 @using ToSic.Sxc.Services;
 @{
-  var imgSvc = GetService<IImageService>();
   var queryEvents = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
   var listSettings = Content;
+
+  // Image Service used to generate optimal images
+  var imgSvc = GetService<IImageService>();
 }
 
 <div class="app-events6 app-events6-list" @Edit.TagToolbar(listSettings, toolbar: new [] { "+new&title=" + Resources.LabelAddEvent + "?contentType=Event" })>
@@ -30,14 +32,15 @@
         var item = d.Event;
         var detailslink = Link.To(parameters: "details=" + @item.EntityId + "&dateid=" + d.EntityId + "&" + item.UrlKey);
         var overlayStyle = Text.Has(item.Image) ? "" : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", Settings.Images.Content) + "');";
+        var altText = Text.First(item.Field("Image").Metadata.Description, item.Title);
           
         <div class="row position-relative app-events6-list-item mb-4" @Edit.TagToolbar(d.Event, toolbar: new [] {
           "toolbar=empty", "+edit"
         })>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-events6-img effect-zoom @(Text.Has(item.Image) ? "" : "app-events6-noimg")'>
-                <div class="overlay" style="@overlayStyle"></div>
-                @imgSvc.Picture(Text.First(item.Image, Resources.PlaceHolderImg), settings: Settings.Images.Content, factor: "1/3", imgClass:"img-fluid", imgAlt:item.Title)
+              <div class="overlay" style="@overlayStyle"></div>
+              @imgSvc.Picture(Text.First(item.Field("Image"), Resources.Field("PlaceHolderImg")), settings: Settings.Images.Content, factor: "1/3", imgAlt: altText)
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
@@ -64,7 +67,6 @@
   }
 
   @Html.Partial("_DetailsList.PartPaging.cshtml") 
-
   @Html.Partial("_List.PartAdmin.cshtml")
 </div>
 
