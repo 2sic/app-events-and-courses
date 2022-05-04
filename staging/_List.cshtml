@@ -32,7 +32,9 @@
         var item = d.Event;
         var detailslink = Link.To(parameters: "details=" + @item.EntityId + "&dateid=" + d.EntityId + "&" + item.UrlKey);
         var overlayStyle = Text.Has(item.Image) ? "" : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", Settings.Images.Content) + "');";
-        var altText = Text.First(item.Field("Image").Metadata.Description, item.Title);
+        var imageField = item.Field("Image");
+        var image = Text.Has(item.Image) ? item.Field("Image") : Resources.PlaceHolderImg;
+        var altText = Text.Has(item.Image) ? Text.First(imageField.Metadata.Description, item.Title) : item.Title;
           
         <div class="row position-relative app-events6-list-item mb-4" @Edit.TagToolbar(d.Event, toolbar: new [] {
           "toolbar=empty", "+edit"
@@ -40,7 +42,7 @@
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-events6-img effect-zoom @(Text.Has(item.Image) ? "" : "app-events6-noimg")'>
               <div class="overlay" style="@overlayStyle"></div>
-              @imgSvc.Picture(Text.First(item.Field("Image"), Resources.Field("PlaceHolderImg")), settings: Settings.Images.Content, factor: "1/3", imgAlt: altText)
+              @imgSvc.Picture(image, settings: Settings.Images.Content, factor: "1/3", imgAlt: altText)
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
