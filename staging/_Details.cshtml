@@ -119,7 +119,7 @@
       @if (Text.Has(item.Image)) {
         var altText = Text.First(item.Field("Image").Metadata.Description, item.Title);
         <div class="col-12 col-md-4 mb-4 mb-md-0">
-          @imgSvc.Picture(item.Field("Image"), settings: Settings.Images.Content, factor: "1/3", imgClass:"img-fluid d-block m-auto", imgAlt: altText)
+          @imgSvc.Picture(item.Field("Image"), settings: "Content", factor: "1/3", imgClass:"img-fluid d-block m-auto", imgAlt: altText)
         </div>
       }
     </div>

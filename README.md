@@ -44,3 +44,4 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
 * 2022-04 v6.2.0 
   * Changed all access to Services to ToSic.Sxc.Services
   * Changed all images to use the IImageService
+  * Replaced data-enableoptimizations with IPageService.AssetAttributes()

@@ -42,7 +42,7 @@
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-events6-img effect-zoom @(Text.Has(item.Image) ? "" : "app-events6-noimg")'>
               <div class="overlay" style="@overlayStyle"></div>
-              @imgSvc.Picture(image, settings: Settings.Images.Content, factor: "1/3", imgAlt: altText)
+              @imgSvc.Picture(image, settings: "Content", factor: "1/3", imgAlt: altText)
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
