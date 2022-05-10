@@ -45,3 +45,4 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
   * Changed all access to Services to ToSic.Sxc.Services
   * Changed all images to use the IImageService
   * Replaced data-enableoptimizations with IPageService.AssetAttributes()
+  * Updated JS to use new webapi methods (fetch -> fetchRaw)

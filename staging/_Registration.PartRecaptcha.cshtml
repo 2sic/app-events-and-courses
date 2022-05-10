@@ -9,7 +9,7 @@
   var showWarning = secureKey.IsSecuredBy("preset");  // show warning if it's from the preset
 
   // Page Service for CSP
-  var page = GetService<IPageService>();
+  var pageSvc = GetService<IPageService>();
 }
 <div class="recaptcha" data-sitekey="@siteKey"></div>
 @if(Edit.Enabled) {
@@ -24,4 +24,4 @@
   </div>
 }
 
-<script src="https://www.google.com/recaptcha/api.js?render=@siteKey" async defer @(page.AssetAttributes())></script>
+<script src="https://www.google.com/recaptcha/api.js?render=@siteKey" async defer @pageSvc.AssetAttributes()></script>

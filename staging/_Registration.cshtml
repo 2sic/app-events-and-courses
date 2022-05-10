@@ -9,8 +9,8 @@
   var course = AsList(Data["Course"]).FirstOrDefault();
   var eventDate = AsList(Data["EventDate"]).FirstOrDefault();
   var title = course == null ? "" : course.Title;
-  var page = GetService<IPageService>(); // Service to set titles etc. on the page
-  page.SetTitle(Resources.CourseRegistrationTitle + " | " + title);
+  var pageSvc = GetService<IPageService>(); // Service to set titles etc. on the page
+  pageSvc.SetTitle(Resources.CourseRegistrationTitle + " | " + title);
 
   var domAttribute = "events-" + CmsContext.Module.Id;
 }
@@ -24,7 +24,7 @@
   </div>
   @Tag.A(Resources.LabelBackToList).Class("btn btn-outline-primary").Href(Link.To());
 
-  page.SetHttpStatus(404);
+  pageSvc.SetHttpStatus(404);
   return;
 }
 

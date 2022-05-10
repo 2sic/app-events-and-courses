@@ -11,7 +11,7 @@
   // Generate a dynamic object that always works, no matter if there is a Current date or not
   var eventDate =  AsList(Data["Current"]).FirstOrDefault() ?? AsDynamic("");
 
-  var page = GetService<IPageService>();  // Service to set titles etc. on the page
+  var pageSvc = GetService<IPageService>();  // Service to set titles etc. on the page
   var render = GetService<IRenderService>();
   var imgSvc = GetService<IImageService>(); // Image Service used to generate optimal images
 
@@ -21,7 +21,7 @@
     <p>@Resources.LabelEventNotExistsText</p>
 
     @helpers.BackToListButton();
-    page.SetHttpStatus(404);
+    pageSvc.SetHttpStatus(404);
     return ;
   }
 
@@ -31,9 +31,9 @@
 
   if(hasEventDate) {
     var titleEventDateEnd = (!eventDate.EndDateIsStartDate) ? " - " + eventDate.End.ToString("d") : " | ";
-    page.SetTitle(item.Title + " | " + eventDate.Start.ToString("d") + titleEventDateEnd);
+    pageSvc.SetTitle(item.Title + " | " + eventDate.Start.ToString("d") + titleEventDateEnd);
   } else {
-    page.SetTitle(item.Title + " | ");
+    pageSvc.SetTitle(item.Title + " | ");
   }
 }
 
