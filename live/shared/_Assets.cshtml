@@ -4,19 +4,19 @@
 @{
   // 1. Get Services for Css and Page
   var pageCss = GetService<Connect.Koi.ICss>();         // Service to get CSS information about the current Theme
-  var page = GetService<IPageService>();  // Service to set titles etc. on the page
+  var pageSvc = GetService<IPageService>();  // Service to set titles etc. on the page
 
   // 2. Include Bootstrap4 if the framework isn't known
   if (pageCss.IsUnknown) {
-    page.Activate("Bootstrap4");
+    pageSvc.Activate("Bootstrap4");
   }
 
-  page.Activate("turnOn"); // see https://r.2sxc.org/turnon
+  pageSvc.Activate("turnOn"); // see https://r.2sxc.org/turnon
 
   var domAttribute = "events-" + CmsContext.Module.Id;
 }
 
 @Edit.Enable(js: true)
 <turnOn turn-on='{"run": "window.appEvents6.init()", "data": { "domAttribute": "@domAttribute" }}'></turnOn>
-<link rel="stylesheet" href="@App.Path/live/dist/styles.min.css" @(page.AssetAttributes())>
-<script src="@App.Path/live/dist/scripts.min.js" @(page.AssetAttributes())></script>
+<link rel="stylesheet" href="@App.Path/live/dist/styles.min.css" @pageSvc.AssetAttributes()>
+<script src="@App.Path/live/dist/scripts.min.js" @pageSvc.AssetAttributes()></script>
