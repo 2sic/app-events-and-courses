@@ -33,6 +33,8 @@
 var titleAddition = (Text.Has(eventDate.TitleAddition)) 
   ? " " + Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix 
   : "";
+
+var Edition = CmsContext.View.Edition;
 }
 
 <div class="app-events6 app-events6-form" 
@@ -40,6 +42,7 @@ var titleAddition = (Text.Has(eventDate.TitleAddition))
   @domAttribute
   data-string-required="@Resources.ValidationRequired" 
   data-string-email="@Resources.ValidationEmail"
+  data-webservice="app/auto/@Edition/api/Form/ProcessForm"
 >
   @* Title *@
   <h1 class="mb-4">@Resources.CourseRegistrationTitle - @course.Title @titleAddition</h1>
@@ -65,7 +68,7 @@ var titleAddition = (Text.Has(eventDate.TitleAddition))
     @* Salutation *@
     <h3>@Resources.CourseParticipantData</h3>
     <div class="mb-3 row">
-      @fieldBuilder.Label(Resources.LabelParticipantSalutation, "Salutation", true)
+      @fieldBuilder.Label(Resources.LabelSalutation, "Salutation", true)
       <div class="col-sm-9 radio-group">
         <div class="radio">
           <label>

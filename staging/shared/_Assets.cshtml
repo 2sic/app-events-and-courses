@@ -14,9 +14,11 @@
   pageSvc.Activate("turnOn"); // see https://r.2sxc.org/turnon
 
   var domAttribute = "events-" + CmsContext.Module.Id;
+
+  var Edition = CmsContext.View.Edition;
 }
 
 @Edit.Enable(js: true)
 <turnOn turn-on='{"run": "window.appEvents6.init()", "data": { "domAttribute": "@domAttribute" }}'></turnOn>
-<link rel="stylesheet" href="@App.Path/live/dist/styles.min.css" @pageSvc.AssetAttributes()>
-<script src="@App.Path/live/dist/scripts.min.js" @pageSvc.AssetAttributes()></script>
+<link rel="stylesheet" href="@App.Path/@Edition/dist/styles.min.css" @pageSvc.AssetAttributes()>
+<script src="@App.Path/@Edition/dist/scripts.min.js" @pageSvc.AssetAttributes()></script>

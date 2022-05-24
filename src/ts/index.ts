@@ -31,8 +31,8 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
   const eventsWrapper = document.querySelectorAll(`[${domAttribute}]`)[0];
   if(!eventsWrapper) return
 
-  const submitButtom = (eventsWrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement)
-  submitButtom.addEventListener('click', async (event: Event) => {
+  const submitButton = (eventsWrapper.querySelectorAll('[app-events6-send]')[0] as HTMLButtonElement)
+  submitButton.addEventListener('click', async (event: Event) => {
     event.preventDefault();
 
     const eventBtn = event.currentTarget as HTMLElement;
@@ -62,7 +62,10 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
     
     //#region request handling
 
-    sendForm(formValues, submitButtom)
+    let endpoint = (eventsWrapper as HTMLElement).dataset.webservice // (should be "Form/ProcessForm" or a custom override)
+
+
+    sendForm(formValues, submitButton, endpoint)
       .then((result: any) => {
         // error
         if(!result.ok) {
@@ -72,19 +75,19 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
           showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
           enableInputs(eventsWrapper)
     
-          addTrackingEvent('trackEventsForm', 'events-form', submitButtom.innerText)
+          addTrackingEvent('trackEventsForm', 'events-form', submitButton.innerText)
           return
         }
         
         // success
         if(debug) console.log('success', result.json())
-        submitButtom.setAttribute("disabled", "")
+        submitButton.setAttribute("disabled", "")
   
         showAlert(eventsWrapper, 'msgOk')
         showConfigWarnings(eventsWrapper, 'app-events6-config-warning')
         disableInputs(eventsWrapper, false)
   
-        addTrackingEvent('trackEventsForm', 'events-form', submitButtom.innerText)
+        addTrackingEvent('trackEventsForm', 'events-form', submitButton.innerText)
       })
 
     //#endregion

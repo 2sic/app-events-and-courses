@@ -46,7 +46,7 @@ public class SendMail : Custom.Hybrid.Code12
     var wrapLog = Log.Call("template:" + emailTemplateFilename + ", from:" + from + ", to:" + to + ", cc:" + cc + ", reply:" + replyTo);
 
     Log.Add("Get MailEngine");
-    var mailEngine = CreateInstance("../../live/email-templates/" + emailTemplateFilename);
+    var mailEngine = CreateInstance("../../email-templates/" + emailTemplateFilename);
     var mailBody = mailEngine.Message(valuesWithMailLabels).ToString();
     var subject = mailEngine.Subject();
 

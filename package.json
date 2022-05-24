@@ -4,7 +4,8 @@
   "description": "A Event and Courses app for 2sxc",
   "main": "(none)",
   "scripts": {
-    "build-live": "webpack --env style=live"
+    "build-live": "webpack --env buildMode=live",
+    "build-staging": "webpack --env buildMode=staging"
   },
   "author": "2sic internet solutions",
   "license": "ISC",
