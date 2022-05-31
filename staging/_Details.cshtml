@@ -15,6 +15,8 @@
   var render = GetService<IRenderService>();
   var imgSvc = GetService<IImageService>(); // Image Service used to generate optimal images
 
+  var pageCss = GetService<Connect.Koi.ICss>();
+
   // Check if this event exists - if not, 404 not-found
   if(eventDate == null && eventData == null) {
     <h1>@Resources.LabelEventNotExists</h1>
@@ -52,7 +54,7 @@
 
   <div class="app-events6-detail-content">
     <div class="row">
-      <div class='col-12 @(Text.Has(item.Image) ? "col-md-8" : "") order-1 order-md-0'>
+      <div class='@(pageCss.Is("bs3") ? "col-xs-12" : "col-12") @(Text.Has(item.Image) ? "col-md-8" : "") order-1 order-md-0'>
         <h2 class="h5">@item.ShortDescription</h2>
         <div class="app-events6-detail-body mb-4">
           @render.All(item, field: "BodyContentBlocks", merge: item.Description)          

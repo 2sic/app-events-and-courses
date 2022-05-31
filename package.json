@@ -4,8 +4,8 @@
   "description": "A Event and Courses app for 2sxc",
   "main": "(none)",
   "scripts": {
-    "build-live": "webpack --env buildMode=live",
-    "build-staging": "webpack --env buildMode=staging"
+    "build-prod": "webpack --env buildMode=staging",
+    "copy-staging2live": "(ROBOCOPY staging live /MIR /XD) ^& IF %ERRORLEVEL% LEQ 1 exit 0"
   },
   "author": "2sic internet solutions",
   "license": "ISC",
