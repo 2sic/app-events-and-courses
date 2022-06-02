@@ -18,7 +18,7 @@ public class DetailsHelpers: Custom.Hybrid.Code12
     if(!Text.Has(copy)) {
       return null;
     }
-    return Tag.Div(copy, Tag.H6(label)).Class("col-12 col-md-6 mb-3 app-events6-infocontainer");
+    return Tag.Div(Tag.H6(label), copy).Class("col-12 col-md-6 mb-3 app-events6-infocontainer");
   }
 
   // Shows a back to list button
