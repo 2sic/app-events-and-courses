@@ -65,8 +65,7 @@ module.exports = (env) => {
               }
             }
           ],
-        },
-        {
+        }, {
           test: /\.ts$/,
           exclude: /node_modules/,
           use: {
