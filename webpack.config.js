@@ -6,11 +6,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = (env) => {
   return {
     entry: {
-      styles: `./${env.buildMode}/styles/index.scss`,      
+      styles: `./src/styles/index.scss`,      
       scripts: './src/ts/index.ts',
     },
     output: {
-      path: path.resolve(__dirname, `${env.buildMode}/dist`),
+      path: path.resolve(__dirname, `staging/dist`),
       filename: '[name].min.js',
       assetModuleFilename: 'images/[hash][ext][query]'
     },

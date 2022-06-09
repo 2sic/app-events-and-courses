@@ -1,12 +1,4 @@
 .app-events6 {
-  .mb-3 {
-    margin-bottom: 1rem!important;
-  }
-
-  .mb-4 {
-    margin-bottom: 1.5rem!important;
-  }
-
   &.app-events6-list {
     .app-events6-list-item {
       &:hover {
@@ -89,21 +81,31 @@
     }
   }
 
+  .admin-eventswithoutdate {
+    ul {
+      margin: 0;
+    }
+  }
+
   .app-events6-further-events {
-    li {
-      padding: 0;
+    ul {
+      margin: 0;
 
-      &.current {
-        background-color: #e9ecef;
-      }
-
-      &.event-hidden {
-        display: none;
-      }
-
-      a {
-        display: block;
-        padding: $list-group-item-padding-y $list-group-item-padding-x;
+      li {
+        padding: 0;
+  
+        &.current {
+          background-color: #e9ecef;
+        }
+  
+        &.event-hidden {
+          display: none;
+        }
+  
+        a {
+          display: block;
+          padding: $list-group-item-padding-y $list-group-item-padding-x;
+        }
       }
     }
   }
@@ -199,6 +201,28 @@
         display: none;
       }
     }
+  }
+
+  //BS3
+  * {
+    box-sizing: border-box;
+  }
+
+  .mb-3 {
+    margin-bottom: 1rem!important;
+  }
+
+  .mb-4 {
+    margin-bottom: 1.5rem!important;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .row > label {
+    box-sizing: border-box;
   }
 }
 

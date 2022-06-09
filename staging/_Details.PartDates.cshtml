@@ -2,7 +2,6 @@
 @using ToSic.Razor.Blade;
 @using ToSic.Sxc.Services;
 
-<h1>test!</h1>
 @* Other Dates of Event *@
 @{
   var futureDates = AsList(Data["FutureDates"]);
@@ -39,7 +38,7 @@
           .Add("+edit")
           .Copy(d)
           .Add("+delete?entityId=" + d.EntityId + "&show=true")
-          .Add("+contentitems&title=" + Resources.LabelRegistrations + "?contentType=Registrations&filter:EventDate=" + d.Start);
+          .Add("+contentitems&title=" + Resources.LabelRegistrations + "?contentType=Registrations&filter:EventDate=[" + d.EntityId + "]");
 
         <li class="list-group-item mb-0 @currentEventClass @hiddenEvent" @Edit.TagToolbar(d, toolbar: toolbarDate)>
           <a href="@Link.To(parameters: "details=" + DynamicModel.Item.EntityId + "&dateid=" + d.EntityId)">
