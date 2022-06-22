@@ -37,7 +37,7 @@
         var toolbarDate = toolbarSvc.Empty()
           .Add("+edit")
           .Copy(d)
-          .Add("+delete?entityId=" + d.EntityId + "&show=true")
+          .Add("+delete")
           .Add("+contentitems&title=" + Resources.LabelRegistrations + "?contentType=Registrations&filter:EventDate=[" + d.EntityId + "]");
 
         <li class="list-group-item mb-0 @currentEventClass @hiddenEvent" @Edit.TagToolbar(d, toolbar: toolbarDate)>
