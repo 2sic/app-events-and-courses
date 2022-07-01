@@ -2,12 +2,8 @@ using ToSic.Razor.Blade;
 using System.Linq;
 using System;
 
-public class DetailsHelpers: Custom.Hybrid.Code12
+public class DetailsHelpers: Custom.Hybrid.Code14
 {
-  // The PageCss - cached for re-use
-  internal dynamic PageCss { get { return _pageCss ?? (_pageCss = GetService<Connect.Koi.ICss>()); } }
-  private dynamic _pageCss;
-
   // Show Title
   public string Title(dynamic item, dynamic eventDate) {
     return item.Title + (eventDate != null && Text.Has(eventDate.TitleAddition) ? " " + Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix : "");
@@ -23,7 +19,7 @@ public class DetailsHelpers: Custom.Hybrid.Code12
 
   // Shows a back to list button
   public dynamic BackToListButton() {
-    var classes = PageCss.Is("bs3") ? "btn-default" : "btn-outline-primary";
+    var classes = Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary";
     return Tag.A(Resources.LabelBackToList).Class("btn " + classes).Href(Link.To());
   }
 }

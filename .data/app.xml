@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="13.10.02" ExportDate="2022-05-10T13:45:05.3883267+02:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="14.07.00" ExportDate="2022-06-30T10:34:23.5422014+02:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -1350,7 +1350,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="25d1a936-270c-4c36-aa58-317976fe3a14" Json="True" KeyNumber="2425" />
         </Attribute>
-        <Attribute StaticName="LabelParticipantSalutation" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelSalutation" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="53b2cf3c-62ce-4d6b-bd32-afe6c0330079" Json="True" KeyNumber="2426">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -1405,7 +1405,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="75f773fd-f7de-401a-9c42-b1ae1e56c97a" Json="True" KeyNumber="2426" />
         </Attribute>
-        <Attribute StaticName="LabelParticipantFirstName" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelFirstName" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="e8b10ee2-f4b3-41aa-8250-b7089914142e" Json="True" KeyNumber="2427">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -1460,7 +1460,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="c19357f3-7981-47d2-95e8-9286b4243dd1" Json="True" KeyNumber="2427" />
         </Attribute>
-        <Attribute StaticName="LabelParticipantLastName" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelLastName" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="98a6f334-435d-4f7e-bbcc-9318aa2b564b" Json="True" KeyNumber="2428">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -1515,7 +1515,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="3cd64829-a2eb-4126-9d3c-a777977adf01" Json="True" KeyNumber="2428" />
         </Attribute>
-        <Attribute StaticName="LabelParticipantStreet" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelStreet" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="2b98306a-8e01-423c-a757-58ed28e16636" Json="True" KeyNumber="2429">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -1570,7 +1570,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="84dea4cf-8e7e-4797-80dd-fb47504c74dd" Json="True" KeyNumber="2429" />
         </Attribute>
-        <Attribute StaticName="LabelParticipantZIPCity" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelZIPCity" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="e926ed5c-1df4-499d-b1ee-d8edb710f100" Json="True" KeyNumber="2430">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -1680,7 +1680,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="b6bee69a-262b-4fa8-9f3c-668b5963153f" Json="True" KeyNumber="2445" />
         </Attribute>
-        <Attribute StaticName="LabelParticipantCountry" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelCountry" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="07514aeb-c412-4f24-8f12-4459ab4d85c9" Json="True" KeyNumber="2431">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -1735,7 +1735,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="b400cd04-96ac-4b8f-9103-603dc3055116" Json="True" KeyNumber="2431" />
         </Attribute>
-        <Attribute StaticName="LabelParticipantPhone" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelPhone" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="0b86f909-b443-4530-9687-f30fe19f3b6b" Json="True" KeyNumber="2432">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -1790,7 +1790,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="39d4dbf3-854a-4c50-9109-7c92d349a84b" Json="True" KeyNumber="2432" />
         </Attribute>
-        <Attribute StaticName="LabelParticipantMobilePhone" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelMobilePhone" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="caffc7e3-4a86-4b88-82a5-f069d671b76d" Json="True" KeyNumber="2459">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -1836,7 +1836,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="e9de839d-dea0-4c42-b594-e2d2b7e90dd6" Json="True" KeyNumber="2459" />
         </Attribute>
-        <Attribute StaticName="CourseParticipantData" Type="String" IsTitle="false">
+        <Attribute StaticName="CourseData" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="3c64e330-f2eb-4cf7-b475-1734ee811783" Json="True" KeyNumber="2433">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -1896,7 +1896,7 @@
             </Value>
           </Entity>
         </Attribute>
-        <Attribute StaticName="LabelParticipantMail" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelMail" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="9e117d31-d4d0-4e86-be3c-88dd73c4ecf8" Json="True" KeyNumber="2434">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -1951,7 +1951,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="11a03b83-f51a-492f-880a-cd185d365768" Json="True" KeyNumber="2434" />
         </Attribute>
-        <Attribute StaticName="LabelParticipantBirthDate" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelBirthDate" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="850c544b-bf21-44c4-bbd6-938c636b0f98" Json="True" KeyNumber="2435">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -2006,7 +2006,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="625d5b80-3228-4035-aae4-abbf68acc2d5" Json="True" KeyNumber="2435" />
         </Attribute>
-        <Attribute StaticName="LabelParticipantNationality" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelNationality" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="2cf588bc-a4f7-43ed-b4c6-5c6200e437cb" Json="True" KeyNumber="2436">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -4077,7 +4077,11 @@
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
           </Entity>
-          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="823220d0-53ab-4cb2-965a-ab140393eb6a" Json="True" KeyNumber="2472" />
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="823220d0-53ab-4cb2-965a-ab140393eb6a" Json="True" KeyNumber="2472">
+            <Value Key="InputFontFamily" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
         </Attribute>
       </Attributes>
     </AttributeSet>
@@ -4294,14 +4298,16 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="InputType" Value="string-default" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
             <Value Key="Name" Value="Event ID / Number" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Name" Value="Event-Nummer" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
             </Value>
-            <Value Key="Notes" Value="&lt;p&gt;This is a ID or code, which is used in other systems or catalogs for this event/course&lt;/p&gt;" Type="String">
+            <Value Key="Notes" Value="&lt;p&gt;This is a ID or code, which is used in other systems or catalogs for this event/course.&lt;/p&gt;" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Notes" Value="&lt;p&gt;Dies ist eine ID oder Code, den Sie auch in anderen Systemen oder Katalogen f&amp;uuml;r diesen Event/Kurs verwenden.&amp;nbsp;&lt;/p&gt;" Type="String">
@@ -4337,7 +4343,11 @@
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
           </Entity>
-          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="abfcf9c8-6f09-466e-9447-52e0e2adb6e0" Json="True" KeyNumber="2497" />
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="abfcf9c8-6f09-466e-9447-52e0e2adb6e0" Json="True" KeyNumber="2497">
+            <Value Key="InputFontFamily" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
         </Attribute>
         <Attribute StaticName="Image" Type="Hyperlink" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="d3147368-e50c-4474-a23b-f35e84688b77" Json="True" KeyNumber="2498">
@@ -4782,7 +4792,7 @@
             <Value Key="Name" Value="Ort" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
             </Value>
-            <Value Key="Notes" Value="&lt;p&gt;Address / Location / Name of the event/location room&lt;/p&gt;" Type="String">
+            <Value Key="Notes" Value="&lt;p&gt;Address / Location / Name of the even t/location room&lt;/p&gt;" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Notes" Value="&lt;p&gt;Adresse / Ort / Name des Event-Raumes&lt;/p&gt;" Type="String">
@@ -4819,6 +4829,9 @@
             </Value>
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="753785af-0a14-4d22-a190-0954c58bf175" Json="True" KeyNumber="2504">
+            <Value Key="InputFontFamily" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
             <Value Key="RowCount" Value="0" Type="Number">
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -5214,7 +5227,7 @@
             <Value Key="Name" Value="Starting date" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="Name" Value="Datum" Type="String">
+            <Value Key="Name" Value="Start Datum" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
             </Value>
             <Value Key="Notes" Value="" Type="String">
@@ -5263,6 +5276,9 @@
             </Value>
             <Value Key="Name" Value="End date is the same as the start date" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Das Enddatum ist das gleiche wie das Startdatum." Type="String">
+              <Dimension DimensionID="46" ReadOnly="false" />
             </Value>
             <Value Key="Notes" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -5320,7 +5336,7 @@
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="Name" Value="Ending date" Type="String">
+            <Value Key="Name" Value="Ending date (only if several days)" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Name" Value="Ende des Termins (nur wenn mehrtägig)" Type="String">
@@ -5610,7 +5626,7 @@
             <Value Key="Name" Value="Event-Nummer" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
             </Value>
-            <Value Key="Notes" Value="&lt;p&gt;This is a ID or code, which is used in other systems or catalogs for this event/course&lt;/p&gt;" Type="String">
+            <Value Key="Notes" Value="&lt;p&gt;This is a ID or code, which is used in other systems or catalogs for this event/course.&lt;/p&gt;" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Notes" Value="&lt;p&gt;Dies ist eine ID oder Code, den Sie auch in anderen Systemen oder Katalogen f&amp;uuml;r diesen Event/Kurs verwenden.&amp;nbsp;&lt;/p&gt;" Type="String">
@@ -5642,7 +5658,11 @@
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
           </Entity>
-          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="eeb9d83e-f090-451f-8a1d-90f765e32e20" Json="True" KeyNumber="2519" />
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="eeb9d83e-f090-451f-8a1d-90f765e32e20" Json="True" KeyNumber="2519">
+            <Value Key="InputFontFamily" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
         </Attribute>
         <Attribute StaticName="Person" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="a25e9e5d-56f0-4f71-98ba-66607442c308" Json="True" KeyNumber="2521">
@@ -6881,16 +6901,22 @@
             <Value Key="Disabled" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
             <Value Key="InputType" Value="string-default" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Name" Value="MobilePhone" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="Name" Value="Mobil" Type="String">
+            <Value Key="Name" Value="Handy" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
             </Value>
             <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Required" Value="False" Type="Boolean">
@@ -6911,7 +6937,11 @@
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
           </Entity>
-          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="52dcdf01-47d9-4882-af6f-6240a8d07bf9" Json="True" KeyNumber="2486" />
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="52dcdf01-47d9-4882-af6f-6240a8d07bf9" Json="True" KeyNumber="2486">
+            <Value Key="InputFontFamily" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
         </Attribute>
         <Attribute StaticName="Mail" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="836099ad-9681-4c30-9aaf-6df58ef9e087" Json="True" KeyNumber="2487">
@@ -7405,7 +7435,7 @@
       <Value Key="RequiredOqtaneVersion" Value="3.1" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="RequiredVersion" Value="13.10.00" Type="String">
+      <Value Key="RequiredVersion" Value="14.07.00" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7413,7 +7443,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Version" Value="06.02.00" Type="String">
+      <Value Key="Version" Value="06.03.00" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7422,10 +7452,10 @@
       <Value Key="CustomerMailTemplateFile" Value="EmailToCustomer.cs" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="MailFrom" Value="testsender@2sic.net" Type="String">
+      <Value Key="MailFrom" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="OwnerMail" Value="testmail@2sic.net" Type="String">
+      <Value Key="OwnerMail" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="OwnerMailTemplateFile" Value="EmailToOwner.cs" Type="String">
@@ -7499,16 +7529,16 @@
       <Value Key="CountrySelection" Value="Schweiz&#xA;Liechtenstein&#xA;Österreich&#xA;Deutschland&#xA;Frankreich&#xA;Italien&#xA;Niederlande&#xA;Belgien" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
+      <Value Key="CourseData" Value="Subscriber data" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="CourseData" Value="Teilnehmer-Daten" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
       <Value Key="CourseNotFoundError" Value="This course could not be found." Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="CourseNotFoundError" Value="Dieser Kurs konnte nicht gefunden werden." Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="CourseParticipantData" Value="Subscriber data" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="CourseParticipantData" Value="Teilnehmer-Daten" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="CourseRegistrationError" Value="An error occurred while registration." Type="String">
@@ -7565,6 +7595,18 @@
       <Value Key="LabelBackToList" Value="&amp;lsaquo; Zur Übersicht" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
+      <Value Key="LabelBirthDate" Value="Birthdate" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelBirthDate" Value="Geburtsdatum" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelCountry" Value="Country" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelCountry" Value="Land" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
       <Value Key="LabelCourseDate" Value="Note(s)" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7598,7 +7640,31 @@
       <Value Key="LabelEventNotExistsText" Value="The requested event was not found." Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="LabelEventNotExistsText" Value="Das angeforderte Veranstaltung wurde nicht gefunden." Type="String">
+      <Value Key="LabelEventNotExistsText" Value="Die angeforderte Veranstaltung wurde nicht gefunden." Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelFirstName" Value="First name" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelFirstName" Value="Vorname" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelLastName" Value="Last name" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelLastName" Value="Nachname" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelMail" Value="E-Mail" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelMail" Value="E-Mail" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelMobilePhone" Value="Mobile phone" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelMobilePhone" Value="Mobil Tel." Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="LabelMr" Value="Mr" Type="String">
@@ -7613,64 +7679,10 @@
       <Value Key="LabelMrs" Value="Frau" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
-      <Value Key="LabelParticipantBirthDate" Value="Birthdate" Type="String">
+      <Value Key="LabelNationality" Value="Nationality" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="LabelParticipantBirthDate" Value="Geburtsdatum" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantCountry" Value="Country" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantCountry" Value="Land" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantFirstName" Value="First name" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantFirstName" Value="Vorname" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantLastName" Value="Last name" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantLastName" Value="Nachname" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantMail" Value="E-Mail" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantMail" Value="E-Mail" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantMobilePhone" Value="Mobile phone" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantMobilePhone" Value="Mobil Tel." Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantNationality" Value="Nationality" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantNationality" Value="Nationalität" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantPhone" Value="Phone" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantPhone" Value="Telefon" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantSalutation" Value="Salutation" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantSalutation" Value="Anrede" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantStreet" Value="Street" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LabelParticipantStreet" Value="Strasse" Type="String">
+      <Value Key="LabelNationality" Value="Nationalität" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="LabelParticipantTitle" Value="Subscriber" Type="String">
@@ -7679,10 +7691,10 @@
       <Value Key="LabelParticipantTitle" Value="Teilnehmer" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
-      <Value Key="LabelParticipantZIPCity" Value="Zip / City" Type="String">
+      <Value Key="LabelPhone" Value="Phone" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="LabelParticipantZIPCity" Value="PLZ / Ort" Type="String">
+      <Value Key="LabelPhone" Value="Telefon" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="LabelReadMore" Value="Details &amp;rsaquo;" Type="String">
@@ -7693,6 +7705,27 @@
       </Value>
       <Value Key="LabelRegistrations" Value="Registrations" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelRegistrations" Value="Registrierung " Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelSalutation" Value="Salutation" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelSalutation" Value="Anrede" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelStreet" Value="Street" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelStreet" Value="Strasse" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelZIPCity" Value="Zip / City" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelZIPCity" Value="PLZ / Ort" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="LanguageHidden" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
@@ -7736,17 +7769,32 @@
       <Value Key="MessageContainsRecaptcha" Value="&lt;p&gt;Events: This app contains reCAPTCHA.&lt;/p&gt;" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="MessageContainsRecaptcha" Value="&lt;p&gt;Ereignisse: Diese App enth&amp;auml;lt reCAPTCHA.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
       <Value Key="MessageDefaultMailSettings" Value="&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Mail settings have not yet been set correctly. Enter an e-mail address in the in the App Settings. Change the Settings using &lt;a class=&quot;alert-link target=&quot; href=&quot;https://azing.org/2sxc/r/K_RhCB2l&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;these instructions&lt;/a&gt;&lt;/p&gt;" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MessageDefaultMailSettings" Value="&lt;p&gt;Warnung: Dieses Recaptcha verwendet einen Demo-API-Key, der auf Live-Websites Probleme verursachen kann. &amp;Auml;ndern Sie den RecaptchaApiKey mit diesen &lt;a href=&quot;https://azing.org/2sxc/r/mVhYG02x&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Anweisungen&lt;/a&gt;&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="MessageRecaptchaMissing" Value="&lt;p&gt;Please fill in all required fields before sending.&lt;/p&gt;" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="MessageRecaptchaMissing" Value="&lt;p&gt;Bitte f&amp;uuml;llen Sie vor dem Absenden alle erforderlichen Felder aus.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
       <Value Key="MessageRecaptchaWarning" Value="&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; This recaptcha uses a demo API-Key, which will cause problems on live web sites. Change the RecaptchaApiKey using &lt;a class=&quot;alert-link target=&quot; href=&quot;https://azing.org/2sxc/r/mVhYG02x&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;these instructions&lt;/a&gt;&lt;/p&gt;" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="MessageRecaptchaWarning" Value="&lt;p&gt;Warnung: Dieses Recaptcha verwendet einen Demo-API-Key, der auf Live-Websites Probleme verursachen kann. &amp;Auml;ndern Sie den RecaptchaApiKey mit diesen &lt;a href=&quot;https://azing.org/2sxc/r/mVhYG02x&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Anweisungen&lt;/a&gt;&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
       <Value Key="MessageSending" Value="&lt;p&gt;Signing up, please wait...&lt;/p&gt;" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MessageSending" Value="&lt;p&gt;Anmeldung l&amp;auml;uft, bitte warten Sie...&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="NoCoursesFound" Value="There are currently no courses available for this occasion" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
@@ -8670,6 +8718,9 @@
       <Value Key="Description" Value="" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
+      <Value Key="DynamicChildrenField" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="EditInstructions" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -8698,6 +8749,9 @@
       </Value>
       <Value Key="Description" Value="" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="DynamicChildrenField" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="EditInstructions" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
@@ -8728,6 +8782,9 @@
       <Value Key="Description" Value="Events pro Seite" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
+      <Value Key="DynamicChildrenField" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="EditInstructions" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -8736,6 +8793,9 @@
       </Value>
       <Value Key="Label" Value="EventSettings" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Label" Value="Ereignis-Einstellungen" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="Link" Value="" Type="Hyperlink">
         <Dimension DimensionID="45" ReadOnly="false" />
@@ -9843,7 +9903,7 @@
       <Value Key="Advanced" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="ByUrlParameters" Value="False" Type="Boolean">
+      <Value Key="ByUrlParameters" Value="True" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Duration" Value="14400" Type="Number">
@@ -9865,6 +9925,138 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="UrlParametersCaseSensitive" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-Template" AttributeSetName="2SexyContent-Template" EntityGUID="33f4b270-edca-4826-a4ed-f0d5766fc1fb" Json="True">
+      <Value Key="ContentTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Identifier" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="IsHidden" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ListContentTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ListPresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="Site" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="Events List" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Path" Value="live/_Events List.cshtml" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Pipeline" Value="170df020-7815-4609-8a80-eff295a1606d" Type="Entity" />
+      <Value Key="PresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="PublishData" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Resources" Value="0252c448-6787-4d19-9dad-b0ecc53c150f" Type="Entity" />
+      <Value Key="SearchIndexingDisabled" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingStreams" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="StreamsToPublish" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Type" Value="C# Razor" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="UseForList" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewController" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewNameInUrl" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="5" AssignmentObjectType="ContentType" AttributeSetStaticName="ContentType" AttributeSetName="ContentType" EntityGUID="d1706d4c-5085-4892-948e-654a8b15e766" Json="True" KeyString="d21cdde4-28fa-458e-b395-586fde923411">
+      <Value Key="Description" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="DynamicChildrenField" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="EditInstructions" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Label" Value="SystemProtocol" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Label" Value="System-Protokoll" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="Link" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ListInstructions" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Notes" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="e3166e35-58ba-4d10-982c-fdbeb033f930">
+      <Value Key="Document" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="End" Value="2022-11-18T00:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
+      <Value Key="Fee" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Id" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="IsCancelled" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Person" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Seats" Value="2" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Start" Value="2022-11-18T00:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TimeSpecifics" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TitleAddition" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>

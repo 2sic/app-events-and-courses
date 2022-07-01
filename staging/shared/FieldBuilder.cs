@@ -1,6 +1,6 @@
 using ToSic.Razor.Blade;
 
-public class FieldBuilder : Custom.Hybrid.Code12
+public class FieldBuilder : Custom.Hybrid.Code14
 {
   /* 
     this file is for creating different fields e.g. input, textarea, file, dropdown and showing them in the template
@@ -24,12 +24,10 @@ public class FieldBuilder : Custom.Hybrid.Code12
   public bool LabelInPlaceholder = false;
 
   #region Koi based class selection
-  internal dynamic PageCss { get { return _pageCss ?? (_pageCss = GetService<Connect.Koi.ICss>()); } }
-  private dynamic _pageCss;
   internal string FormClasses()
   {
     return (LabelInPlaceholder ? "" : "row ")
-      + (PageCss.Is("bs3") ? "form-group" : "mb-3");
+      + (Kit.Css.Is("bs3") ? "form-group" : "mb-3");
   }
 
   // Choose CSS classes based on the framework
@@ -41,7 +39,7 @@ public class FieldBuilder : Custom.Hybrid.Code12
   {
     return "control-label "
       + (required ? "app-events6-field-required " : "")
-      + (PageCss.Is("bs3") ? "col col-xs-12 col-sm-3" : "col-12 col-sm-3");
+      + (Kit.Css.Is("bs3") ? "col col-xs-12 col-sm-3" : "col-12 col-sm-3");
   }
 
   #endregion
@@ -105,7 +103,7 @@ public class FieldBuilder : Custom.Hybrid.Code12
 
   // shows a wrapping div with choosen content
   public dynamic Field(string idString, bool required, dynamic contents) {
-    var inputWrapperClasses = PageCss.Is("bs3") ? "col col-xs-12 col-sm-9" : "col-12  col-sm-9";
+    var inputWrapperClasses = Kit.Css.Is("bs3") ? "col col-xs-12 col-sm-9" : "col-12  col-sm-9";
     var labelTranslated = Resources.Get("Label" + idString);
     var field = Tag.Div().Class(FormClasses());
 

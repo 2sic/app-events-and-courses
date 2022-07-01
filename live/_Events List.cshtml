@@ -1,14 +1,16 @@
-@inherits Custom.Hybrid.Razor12
+@inherits Custom.Hybrid.Razor14
 @using ToSic.Razor.Blade;
 @using System.Linq;
 @using System;
-@using ToSic.Sxc.Services;
 @{
   var queryEvents = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
-  var listSettings = Content;
+
+  var contentSettings = Kit.Toolbar.Default().New("Event", ui: "title=" + Resources.LabelAddEvent); 
+
+  var dEventToolbar = Kit.Toolbar.Empty().Edit();
 }
 
-<div class="app-events6 app-events6-list" @Edit.TagToolbar(listSettings, toolbar: new [] { "+new&title=" + Resources.LabelAddEvent + "?contentType=Event" })>
+<div class="app-events6 app-events6-list" @contentSettings.For(Content)>
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("_List.PartEventsWithoutDates.cshtml")
 
@@ -20,9 +22,7 @@
         var item = d.Event;
         var detailslink = Link.To(parameters: "details=" + @item.EntityId + "&dateid=" + d.EntityId + "&" + item.UrlKey);
           
-        <tr class="position-relative app-events6-list-item" @Edit.TagToolbar(d.Event, toolbar: new [] {
-          "toolbar=empty", "+edit"
-        })>
+        <tr class="position-relative app-events6-list-item" @dEventToolbar.For(d.Event)>
 					<td>
 						@item.Title @((Text.Has(d.TitleAddition)) ? "- " + d.TitleAddition : "" )
 					</td>

@@ -5,9 +5,8 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using ToSic.Razor.Blade;
-using ToSic.Sxc.Services; // platformLogService, mailService
 
-public class SendMail : Custom.Hybrid.Code12
+public class SendMail : Custom.Hybrid.Code14
 {
   public void sendMails(Dictionary<string,object> contactFormRequest) {
     var settings = new {
@@ -53,8 +52,7 @@ public class SendMail : Custom.Hybrid.Code12
     // Send Mail
     // Note that if an error occurs, this will bubble up, the caller will convert it to format for the client
     Log.Add("sending...");
-    var mailService = GetService<IMailService>();
-    mailService.Send(from: from, to: to, cc: cc, replyTo: replyTo, subject: subject, body: mailBody, attachments: new List<ToSic.Sxc.Adam.IFile>());
+    Kit.Mail.Send(from: from, to: to, cc: cc, replyTo: replyTo, subject: subject, body: mailBody, attachments: new List<ToSic.Sxc.Adam.IFile>());
 
     // Log to Platform - just as a last resort in case something is lost, to track down why
     var message = new StringBuilder()
@@ -67,7 +65,7 @@ public class SendMail : Custom.Hybrid.Code12
       .ToString();
 
 
-    GetService<ILogService>().Add("SendMail", message);
+    Kit.Log.Add("SendMail", message);
     wrapLog("ok");
 
     return true;

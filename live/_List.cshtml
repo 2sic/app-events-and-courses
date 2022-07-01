@@ -1,17 +1,16 @@
-@inherits Custom.Hybrid.Razor12
+@inherits Custom.Hybrid.Razor14
 @using ToSic.Razor.Blade;
 @using System.Linq;
 @using System;
-@using ToSic.Sxc.Services;
 @{
   var queryEvents = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
-  var listSettings = Content;
 
-  // Image Service used to generate optimal images
-  var imgSvc = GetService<IImageService>();
+  var contentToolbar = Kit.Toolbar.Default().New("Event", ui:"title=" + Resources.LabelAddEvent);
+
+  var dEventToolbar = Kit.Toolbar.Empty().Edit();
 }
 
-<div class="app-events6 app-events6-list" @Edit.TagToolbar(listSettings, toolbar: new [] { "+new&title=" + Resources.LabelAddEvent + "?contentType=Event" })>
+<div class="app-events6 app-events6-list" @contentToolbar.For(Content)>
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("_List.PartEventsWithoutDates.cshtml")
 
@@ -36,13 +35,11 @@
         var image = Text.Has(item.Image) ? item.Field("Image") : Resources.PlaceHolderImg;
         var altText = Text.Has(item.Image) ? Text.First(imageField.Metadata.Description, item.Title) : item.Title;
           
-        <div class="row position-relative app-events6-list-item mb-4" @Edit.TagToolbar(d.Event, toolbar: new [] {
-          "toolbar=empty", "+edit"
-        })>
+        <div class="row position-relative app-events6-list-item mb-4" @dEventToolbar.For(d.Event)>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-events6-img effect-zoom @(Text.Has(item.Image) ? "" : "app-events6-noimg")'>
               <div class="overlay" style="@overlayStyle"></div>
-              @imgSvc.Picture(image, settings: "Content", factor: "1/3", imgAlt: altText)
+              @Kit.Image.Picture(image, settings: "Content", factor: "1/3", imgAlt: altText)
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">

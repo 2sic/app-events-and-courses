@@ -1,5 +1,10 @@
-@inherits Custom.Hybrid.Razor12
+@inherits Custom.Hybrid.Razor14
 @using ToSic.Razor.Blade;
+@{
+  var evToolbar = Kit.Toolbar.Empty()
+    .Edit();
+}
+
 @if(Edit.Enabled) {
   var i = 0;
   <div class="mb-2 alert alert-warning admin-eventswithoutdate">
@@ -8,7 +13,7 @@
       @foreach(var ev in AsList(App.Data["Event"])) {
         var eventCount = AsList(App.Data["EventDate"]).Where(d => d.Start.Date >= DateTime.Now.Date).Where(d => d.Event.EntityId == ev.EntityId).Count();
         if(eventCount == 0) {
-          <li class="list-group-item list-group-item-light mb-0" @Edit.TagToolbar(ev, toolbar: new [] { "toolbar=empty", "+edit" })>
+          <li class="list-group-item list-group-item-light mb-0" @evToolbar.For(ev)>
             <a href="@Link.To(parameters: "details=" + @ev.EntityId + "&" + ev.UrlKey)">@ev.Title</a>
           </li>
           i++;

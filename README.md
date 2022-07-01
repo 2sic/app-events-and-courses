@@ -46,3 +46,6 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
   * Changed all images to use the IImageService
   * Replaced data-enableoptimizations with IPageService.AssetAttributes()
   * Updated JS to use new webapi methods (fetch -> fetchRaw)
+* 2022-06 v6.3.0
+  * Changed all base classes to their 2sxc 14 equivalents
+  * Removed all GetService<> and replaced it with the ServiceKit14
