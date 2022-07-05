@@ -49,3 +49,5 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
 * 2022-06 v6.3.0
   * Changed all base classes to their 2sxc 14 equivalents
   * Removed all GetService<> and replaced it with the ServiceKit14
+  * Changed all toolbar configurations to use the IToolbarService
+  * Updated webpack
