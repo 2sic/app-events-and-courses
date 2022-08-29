@@ -12,7 +12,7 @@
   }
   @if (@paging.PageSize >= 0) {
     for(int i = 1; i <= @paging.PageCount; i++) {
-      <a @(i == paging.PageNumber ? "class=app-events6-paging-active" : "href=" + @LinkToPageNumber(i, eventPage))>@i</a>
+      <a @(i == paging.PageNumber ? "class=app-events6-paging-active" : "") href='@(i != paging.PageNumber ? LinkToPageNumber(i, eventPage) : "javascript:void(0)")'>@i</a>
     }
   }
   @if (paging.PageNumber < paging.PageCount) {
