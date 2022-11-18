@@ -14,6 +14,10 @@
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("_List.PartEventsWithoutDates.cshtml")
 
+  @if(Text.Has(Content.Title)) {
+    <h2 class="mb-4">@Content.Title</h2>
+  }
+
   <table class="table table-hover">
   @foreach (var e in queryEvents) {
     @* Events in month *@

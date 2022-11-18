@@ -14,6 +14,11 @@
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("_List.PartEventsWithoutDates.cshtml")
 
+
+  @if(Content.Categories != null) {
+    <h2 class="mb-4">@Content.Categories.PageTitle</h2>
+  }
+
   @foreach (var e in queryEvents) {
     var eventDate = e.First().Start;
     @* Grouped months *@
