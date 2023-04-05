@@ -12,10 +12,10 @@
 
 <div class="app-events6 app-events6-list" @contentToolbar.For(Content)>
   @* Events for Admin which don't have a date yet *@
-  @Html.Partial("_List.PartEventsWithoutDates.cshtml")
+  @Html.Partial("List.PartEventsWithoutDates.cshtml")
 
 
-  @if(Content.Categories != null) {
+  @if (Content.Categories != null) {
     <h2 class="mb-4">@Content.Categories.PageTitle</h2>
   }
 
@@ -38,27 +38,26 @@
         var overlayStyle = Text.Has(item.Image) ? "" : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", Settings.Images.Content) + "');";
         var imageField = item.Field("Image");
         var image = Text.Has(item.Image) ? item.Field("Image") : Resources.PlaceHolderImg;
-        var altText = Text.Has(item.Image) ? Text.First(imageField.Metadata.Description, item.Title) : item.Title;
           
         <div class="row position-relative app-events6-list-item mb-4" @dEventToolbar.For(d.Event)>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-events6-img effect-zoom @(Text.Has(item.Image) ? "" : "app-events6-noimg")'>
               <div class="overlay" style="@overlayStyle"></div>
-              @Kit.Image.Picture(image, settings: "Content", factor: "1/3", imgAlt: altText)
+              @Kit.Image.Picture(image, settings: Kit.Image.Settings("Content"), imgAltFallback: item.Title)
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
             <div class="app-events6-text">
               <h2>
                 @item.Title @((Text.Has(d.TitleAddition)) ? "- " + d.TitleAddition : "" )
-                @if(d.Event.ShowInLanguage == false && Edit.Enabled) { <span style="color:red;">@Resources.LanguageHidden.Replace("<p>", "").Replace("</p>", "")</span> }
+                @if (d.Event.ShowInLanguage == false && Edit.Enabled) { <span style="color:red;">@Resources.LanguageHidden.Replace("<p>", "").Replace("</p>", "")</span> }
               </h2>
               <div class="event-meta mb-3">
                 <span class="app-events6-date">@d.Start.ToString("d") @(!d.EndDateIsStartDate ? "- " + d.End.ToString("d") : "")</span>
                 <span class="app-events6-categories"> | @item.Category.Title</span>
               </div>
 
-              @if(Text.Has(item.ShortDescription)) {
+              @if (Text.Has(item.ShortDescription)) {
                 <p>@item.ShortDescription.Replace("\n", "<br />")</p>
               }
 
@@ -70,8 +69,8 @@
     }
   }
 
-  @Html.Partial("_DetailsList.PartPaging.cshtml") 
-  @Html.Partial("_List.PartAdmin.cshtml")
+  @Html.Partial("DetailsList.PartPaging.cshtml") 
+  @Html.Partial("List.PartAdmin.cshtml")
 </div>
 
-@Html.Partial("shared/_Assets.cshtml") 
+@Html.Partial("shared/Assets.cshtml") 

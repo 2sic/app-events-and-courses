@@ -3,7 +3,7 @@ public class EmailToOwner: Custom.Hybrid.Code14
 {
   // This generates the e-mail subject
   public string Subject() {
-    return Resources.MailCustomerSubject;
+    return Resources.MailOwnerSubject;
   }
 
   // This generates the e-mail body

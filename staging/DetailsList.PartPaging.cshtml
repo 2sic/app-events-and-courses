@@ -22,7 +22,7 @@
 
 @functions {
   // generate a paging-link number
-  public string LinkToPageNumber(int pageNumber, string eventP){
+  public string LinkToPageNumber(int pageNumber, string eventP) {
     string url = Link.To(parameters: "page=" + pageNumber);
     return url.ToLower();
   }

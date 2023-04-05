@@ -9,18 +9,21 @@
   var eventToolbar = Kit.Toolbar.Empty()
     .Settings(show: "always")
     .New("EventDate", prefill: new { Event = DynamicModel.Item.EntityGuid })
+    @* .New("EventDate", tweak: b => b.Color("green")) *@
+    @* .New("EventDate", tweak: b => b.Prefill(new { Event = DynamicModel.Item.EntityGuid })) *@
+    @* .New("EventDate", tweak: b => b.Color("green").Parameters("prefill" = new { Event = DynamicModel.Item.EntityGuid })) *@
     .Data("Registrations", filter:"Course=[" + DynamicModel.Item.EntityId + "]");
 }
 
 <div class="app-events6-further-events" @eventToolbar >
-  @if(futureDates.Count() == 0 && Edit.Enabled) {
+  @if (futureDates.Count() == 0 && Edit.Enabled) {
     <h5 class="mb-4 mt-4">@Resources.NoEventDates</h5>
-  } else if(futureDates.Count() > 1 || Edit.Enabled) {              
+  } else if (futureDates.Count() > 1 || Edit.Enabled) {              
     <h5 class="mb-3 mt-4">@Resources.AllDatesOfThisEvent (@(futureDates.Count() - pastDates))</h5>
   }
 
-  @if(futureDates.Count() > 0) {
-    if(Edit.Enabled && pastDates > 0) {
+  @if (futureDates.Count() > 0) {
+    if (Edit.Enabled && pastDates > 0) {
       <small><a href="javascript:void(0)" class="js-app-events6-toggle-expired-dates">@App.Resources.BtnToggleExpiredDate</a></small>
     }
     <ul class="list-group list-group-flush mb-4">

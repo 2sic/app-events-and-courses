@@ -8,13 +8,14 @@
   var contentSettings = Kit.Toolbar.Default().New("Event", ui: "title=" + Resources.LabelAddEvent); 
 
   var dEventToolbar = Kit.Toolbar.Empty().Edit();
+
 }
 
 <div class="app-events6 app-events6-list" @contentSettings.For(Content)>
   @* Events for Admin which don't have a date yet *@
-  @Html.Partial("_List.PartEventsWithoutDates.cshtml")
+  @Html.Partial("List.PartEventsWithoutDates.cshtml")
 
-  @if(Text.Has(Content.Title)) {
+  @if (Text.Has(Content.Title)) {
     <h2 class="mb-4">@Content.Title</h2>
   }
 
@@ -48,7 +49,7 @@
   }
   </table>
 
-  @Html.Partial("_List.PartAdmin.cshtml")
+  @Html.Partial("List.PartAdmin.cshtml")
 </div>
 
-@Html.Partial("shared/_Assets.cshtml") 
+@Html.Partial("shared/Assets.cshtml") 

@@ -149,7 +149,7 @@ var Edition = CmsContext.View.Edition;
       @AddHiddenMessage(Resources.MessageDefaultMailSettings, "warning", "", "app-events6-config-warning")
     }
 
-    @if (Settings.Recaptcha ?? false)  { @Html.Partial("_Registration.PartRecaptcha.cshtml") }
+    @if (Settings.Recaptcha ?? false)  { @Html.Partial("Registration.PartRecaptcha.cshtml") }
   </div>
 </div>
 
@@ -163,4 +163,4 @@ var Edition = CmsContext.View.Edition;
   }
 }
 
-@Html.Partial("shared/_Assets.cshtml")
+@Html.Partial("shared/Assets.cshtml")

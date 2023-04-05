@@ -8,7 +8,7 @@ A standard Events and Courses app to use with 2sxc
 
 | Aspect              | Status | Comments or Version |
 | ------------------- | :----: | ------------------- |
-| 2sxc                | ✅    | requires 2sxc v13.10
+| 2sxc                | ✅    | requires 2sxc v15.04
 | Dnn                 | ✅    | For v7, v8 and v9
 | Oqtane 2            | ✅    | Requires v2.02
 | No jQuery           | ✅    | 
@@ -29,25 +29,30 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
 
 ## History
 
-* 2017-03 v1.0
-* 2017-05 v2.0
+* v1.0 2017-03
+* v2.0 2017-05
 * ...
-* 2021-11 v6.0 for 2sxc 12.08
+* v6.0 2021-11 for 2sxc 12.08
   * Now hybrid, runs on Dnn and Oqtane
   * Updated to v12 best-practices
   * Improved code, clean-up etc.
   * No more jQuery
-* 2022-02 v6.1
+* v6.1 2022-02
   * Enabled dataoptimizations
-* 2022-03 v6.1.2
+* v6.1.2 2022-03
   * Improvements toolbar
-* 2022-04 v6.2.0 
+* v6.2.0 2022-04  
   * Changed all access to Services to ToSic.Sxc.Services
   * Changed all images to use the IImageService
   * Replaced data-enableoptimizations with IPageService.AssetAttributes()
   * Updated JS to use new webapi methods (fetch -> fetchRaw)
-* 2022-06 v6.3.0
+* v6.3.0 2022-06
   * Changed all base classes to their 2sxc 14 equivalents
   * Removed all GetService<> and replaced it with the ServiceKit14
   * Changed all toolbar configurations to use the IToolbarService
   * Updated webpack
+* v6.4.0 2022-06
+  <!-- * Replaced Tag.Custom with `Kit.HtmlTags` -->
+  * Enhanced Kit.Image with `imgAltFallback`
+  * Replaced turnOn Tag with `Kit.Page.TurnOn`
+  * Removed _ from Filenames

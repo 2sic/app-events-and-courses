@@ -12,7 +12,7 @@ using System.IO;
 using System.Linq;
 
 [AllowAnonymous]	// define that all commands can be accessed without a login
-public class FormController : Custom.Hybrid.Api14
+public class FormController : Custom.Hybrid.Api15
 {
   [HttpPost]
   public void ProcessForm([FromBody]Dictionary<string,object> contactFormRequest)
@@ -22,41 +22,50 @@ public class FormController : Custom.Hybrid.Api14
     contactFormRequest = new Dictionary<string, object>(contactFormRequest, StringComparer.OrdinalIgnoreCase);
 
     // 0. Pre-Check - validate recaptcha if enabled in the Content object (the form configuration)
-    if(Content.Recaptcha ?? false) {
+    if (Content.Recaptcha ?? false) {
       Log.Add("checking Recaptcha");
       CreateInstance("Parts/Recaptcha.cs").Validate(contactFormRequest["Recaptcha"] as string);
     }
 
     // 0.1. after saving, remove recaptcha fields from the data-package, because we don't want them in the e-mails
     RemoveKeys(contactFormRequest, new string[] { "g-recaptcha-response", "useRecaptcha",  "Recaptcha", "submit" });
-    
+
+
+
 
     // 1. add IP / host, and save all fields
     // if you add fields to your content-type, just make sure they are
     // in the request with the correct name, they will be added automatically
-    contactFormRequest.Add("Timestamp", DateTime.Now);
+    contactFormRequest["Timestamp"] = DateTime.Now;
     // Add the SenderIP in case we need to track down abuse
     #if NETCOREAPP
-      contactFormRequest.Add("SenderIP", Request.HttpContext.Connection.RemoteIpAddress?.ToString());
+      contactFormRequest["SenderIP"] = Request.HttpContext.Connection.RemoteIpAddress?.ToString();
     #else
-      contactFormRequest.Add("SenderIP", System.Web.HttpContext.Current.Request.UserHostAddress);
+      contactFormRequest["SenderIP"] = System.Web.HttpContext.Current.Request.UserHostAddress;
     #endif
     // Add the ModuleId to assign each sent form to a specific module
-    contactFormRequest.Add("ModuleId", CmsContext.Module.Id);
+    contactFormRequest["ModuleId"] = CmsContext.Module.Id;
     // add raw-data, in case the content-type has a "RawData" field
-    contactFormRequest.Add("RawData", CreateRawDataEntry(contactFormRequest));
+    contactFormRequest["RawData"] = CreateRawDataEntry(contactFormRequest);
+    // add Title (if non given), in case the Content-Type would benefit of an automatic title
+    var addTitle = !contactFormRequest.ContainsKey("Title");
+    if (addTitle) contactFormRequest["Title"] = "Form " + DateTime.Now.ToString("s");
 
     // if you add fields to your content-type, just make sure they are 
     // in the request with the correct name, they will be added automatically
-    contactFormRequest.Add("SubmitDate", DateTime.Now);
-    contactFormRequest.Add("Status", "registered");
-    App.Data.Create("Registrations", contactFormRequest);
+    contactFormRequest["SubmitDate"] = DateTime.Now;
+    contactFormRequest["Status"] = "registered";
 
-    contactFormRequest.Add("Title", "Form " + DateTime.Now.ToString("s"));
     // Automatically full-save each request into a system-protocol content-type
     // This helps to debug or find submissions in case something wasn't configured right
     Log.Add("Save data to SystemProtocol in case we ever need to see what was submitted");
     App.Data.Create("SystemProtocol", contactFormRequest);
+
+    // Add guid to identify entity after saving (because we need to find it afterwards)
+    var guid = Guid.NewGuid();
+    contactFormRequest["EntityGuid"] = guid;
+    Log.Add("Save data to content type");
+    App.Data.Create("Registrations", contactFormRequest);
 
     // remove App informations from data-package
     RemoveKeys(contactFormRequest, new string[] { "ModuleId",  "SenderIP", "Timestamp" });
@@ -72,14 +81,14 @@ public class FormController : Custom.Hybrid.Api14
   {
     var data = new Dictionary<string, object>(formRequest, StringComparer.OrdinalIgnoreCase);
     data.Remove("Files");
-    return Kit.Convert.Json.ToJson(data);
+    return Kit.Json.ToJson(data);
   }
 
   // helpers
   private void RemoveKeys(Dictionary<string,object> contactFormRequest, string[] badKeys)
   {
     foreach (var key in badKeys)
-      if(contactFormRequest.ContainsKey(key))
+      if (contactFormRequest.ContainsKey(key))
         contactFormRequest.Remove(key);
   }
 }

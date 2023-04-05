@@ -95,7 +95,7 @@ public class FieldBuilder : Custom.Hybrid.Code14
     var content = Tag.Select().Id(idString).Class("form-control");
     SetRequired(content, required, Resources.LabelRequired);
     content.Add(Tag.Option("--Please Select--").Attr("value", ""));
-    foreach(var value in values){
+    foreach (var value in values) {
       content.Add(Tag.Option(value));
     }
     return Field(idString, required, content);
