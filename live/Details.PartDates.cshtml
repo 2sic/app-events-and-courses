@@ -6,13 +6,11 @@
   var futureDates = AsList(Data["FutureDates"]);
   var pastDates = futureDates.Where(d => d.End.Date < DateTime.Now.Date).Count();
 
+  var item = DynamicModel.Item;
   var eventToolbar = Kit.Toolbar.Empty()
     .Settings(show: "always")
-    .New("EventDate", prefill: new { Event = DynamicModel.Item.EntityGuid })
-    @* .New("EventDate", tweak: b => b.Color("green")) *@
-    @* .New("EventDate", tweak: b => b.Prefill(new { Event = DynamicModel.Item.EntityGuid })) *@
-    @* .New("EventDate", tweak: b => b.Color("green").Parameters("prefill" = new { Event = DynamicModel.Item.EntityGuid })) *@
-    .Data("Registrations", filter:"Course=[" + DynamicModel.Item.EntityId + "]");
+    .New("EventDate", tweak: b => b.Prefill("Event", item.EntityGuid))
+    .Data("Registrations", tweak: b => b.Filter("Course", item.EntityId));
 }
 
 <div class="app-events6-further-events" @eventToolbar >
@@ -36,7 +34,7 @@
           .Edit()
           .Copy()
           .Delete()
-          .Data("Registrations", ui:"title=" + Resources.LabelRegistrations, filter:"EventDate=[" + d.EntityId + "]");
+          .Data("Registrations", tweak: b => b.Tooltip( Resources.LabelRegistrations).Filter("EventDate", d.EntityId));
 
         <li class="list-group-item mb-0 @currentEventClass @hiddenEvent" @toolbarDate.For(d)>
           <a href="@Link.To(parameters: "details=" + DynamicModel.Item.EntityId + "&dateid=" + d.EntityId)">

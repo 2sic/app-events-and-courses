@@ -8,7 +8,7 @@ A standard Events and Courses app to use with 2sxc
 
 | Aspect              | Status | Comments or Version |
 | ------------------- | :----: | ------------------- |
-| 2sxc                | ✅    | requires 2sxc v15.04
+| 2sxc                | ✅    | requires 2sxc v15.07
 | Dnn                 | ✅    | For v7, v8 and v9
 | Oqtane 2            | ✅    | Requires v2.02
 | No jQuery           | ✅    | 
@@ -52,7 +52,7 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
   * Changed all toolbar configurations to use the IToolbarService
   * Updated webpack
 * v6.4.0 2022-06
-  <!-- * Replaced Tag.Custom with `Kit.HtmlTags` -->
   * Enhanced Kit.Image with `imgAltFallback`
   * Replaced turnOn Tag with `Kit.Page.TurnOn`
+  * New Tewak API Button for Toolbar
   * Removed _ from Filenames

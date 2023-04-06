@@ -5,7 +5,7 @@
 @{
   var queryEvents = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
 
-  var contentSettings = Kit.Toolbar.Default().New("Event", ui: "title=" + Resources.LabelAddEvent); 
+  var contentSettings = Kit.Toolbar.Default().New("Event",  tweak: b => b.Tooltip( Resources.LabelAddEvent)); 
 
   var dEventToolbar = Kit.Toolbar.Empty().Edit();
 

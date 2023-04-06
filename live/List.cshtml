@@ -5,7 +5,7 @@
 @{
   var queryEvents = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
 
-  var contentToolbar = Kit.Toolbar.Default().New("Event", ui:"title=" + Resources.LabelAddEvent);
+  var contentToolbar = Kit.Toolbar.Default().New("Event", tweak: b => b.Tooltip(Resources.LabelAddEvent));
 
   var dEventToolbar = Kit.Toolbar.Empty().Edit();
 }
@@ -35,7 +35,8 @@
       if (Edit.Enabled || d.Event.ShowInLanguage != false) {
         var item = d.Event;
         var detailslink = Link.To(parameters: "details=" + @item.EntityId + "&dateid=" + d.EntityId + "&" + item.UrlKey);
-        var overlayStyle = Text.Has(item.Image) ? "" : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", Settings.Images.Content) + "');";
+        var overlayStyle = Text.Has(item.Image) ? "" 
+        : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", Settings.Images.Content) + "');";
         var imageField = item.Field("Image");
         var image = Text.Has(item.Image) ? item.Field("Image") : Resources.PlaceHolderImg;
           

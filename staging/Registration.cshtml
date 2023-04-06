@@ -9,8 +9,6 @@
   var eventDate = AsList(Data["EventDate"]).FirstOrDefault();
   var title = course == null ? "" : course.Title;
   Kit.Page.SetTitle(Resources.CourseRegistrationTitle + " | " + title);
-
-  var domAttribute = "events-" + CmsContext.Module.Id;
 }
 
 @* Show warning if 404, event not found *@
@@ -37,7 +35,7 @@ var Edition = CmsContext.View.Edition;
 
 <div class="app-events6 app-events6-form" 
   @Edit.TagToolbar(eventDate) 
-  @domAttribute
+  domAttribute = "events-" + CmsContext.Module.Id;
   data-string-required="@Resources.ValidationRequired" 
   data-string-email="@Resources.ValidationEmail"
   data-webservice="app/auto/@Edition/api/Form/ProcessForm"
