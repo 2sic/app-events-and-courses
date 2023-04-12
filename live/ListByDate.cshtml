@@ -3,6 +3,9 @@
 @using System.Linq;
 @using System;
 @{
+
+  // TODO: @2dg pls rename to ListByDate.cshtml
+
   var queryEvents = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
 
   var contentSettings = Kit.Toolbar.Default().New("Event",  tweak: b => b.Tooltip( Resources.LabelAddEvent)); 
@@ -25,6 +28,7 @@
     foreach (var d in e) {
       if (Edit.Enabled || d.Event.ShowInLanguage != false) {
         var item = d.Event;
+        // TODO: @2dg - use CmsContext.Page.Parameters.Set(...).Set(...)
         var detailslink = Link.To(parameters: "details=" + @item.EntityId + "&dateid=" + d.EntityId + "&" + item.UrlKey);
           
         <tr class="position-relative app-events6-list-item" @dEventToolbar.For(d.Event)>

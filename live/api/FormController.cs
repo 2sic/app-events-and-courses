@@ -12,7 +12,8 @@ using System.IO;
 using System.Linq;
 
 [AllowAnonymous]	// define that all commands can be accessed without a login
-public class FormController : Custom.Hybrid.Api15
+[JsonFormatter] // Use System.Text.Json for JSON - TODO: @2dg - test & update mobius
+public class FormController : Custom.Hybrid.Api14 // Custom.Hybrid.Api15
 {
   [HttpPost]
   public void ProcessForm([FromBody]Dictionary<string,object> contactFormRequest)

@@ -12,7 +12,8 @@ using System.IO;
 using System.Linq;
 
 [AllowAnonymous]	// define that all commands can be accessed without a login
-public class FormController : Custom.Hybrid.Api15
+// [JsonFormatter] // TODO:: @dm: this is not working yet, Formular works without it
+public class FormController : Custom.Hybrid.Api14 // Custom.Hybrid.Api15
 {
   [HttpPost]
   public void ProcessForm([FromBody]Dictionary<string,object> contactFormRequest)

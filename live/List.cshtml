@@ -5,12 +5,12 @@
 @{
   var queryEvents = AsList(Data["Events"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
 
-  var contentToolbar = Kit.Toolbar.Default().New("Event", tweak: b => b.Tooltip(Resources.LabelAddEvent));
+  var mainToolbar = Kit.Toolbar.Default().New("Event", tweak: b => b.Tooltip(Resources.LabelAddEvent));
 
-  var dEventToolbar = Kit.Toolbar.Empty().Edit();
+  var eventToolbar = Kit.Toolbar.Empty().Edit();
 }
 
-<div class="app-events6 app-events6-list" @contentToolbar.For(Content)>
+<div class="app-events6 app-events6-list" @mainToolbar.For(Content)>
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("List.PartEventsWithoutDates.cshtml")
 
@@ -34,23 +34,26 @@
     foreach (var d in e) {
       if (Edit.Enabled || d.Event.ShowInLanguage != false) {
         var item = d.Event;
+        // TODO: @2dg - use CmsContext.Page.Parameters.Set(...).Set(...)
         var detailslink = Link.To(parameters: "details=" + @item.EntityId + "&dateid=" + d.EntityId + "&" + item.UrlKey);
-        var overlayStyle = Text.Has(item.Image) ? "" 
-        : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", Settings.Images.Content) + "');";
-        var imageField = item.Field("Image");
-        var image = Text.Has(item.Image) ? item.Field("Image") : Resources.PlaceHolderImg;
+        var overlayStyle = Text.Has(item.Image)
+          ? "" 
+          : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", Settings.Images.Content) + "');";
+        
+        var image = Text.Has(item.Image) ? item.Field("Image") : App.Resources.Field("PlaceHolderImg");
           
-        <div class="row position-relative app-events6-list-item mb-4" @dEventToolbar.For(d.Event)>
+        <div class="row position-relative app-events6-list-item mb-4" @eventToolbar.For(d.Event)>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-events6-img effect-zoom @(Text.Has(item.Image) ? "" : "app-events6-noimg")'>
               <div class="overlay" style="@overlayStyle"></div>
-              @Kit.Image.Picture(image, settings: Kit.Image.Settings("Content"), imgAltFallback: item.Title)
+              @Kit.Image.Picture(image, imgAltFallback: item.Title)
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
             <div class="app-events6-text">
               <h2>
                 @item.Title @((Text.Has(d.TitleAddition)) ? "- " + d.TitleAddition : "" )
+                @* TODO: @2dg - don't use Replace... - use Kit.Scrub.Only(..., "p") - https://razor-blade.net/api/ToSic.Razor.Blade.IScrub.html#ToSic_Razor_Blade_IScrub_Only_System_String_System_String_ *@
                 @if (d.Event.ShowInLanguage == false && Edit.Enabled) { <span style="color:red;">@Resources.LanguageHidden.Replace("<p>", "").Replace("</p>", "")</span> }
               </h2>
               <div class="event-meta mb-3">
@@ -59,7 +62,10 @@
               </div>
 
               @if (Text.Has(item.ShortDescription)) {
+                @* TODO: @2DG - USE Razor Blade Tags.Nl2Br(...) *@
                 <p>@item.ShortDescription.Replace("\n", "<br />")</p>
+                @* <p>@item.ShortDescription.Tags.Nl2Br(...)</p> *@
+
               }
 
               <a class="stretched-link" href="@detailslink">@Html.Raw(Resources.LabelReadMore)</a>
@@ -70,7 +76,7 @@
     }
   }
 
-  @Html.Partial("DetailsList.PartPaging.cshtml") 
+  @Html.Partial("List.PartPaging.cshtml") 
   @Html.Partial("List.PartAdmin.cshtml")
 </div>
 

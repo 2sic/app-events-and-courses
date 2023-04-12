@@ -11,6 +11,8 @@
     .Settings(show: "always")
     .New("EventDate", tweak: b => b.Prefill("Event", item.EntityGuid))
     .Data("Registrations", tweak: b => b.Filter("Course", item.EntityId));
+
+  var toolbarTemplate = Kit.Toolbar.Empty().Edit().Copy().Delete();
 }
 
 <div class="app-events6-further-events" @eventToolbar >
@@ -20,7 +22,7 @@
     <h5 class="mb-3 mt-4">@Resources.AllDatesOfThisEvent (@(futureDates.Count() - pastDates))</h5>
   }
 
-  @if (futureDates.Count() > 0) {
+  @if (futureDates.Any()) {
     if (Edit.Enabled && pastDates > 0) {
       <small><a href="javascript:void(0)" class="js-app-events6-toggle-expired-dates">@App.Resources.BtnToggleExpiredDate</a></small>
     }
@@ -30,14 +32,11 @@
         var hiddenEvent = ((DynamicModel.HasEventDate && d.End.Date < DateTime.Now.Date) || (d.End.Date < DateTime.Now.Date) ? "event-hidden" : "");
         var dateRegistrations = d.Parents("Registrations");
         var regCount = dateRegistrations == null ? 0 : dateRegistrations.Count;
-        var toolbarDate = Kit.Toolbar.Empty()
-          .Edit()
-          .Copy()
-          .Delete()
-          .Data("Registrations", tweak: b => b.Tooltip( Resources.LabelRegistrations).Filter("EventDate", d.EntityId));
+        var toolbarDate = toolbarTemplate
+          .Data("Registrations", tweak: b => b.Tooltip(Resources.LabelRegistrations).Filter("EventDate", d.EntityId));
 
         <li class="list-group-item mb-0 @currentEventClass @hiddenEvent" @toolbarDate.For(d)>
-          <a href="@Link.To(parameters: "details=" + DynamicModel.Item.EntityId + "&dateid=" + d.EntityId)">
+          <a href='@Link.To(parameters: CmsContext.Page.Parameters.Set("dateId", d.EntityId))'>
             <strong>@d.Start.ToString("d")  @(!d.EndDateIsStartDate ? " - " + d.End.ToString("d") : "")</strong>
             @(Text.Has(d.TitleAddition) ? " - " + d.TitleAddition : "")
             @(Text.Has(d.TimeSpecifics) ? " - " + d.TimeSpecifics : "")
