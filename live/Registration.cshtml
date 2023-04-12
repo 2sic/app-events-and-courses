@@ -35,7 +35,7 @@ var Edition = CmsContext.View.Edition;
 
 <div class="app-events6 app-events6-form" 
   @Edit.TagToolbar(eventDate) 
-  domAttribute = "events-" + CmsContext.Module.Id;
+  events-@CmsContext.Module.Id
   data-string-required="@Resources.ValidationRequired" 
   data-string-email="@Resources.ValidationEmail"
   data-webservice="app/auto/@Edition/api/Form/ProcessForm"

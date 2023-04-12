@@ -10,9 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using ToSic.Sxc.WebApi;
 
 [AllowAnonymous]	// define that all commands can be accessed without a login
-[JsonFormatter] // Use System.Text.Json for JSON - TODO: @2dg - test & update mobius
+[JsonFormatter]
 public class FormController : Custom.Hybrid.Api14 // Custom.Hybrid.Api15
 {
   [HttpPost]
