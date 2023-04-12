@@ -10,9 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using ToSic.Sxc.WebApi;
 
 [AllowAnonymous]	// define that all commands can be accessed without a login
-// [JsonFormatter] // TODO:: @dm: this is not working yet, Formular works without it
+[JsonFormatter]
 public class FormController : Custom.Hybrid.Api14 // Custom.Hybrid.Api15
 {
   [HttpPost]
