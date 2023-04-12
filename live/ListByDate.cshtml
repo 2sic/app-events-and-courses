@@ -26,7 +26,7 @@
     foreach (var d in e) {
       if (Edit.Enabled || d.Event.ShowInLanguage != false) {
         var item = d.Event;
-        var detailslink = Link.To(parameters:  CmsContext.Page.Parameters.Set("details", item.EntityId).Set("dateId", d.EntityId).Set(item.UrlKey));
+        var detailslink = Link.To(parameters: CmsContext.Page.Parameters.Set("details", item.EntityId).Set("dateId", d.EntityId).Set(item.UrlKey));
           
         <tr class="position-relative app-events6-list-item" @dEventToolbar.For(d.Event)>
 					<td>

@@ -4,7 +4,7 @@
 @{
   // get some helper functions for later on
   var helpers = CreateInstance("DetailsHelpers.cs");
-  
+
   // Data from Query - Stream "Event" contains the event, "Current" contains the selected date (if any)
   var eventData = AsList(Data["Event"]).FirstOrDefault();
   var firstEventDate = AsList(Data["Current"]).FirstOrDefault();
@@ -59,7 +59,7 @@
         <h2 class="h5">@item.ShortDescription</h2>
         @* Show main body, with possible Inner-Content *@
         <div class="app-events6-detail-body mb-4">
-          @Kit.Render.All(item, field: "BodyContentBlocks", merge: item.Description)          
+          @Kit.Render.All(item, field: "BodyContentBlocks", merge: item.Description)
         </div>
 
         @Html.Partial("Details.PartDates.cshtml", new { Item = item, HasEventDate = hasEventDate, EventDate = eventDate })
@@ -86,7 +86,7 @@
           @{
             var moreDetailsLink = Text.First(eventDate.Document, item.Document);
           }
-          
+
           @if (Text.Has(moreDetailsLink)) {
             var fileName = System.IO.Path.GetFileName(moreDetailsLink);
             <div class="col-12 col-md-6 mb-3 app-events6-infocontainer">
@@ -110,10 +110,12 @@
               @Resources.StatusFullyBooked
             </div>
           } else {
-            var reqisterParams = "mid=" + CmsContext.Module.Id + "&courseId=" + item.EntityId + "&dateId=" + eventDate.EntityId + "&" + item.UrlKey;
+            @* 2dm: parameters are added to current page /details is an url key for the view *@
+            @* var registerLink = Link.To(parameters: CmsContext.Page.Parameters.Set("mid", CmsContext.Module.Id).Set("courseId", item.EntityId).Set("dateId", eventDate.EntityId).Set(item.UrlKey));  *@
+            var registerParams = "mid=" + CmsContext.Module.Id + "&courseId=" + item.EntityId + "&dateId=" + eventDate.EntityId + "&" + item.UrlKey;
             addBackButton = false;  // disable this, as we'll add now so it's before the register button
             @helpers.BackToListButton()
-            <a class="btn btn-md btn-primary" href="@Link.To(parameters: reqisterParams)">@Html.Raw(Resources.ButtonRegister)</a>
+            <a class="btn btn-md btn-primary" href="@Link.To(parameters: registerParams)">@Html.Raw(Resources.ButtonRegister)</a>
           }
         }
         @if (addBackButton) {
