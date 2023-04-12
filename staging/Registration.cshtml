@@ -104,7 +104,7 @@ var Edition = CmsContext.View.Edition;
         <div class="form-check">
           <label class="form-check-label">
             <input type="checkbox" class="form-check-input" id="AGB" name="AGB" required />
-            @Html.Raw(Resources.AcceptAgb.Replace("<p>", "").Replace("</p>", ""))
+            @Html.Raw(Kit.Scrub.Only(Resources.AcceptAgb, "p"))
           </label>
         </div>
       </div>
@@ -116,7 +116,7 @@ var Edition = CmsContext.View.Edition;
         <div class="form-check">
           <label class="form-check-label">
             <input type="checkbox" class="form-check-input" id="Accept" name="Accept" required />
-            @Html.Raw(Resources.AcceptCosts.Replace("<p>", "").Replace("</p>", ""))
+            @Html.Raw(Kit.Scrub.Only(Resources.AcceptCosts, "p"))
           </label>
         </div>
       </div>
@@ -125,7 +125,10 @@ var Edition = CmsContext.View.Edition;
     @* Submit Button *@
     <div class="mb-3 row">
       <div class="col-md-9 offset-sm-3">
-        <a href="@Link.To(parameters: "details=" + course.EntityId + "&dateid=" + eventDate.EntityId)" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(Resources.LabelBack)</a>
+        @{
+          var detailslink = Link.To(parameters: CmsContext.Page.Parameters.Set("details", course.EntityId).Set("dateId", eventDate.EntityId));
+        }
+        <a href="@detailslink" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(Resources.LabelBack)</a>
         <button type="button" app-events6-send class="btn btn-primary">@Html.Raw(Resources.ButtonRegister)</button>
       </div>
     </div>
@@ -144,7 +147,9 @@ var Edition = CmsContext.View.Edition;
 
     @* if is required, because all app-events6-config-warning are shown after submit *@
     @if (!Text.Has(Settings.OwnerMail) || !Text.Has(Settings.MailFrom)) {
-      @AddHiddenMessage(Resources.MessageDefaultMailSettings, "warning", "", "app-events6-config-warning")
+      <div id="msgOk" class="alert alert-warning" role="alert">
+        @Html.Raw(Kit.Scrub.Only(Resources.MessageDefaultMailSettings, "p"))
+      </div>      
     }
 
     @if (Settings.Recaptcha ?? false)  { @Html.Partial("Registration.PartRecaptcha.cshtml") }
@@ -154,7 +159,7 @@ var Edition = CmsContext.View.Edition;
 @functions {
   dynamic AddHiddenMessage(string message, string type = "warning", string id = "", string attribute = "") {
     var classes = "alert alert-" + type + " app-events6-message";
-    var rawMessage = message.Replace("<p>", "").Replace("</p>", "");
+    var rawMessage = Kit.Scrub.Only(message, "p");
     var messageDiv = Tag.Div(rawMessage).Class(classes).Id(id).Attr("role", "alert");
     if (attribute != "") { messageDiv.Attr(attribute, ""); }
     return messageDiv;
