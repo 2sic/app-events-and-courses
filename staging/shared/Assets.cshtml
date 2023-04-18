@@ -1,8 +1,22 @@
 @inherits Custom.Hybrid.Razor14
 @using ToSic.Razor.Blade
 @{
+
+  var pristineOptions = new {
+    classTo = "app-events6-form-fields",
+    errorClass = "has-danger",
+    successClass = "has-success",
+    // class of the parent element where error text element is appended
+    errorTextParent = "app-events6-form-fields",
+    // type of element to create for the error text
+    errorTextTag = "div",
+    // class of the error text element
+    errorTextClass = "text-help" 
+  };
+
   var data = new {
    domAttribute = "events-" + CmsContext.Module.Id,
+   options = pristineOptions
   };
 
   var Edition = CmsContext.View.Edition;

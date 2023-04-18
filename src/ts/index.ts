@@ -1,5 +1,6 @@
 import { showAlert, showConfigWarnings } from './lib-2sxc-alerts';
 import { disableInputs, enableInputs, getFormValues, sendForm, validateForm } from './lib-2sxc-forms';
+import { PristineOptions } from './lib-2sxc-pristine-options';
 import { getRecaptchaToken, requiresRecaptcha } from './lib-2sxc-recaptcha';
 import { addTrackingEvent } from './lib-2sxc-tracking';
 
@@ -10,7 +11,7 @@ winAny.appEvents6.init ??= initAppEvents6
 
 const debug = false
 
-function initAppEvents6({ domAttribute } : { domAttribute: string }) {
+function initAppEvents6({ domAttribute, options } : { domAttribute: string, options: PristineOptions }) {
   if (document.getElementsByTagName('form').length) document.getElementsByTagName('form')[0]?.setAttribute('novalidate', '')
   if (debug) console.log("Events6 loading, debug is enabled");
 
@@ -38,7 +39,7 @@ function initAppEvents6({ domAttribute } : { domAttribute: string }) {
     const eventBtn = event.currentTarget as HTMLElement;
     addTrackingEvent('trackEventsForm', 'events-form', eventBtn.innerText)
     
-    var valid = validateForm(eventsWrapper)
+    var valid = validateForm(eventsWrapper, options)
     if (!valid) {
       showAlert(eventsWrapper, 'msgIncomplete')
       return

@@ -63,18 +63,18 @@ var Edition = CmsContext.View.Edition;
 
     @* Salutation *@
     <h3>@Resources.CourseParticipantData</h3>
-    <div class='row @(Kit.Css.Is("bs3") ? "form-group" : "mb-3")'>
+    <div class='app-events6-form-fields row @(Kit.Css.Is("bs3") ? "form-group" : "mb-3")'>
       @fieldBuilder.Label(Resources.LabelSalutation, "Salutation", true)
       <div class="col-sm-9 radio-group">
         <div class="radio">
           <label>
-            <input required data-pristine-required-message name="Salutation" type="radio" value="@Resources.LabelMrs">
+            <input name="Salutation" type="radio" value="@Resources.LabelMrs" required data-pristine-required-message="@Resources.LabelRequired">
             @Resources.LabelMrs
           </label>
         </div>
         <div class="radio">
           <label>
-            <input required data-pristine-required-message name="Salutation" type="radio" value="@Resources.LabelMr">
+            <input name="Salutation" type="radio" value="@Resources.LabelMr" required data-pristine-required-message="@Resources.LabelRequired">
             @Resources.LabelMr
           </label>
         </div>
@@ -98,24 +98,24 @@ var Edition = CmsContext.View.Edition;
 
 
     @* Privacy/Terms Checkbox *@
-    <div class='row form-required @(Kit.Css.Is("bs3") ? "form-group" : "mb-3")'>
+    <div class='app-events6-form-fields row form-required @(Kit.Css.Is("bs3") ? "form-group" : "mb-3")'>
       <label class="col-sm-3" for="AGB">@Resources.AppAgbLabel</label>
       <div class="col-sm-9">
         <div class="form-check">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" id="AGB" name="AGB" required />
+            <input type="checkbox" class="form-check-input" id="AGB" name="AGB" required data-pristine-required-message="@Resources.LabelRequired" />
             @Html.Raw(Kit.Scrub.Only(Resources.AcceptAgb, "p"))
           </label>
         </div>
       </div>
     </div>
 
-    <div class='row form-required @(Kit.Css.Is("bs3") ? "form-group" : "mb-3")'>
+    <div class='app-events6-form-fields row form-required @(Kit.Css.Is("bs3") ? "form-group" : "mb-3")'>
       <label class="col-sm-3" for="Accept">@Resources.AppCostsLabel</label>
       <div class="col-sm-9">
         <div class="form-check">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input" id="Accept" name="Accept" required />
+            <input type="checkbox" class="form-check-input" id="Accept" name="Accept" required data-pristine-required-message="@Resources.LabelRequired"/>
             @Html.Raw(Kit.Scrub.Only(Resources.AcceptCosts, "p"))
           </label>
         </div>
