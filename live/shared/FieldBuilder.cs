@@ -26,7 +26,8 @@ public class FieldBuilder : Custom.Hybrid.Code14
   #region Koi based class selection
   internal string FormClasses()
   {
-    return (LabelInPlaceholder ? "" : "row ")
+    return "app-events6-form-fields "
+      + (LabelInPlaceholder ? "" : "row ")
       + (Kit.Css.Is("bs3") ? "form-group" : "mb-3");
   }
 
