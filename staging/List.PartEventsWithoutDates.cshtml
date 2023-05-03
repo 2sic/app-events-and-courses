@@ -15,7 +15,7 @@
           var eventLink = Link.To(parameters: CmsContext.Page.Parameters.Set("details", ev.EntityId).Set(ev.UrlKey));
 
           <li class="list-group-item list-group-item-light mb-0" @evToolbar.For(ev)>
-            <a href="@eventLink">@ev.Title</a>
+            <a href="@eventLink" class="text-dark">@ev.Title</a>
           </li>
           i++;
         }
