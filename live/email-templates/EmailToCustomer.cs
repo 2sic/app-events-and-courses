@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-public class EmailToCustomer: Custom.Hybrid.Code14
+public class EmailToCustomer: Custom.Hybrid.CodePro
 {
   // This generates the e-mail subject
   public string Subject() {
-    return Resources.MailCustomerSubject;
+    return App.Resources.String("MailCustomerSubject");
   }
 
   // This generates the e-mail body
@@ -19,7 +19,7 @@ public class EmailToCustomer: Custom.Hybrid.Code14
           body { font-family: Helvetica, sans-serif; }
         </style>
       </head>
-      <body>" + Resources.MailCustomerBody +
+      <body>" + App.Resources.String("MailCustomerBody") +
       @"</body>
     </html>";
   }

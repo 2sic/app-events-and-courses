@@ -1,4 +1,4 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorPro
 @using ToSic.Razor.Blade
 @{
 
@@ -15,17 +15,15 @@
   };
 
   var data = new {
-   domAttribute = "events-" + CmsContext.Module.Id,
+   domAttribute = "events-" + MyContext.Module.Id,
    options = pristineOptions
   };
-
-  var Edition = CmsContext.View.Edition;
 }
 
 @* Include bootstrap 5 if the framework isn't known - then this file is still called, and we add Bootstrap to the page *@
 @Kit.Page.Activate(condition: Kit.Css.IsUnknown, features: "Bootstrap5")
 
-@Edit.Enable(js: true)
+@Kit.Edit.Enable(js: true)
 @Kit.Page.TurnOn("window.appEvents6.init()", data: data)
-<link rel="stylesheet" href="@App.Path/@Edition/dist/styles.min.css" @Kit.Page.AssetAttributes()>
-<script src="@App.Path/@Edition/dist/scripts.min.js" @Kit.Page.AssetAttributes()></script>
+<link rel="stylesheet" href="@MyView.Path/dist/styles.min.css" @Kit.Page.AssetAttributes()>
+<script src="@MyView.Path/dist/scripts.min.js" @Kit.Page.AssetAttributes()></script>

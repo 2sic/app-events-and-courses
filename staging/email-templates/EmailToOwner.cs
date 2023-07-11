@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-public class EmailToOwner: Custom.Hybrid.Code14
+public class EmailToOwner: Custom.Hybrid.CodePro
 {
   // This generates the e-mail subject
   public string Subject() {
-    return Resources.MailOwnerSubject;
+    return App.Resources.String("MailOwnerSubject");
   }
 
   // This generates the e-mail body
@@ -19,7 +19,7 @@ public class EmailToOwner: Custom.Hybrid.Code14
             body { font-family: Helvetica, sans-serif; }
         </style>
       </head>
-      <body>" + Resources.MailOwnerIntroduction;
+      <body>" + App.Resources.String("MailOwnerIntroduction");
 
     foreach (var item in request) {
       message += "<div><strong>"  + item.Key + "</strong>: " + item.Value + "</div>";

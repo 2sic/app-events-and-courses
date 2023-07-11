@@ -6,18 +6,18 @@ using System.Net.Mail;
 using System.Text;
 using ToSic.Razor.Blade;
 
-public class SendMail : Custom.Hybrid.Code14
+public class SendMail : Custom.Hybrid.CodePro
 {
     public void sendMails(Dictionary<string, object> contactFormRequest)
     {
         var settings = new
         {
-            MailFrom = Settings.MailFrom,
-            OwnerMail = Settings.OwnerMail,
+            MailFrom = App.Settings.String("MailFrom"),
+            OwnerMail = App.Settings.String("OwnerMail"),
             OwnerMailCC = "",
-            OwnerMailTemplateFile = Settings.OwnerMailTemplateFile,
+            OwnerMailTemplateFile = App.Settings.String("OwnerMailTemplateFile"),
             CustomerMailCC = "",
-            CustomerMailTemplateFile = Settings.CustomerMailTemplateFile
+            CustomerMailTemplateFile = App.Settings.String("CustomerMailTemplateFile")
         };
 
         var customerMail = contactFormRequest["Mail"].ToString();
@@ -27,9 +27,7 @@ public class SendMail : Custom.Hybrid.Code14
             Send(
               settings.OwnerMailTemplateFile, contactFormRequest, settings.MailFrom, settings.OwnerMail, settings.OwnerMailCC, customerMail
             );
-        }
-        catch (Exception ex)
-        {
+        } catch(Exception ex) {
             Log.Exception(ex);
             throw new Exception("OwnerSend mail failed: " + ex.Message);
         }
@@ -37,12 +35,10 @@ public class SendMail : Custom.Hybrid.Code14
         try
         {
             Send(
-              settings.CustomerMailTemplateFile, contactFormRequest, settings.MailFrom, customerMail, Content.CustomerMailCC, settings.OwnerMail
+              settings.CustomerMailTemplateFile, contactFormRequest, settings.MailFrom, customerMail, settings.CustomerMailCC, settings.OwnerMail
             );
-        }
-        catch (Exception ex)
-        {
-            Log.Exception(ex);
+        } catch(Exception ex) {
+             Log.Exception(ex);
             throw new Exception("OwnerSend mail failed: " + ex.Message);
         }
     }
@@ -53,7 +49,7 @@ public class SendMail : Custom.Hybrid.Code14
         var wrapLog = Log.Call("template:" + emailTemplateFilename + ", from:" + from + ", to:" + to + ", cc:" + cc + ", reply:" + replyTo);
 
         Log.Add("Get MailEngine");
-        var mailEngine = CreateInstance("../../email-templates/" + emailTemplateFilename);
+        var mailEngine = GetCode("../../email-templates/" + emailTemplateFilename);
         var mailBody = mailEngine.Message(valuesWithMailLabels).ToString();
         var subject = mailEngine.Subject();
 

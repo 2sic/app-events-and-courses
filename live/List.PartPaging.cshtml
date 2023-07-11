@@ -1,29 +1,28 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorPro
 @using ToSic.Razor.Blade;
 @{
   // Get some helpers for later on
-  var paging = AsList(Data["Paging"]).FirstOrDefault();
-  var eventPage = DynamicModel.EventPage;
+  var paging = AsItems(MyData["Paging"]).FirstOrDefault();
 }
 
 <div class="app-events6-paging mt-4">
-  @if (paging.PageNumber > 1) {
-    <a class="app-events6-prev-pager" href="@LinkToPageNumber((int)(paging.PageNumber) - 1, eventPage)">&lsaquo;</a>
+  @if (paging.Int("PageNumber") > 1) {
+    <a class="app-events6-prev-pager" href="@LinkToPageNumber((int)(paging.Int("PageNumber")) - 1)">&lsaquo;</a>
   }
-  @if (@paging.PageSize >= 0) {
-    for(int i = 1; i <= @paging.PageCount; i++) {
-      <a @(i == paging.PageNumber ? "class=app-events6-paging-active" : "") href='@(i != paging.PageNumber ? LinkToPageNumber(i, eventPage) : "javascript:void(0)")'>@i</a>
+  @if (@paging.Int("PageSize") >= 0) {
+    for(int i = 1; i <= @paging.Int("PageCount"); i++) {
+      <a @(i == paging.Int("PageNumber") ? "class=app-events6-paging-active" : "") href='@(i != paging.Int("PageNumber") ? LinkToPageNumber(i) : "javascript:void(0)")'>@i</a>
     }
   }
-  @if (paging.PageNumber < paging.PageCount) {
-    <a class="app-events6-next-pager" href="@LinkToPageNumber((int)(paging.PageNumber) + 1, eventPage)">&rsaquo;</a>
+  @if (paging.Int("PageNumber") < paging.Int("PageCount")) {
+    <a class="app-events6-next-pager" href="@LinkToPageNumber((int)(paging.Int("PageNumber")) + 1)">&rsaquo;</a>
   }
 </div>
 
 @functions {
   // generate a paging-link number
-  public string LinkToPageNumber(int pageNumber, string eventP) {
-    string url = Link.To(parameters: CmsContext.Page.Parameters.Set("page", pageNumber));
+  public string LinkToPageNumber(int pageNumber) {
+    string url = Link.To(parameters: MyPage.Parameters.Set("page", pageNumber));
     return url.ToLower();
   }
 }

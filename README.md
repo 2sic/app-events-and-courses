@@ -8,9 +8,9 @@ A standard Events and Courses app to use with 2sxc
 
 | Aspect              | Status | Comments or Version |
 | ------------------- | :----: | ------------------- |
-| 2sxc                | ✅    | requires 2sxc v15.07
-| Dnn                 | ✅    | For v7, v8 and v9
-| Oqtane 2            | ✅    | Requires v2.02
+| 2sxc                | ✅    | requires 2sxc v16.02
+| Dnn                 | ✅    | For v9.6.1+
+| Oqtane 2            | ✅    | Requires v3.04+
 | No jQuery           | ✅    | 
 | Live Demo           | ➖    |
 | Install Checklist   | ✅    | See [Installation](https://azing.org/2sxc/r/j3DB7UTx) on [azing.org](https://azing.org/2sxc)
@@ -32,27 +32,31 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
 * v1.0 2017-03
 * v2.0 2017-05
 * ...
-* v6.0 2021-11 for 2sxc 12.08
+* v06.0 2021-11 for 2sxc 12.08
   * Now hybrid, runs on Dnn and Oqtane
   * Updated to v12 best-practices
   * Improved code, clean-up etc.
   * No more jQuery
-* v6.1 2022-02
+* v06.01 2022-02
   * Enabled dataoptimizations
-* v6.1.2 2022-03
+* v06.01.02 2022-03
   * Improvements toolbar
-* v6.2.0 2022-04  
+* v06.02.00 2022-04  
   * Changed all access to Services to ToSic.Sxc.Services
   * Changed all images to use the IImageService
   * Replaced data-enableoptimizations with IPageService.AssetAttributes()
   * Updated JS to use new webapi methods (fetch -> fetchRaw)
-* v6.3.0 2022-06
+* v06.03.00 2022-06
   * Changed all base classes to their 2sxc 14 equivalents
   * Removed all GetService<> and replaced it with the ServiceKit14
   * Changed all toolbar configurations to use the IToolbarService
   * Updated webpack
-* v6.4.0 2022-06
+* v06.04.00 2022-06
   * Enhanced Kit.Image with `imgAltFallback`
   * Replaced turnOn Tag with `Kit.Page.TurnOn`
   * New Tewak API Button for Toolbar
   * Removed _ from Filenames
+* v06.05.00 2023-07
+  * 2sxc 16.02 coding conventions
+  * everything typed
+  

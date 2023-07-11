@@ -1,14 +1,14 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorPro
 @using ToSic.Razor.Blade;
 @using System;
 @using System.Text.RegularExpressions;
 @{
-  var fieldBuilder = CreateInstance("shared/FieldBuilder.cs");
+  var fieldBuilder = GetCode("shared/FieldBuilder.cs");
   
-  var course = AsList(Data["Course"]).FirstOrDefault();
-  var eventDate = AsList(Data["EventDate"]).FirstOrDefault();
-  var title = course == null ? "" : course.Title;
-  Kit.Page.SetTitle(Resources.CourseRegistrationTitle + " | " + title);
+  var course = AsItems(MyData["Course"]).FirstOrDefault();
+  var eventDate = AsItems(MyData["EventDate"]).FirstOrDefault();
+  var title = course == null ? "" : course.String("Title");
+  Kit.Page.SetTitle(App.Resources.String("CourseRegistrationTitle") + " | " + title);
 }
 
 @* Show warning if 404, event not found *@
@@ -16,9 +16,9 @@
 {
   <div class="alert alert-danger" role="alert">
     <span class="sr-only">Error:</span>
-    @Resources.CourseNotFoundError
+    @App.Resources.String("CourseNotFoundError")
   </div>
-  <a href="@Link.To()" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(Resources.LabelBackToList)</a>
+  <a href="@Link.To()" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(App.Resources.String("LabelBackToList"))</a>
 
   Kit.Page.SetHttpStatus(404);
   return;
@@ -26,46 +26,46 @@
 
 @* additional text in title if set *@
 @{
-var titleAddition = (Text.Has(eventDate.TitleAddition)) 
-  ? " " + Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + Resources.TitleAdditionSuffix 
-  : "";
+  var titleAddition = (Text.Has(eventDate.String("TitleAddition"))) 
+    ? " " + App.Resources.String("TitleAdditionPrefix") + " " + eventDate.String("TitleAddition") + " " + App.Resources.String("TitleAdditionSuffix") 
+    : "";
 
-var Edition = CmsContext.View.Edition;
+  var Edition = MyView.Edition;
 }
 
 <div class="app-events6 app-events6-form" 
-  @Edit.TagToolbar(eventDate) 
-  events-@CmsContext.Module.Id
-  data-string-required="@Resources.ValidationRequired" 
-  data-string-email="@Resources.ValidationEmail"
+  @Kit.Edit.TagToolbar(eventDate) 
+  events-@MyContext.Module.Id
+  data-string-required="@App.Resources.String("ValidationRequired")" 
+  data-string-email="@App.Resources.String("ValidationEmail")"
   data-webservice="app/auto/@Edition/api/Form/ProcessForm"
 >
   @* Title *@
-  <h1 class="mb-4">@Resources.CourseRegistrationTitle - @course.Title @titleAddition</h1>
+  <h1 class="mb-4">@App.Resources.String("CourseRegistrationTitle") - @course.String("Title") @titleAddition</h1>
 
   <div class="form app-events6-form">
     @* Inputs *@
     @{
-      var inputTitle = Text.First(eventDate.Title, course.Title) + titleAddition;
-      var courseNumber = (eventDate.Id != null) ? eventDate.Id : course.id;
+      var inputTitle = Text.First(eventDate.String("Title"), course.String("Title")) + titleAddition;
+      var courseNumber = (eventDate.Int("Id") != null) ? eventDate.Int("Id") : course.Int("id");
     }
     @if (Text.Has(courseNumber)) {
       @fieldBuilder.Text("CourseNumber", false, true, courseNumber)
     }
     @fieldBuilder.Text("CourseName", true, true, inputTitle)
-    @fieldBuilder.Text("CourseLocation", true, true, Text.First(eventDate.Location, course.Location))
+    @fieldBuilder.Text("CourseLocation", true, true, Text.First(eventDate.String("Location"), course.String("Location")))
 
     @* Event Notes *@
     @{
-      var compDate = eventDate.Start.ToString("d") + (!eventDate.EndDateIsStartDate ? " - " + eventDate.End.ToString("d") : "");
+      var compDate = eventDate.DateTime("Start").ToString("d") + (!eventDate.Bool("EndDateIsStartDate") ? " - " + eventDate.DateTime("End").ToString("d") : "");
     }
-    @fieldBuilder.Multiline(Resources.LabelCourseDate, true, true, (Text.Has(eventDate.TimeSpecifics) ? eventDate.TimeSpecifics : compDate))
+    @fieldBuilder.Multiline(App.Resources.String("LabelCourseDate"), true, true, (Text.Has(eventDate.String("TimeSpecifics")) ? eventDate.String("TimeSpecifics"): compDate))
 
     @* Salutation *@
     @fieldBuilder.Radio("Saluation", true, 
       new string[] {
-        Resources.LabelMr,
-		    Resources.LabelMrs
+        App.Resources.String("LabelMr"),
+		    App.Resources.String("LabelMrs")
       }
     )
 
@@ -77,7 +77,7 @@ var Edition = CmsContext.View.Edition;
 
 
     @* Country Select *@
-    @fieldBuilder.DropDown("Country", true, Resources.CountrySelection.Split('\n'))
+    @fieldBuilder.DropDown("Country", true, App.Resources.String("CountrySelection").Split('\n'))
 
     @* Inputs *@
     @fieldBuilder.Text("Phone", false)
@@ -89,41 +89,41 @@ var Edition = CmsContext.View.Edition;
     @fieldBuilder.Checkbox("AcceptCosts", true)
 
     @* Submit Button *@
+
     <div class="mb-3 row">
       <div class="col-md-9 offset-sm-3">
         @{
-          var detailslink = Link.To(parameters: CmsContext.Page.Parameters.Set("details", course.EntityId).Set("dateId", eventDate.EntityId));
+          var detailslink = Link.To();
         }
-        <a href="@detailslink" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(Resources.LabelBack)</a>
-        <button type="button" app-events6-send class="btn btn-primary">@Html.Raw(Resources.ButtonRegister)</button>
+        <a href="@detailslink" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(App.Resources.String("LabelBack"))</a>
+        <button type="button" app-events6-send class="btn btn-primary">@Html.Raw(App.Resources.String("ButtonRegister"))</button>
       </div>
     </div>
-
-    <input type="hidden" id="EventDate" name="EventDate" value="@eventDate.EntityGuid">
-    <input type="hidden" id="Course" name="Course" value="@course.EntityGuid">
+    <input type="hidden" id="EventDate" name="EventDate" value="@eventDate.Guid">
+    <input type="hidden" id="Course" name="Course" value="@course.Guid">
 
     @* Response Messages *@
-    @AddHiddenMessage(Resources.MessageSending, "warning", "msgSending")
-    @AddHiddenMessage(Resources.ValidationRequired, "danger", "msgIncomplete")
-    @AddHiddenMessage(Resources.CourseRegistrationError, "danger", "msgError")
+    @AddHiddenMessage(App.Resources.String("MessageSending"), "warning", "msgSending")
+    @AddHiddenMessage(App.Resources.String("ValidationRequired"), "danger", "msgIncomplete")
+    @AddHiddenMessage(App.Resources.String("CourseRegistrationError"), "danger", "msgError")
     <div id="msgOk" class="alert alert-success app-events6-message" role="alert">
-      <strong>@Html.Raw(Resources.SuccessThanks)</strong>
-      @Html.Raw(Resources.SuccessMessage)
+      <strong>@Html.Raw(App.Resources.String("SuccessThanks"))</strong>
+      @Html.Raw(App.Resources.String("SuccessMessage"))
     </div>
 
     @* if is required, because all app-events6-config-warning are shown after submit *@
-    @if (!Text.Has(Settings.OwnerMail) || !Text.Has(Settings.MailFrom)) {
+    @if (!Text.Has(App.Settings.String("OwnerMail")) || !Text.Has(App.Settings.String("MailFrom"))) {
       <div id="msgOk" class="alert alert-warning" role="alert">
-        @Html.Raw(Kit.Scrub.Only(Resources.MessageDefaultMailSettings, "p"))
+        @Html.Raw(Kit.Scrub.Only(App.Resources.String("MessageDefaultMailSettings"), "p"))
       </div>      
     }
 
-    @if (Settings.Recaptcha ?? false)  { @Html.Partial("Registration.PartRecaptcha.cshtml") }
+    @if (App.Settings.Bool("Recaptcha") )  { @Html.Partial("Registration.PartRecaptcha.cshtml") }
   </div>
 </div>
 
 @functions {
-  dynamic AddHiddenMessage(string message, string type = "warning", string id = "", string attribute = "") {
+  object AddHiddenMessage(string message, string type = "warning", string id = "", string attribute = "") {
     var classes = "alert alert-" + type + " app-events6-message";
     var rawMessage = Kit.Scrub.Only(message, "p");
     var messageDiv = Tag.Div(rawMessage).Class(classes).Id(id).Attr("role", "alert");
