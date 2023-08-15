@@ -59,11 +59,16 @@ public class FieldBuilder : Custom.Hybrid.CodePro
     }
 
     // Sets a RazorBlade Input/TextArea to required and adds the message which is different for each field type
-    internal void SetRequired(IHtmlTag item, bool required, string message) 
+    internal void SetRequired(IHtmlTag item, bool required, string key = null)
     {
         if (!required) return;
+        var message = key != null
+          ? App.Resources.String(key)
+          : (MessageRequired ?? (MessageRequired = App.Resources.String("LabelRequired")));
         item.Attr("data-pristine-required-message", message).Attr("required");
     }
+    // Cache the message after first lookup for performance as we use it quite ofter
+    private string MessageRequired = null;
 
 
     // returns a Label
@@ -77,7 +82,7 @@ public class FieldBuilder : Custom.Hybrid.CodePro
     {
         var item = Tag.Input().Type("text").Id(idString).Placeholder(PhLabel(idString, required)).Class("form-control");
         if (value != null) { item.Attr("value", value); }
-        SetRequired(item, required, App.Resources.String("LabelRequired"));
+        SetRequired(item, required);
         if (disabled) { item = item.Disabled(); }
         return Field(idString, required, item);
     }
@@ -85,7 +90,7 @@ public class FieldBuilder : Custom.Hybrid.CodePro
     public IHtmlTag EMail(string idString, bool required)
     {
         var item = Tag.Input().Type("email").Id(idString).Placeholder(PhLabel(idString, required)).Class("form-control");
-        SetRequired(item, required, App.Resources.String("LabelValidEmail"));
+        SetRequired(item, required, "LabelValidEmail");
         return Field(idString, required, item);
     }
 
@@ -94,7 +99,7 @@ public class FieldBuilder : Custom.Hybrid.CodePro
     {
         var item = Tag.Textarea().Id(idString).Placeholder(PhLabel(idString, required)).Class("form-control");
         if (value != null) { item.Add(value); }
-        SetRequired(item, required, App.Resources.String("LabelRequired"));
+        SetRequired(item, required);
         if (disabled) { item = item.Disabled(); }
         return Field(idString, required, item);
     }
@@ -103,7 +108,7 @@ public class FieldBuilder : Custom.Hybrid.CodePro
     public IHtmlTag DropDown(string idString, bool required, string[] values)
     {
         var item = Tag.Select().Id(idString).Class("form-control");
-        SetRequired(item, required, App.Resources.String("LabelRequired"));
+        SetRequired(item, required);
         item.Add(Tag.Option(App.Resources.String("LabelPleaseSelect")).Attr("value", ""));
         foreach (var value in values)
         {
@@ -121,7 +126,7 @@ public class FieldBuilder : Custom.Hybrid.CodePro
             var radioId = idString + value.ToLower().Replace(" ", "");
             var wrapper = Tag.Div().Class(Kit.Css.Is("bs3") ? "radio" : "form-check");
             var radio = Tag.Input().Attr("type", "radio").Id(radioId).Name(idString).Value(value);
-            SetRequired(radio, required, App.Resources.String("LabelRequired"));
+            SetRequired(radio, required);
             if (Kit.Css.Is("bs3")) {
                 var radioLabel = Tag.Label(radio + value).For(radioId);
                 wrapper.Add(radioLabel);
@@ -138,7 +143,7 @@ public class FieldBuilder : Custom.Hybrid.CodePro
     // returns a checkbox with common attributes
     public IHtmlTag Checkbox(string idString, bool required){
         var checkbox = Tag.Input().Attr("type", "checkbox").Id(idString).Name(idString).Class("form-check-input");
-        SetRequired(checkbox, required, App.Resources.String("LabelRequired"));
+        SetRequired(checkbox, required);
         var labelTranslated = Kit.Scrub.Only(App.Resources.String("Label" + idString), "p");
         var label = ToSic.Razor.Blade.Text.First(labelTranslated, idString) + (required ? "*" : "");
 
@@ -162,7 +167,7 @@ public class FieldBuilder : Custom.Hybrid.CodePro
     private IHtmlTag Field(string idString, bool required, IHtmlTag items)
     {
         var inputWrapperClasses = Kit.Css.Is("bs3") ? "col col-xs-12 col-sm-9" : "col-12  col-sm-9";
-        var labelTranslated = App.Resources.String("Label" + idString);
+        var labelTranslated = App.Resources.String("Label" + idString, required: false);
         var field = Tag.Div().Class(FormClasses());
 
         // If the label is _not_ in the placeholder, add the label first
