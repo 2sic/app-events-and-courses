@@ -34,7 +34,7 @@
       @foreach (var d in futureDates) {
         var currentEventClass = (hasEventDate && d.Id == eventDate.Id) ? "current" : "";
         var hiddenEvent = ((hasEventDate && d.DateTime("End").Date < DateTime.Now.Date) || (d.DateTime("End").Date < DateTime.Now.Date) ? "event-hidden" : "");
-        var dateRegistrations = d.Parents("Registrations");
+        var dateRegistrations = d.Parents(type: "Registrations");
         var regCount = dateRegistrations == null ? 0 : dateRegistrations.Count();
         var toolbarDate = toolbarTemplate
           .Data("Registrations", tweak: b => b.Tooltip(App.Resources.String("LabelRegistrations")).Filter("EventDate", d.Id));
