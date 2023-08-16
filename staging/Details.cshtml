@@ -104,7 +104,7 @@
             @App.Resources.String("StatusCanceled")
           </div>
         } else if (App.Settings.Bool("RegistrationEnabled") && hasEventDate && firstEventDate.Bool("RegistrationEnabled")) {
-          if (freeSeats <= 0 || firstEventDate.Bool("IsFullyBooked")) { // Turn 1 back to freeSeats after fix
+          if (freeSeats <= 0 || firstEventDate.Bool("IsFullyBooked")) {
             <div class="alert alert-warning">
               @App.Resources.String("StatusFullyBooked")
             </div>

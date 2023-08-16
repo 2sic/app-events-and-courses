@@ -5,8 +5,8 @@
 @{
   var fieldBuilder = GetCode("shared/FieldBuilder.cs");
   
-  var course = AsItem(MyData["Course"]); // .FirstOrDefault();
-  var eventDate = AsItem(MyData["EventDate"]); //.FirstOrDefault();
+  var course = AsItem(MyData["Course"]);
+  var eventDate = AsItem(MyData["EventDate"]);
   var title = course == null ? "" : course.String("Title");
   Kit.Page.SetTitle(App.Resources.String("CourseRegistrationTitle") + " | " + title);
 }

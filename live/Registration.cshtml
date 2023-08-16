@@ -5,8 +5,8 @@
 @{
   var fieldBuilder = GetCode("shared/FieldBuilder.cs");
   
-  var course = AsItems(MyData["Course"]).FirstOrDefault();
-  var eventDate = AsItems(MyData["EventDate"]).FirstOrDefault();
+  var course = AsItem(MyData["Course"]);
+  var eventDate = AsItem(MyData["EventDate"]);
   var title = course == null ? "" : course.String("Title");
   Kit.Page.SetTitle(App.Resources.String("CourseRegistrationTitle") + " | " + title);
 }
@@ -46,7 +46,7 @@
   <div class="form app-events6-form">
     @* Inputs *@
     @{
-      var inputTitle = Text.First(eventDate.String("Title"), course.String("Title")) + titleAddition;
+      var inputTitle = course.String("Title") + titleAddition;
       var courseNumber = (eventDate.Int("Id") != null) ? eventDate.Int("Id") : course.Int("id");
     }
     @if (Text.Has(courseNumber)) {
@@ -59,7 +59,7 @@
     @{
       var compDate = eventDate.DateTime("Start").ToString("d") + (!eventDate.Bool("EndDateIsStartDate") ? " - " + eventDate.DateTime("End").ToString("d") : "");
     }
-    @fieldBuilder.Multiline(App.Resources.String("LabelCourseDate"), true, true, (Text.Has(eventDate.String("TimeSpecifics")) ? eventDate.String("TimeSpecifics"): compDate))
+    @fieldBuilder.Multiline("CourseDate", true, true, (Text.First(eventDate.String("TimeSpecifics"), compDate)))
 
     @* Salutation *@
     @fieldBuilder.Radio("Saluation", true, 
@@ -93,7 +93,7 @@
     <div class="mb-3 row">
       <div class="col-md-9 offset-sm-3">
         @{
-          var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", course.Id).Set("dateId", eventDate.Id));
+          var detailslink = Link.To();
         }
         <a href="@detailslink" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(App.Resources.String("LabelBack"))</a>
         <button type="button" app-events6-send class="btn btn-primary">@Html.Raw(App.Resources.String("ButtonRegister"))</button>
