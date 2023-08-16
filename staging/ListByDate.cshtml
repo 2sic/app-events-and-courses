@@ -16,8 +16,10 @@
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("List.PartEventsWithoutDates.cshtml")
 
-  @if (Text.Has(listByDateContent.String("Title"))) {
-    <h2 class="mb-4">@listByDateContent.String("Title")</h2>
+  @if (listConfig.ContainsData("Title") || listConfig.ContainsData("Categories.PageTitle")) {
+    <h2 class="mb-4">
+      @listConfig.String("Title") @(listConfig.ContainsData("Categories.PageTitle") ? listConfig.String("Categories.PageTitle") : "")
+    </h2>
   }
 
   <table class="table table-hover">
