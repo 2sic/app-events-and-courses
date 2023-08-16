@@ -114,7 +114,7 @@
     @* if is required, because all app-events6-config-warning are shown after submit *@
     @if (!Text.Has(App.Settings.String("OwnerMail")) || !Text.Has(App.Settings.String("MailFrom"))) {
       <div id="msgOk" class="alert alert-warning" role="alert">
-        @Html.Raw(Kit.Scrub.Only(App.Resources.String("MessageDefaultMailSettings"), "p"))
+        @Html.Raw(App.Resources.String("MessageDefaultMailSettings", scrubHtml: "p"))
       </div>      
     }
 
