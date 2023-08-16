@@ -14,7 +14,7 @@ using ToSic.Sxc.WebApi;
 
 [AllowAnonymous]	// define that all commands can be accessed without a login
 [JsonFormatter]
-public class FormController : Custom.Hybrid.ApiPro 
+public class FormController : Custom.Hybrid.ApiTyped 
 {
   [HttpPost]
   public void ProcessForm([FromBody]Dictionary<string,object> contactFormRequest)
