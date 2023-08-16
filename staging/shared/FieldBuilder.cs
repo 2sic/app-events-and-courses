@@ -1,7 +1,7 @@
 using ToSic.Razor.Blade;
 using ToSic.Razor.Internals;
 using ToSic.Sxc.Data;
-public class FieldBuilder : Custom.Hybrid.CodePro
+public class FieldBuilder : Custom.Hybrid.CodeTyped
 {
     /* 
       this file is for creating different fields e.g. input, textarea, file, dropdown and showing them in the template
@@ -55,7 +55,7 @@ public class FieldBuilder : Custom.Hybrid.CodePro
     // Add a placeholder text to the inputs
     internal string PhLabel(string key, bool required)
     {
-        return LabelInPlaceholder ? App.Resources.String("Label" + key) + (required ? "*" : "") : "";
+      return LabelInPlaceholder ? App.Resources.String("Label" + key, scrubHtml: "p") + (required ? "*" : "") : "";
     }
 
     // Sets a RazorBlade Input/TextArea to required and adds the message which is different for each field type
@@ -144,22 +144,22 @@ public class FieldBuilder : Custom.Hybrid.CodePro
     public IHtmlTag Checkbox(string idString, bool required){
         var checkbox = Tag.Input().Attr("type", "checkbox").Id(idString).Name(idString).Class("form-check-input");
         SetRequired(checkbox, required);
-        var labelTranslated = Kit.Scrub.Only(App.Resources.String("Label" + idString), "p");
+        var labelTranslated = App.Resources.String("Label" + idString, scrubHtml: "p");
         var label = ToSic.Razor.Blade.Text.First(labelTranslated, idString) + (required ? "*" : "");
 
         // Slightly different HTML for Bootstrap3
         if (Kit.Css.Is("bs3")) {
-        return Tag.Div().Class(FormValidationClass() + "form-group").Wrap(
-            Tag.Div().Class("checkbox").Wrap(
-            Tag.Label().Wrap(checkbox, label)
-            )
-        ); 
+            return Tag.Div().Class(FormValidationClass() + "form-group").Wrap(
+                Tag.Div().Class("checkbox").Wrap(
+                    Tag.Label().Wrap(checkbox, label)
+                )
+            ); 
         } else {
-        // Bootstrap4 and 5
-        return Tag.Div().Class(FormValidationClass() + "mb-3 form-check" ).Wrap(
-        checkbox,
-        Tag.Label(label).Class("form-check-label").For(idString)
-        );
+            // Bootstrap4 and 5
+            return Tag.Div().Class(FormValidationClass() + "mb-3 form-check" ).Wrap(
+                checkbox,
+                Tag.Label(label).Class("form-check-label").For(idString)
+            );
         }
   }
 
@@ -167,7 +167,7 @@ public class FieldBuilder : Custom.Hybrid.CodePro
     private IHtmlTag Field(string idString, bool required, IHtmlTag items)
     {
         var inputWrapperClasses = Kit.Css.Is("bs3") ? "col col-xs-12 col-sm-9" : "col-12  col-sm-9";
-        var labelTranslated = App.Resources.String("Label" + idString, required: false);
+        var labelTranslated = App.Resources.String("Label" + idString, scrubHtml: "p", required: false);
         var field = Tag.Div().Class(FormClasses());
 
         // If the label is _not_ in the placeholder, add the label first

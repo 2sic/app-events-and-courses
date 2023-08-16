@@ -1,7 +1,7 @@
 using ToSic.Razor.Blade;
 using ToSic.Razor.Internals;
 using ToSic.Sxc.Data;
-public class FieldBuilder : Custom.Hybrid.CodePro
+public class FieldBuilder : Custom.Hybrid.CodeTyped
 {
     /* 
       this file is for creating different fields e.g. input, textarea, file, dropdown and showing them in the template

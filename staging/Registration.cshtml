@@ -1,12 +1,12 @@
-@inherits Custom.Hybrid.RazorPro
+@inherits Custom.Hybrid.RazorTyped
 @using ToSic.Razor.Blade;
 @using System;
 @using System.Text.RegularExpressions;
 @{
   var fieldBuilder = GetCode("shared/FieldBuilder.cs");
   
-  var course = AsItems(MyData["Course"]).FirstOrDefault();
-  var eventDate = AsItems(MyData["EventDate"]).FirstOrDefault();
+  var course = AsItem(MyData["Course"]); // .FirstOrDefault();
+  var eventDate = AsItem(MyData["EventDate"]); //.FirstOrDefault();
   var title = course == null ? "" : course.String("Title");
   Kit.Page.SetTitle(App.Resources.String("CourseRegistrationTitle") + " | " + title);
 }
@@ -46,7 +46,7 @@
   <div class="form app-events6-form">
     @* Inputs *@
     @{
-      var inputTitle = Text.First(eventDate.String("Title"), course.String("Title")) + titleAddition;
+      var inputTitle = course.String("Title") + titleAddition;
       var courseNumber = (eventDate.Int("Id") != null) ? eventDate.Int("Id") : course.Int("id");
     }
     @if (Text.Has(courseNumber)) {
@@ -59,7 +59,7 @@
     @{
       var compDate = eventDate.DateTime("Start").ToString("d") + (!eventDate.Bool("EndDateIsStartDate") ? " - " + eventDate.DateTime("End").ToString("d") : "");
     }
-    @fieldBuilder.Multiline(App.Resources.String("LabelCourseDate"), true, true, (Text.Has(eventDate.String("TimeSpecifics")) ? eventDate.String("TimeSpecifics"): compDate))
+    @fieldBuilder.Multiline("CourseDate", true, true, (Text.First(eventDate.String("TimeSpecifics"), compDate)))
 
     @* Salutation *@
     @fieldBuilder.Radio("Saluation", true, 

@@ -1,4 +1,4 @@
-@inherits Custom.Hybrid.RazorPro
+@inherits Custom.Hybrid.RazorTyped
 @using ToSic.Razor.Blade;
 @using System.Linq;
 @using System;
@@ -14,11 +14,9 @@
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("List.PartEventsWithoutDates.cshtml")
 
-  @* TODO: @2ro - something is off here 
-      - it always adds an H2 even without categories
-      - It always starts with a `|` which is weird
-  *@  
-  <h2 class="mb-4">@(listConfig.ContainsData("Categories.Title") ? " | " + listConfig.String("Categories.Title") : "")</h2>
+  @if(listConfig.ContainsData("Categories.Title")) {
+    <h2 class="mb-4">@listConfig.String("Categories.Title")</h2>
+  }
 
   @foreach (var e in queryEvents) {
     var eventDate = e.First().DateTime("Start");
@@ -57,7 +55,7 @@
                 @item.String("Title")
                 @(Text.Has(d.String("TitleAddition")) ? "- " + d.String("TitleAddition") : "" )
                 @if (item.Bool("ShowInLanguage") == false && MyUser.IsContentAdmin) {
-                  <span style="color:red;">@Kit.Scrub.Only(App.Resources.String("LanguageHidden"), "p")</span>
+                  <span style="color:red;">@App.Resources.String("LanguageHidden", scrubHtml: "p")</span>
                 }
               </h2>
               <div class="event-meta mb-3">

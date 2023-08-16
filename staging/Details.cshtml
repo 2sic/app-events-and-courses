@@ -1,4 +1,4 @@
-@inherits Custom.Hybrid.RazorPro
+@inherits Custom.Hybrid.RazorTyped
 @using ToSic.Razor.Blade;
 
 @{
@@ -50,7 +50,7 @@
       @if (hasEventDate) {
         <span class="app-events6-date">@eventStart @eventEnd</span>
       }
-      <span class="app-events6-categories">@(item.Child("Category") != null ? " | " + item.Child("Category").String("Title") : "")</span>
+      <span class="app-events6-categories">@(item.ContainsData("Category.Title") ? " | " + item.String("Category.Title") : "")</span>
     </div>
 
   </div>

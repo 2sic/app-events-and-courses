@@ -1,4 +1,4 @@
-@inherits Custom.Hybrid.RazorPro
+@inherits Custom.Hybrid.RazorTyped
 @using ToSic.Razor.Blade;
 @using System.Linq;
 @using System;
@@ -14,7 +14,7 @@
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("List.PartEventsWithoutDates.cshtml")
   
-  <h2 class="mb-4">@(listContent.Child("Category") != null ? " | " + listContent.Child("Category").String("Title") : "")</h2>
+  <h2 class="mb-4">@(listContent.ContainsKey("Category") ? " | " + listContent.Child("Category").String("Title") : "")</h2>
 
   @foreach (var e in queryEvents) {
     var eventDate = e.First().DateTime("Start");
@@ -36,7 +36,7 @@
 
         var overlayStyle = Text.Has(item.String("Image"))
           ? "" 
-          : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", AllSettings.Dyn.Images.Content) + "');";
+          : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", settings: "Content") + "');";
         
         var image = Text.Has(item.String("Image")) ? item.Field("Image") : App.Resources.Field("PlaceHolderImg");
           
@@ -55,7 +55,7 @@
               </h2>
               <div class="event-meta mb-3">
                 <span class="app-events6-date">@d.DateTime("Start").ToString("d") @(!d.Bool("EndDateIsStartDate") ? "- " + d.DateTime("End").ToString("d") : "")</span>
-               <span class="app-events6-categories">@(item.Child("Category") != null ? " | " + item.Child("Category").String("Title") : "")</span>
+               <span class="app-events6-categories">@(item.ContainsKey("Category") ? " | " + item.Child("Category").String("Title") : "")</span>
               </div>
 
               @if (Text.Has(item.String("ShortDescription"))) {

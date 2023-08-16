@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-public class EmailToOwner: Custom.Hybrid.CodePro
+public class EmailToOwner: Custom.Hybrid.CodeTyped
 {
   // This generates the e-mail subject
   public string Subject() {

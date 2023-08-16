@@ -32,6 +32,10 @@ export async function getFormValues(formWrapper: Element): Promise<any> {
       data['Files'].push(getFieldValue(formField))
       return
     }
+
+    if (formField.getAttribute('type') && (formField.getAttribute('type').toLowerCase() == 'checkbox' || formField.getAttribute('type').toLowerCase() == 'radio') && !formField.checked) {
+      return;
+    }
     data[fieldKey] = getFieldValue(formField)
   })
 

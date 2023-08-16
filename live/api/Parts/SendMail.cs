@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Text;
 using ToSic.Razor.Blade;
 
-public class SendMail : Custom.Hybrid.CodePro
+public class SendMail : Custom.Hybrid.CodeTyped
 {
     public void sendMails(Dictionary<string, object> contactFormRequest)
     {

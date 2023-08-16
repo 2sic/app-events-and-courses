@@ -3,7 +3,7 @@ using System.Linq;
 using System;
 using ToSic.Sxc.Data;
 
-public class DetailsHelpers: Custom.Hybrid.CodePro
+public class DetailsHelpers: Custom.Hybrid.CodeTyped
 {
   // Show Title
   public string Title(ITypedItem item, ITypedItem eventDate) {
