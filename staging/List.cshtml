@@ -43,13 +43,14 @@
           ? "" 
           : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", settings: "Content") + "');";
         
-        var image = Text.Has(item.String("Image")) ? item.Field("Image") : App.Resources.Field("PlaceHolderImg");
-          
         <div class="row position-relative app-events6-list-item mb-4" @eventToolbar.For(item)>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
             <div class='app-events6-img effect-zoom @(Text.Has(item.String("Image")) ? "" : "app-events6-noimg")'>
               <div class="overlay" style="@overlayStyle"></div>
-              @Kit.Image.Picture(image, imgAltFallback: item.String("Title"))
+              
+              @(item.ContainsData("Image")
+                ? item.Picture("Image", imgAltFallback: item.String("Title"))
+                : App.Resources.Picture("PlaceHolderImg"))
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
