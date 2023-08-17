@@ -3,9 +3,15 @@
 @using System.Linq;
 @using System;
 @{
-  var queryEvents = AsItems(MyData["Events"]).GroupBy(c => c.DateTime("Start").ToString("MM.yyyy"));
+  // Get all event dates from the query and group by year-month
+  // Note that they are already sorted by date, so we don't need to sort them again
+  var eventDatesGrouped = AsItems(MyData["EventDates"])
+    .GroupBy(c => c.DateTime("Start").ToString("MM.yyyy"));
+
+  // Get the list configuration
   var listConfig = MyItem;
 
+  // Prepare the toolbars for later
   var mainToolbar = Kit.Toolbar.Default().New("Event", tweak: b => b.Tooltip(App.Resources.String("LabelAddEvent")));
   var eventToolbar = Kit.Toolbar.Empty().Edit();
 }
@@ -14,68 +20,67 @@
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("List.PartEventsWithoutDates.cshtml")
 
-
-  @if (listConfig.ContainsData("Title") || listConfig.ContainsData("Categories.PageTitle")) {
+  @if (listConfig.IsNotEmpty("Title") || listConfig.IsNotEmpty("Categories.PageTitle")) {
     <h2 class="mb-4">
-      @listConfig.String("Title") @(listConfig.ContainsData("Categories.PageTitle") ? listConfig.String("Categories.PageTitle") : "")
+      @listConfig.String("Title") @listConfig.String("Categories.PageTitle")
     </h2>
   }
 
-  @foreach (var e in queryEvents) {
-    var eventDate = e.First().DateTime("Start");
+  @foreach (var dateGroup in eventDatesGrouped) {
+    var firstDate = dateGroup.First().DateTime("Start");
     @* Grouped months *@
     <h2>
-      @e.First().DateTime("Start").ToString("MMMM")
+      @firstDate.ToString("MMMM")
       @* show year if not current year *@
-      @if (DateTime.Now.Year != eventDate.Year) {
-        <span class="year">@eventDate.ToString("yyyy")</span>
+      @if (DateTime.Now.Year != firstDate.Year) {
+        <span class="year">@firstDate.ToString("yyyy")</span>
       }
     </h2>
     
     @* Events in month *@
-    foreach (var d in e) {
+    foreach (var evtDate in dateGroup) {
+      // Get the event "header" which is referenced by the event-date
+      var evt = evtDate.Child("Event");
+      if (MyUser.IsContentAdmin || evt.Bool("ShowInLanguage") != false) {
+        var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", evt.Id).Set("dateId", evtDate.Id).Set(evt.String("UrlKey")));
 
-      var item = d.Child("Event");
-      if (MyUser.IsContentAdmin || item.Bool("ShowInLanguage") != false) {
-        var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", item.Id).Set("dateId", d.Id).Set(item.String("UrlKey")));
-
-        var overlayStyle = Text.Has(item.String("Image"))
+        var overlayStyle = Text.Has(evt.String("Image"))
           ? "" 
           : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", settings: "Content") + "');";
         
-        <div class="row position-relative app-events6-list-item mb-4" @eventToolbar.For(item)>
+        <div class="row position-relative app-events6-list-item mb-4" @eventToolbar.For(evt)>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
-            <div class='app-events6-img effect-zoom @(Text.Has(item.String("Image")) ? "" : "app-events6-noimg")'>
+            <div class='app-events6-img effect-zoom @(Text.Has(evt.String("Image")) ? "" : "app-events6-noimg")'>
               <div class="overlay" style="@overlayStyle"></div>
               
-              @(item.ContainsData("Image")
-                ? item.Picture("Image", imgAltFallback: item.String("Title"))
+              @(evt.IsNotEmpty("Image")
+                ? evt.Picture("Image", imgAltFallback: evt.String("Title"))
                 : App.Resources.Picture("PlaceHolderImg"))
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
             <div class="app-events6-text">
               <h2>
-                @item.String("Title")
-                @(Text.Has(d.String("TitleAddition")) ? "- " + d.String("TitleAddition") : "" )
-                @if (item.Bool("ShowInLanguage") == false && MyUser.IsContentAdmin) {
+                @evt.String("Title")
+                @(Text.Has(evtDate.String("TitleAddition")) ? "- " + evtDate.String("TitleAddition") : "" )
+                @if (evt.Bool("ShowInLanguage") == false && MyUser.IsContentAdmin) {
                   <span style="color:red;">@App.Resources.String("LanguageHidden", scrubHtml: "p")</span>
                 }
               </h2>
               <div class="event-meta mb-3">
                 <span class="app-events6-date">
-                  @d.DateTime("Start").ToString("d") @(!d.Bool("EndDateIsStartDate") ? "- " + d.DateTime("End").ToString("d") : "")
+                  @evtDate.DateTime("Start").ToString("d") @(!evtDate.Bool("EndDateIsStartDate") ? "- " + evtDate.DateTime("End").ToString("d") : "")
                 </span>
                 <span class="app-events6-categories">
-                  @(item.ContainsData("Category") ? " | " + item.Child("Category").String("Title") : "")
+                  @(evt.IsNotEmpty("Category") ? " | " + evt.Child("Category").String("Title") : "")
                 </span>
               </div>
 
-              @if (Text.Has(item.String("ShortDescription"))) {
-                <p>@Html.Raw(Tags.Nl2Br(item.String("ShortDescription")))</p>
+              @if (Text.Has(evt.String("ShortDescription"))) {
+                <p>@Html.Raw(Tags.Nl2Br(evt.String("ShortDescription")))</p>
               }
 
-               <a class="stretched-link" href="@detailslink">@Html.Raw(App.Resources.String("LabelReadMore"))</a>
+              <a class="stretched-link" href="@detailslink">@Html.Raw(App.Resources.String("LabelReadMore"))</a>
             </div>
           </div>
         </div>
