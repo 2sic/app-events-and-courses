@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="16.01.00" ExportDate="2023-05-24T15:07:24.4866219+02:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="16.04.00" ExportDate="2023-08-23T18:05:32.3637239+02:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -2231,7 +2231,7 @@
             </Value>
           </Entity>
         </Attribute>
-        <Attribute StaticName="AppCostsLabel" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelAppCosts" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="b20af73f-3a95-459f-97a1-a830c6faf260" Json="True" KeyNumber="2462">
             <Value Key="InputType" Value="string-default" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -2244,7 +2244,7 @@
             </Value>
           </Entity>
         </Attribute>
-        <Attribute StaticName="AcceptCostsLabel" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelAcceptCosts" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="cab04139-f878-44ab-85ac-269a5d1648f5" Json="True" KeyNumber="2460">
             <Value Key="InputType" Value="string-wysiwyg" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -2257,7 +2257,7 @@
             </Value>
           </Entity>
         </Attribute>
-        <Attribute StaticName="AppAgbLabel" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelAppAgb" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="2f98016b-5bbd-445d-b39c-454cabab221a" Json="True" KeyNumber="2463">
             <Value Key="InputType" Value="string-default" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -2270,7 +2270,7 @@
             </Value>
           </Entity>
         </Attribute>
-        <Attribute StaticName="AcceptAgbLabel" Type="String" IsTitle="false">
+        <Attribute StaticName="LabelAcceptAgb" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="df5b705f-7c5e-4043-9d2f-75a1078a9246" Json="True" KeyNumber="2461">
             <Value Key="InputType" Value="string-wysiwyg" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -7787,14 +7787,14 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="RequiredDnnVersion" Value="07.04.02" Type="String">
+      <Value Key="RequiredDnnVersion" Value="09.06.01" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="RequiredOqtaneVersion" Value="3.1" Type="String">
+      <Value Key="RequiredOqtaneVersion" Value="03.04.00" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="RequiredVersion" Value="16.00.00" Type="String">
+      <Value Key="RequiredVersion" Value="16.04.00" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7802,7 +7802,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Version" Value="06.04.0" Type="String">
+      <Value Key="Version" Value="06.05.0" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7828,18 +7828,6 @@
       </Value>
     </Entity>
     <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="App-Resources" AttributeSetName="App-Resources" EntityGUID="a74e93af-ac11-4952-b1e6-e42876db246c" KeyNumber="144">
-      <Value Key="AcceptAgbLabel" Value="&lt;p&gt;I accept the &lt;a href=&quot;/de/Kontakt-AGB&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;terms and conditions&lt;/a&gt;.&lt;/p&gt;" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="AcceptAgbLabel" Value="&lt;p&gt;Ich akzeptiere die&amp;nbsp;&lt;a href=&quot;/de/Kontakt-AGB&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AGB&lt;/a&gt;.&lt;/p&gt;" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="AcceptCostsLabel" Value="&lt;p&gt;The registration is always binding and legally binding. After your registration you will receive an invoice, which you will pay immediately. Your deposit is considered a definitive confirmation.&lt;/p&gt;" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="AcceptCostsLabel" Value="&lt;p&gt;Die Anmeldung ist immer verbindlich und rechtskr&amp;auml;ftig. Nach Ihrer Anmeldung erhalten Sie eine Rechnung, die Sie unmittelbar begleichen. Ihre Einzahlung gilt als definitive Best&amp;auml;tigung.&lt;/p&gt;" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
       <Value Key="AddNewEvent" Value="Add / edit event" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7856,18 +7844,6 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="AllDatesOfThisEvent" Value="Termine" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="AppAgbLabel" Value="Terms and conditions" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="AppAgbLabel" Value="AGB" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="AppCostsLabel" Value="Confirm" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="AppCostsLabel" Value="Bestätigen" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="BtnToggleExpiredDate" Value="Toggle expired events" Type="String">
@@ -7936,10 +7912,34 @@
       <Value Key="Fee" Value="Kosten" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
+      <Value Key="LabelAcceptAgb" Value="&lt;p&gt;I accept the &lt;a href=&quot;/de/Kontakt-AGB&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;terms and conditions&lt;/a&gt;.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelAcceptAgb" Value="&lt;p&gt;Ich akzeptiere die&amp;nbsp;&lt;a href=&quot;/de/Kontakt-AGB&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AGB&lt;/a&gt;.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelAcceptCosts" Value="&lt;p&gt;The registration is always binding and legally binding. After your registration you will receive an invoice, which you will pay immediately. Your deposit is considered a definitive confirmation.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelAcceptCosts" Value="&lt;p&gt;Die Anmeldung ist immer verbindlich und rechtskr&amp;auml;ftig. Nach Ihrer Anmeldung erhalten Sie eine Rechnung, die Sie unmittelbar begleichen. Ihre Einzahlung gilt als definitive Best&amp;auml;tigung.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
       <Value Key="LabelAddEvent" Value="Add event" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="LabelAddEvent" Value="Veranstaltung hinzufügen" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelAppAgb" Value="Terms and conditions" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelAppAgb" Value="AGB" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelAppCosts" Value="Confirm" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LabelAppCosts" Value="Bestätigen" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="LabelBack" Value="&amp;lsaquo; Back" Type="String">
@@ -10006,8 +10006,8 @@
       <Value Key="Description" Value="" Type="String" />
       <Value Key="Name" Value="EventsByDate - with categories" Type="String" />
       <Value Key="Params" Value="CategoryId=[QueryString:category]" Type="String" />
-      <Value Key="StreamsOut" Value="Default,Header,Events,Paging" Type="String" />
-      <Value Key="StreamWiring" Value="ad0e65f8-a8bc-4b88-9111-b3e4c55dfaf4:Default&gt;Out:Events&#xD;&#xA;ad0e65f8-a8bc-4b88-9111-b3e4c55dfaf4:Paging&gt;Out:Paging&#xD;&#xA;36cf7a66-00b3-4d98-ac2a-725965a764d3:Default&gt;ad0e65f8-a8bc-4b88-9111-b3e4c55dfaf4:EventSettings&#xD;&#xA;36cf7a66-00b3-4d98-ac2a-725965a764d3:Default&gt;Out:Default&#xD;&#xA;ccf499c2-cbab-418a-88c3-18502c3c8c78:Default&gt;36cf7a66-00b3-4d98-ac2a-725965a764d3:Default&#xD;&#xA;a72260e4-e807-40b5-b4c6-ba5e7bcdb82c:Default&gt;ad0e65f8-a8bc-4b88-9111-b3e4c55dfaf4:Default&#xD;&#xA;b0617568-a080-40f9-a272-d68266758a1c:Default&gt;a72260e4-e807-40b5-b4c6-ba5e7bcdb82c:Default&#xD;&#xA;28ca17db-13f1-4961-a8db-47f393a34abe:Default&gt;b0617568-a080-40f9-a272-d68266758a1c:Default&#xD;&#xA;7767a913-88a0-4ee5-8f73-5f048944bab1:Default&gt;e1a0ecb3-d6eb-4db7-b51f-29a8f4fd7fbf:Default&#xD;&#xA;ccf499c2-cbab-418a-88c3-18502c3c8c78:Categories&gt;7767a913-88a0-4ee5-8f73-5f048944bab1:AllCategories&#xD;&#xA;36cf7a66-00b3-4d98-ac2a-725965a764d3:Default&gt;b25e59b0-ef20-4e92-909c-13410def0f12:Default&#xD;&#xA;b25e59b0-ef20-4e92-909c-13410def0f12:Default&gt;7767a913-88a0-4ee5-8f73-5f048944bab1:Default&#xD;&#xA;ccf499c2-cbab-418a-88c3-18502c3c8c78:Event&gt;4afa2566-14ae-4fff-b32f-9a46d98512cb:Default&#xD;&#xA;49e296d3-9c8a-4ae1-8d28-f0d59286a265:Distinct&gt;28ca17db-13f1-4961-a8db-47f393a34abe:Default&#xD;&#xA;4afa2566-14ae-4fff-b32f-9a46d98512cb:Default&gt;49e296d3-9c8a-4ae1-8d28-f0d59286a265:Default&#xD;&#xA;e1a0ecb3-d6eb-4db7-b51f-29a8f4fd7fbf:Default&gt;49e296d3-9c8a-4ae1-8d28-f0d59286a265:PleaseRename23277" Type="String" />
+      <Value Key="StreamsOut" Value="Default,Header,Events,Paging,EventDates" Type="String" />
+      <Value Key="StreamWiring" Value="ad0e65f8-a8bc-4b88-9111-b3e4c55dfaf4:Paging&gt;Out:Paging&#xD;&#xA;36cf7a66-00b3-4d98-ac2a-725965a764d3:Default&gt;ad0e65f8-a8bc-4b88-9111-b3e4c55dfaf4:EventSettings&#xD;&#xA;36cf7a66-00b3-4d98-ac2a-725965a764d3:Default&gt;Out:Default&#xD;&#xA;ccf499c2-cbab-418a-88c3-18502c3c8c78:Default&gt;36cf7a66-00b3-4d98-ac2a-725965a764d3:Default&#xD;&#xA;a72260e4-e807-40b5-b4c6-ba5e7bcdb82c:Default&gt;ad0e65f8-a8bc-4b88-9111-b3e4c55dfaf4:Default&#xD;&#xA;b0617568-a080-40f9-a272-d68266758a1c:Default&gt;a72260e4-e807-40b5-b4c6-ba5e7bcdb82c:Default&#xD;&#xA;28ca17db-13f1-4961-a8db-47f393a34abe:Default&gt;b0617568-a080-40f9-a272-d68266758a1c:Default&#xD;&#xA;7767a913-88a0-4ee5-8f73-5f048944bab1:Default&gt;e1a0ecb3-d6eb-4db7-b51f-29a8f4fd7fbf:Default&#xD;&#xA;ccf499c2-cbab-418a-88c3-18502c3c8c78:Categories&gt;7767a913-88a0-4ee5-8f73-5f048944bab1:AllCategories&#xD;&#xA;36cf7a66-00b3-4d98-ac2a-725965a764d3:Default&gt;b25e59b0-ef20-4e92-909c-13410def0f12:Default&#xD;&#xA;b25e59b0-ef20-4e92-909c-13410def0f12:Default&gt;7767a913-88a0-4ee5-8f73-5f048944bab1:Default&#xD;&#xA;ccf499c2-cbab-418a-88c3-18502c3c8c78:Event&gt;4afa2566-14ae-4fff-b32f-9a46d98512cb:Default&#xD;&#xA;49e296d3-9c8a-4ae1-8d28-f0d59286a265:Distinct&gt;28ca17db-13f1-4961-a8db-47f393a34abe:Default&#xD;&#xA;4afa2566-14ae-4fff-b32f-9a46d98512cb:Default&gt;49e296d3-9c8a-4ae1-8d28-f0d59286a265:Default&#xD;&#xA;e1a0ecb3-d6eb-4db7-b51f-29a8f4fd7fbf:Default&gt;49e296d3-9c8a-4ae1-8d28-f0d59286a265:PleaseRename23277&#xD;&#xA;ad0e65f8-a8bc-4b88-9111-b3e4c55dfaf4:Default&gt;Out:EventDates" Type="String" />
       <Value Key="TestParameters" Value="[Params:CategoryId]=21151" Type="String" />
       <Value Key="VisualDesignerData" Value="{&quot;ShowDataSourceDetails&quot;:true}" Type="String" />
     </Entity>
@@ -10249,7 +10249,7 @@
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="71352afa-6c2f-4d68-8264-acdd229fc318" Json="True">
       <Value Key="Content" Value="dd5e0b65-114f-4a9a-a25b-e5aafe40b661" Type="Entity" />
       <Value Key="Presentation" Value="null" Type="Entity" />
-      <Value Key="Template" Value="b418e3aa-77fc-463d-965e-69038ae89076" Type="Entity" />
+      <Value Key="Template" Value="33f4b270-edca-4826-a4ed-f0d5766fc1fb" Type="Entity" />
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="889fe838-fd3f-4297-88bb-038ea36a2ea8" AttributeSetName="EventSettings" EntityGUID="dd5e0b65-114f-4a9a-a25b-e5aafe40b661">
       <Value Key="Categories" Value="55c247bb-2b59-4569-a08f-0847f7e1fbb5" Type="Entity" />
@@ -10283,10 +10283,10 @@
       <Value Key="DurationUsers" Value="-1" Type="Number">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="IsEnabled" Value="False" Type="Boolean">
+      <Value Key="IsEnabled" Value="True" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Title" Value="🚫" Type="String">
+      <Value Key="Title" Value="✅ - Users 14400s, Reg 🚫, Editors 300s, SysAdmins 300s" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="UrlParametersCaseSensitive" Value="False" Type="Boolean">
@@ -10626,7 +10626,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="ShowInLanguage" Value="True" Type="Boolean">
+      <Value Key="ShowInLanguage" Value="False" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="ShowInLanguage" Value="True" Type="Boolean">
@@ -10725,6 +10725,11 @@
       <Value Key="Template" Value="b418e3aa-77fc-463d-965e-69038ae89076" Type="Entity" />
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="0d1e2408-2131-48a6-97ae-761a17a44758" Json="True">
+      <Value Key="Content" Value="dd5e0b65-114f-4a9a-a25b-e5aafe40b661" Type="Entity" />
+      <Value Key="Presentation" Value="null" Type="Entity" />
+      <Value Key="Template" Value="33f4b270-edca-4826-a4ed-f0d5766fc1fb" Type="Entity" />
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="14266d49-e114-497c-b3d6-16b5d72158f2" Json="True">
       <Value Key="Template" Value="33f4b270-edca-4826-a4ed-f0d5766fc1fb" Type="Entity" />
     </Entity>
   </Entities>

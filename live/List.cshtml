@@ -46,7 +46,7 @@
 
         var overlayStyle = Text.Has(evt.String("Image"))
           ? "" 
-          : "background-image: url('" + Link.Image( App.Path + "/src/images/trans.png", settings: "Content") + "');";
+          : "background-image: url('" + Link.Image(App.Folder.Url + "/src/images/trans.png", settings: "Content") + "');";
         
         <div class="row position-relative app-events6-list-item mb-4" @eventToolbar.For(evt)>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
