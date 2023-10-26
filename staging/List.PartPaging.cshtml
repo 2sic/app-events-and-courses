@@ -9,7 +9,7 @@
   @if (paging.Int("PageNumber") > 1) {
     <a class="app-events6-prev-pager" href="@LinkToPageNumber((int)(paging.Int("PageNumber")) - 1)">&lsaquo;</a>
   }
-  @if (@paging.Int("PageSize") >= 0) {
+  @if (paging.Int("PageCount") > 1 && paging.Int("PageSize") >= 0) {
     for(int i = 1; i <= @paging.Int("PageCount"); i++) {
       <a @(i == paging.Int("PageNumber") ? "class=app-events6-paging-active" : "") href='@(i != paging.Int("PageNumber") ? LinkToPageNumber(i) : "javascript:void(0)")'>@i</a>
     }
