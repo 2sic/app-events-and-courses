@@ -47,7 +47,7 @@
     @* Inputs *@
     @{
       var inputTitle = course.String("Title") + titleAddition;
-      var courseNumber = (eventDate.Int("Id") != null) ? eventDate.Int("Id") : course.Int("id");
+      var courseNumber = (eventDate.Int("EventId") != null) ? eventDate.Int("EventId") : course.Int("id");
     }
     @if (Text.Has(courseNumber)) {
       @fieldBuilder.Text("CourseNumber", false, true, courseNumber)

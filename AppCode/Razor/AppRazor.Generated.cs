@@ -4,7 +4,7 @@
 // Generator:   RazorViewsGenerator v17.06.02
 // App/Edition: Events, Courses and Registration/
 // User:        2sic Web-Developer
-// When:        2024-04-08 09:26:51Z
+// When:        2024-04-08 11:04:44Z
 
 using AppCode.Data;
 using ToSic.Sxc.Apps;

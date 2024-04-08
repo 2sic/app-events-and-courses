@@ -14,7 +14,7 @@ namespace AppCode.Data
 // Generator:   CSharpDataModelsGenerator v17.06.02
 // App/Edition: Events, Courses and Registration/
 // User:        2sic Web-Developer
-// When:        2024-04-08 09:26:47Z
+// When:        2024-04-08 11:04:41Z
 using System.Collections.Generic;
 
 namespace AppCode.Data
@@ -24,7 +24,7 @@ namespace AppCode.Data
 
   /// <summary>
   /// EventSettings data. <br/>
-  /// Generated 2024-04-08 09:26:47Z. Re-generate whenever you change the ContentType. <br/>
+  /// Generated 2024-04-08 11:04:41Z. Re-generate whenever you change the ContentType. <br/>
   /// <br/>
   /// Default properties such as `.Title` or `.Id` are provided in the base class. <br/>
   /// Most properties have a simple access, such as `.Categories`. <br/>

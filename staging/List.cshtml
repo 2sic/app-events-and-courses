@@ -1,18 +1,20 @@
-@inherits Custom.Hybrid.RazorTyped
-@using ToSic.Razor.Blade;
-@using System.Linq;
-@using System;
+@inherits AppCode.Razor.AppRazor
+@using ToSic.Razor.Blade
+@using System.Linq
+@using System
+@using AppCode.Data
+
 @{
   // Get all event dates from the query and group by year-month
   // Note that they are already sorted by date, so we don't need to sort them again
-  var eventDatesGrouped = AsItems(MyData["EventDates"])
-    .GroupBy(c => c.DateTime("Start").ToString("MM.yyyy"));
+  var eventDatesGrouped = AsList<EventDate>(MyData["EventDates"])
+    .GroupBy(c => c.Start.ToString("MM.yyyy"));
 
   // Get the list configuration
-  var listConfig = MyItem;
+  var listConfig = As<EventSettings>(MyItem);
 
   // Prepare the toolbars for later
-  var mainToolbar = Kit.Toolbar.Default().New("Event", tweak: b => b.Tooltip(App.Resources.String("LabelAddEvent")));
+  var mainToolbar = Kit.Toolbar.Default().New("Event", tweak: b => b.Tooltip(App.Resources.LabelAddEvent));
   var eventToolbar = Kit.Toolbar.Empty().Edit();
 }
 
@@ -27,7 +29,9 @@
   }
 
   @foreach (var dateGroup in eventDatesGrouped) {
-    var firstDate = dateGroup.First().DateTime("Start");
+    var firstDate = dateGroup.First().Start;
+
+    
     @* Grouped months *@
     <h2>
       @firstDate.ToString("MMMM")
@@ -40,47 +44,47 @@
     @* Events in month *@
     foreach (var evtDate in dateGroup) {
       // Get the event "header" which is referenced by the event-date
-      var evt = evtDate.Child("Event");
-      if (MyUser.IsContentAdmin || evt.Bool("ShowInLanguage") != false) {
-        var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", evt.Id).Set("dateId", evtDate.Id).Set(evt.String("UrlKey")));
+      var evt = evtDate.Event;
+      if (MyUser.IsContentAdmin || evt.ShowInLanguage != false) {
+        var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", evt.Id).Set("dateId", evtDate.Id).Set(evt.UrlKey));
 
-        var overlayStyle = Text.Has(evt.String("Image"))
+        var overlayStyle = evt.IsNotEmpty("Image")
           ? "" 
           : "background-image: url('" + Link.Image(App.Folder.Url + "/src/images/trans.png", settings: "Content") + "');";
         
         <div class="row position-relative app-events6-list-item mb-4" @eventToolbar.For(evt)>
           <div class="col-12 col-md-6 col-lg-4 mb-2 mb-md-0">
-            <div class='app-events6-img effect-zoom @(Text.Has(evt.String("Image")) ? "" : "app-events6-noimg")'>
+            <div class='app-events6-img effect-zoom @(evt.IsNotEmpty("Image") ? "" : "app-events6-noimg")'>
               <div class="overlay" style="@overlayStyle"></div>
               
               @(evt.IsNotEmpty("Image")
-                ? evt.Picture("Image", imgAltFallback: evt.String("Title"))
+                ? evt.Picture("Image", imgAltFallback: evt.Title)
                 : App.Resources.Picture("PlaceHolderImg"))
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-8 position-static">
             <div class="app-events6-text">
               <h2>
-                @evt.String("Title")
-                @(Text.Has(evtDate.String("TitleAddition")) ? "- " + evtDate.String("TitleAddition") : "" )
-                @if (evt.Bool("ShowInLanguage") == false && MyUser.IsContentAdmin) {
-                  <span style="color:red;">@App.Resources.String("LanguageHidden", scrubHtml: "p")</span>
+                @evt.Title
+                @(evtDate.IsNotEmpty("TitleAddition") ? "- " + evtDate.TitleAddition : "" )
+                @if (evt.ShowInLanguage == false && MyUser.IsContentAdmin) {
+                  <span style="color:red;">@Kit.Scrub.Only(App.Resources.LanguageHidden, "p")</span>
                 }
               </h2>
               <div class="event-meta mb-3">
                 <span class="app-events6-date">
-                  @evtDate.DateTime("Start").ToString("d") @(!evtDate.Bool("EndDateIsStartDate") ? "- " + evtDate.DateTime("End").ToString("d") : "")
+                  @evtDate.Start.ToString("d") @(!evtDate.EndDateIsStartDate ? "- " + evtDate.End.ToString("d") : "")
                 </span>
                 <span class="app-events6-categories">
-                  @(evt.IsNotEmpty("Category") ? " | " + evt.Child("Category").String("Title") : "")
+                  @(evt.IsNotEmpty("Category") ? " | " + evt.Category.Title : "")
                 </span>
               </div>
 
-              @if (Text.Has(evt.String("ShortDescription"))) {
-                <p>@Html.Raw(Tags.Nl2Br(evt.String("ShortDescription")))</p>
+              @if (evt.IsNotEmpty("ShortDescription")) {
+                <p>@Html.Raw(Tags.Nl2Br(evt.ShortDescription))</p>
               }
 
-              <a class="stretched-link" href="@detailslink">@Html.Raw(App.Resources.String("LabelReadMore"))</a>
+              <a class="stretched-link" href="@detailslink">@Html.Raw(App.Resources.LabelReadMore)</a>
             </div>
           </div>
         </div>
