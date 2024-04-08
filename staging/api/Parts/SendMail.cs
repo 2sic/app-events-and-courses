@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using ToSic.Razor.Blade;
+using AppCode.Data;
 
 public class SendMail : Custom.Hybrid.CodeTyped
 {
@@ -12,12 +13,12 @@ public class SendMail : Custom.Hybrid.CodeTyped
     {
         var settings = new
         {
-            MailFrom = App.Settings.String("MailFrom"),
-            OwnerMail = App.Settings.String("OwnerMail"),
+            MailFrom = App.Settings.MailFrom,
+            OwnerMail = App.Settings.OwnerMail,
             OwnerMailCC = "",
-            OwnerMailTemplateFile = App.Settings.String("OwnerMailTemplateFile"),
+            OwnerMailTemplateFile = App.Settings.OwnerMailTemplateFile,
             CustomerMailCC = "",
-            CustomerMailTemplateFile = App.Settings.String("CustomerMailTemplateFile")
+            CustomerMailTemplateFile = App.Settings.CustomerMailTemplateFile
         };
 
         var customerMail = contactFormRequest["Mail"].ToString();
