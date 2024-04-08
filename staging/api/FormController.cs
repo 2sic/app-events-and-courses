@@ -41,7 +41,7 @@ public class FormController : Custom.Hybrid.ApiTyped
     // Copy the data into a new variable, as only this will be sent per Mail and the Other Data is need to Save in the 2sxc
     var fieldsFormRequest = new Dictionary<string, object>(contactFormRequest.Fields, StringComparer.OrdinalIgnoreCase);
 
-  // Same the TechnicalValues
+    // Same the TechnicalValues
     Dictionary<string, object> formTechnicalValues = new Dictionary<string, object>();
 
     // 1. add IP / host, and save all fields
@@ -63,9 +63,10 @@ public class FormController : Custom.Hybrid.ApiTyped
     // add raw-data, in case the content-type has a "RawData" field
     formTechnicalValues["RawData"] = CreateRawDataEntry(contactFormRequest.Fields);
 
-      // add Title (if non given), in case the content-type would benefit of an automatic title
+    // add Title (if non given), in case the content-type would benefit of an automatic title
     var addTitle = !contactFormRequest.Fields.ContainsKey("Title");
     if (addTitle) contactFormRequest.Fields.Add("Title", "Form " + DateTime.Now.ToString("s"));
+    formTechnicalValues["Title"] = contactFormRequest.Fields["Title"];
 
     // Automatically full-save each request into a system-protocol content-type
     // This helps to debug or find submissions in case something wasn't configured right
