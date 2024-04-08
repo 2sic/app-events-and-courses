@@ -30,5 +30,10 @@
       // "package-lock.json",
       // "nuget.config",
     ]
+  },
+  "editions": {
+    "staging": {
+      "description": "Staging Edition",
+    }
   }
 }

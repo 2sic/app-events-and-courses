@@ -9,9 +9,10 @@ using AppCode.Data;
 
 namespace AppCode.Mail
 {
-    public class SendMail : Custom.Hybrid.CodeTyped
+    public class Mail: Custom.Hybrid.CodeTyped
     {
-        public void sendMails(Dictionary<string, object> contactFormRequest)
+
+        public void SendMails(Dictionary<string, object> contactFormRequest)
         {
 
             var appSettings = As<AppSettings>(App.Settings);
@@ -58,7 +59,7 @@ namespace AppCode.Mail
             var wrapLog = Log.Call("template:" + emailTemplateFilename + ", from:" + from + ", to:" + to + ", cc:" + cc + ", reply:" + replyTo);
 
             Log.Add("Get MailEngine");
-            var mailEngine = GetCode("../../email-templates/" + emailTemplateFilename);
+            var mailEngine = GetService<IMailTemplate>(typeName: "AppCode.MailTemplates." + emailTemplateFilename.Replace(".cs", ""));
             var mailBody = mailEngine.Message(valuesWithMailLabels).ToString();
             var subject = mailEngine.Subject();
 

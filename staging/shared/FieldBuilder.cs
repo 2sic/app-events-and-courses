@@ -141,8 +141,12 @@ public class FieldBuilder : Custom.Hybrid.CodeTyped
     }
 
     // returns a checkbox with common attributes
-    public IHtmlTag Checkbox(string idString, bool required){
+    public IHtmlTag Checkbox(string idString, bool required, bool isTerm = false){
         var checkbox = Tag.Input().Attr("type", "checkbox").Id(idString).Name(idString).Class("form-check-input");
+
+        if (isTerm)
+            checkbox.Attr("terms", "true");
+
         SetRequired(checkbox, required);
         var labelTranslated = App.Resources.String("Label" + idString, scrubHtml: "p");
         var label = ToSic.Razor.Blade.Text.First(labelTranslated, idString) + (required ? "*" : "");
