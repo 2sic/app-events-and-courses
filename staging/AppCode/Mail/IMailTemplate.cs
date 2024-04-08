@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using AppCode.Data;
 
 namespace AppCode.Mail
 {
