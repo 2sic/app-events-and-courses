@@ -11,29 +11,34 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ToSic.Sxc.WebApi;
+using AppCode.Data;
+using AppCode.Mail;
+using AppCode;
 
 [AllowAnonymous]	// define that all commands can be accessed without a login
 [JsonFormatter]
-public class FormController : Custom.Hybrid.ApiTyped 
+public class FormController : Custom.Hybrid.ApiTyped
 {
   [HttpPost]
-  public void ProcessForm([FromBody]Dictionary<string,object> contactFormRequest)
+  public void ProcessForm([FromBody] SaveRequest contactFormRequest)
   {
+
     var wrapLog = Log.Call(useTimer: true);
     // Pre-work: help the dictionary with the values uses case-insensitive key AccessLevel
     contactFormRequest = new Dictionary<string, object>(contactFormRequest, StringComparer.OrdinalIgnoreCase);
 
     // 0. Pre-Check - validate recaptcha if enabled in the current object (the form configuration)
-    var formConfig = MyItem;
-    if (formConfig.Bool("Recaptcha")) {
+    var appSettings = As<AppSettings>(App.Settings);
+
+    if (appSettings.Recaptcha)
+    {
       Log.Add("checking Recaptcha");
-      GetCode("Parts/Recaptcha.cs").Validate(contactFormRequest["Recaptcha"] as string);
+      GetService<Recaptcha>().Validate(contactFormRequest["Recaptcha"] as string);
+      // GetCode("Parts/Recaptcha.cs").Validate(contactFormRequest["Recaptcha"] as string);
     }
 
     // 0.1. after saving, remove recaptcha fields from the data-package, because we don't want them in the e-mails
-    RemoveKeys(contactFormRequest, new string[] { "g-recaptcha-response", "useRecaptcha",  "Recaptcha", "submit" });
-
-
+    RemoveKeys(contactFormRequest, new string[] { "g-recaptcha-response", "useRecaptcha", "Recaptcha", "submit" });
 
 
     // 1. add IP / host, and save all fields
@@ -41,11 +46,11 @@ public class FormController : Custom.Hybrid.ApiTyped
     // in the request with the correct name, they will be added automatically
     contactFormRequest["Timestamp"] = DateTime.Now;
     // Add the SenderIP in case we need to track down abuse
-    #if NETCOREAPP
+#if NETCOREAPP
       contactFormRequest["SenderIP"] = Request.HttpContext.Connection.RemoteIpAddress?.ToString();
-    #else
-      contactFormRequest["SenderIP"] = System.Web.HttpContext.Current.Request.UserHostAddress;
-    #endif
+#else
+    contactFormRequest["SenderIP"] = System.Web.HttpContext.Current.Request.UserHostAddress;
+#endif
     // Add the ModuleId to assign each sent form to a specific module
     contactFormRequest["ModuleId"] = MyContext.Module.Id;
     // add raw-data, in case the content-type has a "RawData" field
@@ -71,16 +76,14 @@ public class FormController : Custom.Hybrid.ApiTyped
     App.Data.Create("Registrations", contactFormRequest);
 
     // remove App informations from data-package
-    RemoveKeys(contactFormRequest, new string[] { "ModuleId",  "SenderIP", "Timestamp" });
+    RemoveKeys(contactFormRequest, new string[] { "ModuleId", "SenderIP", "Timestamp" });
 
     // sending Mails
-    var sendMail = GetCode("Parts/SendMail.cs");
-    sendMail.sendMails(contactFormRequest);        
-
+    GetService<SendMail>().SendMails(contactFormRequest);
     wrapLog("ok");
   }
 
-  private object CreateRawDataEntry(Dictionary<string,object> formRequest)
+  private object CreateRawDataEntry(Dictionary<string, object> formRequest)
   {
     var data = new Dictionary<string, object>(formRequest, StringComparer.OrdinalIgnoreCase);
     data.Remove("Files");
@@ -88,10 +91,19 @@ public class FormController : Custom.Hybrid.ApiTyped
   }
 
   // helpers
-  private void RemoveKeys(Dictionary<string,object> contactFormRequest, string[] badKeys)
+  private void RemoveKeys(Dictionary<string, object> contactFormRequest, string[] badKeys)
   {
     foreach (var key in badKeys)
       if (contactFormRequest.ContainsKey(key))
         contactFormRequest.Remove(key);
   }
+
+  public class SaveRequest
+  {
+    public Dictionary<string, object> Fields { get; set; }
+    public Dictionary<string, string> Terms { get; set; }
+    public string Recaptcha { get; set; }
+    public string CustomerMails { get; set; }
+  }
+
 }
