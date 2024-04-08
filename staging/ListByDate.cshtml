@@ -1,18 +1,23 @@
-@inherits Custom.Hybrid.RazorTyped
-@using ToSic.Razor.Blade;
-@using System.Linq;
-@using System;
+
+@inherits AppCode.Razor.AppRazor
+@using ToSic.Razor.Blade
+@using AppCode.Data
+@using System.Linq
+@using System
+
 @{
+  @* TODO:: ListofConfig *@
   var listConfig = MyItem;
 
-  var queryEvents = AsItems(MyData["EventDates"]).GroupBy(c => c.DateTime("Start").ToString("MM.yyyy"));
+  var queryEvents = AsList<EventDate>(MyData["EventDates"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
 
-  var contentSettings = Kit.Toolbar.Default().New("Event",  tweak: b => b.Tooltip( App.Resources.String("LabelAddEvent"))); 
+  var contentSettings = Kit.Toolbar.Default().New("Event",  tweak: b => b.Tooltip( App.Resources.LabelAddEvent)); 
 
   var dEventToolbar = Kit.Toolbar.Empty().Edit();
 }
 
 <div class="app-events6 app-events6-list" @contentSettings.For(listConfig)>
+
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("List.PartEventsWithoutDates.cshtml")
 
@@ -26,22 +31,22 @@
   @foreach (var e in queryEvents) {
     @* Events in month *@
     foreach (var d in e) {
-      if (MyUser.IsContentAdmin || d.Child("Event").Bool("ShowInLanguage") != false) {
-        var item = d.Child("Event");
-        var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", item.Id).Set("dateId", d.Id).Set(item.String("UrlKey")));
+      if (MyUser.IsContentAdmin || d.Event.ShowInLanguage != false) {
+        var item = d.Event;
+        var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", item.Id).Set("dateId", d.Id).Set(item.UrlKey));
           
-        <tr class="position-relative app-events6-list-item" @dEventToolbar.For(d.Child("Event"))>
+        <tr class="position-relative app-events6-list-item" @dEventToolbar.For(d.Event)>
 					<td>
-						@item.String("Title") @((Text.Has(d.String("TitleAddition"))) ? "- " + d.String("TitleAddition") : "" )
+						@item.Title @(d.IsNotEmpty("TitleAddition") ? "- " + d.TitleAddition : "" )
 					</td>
 					<td class="event-meta">
-						@d.DateTime("Start").ToString("d") @(!d.Bool("EndDateIsStartDate") ? "- " + d.DateTime("End").ToString("d") : "")
+						@d.Start.ToString("d") @(!d.EndDateIsStartDate ? "- " + d.End.ToString("d") : "")
 					</td>
 					<td>
-            @(item.Child("Category") != null ? " | " + item.Child("Category").String("Title") : "")
+            @(item.Category != null ? " | " + item.Category.Title : "")
 					</td>
 					<td>
-						@item.String("Location")
+						@item.Location
 					</td>
 					<td>
 						<a class="stretched-link" href="@detailslink">›</a>
