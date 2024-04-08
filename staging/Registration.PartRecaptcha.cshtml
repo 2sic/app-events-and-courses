@@ -1,5 +1,7 @@
-@inherits Custom.Hybrid.RazorTyped
-@using ToSic.Razor.Blade;
+@inherits AppCode.Razor.AppRazor
+@using ToSic.Razor.Blade
+@using AppCode.Data
+
 @{
   // Initially the key comes from the preset and is encrypted
   // So we must run it through the SecureDataService to verify
@@ -10,13 +12,13 @@
 <div class="recaptcha" data-sitekey="@siteKey"></div>
 @if (MyUser.IsContentAdmin) {
   <div class="alert alert-warning">
-    @Html.Raw(App.Resources.String("MessageContainsRecaptcha", scrubHtml: "p"))
+    @Html.Raw(Kit.Scrub.Only(App.Resources.MessageContainsRecaptcha, "p"))
   </div>
 }
 
 @if (showWarning) {
   <div class="alert alert-warning">
-    @Html.Raw(App.Resources.String("MessageRecaptchaWarning", scrubHtml: "p"))
+    @Html.Raw(Kit.Scrub.Only(App.Resources.MessageRecaptchaWarning, "p"))
   </div>
 }
 
