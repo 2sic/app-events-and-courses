@@ -23,10 +23,8 @@ const promiseFileMap = (file: { Encoded: Promise<unknown> }) => {
 // based on all form-fields which have a item-property=""
 export async function getFormValues(formWrapper: Element): Promise<any> {
   let data: any = {
-    Files: [],
     Fields: {},
     Terms: {},
-    CustomerMails: "",
   };
 
   const fields = formWrapper.querySelectorAll("input,textarea,select");
@@ -72,25 +70,6 @@ export async function getFormValues(formWrapper: Element): Promise<any> {
       return;
     }
 
-    // if it has a recipient email
-    if (formField.getAttribute("mail") === "recipientEmail") {
-      if (data["CustomerMails"] !== "") {
-        data["CustomerMails"] += "; ";
-      }
-      data["CustomerMails"] += getFieldValue(formField);
-    }
-
-    // If it is an attachment then add it to Files
-    if (
-      formField.getAttribute("type") &&
-      formField.getAttribute("type").toLowerCase() == "file"
-    ) {
-      data["Files"].push({
-        ...(getFieldValue(formField) as object),
-        Field: fieldKey,
-      });
-      return;
-    }
     // If Checkbox or Radio not checked, data will not add in the Request
     if (
       formField.getAttribute("type") &&
@@ -114,10 +93,7 @@ export async function getFormValues(formWrapper: Element): Promise<any> {
       data["Fields"][fieldKey] = getFieldValue(formField);
     }
   });
-
-  return Promise.all(data.Files.map(promiseFileMap)).then((loadedFiles) => {
-    return { ...data, Files: loadedFiles };
-  });
+  return data;
 }
 
 function getFieldKey(formField: HTMLInputElement): string {
@@ -131,19 +107,6 @@ function getFieldValue(
   // extract data from file fields
   if (!formField.getAttribute("type")) return formField.value;
   switch (formField.getAttribute("type").toLowerCase()) {
-    case "file":
-      const file = formField.files[0];
-      if (!file) return;
-      return {
-        Name: file.name,
-        Encoded: new Promise((resolve) => {
-          const reader = new FileReader();
-          reader.readAsDataURL(file);
-          reader.onload = (e) => {
-            resolve(e.target.result);
-          };
-        }),
-      };
     case "radio":
       return formField.value;
     case "checkbox":
