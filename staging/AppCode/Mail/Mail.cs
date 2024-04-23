@@ -9,7 +9,7 @@ using AppCode.Data;
 
 namespace AppCode.Mail
 {
-    public class Mail: Custom.Hybrid.CodeTyped
+    public class Mail : Custom.Hybrid.CodeTyped
     {
 
         public void SendMails(Dictionary<string, object> contactFormRequest)
@@ -28,10 +28,19 @@ namespace AppCode.Mail
 
             var customerMail = contactFormRequest["Mail"].ToString();
 
+            // If Mail Settings are missing, throw an exception
+            if (string.IsNullOrEmpty(settings.MailFrom) || string.IsNullOrEmpty(settings.OwnerMail))
+                throw new Exception("Mail settings are missing. Please configure 'MailFrom' and 'OwnerMail' settings.");
+
             try
             {
                 Send(
-                  settings.OwnerMailTemplateFile, contactFormRequest, settings.MailFrom, settings.OwnerMail, settings.OwnerMailCC, customerMail
+                  settings.OwnerMailTemplateFile,
+                  contactFormRequest,
+                  settings.MailFrom,
+                  settings.OwnerMail,
+                  settings.OwnerMailCC,
+                  customerMail
                 );
             }
             catch (Exception ex)
