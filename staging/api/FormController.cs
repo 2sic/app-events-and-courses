@@ -35,7 +35,6 @@ public class FormController : Custom.Hybrid.ApiTyped
     {
       Log.Add("checking Recaptcha");
       GetService<Recaptcha>().Validate(contactFormRequest.Recaptcha);
-      // GetCode("Parts/Recaptcha.cs").Validate(contactFormRequest["Recaptcha"] as string);
     }
 
     // Copy the data into a new variable, as only this will be sent per Mail and the Other Data is need to Save in the 2sxc

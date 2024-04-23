@@ -9,15 +9,6 @@ public class FieldBuilder : Custom.Hybrid.CodeTyped
       Example: 
       Shows a required input of type text with a label infront of it
 
-      var FieldBuilder = GetCode("shared/FieldBuilders.cs");
-      @FieldBuilder.Text("Subject", true)
-
-      Shows a required input of type text with a label infront of it
-
-      var FieldBuilder = GetCode("shared/FieldBuilders.cs");
-      FieldBuilder.LabelInPlaceholder = true
-      @FieldBuilder.EMail("Email", true)
-
       Shows a required input of type text with a placeholder
     */
 
@@ -167,7 +158,7 @@ public class FieldBuilder : Custom.Hybrid.CodeTyped
         }
   }
 
-    // shows a wrapping div with choosen content
+    // shows a wrapping div with chosen content
     private IHtmlTag Field(string idString, bool required, IHtmlTag items)
     {
         var inputWrapperClasses = Kit.Css.Is("bs3") ? "col col-xs-12 col-sm-9" : "col-12  col-sm-9";
