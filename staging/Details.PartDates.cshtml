@@ -7,10 +7,9 @@
   var futureDates = AsList<EventDate>(MyData["FutureDates"]);
   var pastDates = futureDates.Where(d => d.End.Date < DateTime.Now.Date).Count();
 
-  @* TODO:: item and hasEventDate Typed  *@
-  var item = MyModel.Item("Item"); // Event or EventDate ?
-  var hasEventDate = MyModel.Bool("hasEventDate");
-  var eventDate = As<EventDate>(MyModel.Item("firstEventDate"));
+  var item = As<Event>(MyModel.Item("Item"));
+  var hasEventDate = MyModel.Bool("HasEventDate");
+  var eventDate = As<EventDate>(MyModel.Item("FirstEventDate"));
 
   var eventToolbar = Kit.Toolbar.Empty()
     .Settings(show: "always")

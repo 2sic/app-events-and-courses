@@ -71,8 +71,11 @@
           @* Event Fee *@
           @DetailsBox(App.Resources.Fee, eventDateInfo.String("Fee"))
           @* Event Registration / Seat Info *@
-          @* TODO:: *@
-          @if (hasEventDate && firstEventDate.RegistrationEnabled && !firstEventDate.IsFullyBooked && !firstEventDate.IsCancelled  && firstEventDate.Int("Seats", fallback: -1) != -1) {
+          @if (hasEventDate 
+            && firstEventDate.RegistrationEnabled 
+            && !firstEventDate.IsFullyBooked 
+            && !firstEventDate.IsCancelled 
+            && firstEventDate.Seats != null){
             @DetailsBox(App.Resources.Seats, freeSeats.ToString())
           }
           @* Event Time *@
