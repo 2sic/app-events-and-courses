@@ -1,9 +1,13 @@
 using ToSic.Razor.Blade;
-using ToSic.Razor.Internals;
-using ToSic.Sxc.Data;
-public class FieldBuilder : Custom.Hybrid.CodeTyped
+
+namespace AppCode.Razor
 {
-    /* 
+  /// <summary>
+  /// Base Class for Razor Views which have a typed App but don't use the Model or use the typed MyModel.
+  /// </summary>
+  public abstract class FormBuilderRazorBase : AppRazor<object>
+  {
+      /* 
       this file is for creating different fields e.g. input, textarea, file, dropdown and showing them in the template
 
       Example: 
@@ -69,7 +73,7 @@ public class FieldBuilder : Custom.Hybrid.CodeTyped
     }
 
     // returns an input with common attributes and a possible placeholder
-    public IHtmlTag Text(string idString, bool required, bool disabled = false, string value = "")
+    public IHtmlTag TextField(string idString, bool required, bool disabled = false, string value = "")
     {
         var item = Tag.Input().Type("text").Id(idString).Placeholder(PhLabel(idString, required)).Class("form-control");
         if (value != null) { item.Attr("value", value); }
@@ -177,5 +181,6 @@ public class FieldBuilder : Custom.Hybrid.CodeTyped
 
         return field.Add(Tag.Div(items).Class(!LabelInPlaceholder ? inputWrapperClasses : ""));
     }
+  }
 
 }

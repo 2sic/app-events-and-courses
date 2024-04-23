@@ -1,13 +1,10 @@
-@inherits AppCode.Razor.AppRazor
+@inherits AppCode.Razor.FormBuilderRazorBase
 @using ToSic.Razor.Blade
 @using System
 @using System.Text.RegularExpressions
 @using AppCode.Data
 
 @{
-  @* TODO: *@
-  var fieldBuilder = GetCode("shared/FieldBuilder.cs");
-  
   var course = As<Event>(MyData["Course"]);
   
   var eventDate = As<EventDate>(MyData["EventDate"]);
@@ -57,19 +54,19 @@
 
     }
     @if (Text.Has(courseNumber)) {
-      @fieldBuilder.Text("CourseNumber", false, true, courseNumber)
+      @TextField("CourseNumber", false, true, courseNumber.ToString())
     }
-    @fieldBuilder.Text("CourseName", true, true, inputTitle)
-    @fieldBuilder.Text("CourseLocation", true, true, Text.First(eventDate.Location, course.Location))
+    @TextField("CourseName", true, true, inputTitle)
+    @TextField("CourseLocation", true, true, Text.First(eventDate.Location, course.Location))
 
     @* Event Notes *@
     @{
       var compDate = eventDate.Start.ToString("d") + (!eventDate.EndDateIsStartDate ? " - " + eventDate.End.ToString("d") : "");
     }
-    @fieldBuilder.Multiline("CourseDate", true, true, (Text.First(eventDate.TimeSpecifics, compDate)))
+    @Multiline("CourseDate", true, true, (Text.First(eventDate.TimeSpecifics, compDate)))
 
     @* Salutation *@
-    @fieldBuilder.Radio("Saluation", true, 
+    @Radio("Saluation", true, 
       new string[] {
         App.Resources.LabelMr,
 		    App.Resources.LabelMrs
@@ -77,23 +74,23 @@
     )
 
     @* Inputs *@
-    @fieldBuilder.Text("FirstName", true)
-    @fieldBuilder.Text("LastName", true)
-    @fieldBuilder.Text("Street", true)
-    @fieldBuilder.Text("ZIPCity", true)
+    @TextField("FirstName", true)
+    @TextField("LastName", true)
+    @TextField("Street", true)
+    @TextField("ZIPCity", true)
 
 
     @* Country Select *@
-    @fieldBuilder.DropDown("Country", true, App.Resources.CountrySelection.Split('\n'))
+    @DropDown("Country", true, App.Resources.CountrySelection.Split('\n'))
 
     @* Inputs *@
-    @fieldBuilder.Text("Phone", false)
-    @fieldBuilder.Text("MobilePhone", false)
-    @fieldBuilder.EMail("Mail", true)
+    @TextField("Phone", false)
+    @TextField("MobilePhone", false)
+    @TextField("Mail", true)
 
     @* Terms *@
-    @fieldBuilder.Checkbox("AcceptAgb", true, true)
-    @fieldBuilder.Checkbox("AcceptCosts", true, true)
+    @Checkbox("AcceptAgb", true, true)
+    @Checkbox("AcceptCosts", true, true)
 
     @* Submit Button *@
 
@@ -139,4 +136,4 @@
   }
 }
 
-@Html.Partial("shared/Assets.cshtml")
+@Html.Partial("Assets.cshtml")
