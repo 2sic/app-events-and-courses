@@ -4,13 +4,16 @@
 
 @{
   // Data from Query - Stream "Event" contains the event, "Current" contains the selected date (if any)
-  var eventData = AsList<Event>(MyData["Event"]).FirstOrDefault();
-  var firstEventDate = AsList<EventDate>(MyData["Current"]).FirstOrDefault();
+  var eventItem = As<Event>(MyData["Event"]);
+
+  // Get firstEventData by Current
+  var firstEventDate = As<EventDate>(MyData["Current"]);
   
+  // Check if this event has a date
   var hasEventDate = firstEventDate != null;
 
   // Check if this event exists - if not, 404 not-found
-  if (eventData == null) {
+  if (eventItem == null) {
     <h1>@App.Resources.LabelEventNotExists</h1>
     <p>@App.Resources.LabelEventNotExistsText</p>
 
@@ -19,9 +22,14 @@
     return;
   }
 
-  var item = hasEventDate ? firstEventDate.Event : eventData;
+// Has Ebent Date a Date, use firtEeventDate Event, else use eventItem
+  var item = hasEventDate ? firstEventDate.Event : eventItem;
+  // Get all registrations for this event
   var registrations = AsList<Registrations>(MyData["Registrations"]);
+  // Calculate free seats
   var freeSeats = (firstEventDate == null ? 0 : firstEventDate.Seats) - registrations.Count();
+  // If freeSeats is negative, set it to 0
+  freeSeats = freeSeats < 0 ? 0 : freeSeats;
 
   // Dates to show in various scenarios
   var eventStart = hasEventDate ? firstEventDate.Start.ToString("dd.MM.yyyy HH:mm") : "";

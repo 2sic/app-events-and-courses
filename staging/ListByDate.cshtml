@@ -6,14 +6,14 @@
 @using System
 
 @{
+  // Get the settings for the event list
   var listConfig = As<EventSettings>(MyItem);
 
+  // Get all event dates from the query and group by year-month
   var queryEvents = AsList<EventDate>(MyData["EventDates"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
 
   var contentSettings = Kit.Toolbar.Default().New("Event",  tweak: b => b.Tooltip(App.Resources.LabelAddEvent)); 
-
   var dEventToolbar = Kit.Toolbar.Empty().Edit();
-
   var categorie = listConfig.Categories.FirstOrDefault();
 }
 
@@ -35,7 +35,6 @@
       if (MyUser.IsContentAdmin || d.Event.ShowInLanguage != false) {
         var item = d.Event;
         var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", item.Id).Set("dateId", d.Id).Set(item.UrlKey));
-          
         <tr class="position-relative app-events6-list-item" @dEventToolbar.For(d.Event)>
 					<td>
 						@item.Title @(d.IsNotEmpty("TitleAddition") ? "- " + d.TitleAddition : "" )

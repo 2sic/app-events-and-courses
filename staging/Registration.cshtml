@@ -6,7 +6,6 @@
 
 @{
   var course = As<Event>(MyData["Course"]);
-  
   var eventDate = As<EventDate>(MyData["EventDate"]);
   var title = course == null ? "" : course.Title;
   Kit.Page.SetTitle(App.Resources.CourseRegistrationTitle + " | " + title);
