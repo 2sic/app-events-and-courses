@@ -45,7 +45,7 @@
   var itemToolbar = Kit.Toolbar.Default().New("-");
 
   // Stack the event date info from the first event date or the event itself
-  var eventDateInfo = AsStack(firstEventDate, item);
+  var eventDateInfo = AsStack<EventDate>(firstEventDate, item);
 }
 
 <div class="app-events6 app-events6-detail" @itemToolbar.For(item)>
@@ -72,12 +72,12 @@
 
         <div class="app-events6-detail-infos row mb-4">
           @* Event Location *@
-          @DetailsBox(App.Resources.Location, eventDateInfo.String("Location"))
+          @DetailsBox(App.Resources.Location, eventDateInfo.Location)
 
           @* Event Leader *@
-          @DetailsBox(App.Resources.Management, eventDateInfo.String("Person"))
+          @DetailsBox(App.Resources.Management, eventDateInfo.Person)
           @* Event Fee *@
-          @DetailsBox(App.Resources.Fee, eventDateInfo.String("Fee"))
+          @DetailsBox(App.Resources.Fee, eventDateInfo.Fee)
           @* Event Registration / Seat Info *@
           @if (hasEventDate 
             && firstEventDate.RegistrationEnabled 
@@ -87,11 +87,11 @@
             @DetailsBox(App.Resources.Seats, freeSeats.ToString())
           }
           @* Event Time *@
-          @DetailsBox(App.Resources.DateTime, eventDateInfo.String("TimeSpecifics"))
+          @DetailsBox(App.Resources.DateTime, eventDateInfo.TimeSpecifics)
 
           @* Event more detail file/link *@
           @{
-            var moreDetailsLink = eventDateInfo.String("Document");
+            var moreDetailsLink = eventDateInfo.Document;
           }
 
           @if (Text.Has(moreDetailsLink)) {
