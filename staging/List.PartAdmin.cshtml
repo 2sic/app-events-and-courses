@@ -1,7 +1,8 @@
 @inherits Custom.Hybrid.RazorTyped
 @using ToSic.Razor.Blade
 
-@if (MyUser.IsContentAdmin) {
+@if (MyUser.IsContentAdmin) 
+{
   <div class="alert alert-info d-flex align-items-center">
     <strong>@AllResources.String("Admin") </strong>
     <button type="button" class="btn btn-secondary ml-2 ms-2" onclick="$2sxc.cms.run(this, 'contentitems', { contentType: 'Event' })">@AllResources.String("BtnEvents")</button>

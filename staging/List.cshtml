@@ -30,7 +30,8 @@
     </h2>
   }
 
-  @foreach (var dateGroup in eventDatesGrouped) {
+  @foreach (var dateGroup in eventDatesGrouped) 
+  {
     var firstDate = dateGroup.First().Start;
 
     @* Grouped months *@
@@ -43,10 +44,12 @@
     </h2>
     
     @* Events in month *@
-    foreach (var evtDate in dateGroup) {
+    foreach (var evtDate in dateGroup) 
+    {
       // Get the event "header" which is referenced by the event-date
       var evt = evtDate.Event;
-      if (MyUser.IsContentAdmin || evt.ShowInLanguage != false) {
+      if (MyUser.IsContentAdmin || evt.ShowInLanguage != false) 
+      {
         var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", evt.Id).Set("dateId", evtDate.Id).Set(evt.UrlKey));
 
         var overlayStyle = evt.IsNotEmpty("Image")

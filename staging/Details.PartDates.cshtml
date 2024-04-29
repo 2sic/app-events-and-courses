@@ -33,7 +33,8 @@
     }
 
     <ul class="list-group list-group-flush mb-4">
-      @foreach (var date in futureDates) {
+      @foreach (var date in futureDates) 
+      {
         var currentEventClass = (hasEventDate && date.Id == eventDate.Id) ? "current" : "";
         var hiddenEvent = ((hasEventDate && date.End.Date < DateTime.Now.Date) || (date.End.Date < DateTime.Now.Date) ? "event-hidden" : "");
         var dateRegistrations = date.Parents(type: "Registrations");

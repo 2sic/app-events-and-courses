@@ -29,10 +29,13 @@
   }
 
   <table class="table table-hover">
-  @foreach (var e in queryEvents) {
+  @foreach (var e in queryEvents) 
+  {
     @* Events in month *@
-    foreach (var d in e) {
-      if (MyUser.IsContentAdmin || d.Event.ShowInLanguage != false) {
+    foreach (var d in e) 
+    {
+      if (MyUser.IsContentAdmin || d.Event.ShowInLanguage != false) 
+      {
         var item = d.Event;
         var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", item.Id).Set("dateId", d.Id).Set(item.UrlKey));
         <tr class="position-relative app-events6-list-item" @dEventToolbar.For(d.Event)>

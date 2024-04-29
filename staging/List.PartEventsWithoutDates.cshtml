@@ -5,15 +5,18 @@
   var evToolbar = Kit.Toolbar.Empty().Edit();
 }
 
-@if (MyUser.IsContentAdmin) {
+@if (MyUser.IsContentAdmin) 
+{
   var i = 0;
   <div class="mb-2 alert alert-warning admin-eventswithoutdate">
     <strong class="d-block mb-1">@AllResources.String("HeadlineEventsWithoutDate")</strong>
     <ul class="list-group">
 
-      @foreach (var ev in AsList<Event>(App.Data["Event"])) {
-        var eventCount = AsList<EventDate>(App.Data["EventDate"]).Where(d => d.Start.Date >= DateTime.Now.Date).Where(d => d.Event.Id == ev.Id).Count();
-        if (eventCount == 0) {
+      @foreach (var ev in  App.Data.GetAll<Event>()) 
+      {
+        var eventCount = App.Data.GetAll<EventDate>().Where(d => d.Start.Date >= DateTime.Now.Date).Where(d => d.Event.Id == ev.Id).Count();
+        if (eventCount == 0) 
+        {
           var eventLink = Link.To(parameters: MyPage.Parameters.Set("details", ev.Id).Set(ev.UrlKey));
           <li class="list-group-item list-group-item-light mb-0" @evToolbar.For(ev)>
             <a href="@eventLink" class="text-dark">@ev.Title</a>
