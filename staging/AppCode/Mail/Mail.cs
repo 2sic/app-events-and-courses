@@ -1,15 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Mail;
 using System.Text;
-using ToSic.Razor.Blade;
 using AppCode.Data;
 
 namespace AppCode.Mail
 {
-    public class Mail : Custom.Hybrid.CodeTyped
+  public class Mail : Custom.Hybrid.CodeTyped
     {
 
         public void SendMails(Dictionary<string, object> contactFormRequest)

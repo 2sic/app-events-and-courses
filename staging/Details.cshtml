@@ -4,13 +4,7 @@
 
 @{
   // Data from Query - Stream "Event" contains the event, "Current" contains the selected date (if any)
-  var eventItem = As<Event>(MyData["Event"]);
-
-  // Get firstEventData by Current
-  var firstEventDate = As<EventDate>(MyData["Current"]);
-  
-  // Check if this event has a date
-  var hasEventDate = firstEventDate != null;
+  var eventItem = As<Event>(MyData.GetStream("Event"));
 
   // Check if this event exists - if not, 404 not-found
   if (eventItem == null) 
@@ -23,16 +17,20 @@
     return;
   }
 
-// Has Ebent Date a Date, use firtEeventDate Event, else use eventItem
-  var item = hasEventDate ? firstEventDate.Event : eventItem;
-  // Get all registrations for this event
-  var registrations = AsList<Registrations>(MyData["Registrations"]);
-  // Calculate free seats
-  var freeSeats = (firstEventDate == null ? 0 : firstEventDate.Seats) - registrations.Count();
-  // If freeSeats is negative, set it to 0
+  // Get firstEventData by Current
+  var firstEventDate = As<EventDate>(MyData.GetStream("Current"));
+  
+  // Check if this event has a date
+  var hasEventDate = firstEventDate != null;
+
+  // If event-date has a Date, use firstEeventDate Event, else use eventItem
+  var item = firstEventDate?.Event ?? eventItem;
+  // Get all registrations for this event and calculate free seats, make sure never < 0
+  var registrations = firstEventDate?.Registrations ?? new List<Registrations>();
+  var freeSeats = (firstEventDate?.Seats ?? 0) - registrations.Count();
   freeSeats = freeSeats < 0 ? 0 : freeSeats;
 
-  // Dates to show in various scenarios
+  // Dates to show in various places
   var eventStart = hasEventDate ? firstEventDate.Start.ToString("dd.MM.yyyy HH:mm") : "";
   var eventEnd = (hasEventDate && !firstEventDate.EndDateIsStartDate) ? " - " + firstEventDate.End.ToString("d") : "";
 
@@ -77,29 +75,29 @@
 
           @* Event Leader *@
           @DetailsBox(App.Resources.Management, eventDateInfo.Person)
+
           @* Event Fee *@
           @DetailsBox(App.Resources.Fee, eventDateInfo.Fee)
+
           @* Event Registration / Seat Info *@
           @if (hasEventDate 
             && firstEventDate.RegistrationEnabled 
             && !firstEventDate.IsFullyBooked 
             && !firstEventDate.IsCancelled 
-            && firstEventDate.Seats != null){
+            && firstEventDate.Seats != null) {
             @DetailsBox(App.Resources.Seats, freeSeats.ToString())
           }
+
           @* Event Time *@
           @DetailsBox(App.Resources.DateTime, eventDateInfo.TimeSpecifics)
 
           @* Event more detail file/link *@
-          @{
-            var moreDetailsLink = eventDateInfo.Document;
-          }
-
-          @if (Text.Has(moreDetailsLink)) {
-            var fileName = System.IO.Path.GetFileName(moreDetailsLink);
+          @if (eventDateInfo.IsNotEmpty("Document"))
+          {
+            var fileName = System.IO.Path.GetFileName(eventDateInfo.Document);
             <div class="col-12 col-md-6 mb-3 app-events6-infocontainer">
               <h6>@App.Resources.DetailsLink</h6>
-              <a href="@moreDetailsLink" target="_blank">@fileName</a>
+              <a href="@eventDateInfo.Document" target="_blank">@fileName</a>
             </div>
           }
         </div>
@@ -108,12 +106,15 @@
         @{
           var addBackButton = true;
         }
-        @if (hasEventDate && firstEventDate.IsCancelled == true) {
+        @if (hasEventDate && firstEventDate.IsCancelled == true)
+        {
           <div class="alert alert-warning">
             @App.Resources.StatusCanceled
           </div>
-        } else if (App.Settings.RegistrationEnabled && hasEventDate && firstEventDate.RegistrationEnabled) {
-          if (freeSeats <= 0 || firstEventDate.IsFullyBooked) {
+        } else if (App.Settings.RegistrationEnabled && hasEventDate && firstEventDate.RegistrationEnabled)
+        {
+          if (freeSeats <= 0 || firstEventDate.IsFullyBooked)
+          {
             <div class="alert alert-warning">
               @App.Resources.StatusFullyBooked
             </div>
@@ -129,7 +130,8 @@
         }
       </div>
 
-      @if (item.IsNotEmpty("Image")) {
+      @if (item.IsNotEmpty("Image"))
+      {
         <div class="col-12 col-md-4 mb-4 mb-md-0">
           @item.Picture("Image", factor: "1/3", imgClass:"img-fluid d-block m-auto", imgAltFallback: item.Title)
         </div>

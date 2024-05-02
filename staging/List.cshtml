@@ -24,7 +24,8 @@
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("List.PartEventsWithoutDates.cshtml")
 
-  @if (listConfig.IsNotEmpty("Title") || listConfigCat.IsNotEmpty("PageTitle")) {
+  @if (listConfig.IsNotEmpty("Title") || listConfigCat.IsNotEmpty("PageTitle"))
+  {
     <h2 class="mb-4">
       @listConfig.Title @listConfigCat.PageTitle
     </h2>

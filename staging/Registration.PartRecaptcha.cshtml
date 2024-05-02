@@ -10,13 +10,15 @@
   var showWarning = secureKey.IsSecuredBy("preset");  // show warning if it's from the preset
 }
 <div class="recaptcha" data-sitekey="@siteKey"></div>
-@if (MyUser.IsContentAdmin) {
+@if (MyUser.IsContentAdmin)
+{
   <div class="alert alert-warning">
     @Html.Raw(Kit.Scrub.Only(App.Resources.MessageContainsRecaptcha, "p"))
   </div>
 }
 
-@if (showWarning) {
+@if (showWarning)
+{
   <div class="alert alert-warning">
     @Html.Raw(Kit.Scrub.Only(App.Resources.MessageRecaptchaWarning, "p"))
   </div>

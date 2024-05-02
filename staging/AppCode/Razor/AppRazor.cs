@@ -4,12 +4,12 @@ using ToSic.Sxc.Data;
 
 namespace AppCode.Razor
 {
-  public abstract partial class AppRazor<TModel> : Custom.Hybrid.RazorTyped<TModel>
+  public abstract partial class AppRazor<TModel>
   {
     /// <summary>
     /// Show Title
     /// </summary>
-    public string Title(ITypedItem item, ITypedItem eventDate)
+    public string Title(Event item, EventDate eventDate)
     {
       return item.String("Title") + (eventDate != null && Text.Has(eventDate.String("TitleAddition")) ? " " + App.Resources.String("TitleAdditionPrefix") + " " + eventDate.String("TitleAddition") + " " + App.Resources.String("TitleAdditionSuffix") : "");
     }
@@ -28,6 +28,7 @@ namespace AppCode.Razor
     /// </summary>
     public IHtmlTag BackToListButton()
     {
+      // TODO: @2dg - add Koi to csproj file
       var classes = Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary";
       return Tag.A(App.Resources.String("LabelBackToList")).Class("btn " + classes).Href(Link.To());
     }

@@ -4,10 +4,12 @@
 
 @* Other Dates of Event *@
 @{
-  var futureDates = AsList<EventDate>(MyData["FutureDates"]);
-  var pastDates = futureDates.Where(d => d.End.Date < DateTime.Now.Date).Count();
+  var futureDates = AsList<EventDate>(MyData.GetStream("FutureDates"));
+  var pastDates = futureDates
+    .Where(d => d.End.Date < DateTime.Now.Date)
+    .Count();
 
-  var item = As<Event>(MyModel.Item("Item"));
+  var item = As<Event>(MyModel.Get("Item"));
   var hasEventDate = MyModel.Bool("HasEventDate");
   var eventDate = As<EventDate>(MyModel.Item("FirstEventDate"));
 
@@ -27,7 +29,8 @@
     <h5 class="mb-3 mt-4">@App.Resources.AllDatesOfThisEvent (@(futureDates.Count() - pastDates))</h5>
   }
 
-  @if (futureDates.Any()) {
+  @if (futureDates.Any())
+  {
     if (MyUser.IsContentAdmin && pastDates > 0) {
       <small><a href="javascript:void(0)" class="js-app-events6-toggle-expired-dates">@App.Resources.BtnToggleExpiredDate</a></small>
     }
@@ -36,8 +39,8 @@
       @foreach (var date in futureDates) 
       {
         var currentEventClass = (hasEventDate && date.Id == eventDate.Id) ? "current" : "";
-        var hiddenEvent = ((hasEventDate && date.End.Date < DateTime.Now.Date) || (date.End.Date < DateTime.Now.Date) ? "event-hidden" : "");
-        var dateRegistrations = date.Parents(type: "Registrations");
+        var hiddenEvent = (hasEventDate && date.End.Date < DateTime.Now.Date) || (date.End.Date < DateTime.Now.Date) ? "event-hidden" : "";
+        var dateRegistrations = date.Parents<Registrations>();
         var regCount = dateRegistrations == null ? 0 : dateRegistrations.Count();
         var toolbarDate = toolbarTemplate
           .Data("Registrations", tweak: b => b.Tooltip(App.Resources.LabelRegistrations).Filter("EventDate", date.Id));
@@ -45,11 +48,9 @@
         <li class="list-group-item mb-0 @currentEventClass @hiddenEvent" @toolbarDate.For(date)>
           <a href='@Link.To(parameters: MyPage.Parameters.Set("dateId", date.Id))'>
             <strong>@date.DateTime("Start").ToString("d")  @(!date.Bool("EndDateIsStartDate") ? " - " + date.End.ToString("d") : "")</strong>
-            @(date.IsNotEmpty("TitleAddition") ? " - " + date.TitleAddition : "")
-            @(date.IsNotEmpty("TimeSpecifics") ? " - " + date.TimeSpecifics : "")
-            @if (MyUser.IsContentAdmin) {
-              @("(" + regCount + " " + App.Resources.LabelRegistrations + ")")
-            }
+            @(date.IsEmpty("TitleAddition") ? "" : " - " + date.TitleAddition)
+            @(date.IsEmpty("TimeSpecifics") ? "" : " - " + date.TimeSpecifics)
+            @(MyUser.IsContentAdmin ? $"({regCount} {App.Resources.LabelRegistrations})" : "")
           </a>
         </li>
       }

@@ -54,12 +54,12 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
 * v06.04.00 2022-06
   * Enhanced Kit.Image with `imgAltFallback`
   * Replaced turnOn Tag with `Kit.Page.TurnOn`
-  * New Tewak API Button for Toolbar
+  * New Tweak API Button for Toolbar
   * Removed _ from Filenames
 * v06.05.00 2023-07
   * 2sxc 16.02 coding conventions
   * everything typed
-* v06.05.17 2024-04
+* v06.17.00 2024-04
   * strong-typed
   * Auto Generated Class
   

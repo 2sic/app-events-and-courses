@@ -1,4 +1,4 @@
-@inherits AppCode.Razor.FormBuilderRazorBase
+@inherits AppCode.Razor.FormBuilderRazor
 @using ToSic.Razor.Blade
 @using System
 @using System.Text.RegularExpressions
@@ -47,8 +47,6 @@
     @* Inputs *@
     @{
       var inputTitle = course.Title + titleAddition;
-      @* TODO:: String and Int  *@
-      @* var courseNumber = eventDate.EventId != null ? eventDate.EventId : course.Id; *@
       var courseNumber = (eventDate.Int("EventId") != null) ? eventDate.Int("EventId") : course.Id;
 
     }

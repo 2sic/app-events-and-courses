@@ -4,15 +4,16 @@
 
 @{
   // Get some helpers for later on
-  var paging = AsList<Paging>(MyData["Paging"]).FirstOrDefault();
+  var paging = As<Paging>(MyData.GetStream("Paging"));
 }
 
 <div class="app-events6-paging mt-4">
   @if (paging.PageNumber > 1) {
     <a class="app-events6-prev-pager" href="@LinkToPageNumber((int)(paging.PageNumber) - 1)">&lsaquo;</a>
   }
-  @if (paging.PageCount > 1 && paging.PageSize >= 0) {
-    for(int i = 1; i <= @paging.PageCount; i++) {
+  @if (paging.PageCount > 1 && paging.PageSize >= 0)
+  {
+    for (int i = 1; i <= @paging.PageCount; i++) {
       <a @(i == paging.PageNumber ? "class=app-events6-paging-active" : "") href='@(i != paging.PageNumber ? LinkToPageNumber(i) : "javascript:void(0)")'>@i</a>
     }
   }

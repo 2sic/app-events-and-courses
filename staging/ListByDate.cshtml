@@ -22,7 +22,8 @@
   @Html.Partial("List.PartEventsWithoutDates.cshtml")
 
 
-  @if (listConfig.IsNotEmpty("Title") || categorie.IsNotEmpty("PageTitle")) {
+  @if (listConfig.IsNotEmpty("Title") || categorie.IsNotEmpty("PageTitle"))
+  {
     <h2 class="mb-4">
       @listConfig.Title @(categorie.IsNotEmpty("PageTitle") ? categorie.PageTitle : "")
     </h2>

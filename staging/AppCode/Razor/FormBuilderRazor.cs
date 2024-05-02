@@ -5,7 +5,7 @@ namespace AppCode.Razor
   /// <summary>
   /// Base Class for Razor Views which have a typed App but don't use the Model or use the typed MyModel.
   /// </summary>
-  public abstract class FormBuilderRazorBase : AppRazor<object>
+  public abstract class FormBuilderRazor : AppRazor<object>
   {
     /* 
     this file is for creating different fields e.g. input, textarea, file, dropdown and showing them in the template

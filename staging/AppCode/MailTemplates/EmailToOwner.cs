@@ -1,23 +1,15 @@
 using System.Collections.Generic;
-using AppCode.Data;
 using AppCode.Mail;
 namespace AppCode.MailTemplates
 {
-  public class EmailToOwner : Custom.Hybrid.CodeTyped, IMailTemplate
+  public class EmailToOwner : AppCode.Services.ServiceBase, IMailTemplate
   {
     // This generates the e-mail subject
-    public string Subject()
-    {
-      var appRes = As<AppResources>(App.Resources);
-
-       return Kit.Scrub.Only(appRes.MailOwnerSubject, "p");
-    }
+    public string Subject() => App.Resources.String("MailOwnerSubject", scrubHtml: "p");
 
     // This generates the e-mail body
     public string Message(Dictionary<string, object> request)
     {
-      var appRes = As<AppResources>(App.Resources);
-
       var message =
       @"<!doctype html>
     <html>
@@ -28,7 +20,7 @@ namespace AppCode.MailTemplates
             body { font-family: Helvetica, sans-serif; }
         </style>
       </head>
-      <body>" + appRes.MailOwnerIntroduction;
+      <body>" + App.Resources.MailOwnerIntroduction;
 
       foreach (var item in request)
       {
