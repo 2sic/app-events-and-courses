@@ -10,7 +10,7 @@
   var listConfig = As<EventSettings>(MyItem);
 
   // Get all event dates from the query and group by year-month
-  var queryEvents = AsList<EventDate>(MyData["EventDates"]).GroupBy(c => c.Start.ToString("MM.yyyy"));
+  var queryEvents = AsList<EventDate>(MyData.GetStream("EventDates")).GroupBy(c => c.Start.ToString("MM.yyyy"));
 
   var contentSettings = Kit.Toolbar.Default().New("Event",  tweak: b => b.Tooltip(App.Resources.LabelAddEvent)); 
   var dEventToolbar = Kit.Toolbar.Empty().Edit();

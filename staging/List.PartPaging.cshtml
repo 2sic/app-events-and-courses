@@ -5,6 +5,11 @@
 @{
   // Get some helpers for later on
   var paging = As<Paging>(MyData.GetStream("Paging"));
+
+  // Exit (don't show pager) if we don't have any pages
+  if (paging.PageCount <= 1) {
+    return;
+  }
 }
 
 <div class="app-events6-paging mt-4">

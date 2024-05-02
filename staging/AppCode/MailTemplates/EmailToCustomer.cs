@@ -10,7 +10,6 @@ namespace AppCode.MailTemplates
     // This generates the e-mail body
     public string Message(Dictionary<string, object> request)
     {
-     // var appRes = As<AppResources>(App.Resources);
       return @"
     <!doctype html>
     <html>

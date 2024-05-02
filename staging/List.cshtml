@@ -7,7 +7,7 @@
 @{
   // Get all event dates from the query and group by year-month
   // Note that they are already sorted by date, so we don't need to sort them again
-  var eventDatesGrouped = AsList<EventDate>(MyData["EventDates"])
+  var eventDatesGrouped = AsList<EventDate>(MyData.GetStream("EventDates"))
     .GroupBy(c => c.Start.ToString("MM.yyyy"));
 
   // Get the list configuration from EventsSettings

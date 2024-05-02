@@ -5,8 +5,8 @@
 @using AppCode.Data
 
 @{
-  var course = As<Event>(MyData["Course"]);
-  var eventDate = As<EventDate>(MyData["EventDate"]);
+  var course = As<Event>(MyData.GetStream("Course"));
+  var eventDate = As<EventDate>(MyData.GetStream("EventDate"));
   var title = course == null ? "" : course.Title;
   Kit.Page.SetTitle(App.Resources.CourseRegistrationTitle + " | " + title);
 }
