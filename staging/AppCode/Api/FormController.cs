@@ -21,12 +21,10 @@ public class FormController : Custom.Hybrid.ApiTyped
 {
   [HttpPost]
   public void ProcessForm([FromBody] SaveRequest contactFormRequest)
-  // public dynamic ProcessForm([FromBody]Dictionary<string,object> contactFormRequest)
   {
 
     var wrapLog = Log.Call(useTimer: true);
     // Pre-work: help the dictionary with the values uses case-insensitive key AccessLevel
-    // contactFormRequest = new Dictionary<string, object>(contactFormRequest, StringComparer.OrdinalIgnoreCase);
 
     // 0. Pre-Check - validate recaptcha if enabled in the current object (the form configuration)
     var appSettings = As<AppSettings>(App.Settings);
@@ -80,9 +78,6 @@ public class FormController : Custom.Hybrid.ApiTyped
     Log.Add("Save data to SystemProtocol in case we ever need to see what was submitted");
     App.Data.Create("SystemProtocol", formTechnicalValues);
 
-    // Add guid to identify entity after saving (because we need to find it afterwards)
-    // var guid = Guid.NewGuid();
-    // contactFormRequest["EntityGuid"] = guid;
     Log.Add("Save data to content type");
     App.Data.Create("Registrations", contactFormRequest.Fields);
 
