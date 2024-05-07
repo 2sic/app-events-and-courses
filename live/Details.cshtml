@@ -1,96 +1,103 @@
-@inherits Custom.Hybrid.RazorTyped
-@using ToSic.Razor.Blade;
+@inherits AppCode.Razor.AppRazor
+@using ToSic.Razor.Blade
+@using AppCode.Data
 
 @{
-  // get some helper functions for later on
-  var helpers = GetCode("DetailsHelpers.cs");
-
   // Data from Query - Stream "Event" contains the event, "Current" contains the selected date (if any)
-  var eventData = AsItems(MyData["Event"]).FirstOrDefault();
-
-  var firstEventDate = AsItems(MyData["Current"]).FirstOrDefault();
-  var hasEventDate = firstEventDate != null;
+  var eventItem = As<Event>(MyData.GetStream("Event"));
 
   // Check if this event exists - if not, 404 not-found
-  if (eventData == null) {
-    <h1>@App.Resources.String("LabelEventNotExists")</h1>
-    <p>@App.Resources.String("LabelEventNotExistsText")</p>
+  if (eventItem == null) 
+  {
+    <h1>@App.Resources.LabelEventNotExists</h1>
+    <p>@App.Resources.LabelEventNotExistsText</p>
 
-    @helpers.BackToListButton();
+    @BackToListButton();
     Kit.Page.SetHttpStatus(404);
     return;
   }
 
-  var item = hasEventDate ? firstEventDate.Child("Event") : eventData;
-  var registrations = AsItems(MyData["Registrations"]);
-  var freeSeats = (firstEventDate == null ? 0 : firstEventDate.Int("Seats")) - registrations.Count();
+  // Get firstEventData by Current
+  var firstEventDate = As<EventDate>(MyData.GetStream("Current"));
+  
+  // Check if this event has a date
+  var hasEventDate = firstEventDate != null;
 
-  // Dates to show in various scenarios
-  var eventStart = hasEventDate ? firstEventDate.DateTime("Start").ToString("d") : "";
-  var eventEnd = (hasEventDate && !firstEventDate.Bool("EndDateIsStartDate")) ? " - " + firstEventDate.DateTime("End").ToString("d") : "";
+  // If event-date has a Date, use firstEeventDate Event, else use eventItem
+  var item = firstEventDate?.Event ?? eventItem;
+  // Get all registrations for this event and calculate free seats, make sure never < 0
+  var registrations = firstEventDate?.Registrations ?? new List<Registrations>();
+  var freeSeats = (firstEventDate?.Seats ?? 0) - registrations.Count();
+  freeSeats = freeSeats < 0 ? 0 : freeSeats;
+
+  // Dates to show in various places
+  var eventStart = hasEventDate ? firstEventDate.Start.ToString("dd.MM.yyyy HH:mm") : "";
+  var eventEnd = (hasEventDate && !firstEventDate.EndDateIsStartDate) ? " - " + firstEventDate.End.ToString("d") : "";
 
   // Set page title
   var titleSuffix = hasEventDate
     ? " | " + eventStart + eventEnd
     : "";
-  Kit.Page.SetTitle(item.String("Title") + titleSuffix + " | ");
+  Kit.Page.SetTitle(item.Title + titleSuffix + " | ");
 
   // Prepare toolbar without "new"
   var itemToolbar = Kit.Toolbar.Default().New("-");
 
   // Stack the event date info from the first event date or the event itself
-  var eventDateInfo = AsStack(firstEventDate, item);
+  var eventDateInfo = AsStack<EventDate>(firstEventDate, item);
 }
 
 <div class="app-events6 app-events6-detail" @itemToolbar.For(item)>
   <div class="app-events6-detail-content mb-4">
-    <h1 class="m-0">@helpers.Title(item, firstEventDate)</h1>
+    <h1 class="m-0">@Title(item, firstEventDate)</h1>
 
     <div class="event-meta">
       @if (hasEventDate) {
         <span class="app-events6-date">@eventStart @eventEnd</span>
       }
-      <span class="app-events6-categories">@(item.IsNotEmpty("Category.Title") ? " | " + item.String("Category.Title") : "")</span>
-    </div>
-
+      <span class="app-events6-categories">@(item.IsNotEmpty("Category.Title") ? " | " + item.Category.Title : "")</span>    </div>
   </div>
 
   <div class="app-events6-detail-content">
     <div class="row">
-      <div class='@(Kit.Css.Is("bs3") ? "col-xs-12" : "col-12") @(Text.Has(item.String("Image")) ? "col-md-8" : "") order-1 order-md-0'>
-        <h2 class="h5">@item.String("ShortDescription")</h2>
+      <div class='@(Kit.Css.Is("bs3") ? "col-xs-12" : "col-12") @(item.IsNotEmpty("Image") ? "col-md-8" : "") order-1 order-md-0'>
+        <h2 class="h5">@item.ShortDescription</h2>
         @* Show main body, with possible Inner-Content *@
         <div class="app-events6-detail-body mb-4">
-          @Kit.Render.All(item, field: "BodyContentBlocks", merge: item.String("Description"))
+          @Kit.Render.All(item, field: "BodyContentBlocks", merge: item.Description)
         </div>
 
         @Html.Partial("Details.PartDates.cshtml", new { item, hasEventDate, firstEventDate })
 
         <div class="app-events6-detail-infos row mb-4">
           @* Event Location *@
-          @helpers.DetailsBox(App.Resources.String("Location"), eventDateInfo.String("Location"))
+          @DetailsBox(App.Resources.Location, eventDateInfo.Location)
 
           @* Event Leader *@
-          @helpers.DetailsBox(App.Resources.String("Management"), eventDateInfo.String("Person"))
+          @DetailsBox(App.Resources.Management, eventDateInfo.Person)
+
           @* Event Fee *@
-          @helpers.DetailsBox(App.Resources.String("Fee"), eventDateInfo.String("Fee"))
+          @DetailsBox(App.Resources.Fee, eventDateInfo.Fee)
+
           @* Event Registration / Seat Info *@
-          @if (hasEventDate && firstEventDate.Bool("RegistrationEnabled") && !firstEventDate.Bool("IsFullyBooked") && !firstEventDate.Bool("IsCancelled")  && firstEventDate.Int("Seats", fallback: -1) != -1) {
-            @helpers.DetailsBox(App.Resources.String("Seats"), freeSeats.ToString())
+          @if (hasEventDate 
+            && firstEventDate.RegistrationEnabled 
+            && !firstEventDate.IsFullyBooked 
+            && !firstEventDate.IsCancelled 
+            && firstEventDate.Seats != null) {
+            @DetailsBox(App.Resources.Seats, freeSeats.ToString())
           }
+
           @* Event Time *@
-          @helpers.DetailsBox(App.Resources.String("DateTime"), eventDateInfo.String("TimeSpecifics"))
+          @DetailsBox(App.Resources.DateTime, eventDateInfo.TimeSpecifics)
 
           @* Event more detail file/link *@
-          @{
-            var moreDetailsLink = eventDateInfo.String("Document");
-          }
-
-          @if (Text.Has(moreDetailsLink)) {
-            var fileName = System.IO.Path.GetFileName(moreDetailsLink);
+          @if (eventDateInfo.IsNotEmpty("Document"))
+          {
+            var fileName = System.IO.Path.GetFileName(eventDateInfo.Document);
             <div class="col-12 col-md-6 mb-3 app-events6-infocontainer">
-              <h6>@App.Resources.String("DetailsLink")</h6>
-              <a href="@moreDetailsLink" target="_blank">@fileName</a>
+              <h6>@App.Resources.DetailsLink</h6>
+              <a href="@eventDateInfo.Document" target="_blank">@fileName</a>
             </div>
           }
         </div>
@@ -99,34 +106,38 @@
         @{
           var addBackButton = true;
         }
-        @if (hasEventDate && firstEventDate.Bool("IsCancelled") == true) {
+        @if (hasEventDate && firstEventDate.IsCancelled == true)
+        {
           <div class="alert alert-warning">
-            @App.Resources.String("StatusCanceled")
+            @App.Resources.StatusCanceled
           </div>
-        } else if (App.Settings.Bool("RegistrationEnabled") && hasEventDate && firstEventDate.Bool("RegistrationEnabled")) {
-          if (freeSeats <= 0 || firstEventDate.Bool("IsFullyBooked")) {
+        } else if (App.Settings.RegistrationEnabled && hasEventDate && firstEventDate.RegistrationEnabled)
+        {
+          if (freeSeats <= 0 || firstEventDate.IsFullyBooked)
+          {
             <div class="alert alert-warning">
-              @App.Resources.String("StatusFullyBooked")
+              @App.Resources.StatusFullyBooked
             </div>
           } else {
-            var registerParams = "mid=" + MyContext.Module.Id + "&courseId=" + item.Id + "&dateId=" + firstEventDate.Id + "&" + item.String("UrlKey");
+            var registerParams = "mid=" + MyContext.Module.Id + "&courseId=" + item.Id + "&dateId=" + firstEventDate.Id + "&" + item.UrlKey;
             addBackButton = false;  // disable this, as we'll add now so it's before the register button
-            @helpers.BackToListButton()
-            <a class="btn btn-md btn-primary" href="@Link.To(parameters: registerParams)">@Html.Raw(App.Resources.String("ButtonRegister"))</a>
+            @BackToListButton()
+            <a class="btn btn-md btn-primary" href="@Link.To(parameters: registerParams)">@Html.Raw(App.Resources.ButtonRegister)</a>
           }
         }
         @if (addBackButton) {
-          @helpers.BackToListButton()
+          @BackToListButton()
         }
       </div>
 
-      @if (Text.Has(item.String("Image"))) {
+      @if (item.IsNotEmpty("Image"))
+      {
         <div class="col-12 col-md-4 mb-4 mb-md-0">
-          @item.Picture("Image", factor: "1/3", imgClass:"img-fluid d-block m-auto", imgAltFallback: item.String("Title"))
+          @item.Picture("Image", factor: "1/3", imgClass:"img-fluid d-block m-auto", imgAltFallback: item.Title)
         </div>
       }
     </div>
   </div>
 </div>
 
-@Html.Partial("shared/Assets.cshtml")
+@Html.Partial("Assets.cshtml")

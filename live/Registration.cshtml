@@ -1,14 +1,14 @@
-@inherits Custom.Hybrid.RazorTyped
-@using ToSic.Razor.Blade;
-@using System;
-@using System.Text.RegularExpressions;
+@inherits AppCode.Razor.FormBuilderRazor
+@using ToSic.Razor.Blade
+@using System
+@using System.Text.RegularExpressions
+@using AppCode.Data
+
 @{
-  var fieldBuilder = GetCode("shared/FieldBuilder.cs");
-  
-  var course = AsItem(MyData["Course"]);
-  var eventDate = AsItem(MyData["EventDate"]);
-  var title = course == null ? "" : course.String("Title");
-  Kit.Page.SetTitle(App.Resources.String("CourseRegistrationTitle") + " | " + title);
+  var course = As<Event>(MyData.GetStream("Course"));
+  var eventDate = As<EventDate>(MyData.GetStream("EventDate"));
+  var title = course == null ? "" : course.Title;
+  Kit.Page.SetTitle(App.Resources.CourseRegistrationTitle + " | " + title);
 }
 
 @* Show warning if 404, event not found *@
@@ -16,9 +16,9 @@
 {
   <div class="alert alert-danger" role="alert">
     <span class="sr-only">Error:</span>
-    @App.Resources.String("CourseNotFoundError")
+    @App.Resources.CourseNotFoundError
   </div>
-  <a href="@Link.To()" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(App.Resources.String("LabelBackToList"))</a>
+  <a href="@Link.To()" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(App.Resources.LabelBackToList)</a>
 
   Kit.Page.SetHttpStatus(404);
   return;
@@ -26,8 +26,8 @@
 
 @* additional text in title if set *@
 @{
-  var titleAddition = (Text.Has(eventDate.String("TitleAddition"))) 
-    ? " " + App.Resources.String("TitleAdditionPrefix") + " " + eventDate.String("TitleAddition") + " " + App.Resources.String("TitleAdditionSuffix") 
+  var titleAddition = (eventDate.IsNotEmpty("TitleAddition"))
+    ? " " + App.Resources.TitleAdditionPrefix + " " + eventDate.TitleAddition + " " + App.Resources.TitleAdditionSuffix 
     : "";
 
   var Edition = MyView.Edition;
@@ -36,57 +36,58 @@
 <div class="app-events6 app-events6-form" 
   @Kit.Edit.TagToolbar(eventDate) 
   events-@UniqueKey
-  data-string-required="@App.Resources.String("ValidationRequired")" 
-  data-string-email="@App.Resources.String("ValidationEmail")"
+  data-string-required="@App.Resources.ValidationRequired" 
+  data-string-email="@App.Resources.ValidationEmail"
   data-webservice="app/auto/@Edition/api/Form/ProcessForm"
 >
   @* Title *@
-  <h1 class="mb-4">@App.Resources.String("CourseRegistrationTitle") - @course.String("Title") @titleAddition</h1>
+  <h1 class="mb-4">@App.Resources.CourseRegistrationTitle - @course.Title @titleAddition</h1>
 
   <div class="form app-events6-form">
     @* Inputs *@
     @{
-      var inputTitle = course.String("Title") + titleAddition;
-      var courseNumber = (eventDate.Int("Id") != null) ? eventDate.Int("Id") : course.Int("id");
+      var inputTitle = course.Title + titleAddition;
+      var courseNumber = (eventDate.Int("EventId") != null) ? eventDate.Int("EventId") : course.Id;
+
     }
     @if (Text.Has(courseNumber)) {
-      @fieldBuilder.Text("CourseNumber", false, true, courseNumber)
+      @TextField("CourseNumber", false, true, courseNumber.ToString())
     }
-    @fieldBuilder.Text("CourseName", true, true, inputTitle)
-    @fieldBuilder.Text("CourseLocation", true, true, Text.First(eventDate.String("Location"), course.String("Location")))
+    @TextField("CourseName", true, true, inputTitle)
+    @TextField("CourseLocation", true, true, Text.First(eventDate.Location, course.Location))
 
     @* Event Notes *@
     @{
-      var compDate = eventDate.DateTime("Start").ToString("d") + (!eventDate.Bool("EndDateIsStartDate") ? " - " + eventDate.DateTime("End").ToString("d") : "");
+      var compDate = eventDate.Start.ToString("d") + (!eventDate.EndDateIsStartDate ? " - " + eventDate.End.ToString("d") : "");
     }
-    @fieldBuilder.Multiline("CourseDate", true, true, (Text.First(eventDate.String("TimeSpecifics"), compDate)))
+    @Multiline("CourseDate", true, true, (Text.First(eventDate.TimeSpecifics, compDate)))
 
     @* Salutation *@
-    @fieldBuilder.Radio("Saluation", true, 
+    @Radio("Saluation", true, 
       new string[] {
-        App.Resources.String("LabelMr"),
-		    App.Resources.String("LabelMrs")
+        App.Resources.LabelMr,
+		    App.Resources.LabelMrs
       }
     )
 
     @* Inputs *@
-    @fieldBuilder.Text("FirstName", true)
-    @fieldBuilder.Text("LastName", true)
-    @fieldBuilder.Text("Street", true)
-    @fieldBuilder.Text("ZIPCity", true)
+    @TextField("FirstName", true)
+    @TextField("LastName", true)
+    @TextField("Street", true)
+    @TextField("ZIPCity", true)
 
 
     @* Country Select *@
-    @fieldBuilder.DropDown("Country", true, App.Resources.String("CountrySelection").Split('\n'))
+    @DropDown("Country", true, App.Resources.CountrySelection.Split('\n'))
 
     @* Inputs *@
-    @fieldBuilder.Text("Phone", false)
-    @fieldBuilder.Text("MobilePhone", false)
-    @fieldBuilder.EMail("Mail", true)
+    @TextField("Phone", false)
+    @TextField("MobilePhone", false)
+    @TextField("Mail", true)
 
     @* Terms *@
-    @fieldBuilder.Checkbox("AcceptAgb", true)
-    @fieldBuilder.Checkbox("AcceptCosts", true)
+    @Checkbox("AcceptAgb", true, true)
+    @Checkbox("AcceptCosts", true, true)
 
     @* Submit Button *@
 
@@ -95,30 +96,30 @@
         @{
           var detailslink = Link.To();
         }
-        <a href="@detailslink" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(App.Resources.String("LabelBack"))</a>
-        <button type="button" app-events6-send class="btn btn-primary">@Html.Raw(App.Resources.String("ButtonRegister"))</button>
+        <a href="@detailslink" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(App.Resources.LabelBack)</a>
+        <button type="button" app-events6-send class="btn btn-primary">@Html.Raw(App.Resources.ButtonRegister)</button>
       </div>
     </div>
     <input type="hidden" id="EventDate" name="EventDate" value="@eventDate.Guid">
     <input type="hidden" id="Course" name="Course" value="@course.Guid">
 
     @* Response Messages *@
-    @AddHiddenMessage(App.Resources.String("MessageSending"), "warning", "msgSending")
-    @AddHiddenMessage(App.Resources.String("ValidationRequired"), "danger", "msgIncomplete")
-    @AddHiddenMessage(App.Resources.String("CourseRegistrationError"), "danger", "msgError")
+    @AddHiddenMessage(App.Resources.MessageSending, "warning", "msgSending")
+    @AddHiddenMessage(App.Resources.ValidationRequired, "danger", "msgIncomplete")
+    @AddHiddenMessage(App.Resources.CourseRegistrationError, "danger", "msgError")
     <div id="msgOk" class="alert alert-success app-events6-message" role="alert">
-      <strong>@Html.Raw(App.Resources.String("SuccessThanks"))</strong>
-      @Html.Raw(App.Resources.String("SuccessMessage"))
+      <strong>@Html.Raw(App.Resources.SuccessThanks)</strong>
+      @Html.Raw(App.Resources.SuccessMessage)
     </div>
 
     @* if is required, because all app-events6-config-warning are shown after submit *@
-    @if (!Text.Has(App.Settings.String("OwnerMail")) || !Text.Has(App.Settings.String("MailFrom"))) {
+    @if (!App.Settings.IsNotEmpty("OwnerMail") || !App.Settings.IsNotEmpty("MailFrom")) {
       <div id="msgOk" class="alert alert-warning" role="alert">
-        @Html.Raw(App.Resources.String("MessageDefaultMailSettings", scrubHtml: "p"))
+        @Html.Raw(Kit.Scrub.Only(App.Resources.MessageDefaultMailSettings, "p"))
       </div>      
     }
 
-    @if (App.Settings.Bool("Recaptcha") )  { @Html.Partial("Registration.PartRecaptcha.cshtml") }
+    @if (App.Settings.Recaptcha)  { @Html.Partial("Registration.PartRecaptcha.cshtml") }
   </div>
 </div>
 
@@ -132,4 +133,4 @@
   }
 }
 
-@Html.Partial("shared/Assets.cshtml")
+@Html.Partial("Assets.cshtml")

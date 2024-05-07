@@ -1,21 +1,29 @@
-@inherits Custom.Hybrid.RazorTyped
-@using ToSic.Razor.Blade;
+@inherits AppCode.Razor.AppRazor
+@using ToSic.Razor.Blade
+@using AppCode.Data
+
 @{
   // Get some helpers for later on
-  var paging = AsItems(MyData["Paging"]).FirstOrDefault();
+  var paging = As<Paging>(MyData.GetStream("Paging"));
+
+  // Exit (don't show pager) if we don't have any pages
+  if (paging.PageCount <= 1) {
+    return;
+  }
 }
 
 <div class="app-events6-paging mt-4">
-  @if (paging.Int("PageNumber") > 1) {
-    <a class="app-events6-prev-pager" href="@LinkToPageNumber((int)(paging.Int("PageNumber")) - 1)">&lsaquo;</a>
+  @if (paging.PageNumber > 1) {
+    <a class="app-events6-prev-pager" href="@LinkToPageNumber((int)(paging.PageNumber) - 1)">&lsaquo;</a>
   }
-  @if (paging.Int("PageCount") > 1 && paging.Int("PageSize") >= 0) {
-    for(int i = 1; i <= @paging.Int("PageCount"); i++) {
-      <a @(i == paging.Int("PageNumber") ? "class=app-events6-paging-active" : "") href='@(i != paging.Int("PageNumber") ? LinkToPageNumber(i) : "javascript:void(0)")'>@i</a>
+  @if (paging.PageCount > 1 && paging.PageSize >= 0)
+  {
+    for (int i = 1; i <= @paging.PageCount; i++) {
+      <a @(i == paging.PageNumber ? "class=app-events6-paging-active" : "") href='@(i != paging.PageNumber ? LinkToPageNumber(i) : "javascript:void(0)")'>@i</a>
     }
   }
-  @if (paging.Int("PageNumber") < paging.Int("PageCount")) {
-    <a class="app-events6-next-pager" href="@LinkToPageNumber((int)(paging.Int("PageNumber")) + 1)">&rsaquo;</a>
+  @if (paging.PageNumber < paging.PageCount) {
+    <a class="app-events6-next-pager" href="@LinkToPageNumber((int)(paging.PageNumber) + 1)">&rsaquo;</a>
   }
 </div>
 
