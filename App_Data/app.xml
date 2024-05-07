@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="16.07.00" ExportDate="2023-09-26T07:40:02.0424778+02:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="17.07.00" ExportDate="2024-05-07T08:10:10.376677+02:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -3867,6 +3867,92 @@
             </Value>
           </Entity>
         </Attribute>
+        <Attribute StaticName="AdminBtn" Type="Empty" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="adf7c4f9-6b91-48ff-a21a-5149adb42b18" Json="True" KeyNumber="6421">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="HelpLink" Value="" Type="Hyperlink">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Information" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="empty-default" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="AdminBtn" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Tooltip" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@empty-default" AttributeSetName="@empty-default" EntityGUID="35f7ebea-ce43-4cca-8d94-ce4b2a5d4ce2" Json="True" KeyNumber="6421">
+            <Value Key="DefaultCollapsed" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="HeadlineEventsWithoutDate" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="760a2ddc-6672-4041-b32e-554cc7303ed2" Json="True" KeyNumber="6422">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="HeadlineEventsWithoutDate" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="AdminTitle" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="4e8bb11c-a33e-41a1-abc6-9c8fa2a48ccd" Json="True" KeyNumber="6423">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="AdminTitle" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="AdminBtnEvents" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="252f5051-8014-4d64-80bc-71ada54f54fe" Json="True" KeyNumber="6424">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="AdminBtnEvents" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="AdminBtnRegistrations" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="06baf82c-cb9d-4baa-b01b-e1bf07ded3cd" Json="True" KeyNumber="6425">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="AdminBtnRegistrations" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="AdminBtnNewEvent" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="d3763b27-6546-4c7d-9964-ba28198b617a" Json="True" KeyNumber="6426">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="AdminBtnNewEvent" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
       </Attributes>
     </AttributeSet>
     <AttributeSet StaticName="App-Settings" Name="App-Settings" Scope="System.App" AlwaysShareConfiguration="false">
@@ -4517,7 +4603,7 @@
             </Value>
           </Entity>
         </Attribute>
-        <Attribute StaticName="Id" Type="String" IsTitle="false">
+        <Attribute StaticName="EventId" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="7a9b1202-75ed-4364-9d2c-a5e7de8f2d27" Json="True" KeyNumber="2497">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -5456,6 +5542,12 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
+            <Value Key="HelpLink" Value="" Type="Hyperlink">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Information" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
             <Value Key="InputType" Value="datetime-default" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -5477,6 +5569,9 @@
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
+            <Value Key="Tooltip" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
             <Value Key="ValidationRegExJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -5487,8 +5582,68 @@
             </Value>
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="5b6dd27d-0027-4978-9bc5-b97ae786826c" Json="True" KeyNumber="2512">
-            <Value Key="UseTimePicker" Value="False" Type="Boolean">
+            <Value Key="UseTimePicker" Value="True" Type="Boolean">
               <Dimension DimensionID="46" ReadOnly="false" />
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="f459bbab-6a6a-48c0-b9c8-4c56f0b104db" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="2a6020c6-acb0-44f7-b063-72418fba884d" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="abf94dc4-2fb8-4ad4-b325-67d61e1a4552" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="908cc960-46ed-41fa-880f-df08566a4cea" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="fbe03cd5-951f-44bc-b6ff-e072b2f4c1bd" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="19fd2b2d-4f05-49fd-a515-8b1c1e873d92" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="dab57eec-6947-472c-b9dc-88b0db29f330" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="5996fea2-4ebc-41cb-8b97-c4e5aead76ed" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="90216df0-6440-41a7-abf6-c65fdc3656e9" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="b27805f3-f2ae-4632-9005-fd57fad6f661" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="aa725295-8420-437a-b380-2166c47253a9" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="b29313f8-c720-4011-8f4b-540b88cdb6fb" Json="True" KeyNumber="2512">
+            <Value Key="UseTimePicker" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
           </Entity>
@@ -5835,7 +5990,7 @@
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-default" AttributeSetName="@string-default" EntityGUID="61957c41-233c-4078-a49c-62198fe3bc18" Json="True" KeyNumber="2514" />
         </Attribute>
-        <Attribute StaticName="Id" Type="String" IsTitle="false">
+        <Attribute StaticName="EventId" Type="String" IsTitle="false">
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="11df417f-e407-4b19-a3ed-2bb2e092cd42" Json="True" KeyNumber="2519">
             <Value Key="CustomJavaScript" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
@@ -6119,10 +6274,7 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="InputType" Value="empty-default" Type="String">
-              <Dimension DimensionID="46" ReadOnly="false" />
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
+            <Value Key="InputType" Value="empty-default" Type="String" />
             <Value Key="Name" Value="Registration" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
@@ -7767,6 +7919,9 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="DebugLog" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="Description" Value="" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
@@ -7791,10 +7946,10 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="RequiredOqtaneVersion" Value="03.04.00" Type="String">
+      <Value Key="RequiredOqtaneVersion" Value="05.00.00" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="RequiredVersion" Value="16.04.00" Type="String">
+      <Value Key="RequiredVersion" Value="17.07.00" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7802,7 +7957,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Version" Value="06.05.0" Type="String">
+      <Value Key="Version" Value="06.17.00" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7838,6 +7993,30 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="AddNewEventDate" Value="Termin zu Veranstaltung hinzufügen / verwalten" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="AdminBtnEvents" Value="Events" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="AdminBtnEvents" Value="Veranstaltungen" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="AdminBtnNewEvent" Value="+ Event" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="AdminBtnNewEvent" Value="+ Veranstaltung" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="AdminBtnRegistrations" Value="Registration" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="AdminBtnRegistrations" Value="Anmeldungen" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="AdminTitle" Value="Admin" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="AdminTitle" Value="Admin" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="AllDatesOfThisEvent" Value="Dates" Type="String">
@@ -7910,6 +8089,12 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Fee" Value="Kosten" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="HeadlineEventsWithoutDate" Value="Admin: Events without Dates" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="HeadlineEventsWithoutDate" Value="Admin: Veranstaltungen ohne Termine" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
       </Value>
       <Value Key="LabelAcceptAgb" Value="&lt;p&gt;I accept the &lt;a href=&quot;/de/Kontakt-AGB&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;terms and conditions&lt;/a&gt;.&lt;/p&gt;" Type="String">
@@ -8875,6 +9060,7 @@
       </Value>
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="889fe838-fd3f-4297-88bb-038ea36a2ea8" AttributeSetName="EventSettings" EntityGUID="0a7487a8-ab3e-47b8-8904-e92789664ecf">
+      <Value Key="Categories" Value="c221dba3-1099-4cf1-8172-42fe91a272ce" Type="Entity" />
       <Value Key="ItemsPerPage" Value="5" Type="Number">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -9017,11 +9203,11 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Fee" Value="CHF 1000.-" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="CHF 1000.-" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -9180,17 +9366,17 @@
       <Value Key="Document" Value="" Type="Hyperlink">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="End" Value="2020-08-16T02:00:00" Type="DateTime">
+      <Value Key="End" Value="2020-08-16T00:00:00" Type="DateTime">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="Fee" Value="" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="IsCancelled" Value="False" Type="Boolean">
@@ -9229,10 +9415,10 @@
       <Value Key="Document" Value="" Type="Hyperlink">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Fee" Value="" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Image" Value="file:4561" Type="Hyperlink">
@@ -9268,10 +9454,10 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="Fee" Value="500" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="500" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="IsCancelled" Value="False" Type="Boolean">
@@ -9313,10 +9499,10 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="Fee" Value="" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="IsCancelled" Value="False" Type="Boolean">
@@ -9381,10 +9567,10 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="Fee" Value="" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="IsCancelled" Value="False" Type="Boolean">
@@ -9431,10 +9617,10 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Event" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
-      <Value Key="Fee" Value="" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="IsCancelled" Value="False" Type="Boolean">
@@ -9606,10 +9792,10 @@
       <Value Key="Document" Value="" Type="Hyperlink">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Fee" Value="" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Image" Value="" Type="Hyperlink">
@@ -9760,14 +9946,33 @@
       </Value>
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="DataPipeline" AttributeSetName="DataPipeline" EntityGUID="0d4ec69b-3d0f-4de0-b73e-ef11fc846ba8" Json="True">
-      <Value Key="AllowEdit" Value="True" Type="Boolean" />
-      <Value Key="Description" Value="" Type="String" />
-      <Value Key="Name" Value="EventDetails" Type="String" />
-      <Value Key="Params" Value="" Type="String" />
-      <Value Key="StreamsOut" Value="Default,Header,FutureDates,Registrations,Event,Current" Type="String" />
-      <Value Key="StreamWiring" Value="d49aa200-a2c9-473d-8f20-6723d4900a3e:ListContent&gt;Out:Header&#xD;&#xA;f7aaa175-ebbf-4811-9d9a-593247f682b8:Default&gt;Out:FutureDates&#xD;&#xA;7f42d709-5ad6-46ed-a883-585cf8eb71d1:Default&gt;f7aaa175-ebbf-4811-9d9a-593247f682b8:Default&#xD;&#xA;faeab6fa-4a64-43f0-a2f5-495a8a7d272a:Default&gt;d49aa200-a2c9-473d-8f20-6723d4900a3e:Default&#xD;&#xA;b41d8468-635e-40d9-9d41-6d585705e9e6:Default&gt;Out:Registrations&#xD;&#xA;faeab6fa-4a64-43f0-a2f5-495a8a7d272a:Event&gt;913f8ea4-9356-44dc-a715-1035535edb9c:Default&#xD;&#xA;913f8ea4-9356-44dc-a715-1035535edb9c:Default&gt;Out:Event&#xD;&#xA;913f8ea4-9356-44dc-a715-1035535edb9c:Default&gt;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&#xD;&#xA;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&gt;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&#xD;&#xA;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&gt;Out:Current&#xD;&#xA;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&gt;7f42d709-5ad6-46ed-a883-585cf8eb71d1:Default&#xD;&#xA;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&gt;b41d8468-635e-40d9-9d41-6d585705e9e6:Default" Type="String" />
-      <Value Key="TestParameters" Value="[QueryString:details]=18102&#xA;[QueryString:dateid]=18103" Type="String" />
-      <Value Key="VisualDesignerData" Value="{&quot;ShowDataSourceDetails&quot;:true}" Type="String" />
+      <Value Key="AllowEdit" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Description" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="HiddenInQueryPicker" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="EventDetails" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Params" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="StreamsOut" Value="Default,Header,FutureDates,Registrations,Event,Current" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="StreamWiring" Value="d49aa200-a2c9-473d-8f20-6723d4900a3e:ListContent&gt;Out:Header&#xD;&#xA;f7aaa175-ebbf-4811-9d9a-593247f682b8:Default&gt;Out:FutureDates&#xD;&#xA;7f42d709-5ad6-46ed-a883-585cf8eb71d1:Default&gt;f7aaa175-ebbf-4811-9d9a-593247f682b8:Default&#xD;&#xA;faeab6fa-4a64-43f0-a2f5-495a8a7d272a:Default&gt;d49aa200-a2c9-473d-8f20-6723d4900a3e:Default&#xD;&#xA;b41d8468-635e-40d9-9d41-6d585705e9e6:Default&gt;Out:Registrations&#xD;&#xA;faeab6fa-4a64-43f0-a2f5-495a8a7d272a:Event&gt;913f8ea4-9356-44dc-a715-1035535edb9c:Default&#xD;&#xA;913f8ea4-9356-44dc-a715-1035535edb9c:Default&gt;Out:Event&#xD;&#xA;913f8ea4-9356-44dc-a715-1035535edb9c:Default&gt;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&#xD;&#xA;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&gt;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&#xD;&#xA;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&gt;Out:Current&#xD;&#xA;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&gt;7f42d709-5ad6-46ed-a883-585cf8eb71d1:Default&#xD;&#xA;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&gt;b41d8468-635e-40d9-9d41-6d585705e9e6:Default" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TestParameters" Value="[QueryString:details]=9318&#xA;[QueryString:dateid]=28091" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="VisualDesignerData" Value="{&quot;ShowDataSourceDetails&quot;:true}" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
     </Entity>
     <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="7eb8b287-864a-4405-b8df-d91b4bb9cbb8" Json="True" KeyGuid="0d4ec69b-3d0f-4de0-b73e-ef11fc846ba8">
       <Value Key="Description" Value="" Type="String" />
@@ -10150,10 +10355,10 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="Fee" Value="" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="IsCancelled" Value="False" Type="Boolean">
@@ -10205,17 +10410,17 @@
       <Value Key="Document" Value="" Type="Hyperlink">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="End" Value="2022-11-24T00:00:00" Type="DateTime">
+      <Value Key="End" Value="2024-11-24T00:00:00" Type="DateTime">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Event" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
-      <Value Key="Fee" Value="" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="IsCancelled" Value="False" Type="Boolean">
@@ -10233,10 +10438,10 @@
       <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Seats" Value="" Type="Number">
+      <Value Key="Seats" Value="2" Type="Number">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Start" Value="2022-11-24T00:00:00" Type="DateTime">
+      <Value Key="Start" Value="2024-11-24T00:00:00" Type="DateTime">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="TimeSpecifics" Value="" Type="String">
@@ -10392,10 +10597,10 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="Fee" Value="" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="IsCancelled" Value="False" Type="Boolean">
@@ -10413,7 +10618,7 @@
       <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Seats" Value="2" Type="Number">
+      <Value Key="Seats" Value="5" Type="Number">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Start" Value="2024-11-22T00:00:00" Type="DateTime">
@@ -10602,11 +10807,11 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Fee" Value="CHF 1000.-" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="CHF 1000.-" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -10652,10 +10857,10 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Event" Value="cd2a239b-e35e-4eca-a048-7dfca1980ad7" Type="Entity" />
-      <Value Key="Fee" Value="" Type="String">
+      <Value Key="EventId" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Id" Value="" Type="String">
+      <Value Key="Fee" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="IsCancelled" Value="False" Type="Boolean">
@@ -10732,12 +10937,192 @@
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="14266d49-e114-497c-b3d6-16b5d72158f2" Json="True">
       <Value Key="Template" Value="33f4b270-edca-4826-a4ed-f0d5766fc1fb" Type="Entity" />
     </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c58f78db-0b39-46ee-9c37-6c445d14b090" AttributeSetName="Categories" EntityGUID="33609aec-842d-4f65-a4b5-a72f2aa2c1f8">
+      <Value Key="PageTitle" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Demo Kategorie 3" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="fa3898f2-bdb1-493b-8a87-a14b90f68fd8">
+      <Value Key="Document" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="End" Value="2023-10-16T00:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
+      <Value Key="EventId" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Fee" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Fee" Value="Kostenlos" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="IsCancelled" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Person" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Seats" Value="" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Seats" Value="20" Type="Number">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="Start" Value="2023-10-16T00:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TimeSpecifics" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TimeSpecifics" Value="Start 15:00 Uhr" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="TitleAddition" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="03c43cda-92c2-43d1-bfe5-c2f20d3c177c">
+      <Value Key="Document" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="End" Value="2024-11-07T14:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
+      <Value Key="EventId" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Fee" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Fee" Value="30.- pro Person" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="IsCancelled" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Person" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Seats" Value="0" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Seats" Value="30" Type="Number">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="Start" Value="2024-11-07T14:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TimeSpecifics" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TimeSpecifics" Value="Start 16:00 Uhr" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
+      <Value Key="TitleAddition" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="6b4bad04-894a-433c-aa2c-7b3e711799d9" Json="True">
+      <Value Key="Template" Value="33f4b270-edca-4826-a4ed-f0d5766fc1fb" Type="Entity" />
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="38e3bb3e-a509-42d3-8b40-ce4f0c8b9811" Json="True">
+      <Value Key="Template" Value="33f4b270-edca-4826-a4ed-f0d5766fc1fb" Type="Entity" />
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="b9e2f404-6c8d-401c-b0db-bcd0fb8e2685" Json="True">
+      <Value Key="Content" Value="dd5e0b65-114f-4a9a-a25b-e5aafe40b661" Type="Entity" />
+      <Value Key="Template" Value="b418e3aa-77fc-463d-965e-69038ae89076" Type="Entity" />
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-ContentGroup" AttributeSetName="2SexyContent-ContentGroup" EntityGUID="14480e7f-981d-4e3a-b3d3-22979fe72768" Json="True">
+      <Value Key="Content" Value="null" Type="Entity" />
+      <Value Key="Presentation" Value="null" Type="Entity" />
+      <Value Key="Template" Value="33f4b270-edca-4826-a4ed-f0d5766fc1fb" Type="Entity" />
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="f3c230d1-86ef-4c6b-8c85-ea7e059c2d8f">
+      <Value Key="Document" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="End" Value="2024-04-09T00:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Event" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventId" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Fee" Value="1" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="IsCancelled" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Person" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Seats" Value="5" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Start" Value="2024-04-09T00:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TimeSpecifics" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TitleAddition" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
   </Entities>
   <PortalFiles>
     <File Id="6059" RelativePath="adam\EventsAndCourses6\r5NOpxGsUkmx5uQodtskbA\PlaceHolderImg\placeholder.png" />
     <File Id="6038" RelativePath="adam\EventsAndCourses6\E1UBfLSAYUekGYJM99kXDg\Image\Platzhalterbild_Inhalt-1.jpg" />
     <File Id="4561" RelativePath="adam\Events and Courses 5\Wf2pg416bUe4oinKzjl_5Q\Image\Demo-2.jpg" />
     <File Id="4566" RelativePath="adam\Events and Courses 5\E1UBfLSAYUekGYJM99kXDg\Document\dummy.pdf" />
+    <File Id="6482" RelativePath="adam\EventsAndCourses6\AYuSre9tOU2EHVHVfQG6uA\Image\Pizzaplausch-scaled.jpg" />
+    <File Id="6484" RelativePath="adam\EventsAndCourses6\cCll_Rfn7EONhgU3mwaOOw\Image\unnamed.png" />
+    <File Id="6483" RelativePath="adam\EventsAndCourses6\EOte2iOsmkmLJP7zrdqvPA\Image\ki-chatgpt-ai.jpg" />
+    <File Id="6485" RelativePath="adam\EventsAndCourses6\S988cjcbYkKm3nc7ApF1pg\Image\schulung.jpg" />
     <File Id="6336" RelativePath="adam\EventsAndCourses6\wieJYtQYpk-h9rJWkPMymg\Image\thumb-1920-936378.jpg" />
   </PortalFiles>
   <PortalFolders>
@@ -10745,10 +11130,18 @@
     <Folder Id="13456" RelativePath="adam/EventsAndCourses6/E1UBfLSAYUekGYJM99kXDg/Image/" />
     <Folder Id="10184" RelativePath="adam/Events and Courses 5/Wf2pg416bUe4oinKzjl_5Q/Image/" />
     <Folder Id="10189" RelativePath="adam/Events and Courses 5/E1UBfLSAYUekGYJM99kXDg/Document/" />
+    <Folder Id="14219" RelativePath="adam/EventsAndCourses6/AYuSre9tOU2EHVHVfQG6uA/Image/" />
+    <Folder Id="14223" RelativePath="adam/EventsAndCourses6/cCll_Rfn7EONhgU3mwaOOw/Image/" />
+    <Folder Id="14221" RelativePath="adam/EventsAndCourses6/EOte2iOsmkmLJP7zrdqvPA/Image/" />
+    <Folder Id="14225" RelativePath="adam/EventsAndCourses6/S988cjcbYkKm3nc7ApF1pg/Image/" />
     <Folder Id="13920" RelativePath="adam/EventsAndCourses6/wieJYtQYpk-h9rJWkPMymg/Image/" />
     <Folder Id="13454" RelativePath="adam/EventsAndCourses6/" />
+    <Folder Id="14218" RelativePath="adam/EventsAndCourses6/AYuSre9tOU2EHVHVfQG6uA/" />
+    <Folder Id="14222" RelativePath="adam/EventsAndCourses6/cCll_Rfn7EONhgU3mwaOOw/" />
     <Folder Id="13455" RelativePath="adam/EventsAndCourses6/E1UBfLSAYUekGYJM99kXDg/" />
+    <Folder Id="14220" RelativePath="adam/EventsAndCourses6/EOte2iOsmkmLJP7zrdqvPA/" />
     <Folder Id="13467" RelativePath="adam/EventsAndCourses6/r5NOpxGsUkmx5uQodtskbA/" />
+    <Folder Id="14224" RelativePath="adam/EventsAndCourses6/S988cjcbYkKm3nc7ApF1pg/" />
     <Folder Id="13919" RelativePath="adam/EventsAndCourses6/wieJYtQYpk-h9rJWkPMymg/" />
   </PortalFolders>
 </SexyContent>
