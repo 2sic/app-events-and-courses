@@ -32,7 +32,7 @@
           top: 0;
           bottom: 0;
           width: 100%;
-          background-color: rgba($dark, 0);
+          background-color: rgba(var(--bs-dark-rgb, var(--bs-dark-rgb-fallback-app-events)), 0);
           background-repeat: no-repeat;
           background-position: center center;
           transition: background-color 0.3s ease-in-out;
@@ -41,11 +41,11 @@
 
       &:hover {
         .overlay {
-          background-color: rgba($dark, 0.4);
+          background-color: rgba(var(--bs-dark-rgb, var(--bs-dark-rgb-fallback-app-events)), 0.4);
         }
 
         h2 {
-          color: $primary;
+          color: var(--bs-primary, var(--bs-primary-fallback-app-events));
         }           
       }
     }
@@ -75,7 +75,7 @@
     flex: 1 1 50%;
 
     h6 {
-      border-bottom: 1px solid $primary;
+      border-bottom: 1px solid var(--bs-primary, var(--bs-primary-fallback-app-events));
       padding-bottom: 4px;
       margin-bottom: 0;
     }
@@ -104,7 +104,6 @@
   
         a {
           display: block;
-          padding: $list-group-item-padding-y $list-group-item-padding-x;
         }
       }
     }
@@ -114,14 +113,14 @@
     &.btn-primary {
       &:hover {
         background: #fff;
-        color: $primary;
+        color: var(--bs-primary, var(--bs-primary-fallback-app-events));
       }
     }
   }
 
   .app-events6-date,
   .app-events6-categories {
-    font-size: $font-size-base * 0.8;
+    font-size: calc(var(--bs-body-font-size, var(--bs-body-font-size-fallback-app-events)) * 0.8);
     text-transform: uppercase;
   }
 
@@ -141,7 +140,7 @@
 
       &.app-events6-paging-active,
       &:hover {
-        background: $primary;
+        background: var(--bs-primary, var(--bs-primary-fallback-app-events));
         color: #fff;
       }
 
@@ -149,7 +148,7 @@
       &.app-events6-next-pager {
         &:hover {
           background: #fff;
-          color: $primary;
+          color: var(--bs-primary, var(--bs-primary-fallback-app-events));
         }
       }
     }

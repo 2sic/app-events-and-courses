@@ -27,7 +27,7 @@
   @if (listConfig.IsNotEmpty("Title") || listConfigCat.IsNotEmpty("PageTitle"))
   {
     <h2 class="mb-4">
-      @listConfig.Title @listConfigCat.PageTitle
+      @listConfig.Title @(listConfigCat != null ? listConfigCat.Title : "")
     </h2>
   }
 

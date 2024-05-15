@@ -21,9 +21,9 @@
 // Include needed variables and mixins from Bootstrap 4
 // You must adapt these paths to match your Bootstrap 4 skin
 // @import "../../../_default/Skins/Bootstrap 4 Instant/src/scss/_variables.scss";
-@import "_variables.scss";
-@import "../../node_modules/bootstrap/scss/mixins/_breakpoints.scss";
+@import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/list-group";
 
 // Now parse the Events6 CSS Rules
 @import "_style.scss";

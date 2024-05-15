@@ -1,0 +1,10 @@
+/*
+Bootstrap 5 uses CSS variables. You can use app-related variables in this file. The standard Bootstrap values are used as a fallback 
+Check our Docs for more information: https://go.2sxc.org/app-theme
+*/
+
+:root {
+  --bs-primary-fallback-app-events: #0060AC;
+  --bs-body-font-size-fallback-app-events: 1rem;
+  --bs-dark-rgb-fallback-app-events: 33, 37, 41;
+}
