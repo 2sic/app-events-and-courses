@@ -46,7 +46,7 @@
           .Data("Registrations", tweak: b => b.Tooltip(App.Resources.LabelRegistrations).Filter("EventDate", date.Id));
 
         <li class="list-group-item mb-0 @currentEventClass @hiddenEvent" @toolbarDate.For(date)>
-          <a href='@Link.To(parameters: MyPage.Parameters.Set("dateId", date.Id))'>
+          <a href='@Link.To(parameters: MyPage.Parameters.Set("dateId", date.Id))' class="d-block px-3 py-2">
             <strong>@date.DateTime("Start").ToString("d")  @(!date.Bool("EndDateIsStartDate") ? " - " + date.End.ToString("d") : "")</strong>
             @(date.IsEmpty("TitleAddition") ? "" : " - " + date.TitleAddition)
             @(date.IsEmpty("TimeSpecifics") ? "" : " - " + date.TimeSpecifics)
