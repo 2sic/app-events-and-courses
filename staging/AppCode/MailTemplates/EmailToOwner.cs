@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Web;
 using AppCode.Mail;
+
 namespace AppCode.MailTemplates
 {
   public class EmailToOwner : AppCode.Services.ServiceBase, IMailTemplate
@@ -24,7 +26,7 @@ namespace AppCode.MailTemplates
 
       foreach (var item in request)
       {
-        message += "<div><strong>" + item.Key + "</strong>: " + item.Value + "</div>";
+        message += "<div><strong>" + item.Key + "</strong>: " + HttpUtility.HtmlEncode(item.Value) + "</div>";
       }
 
       message +=
