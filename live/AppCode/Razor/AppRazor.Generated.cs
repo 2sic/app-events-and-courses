@@ -1,10 +1,10 @@
 // DO NOT MODIFY THIS FILE - IT IS AUTO-GENERATED
 // All the classes are partial, so you can extend them in a separate file.
 
-// Generator:   RazorViewsGenerator v17.06.02
-// App/Edition: Events, Courses and Registration/
+// Generator:   RazorViewsGenerator v17.99.00
+// App/Edition: Events, Courses and Registration/staging
 // User:        2sic Web-Developer
-// When:        2024-04-08 11:04:44Z
+// When:        2024-06-17 10:33:58Z
 
 using AppCode.Data;
 using ToSic.Sxc.Apps;
