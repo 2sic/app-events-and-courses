@@ -22,20 +22,21 @@ public class FormController : Custom.Hybrid.ApiTyped
   [HttpPost]
   public void ProcessForm([FromBody] SaveRequest contactFormRequest)
   {
-    var currentEventDate = App.Data.GetAll<EventDate>().Where(e => e.Guid.ToString() == contactFormRequest.Fields["EventDate"].ToString()).FirstOrDefault();
-    var currentEvent = App.Data.GetAll<Event>().Where(e => e.Guid.ToString() == contactFormRequest.Fields["Course"].ToString()).FirstOrDefault();
+    var currentEventDate = App.Data.GetAll<EventDate>()
+      .Where(e => e.Guid.ToString() == contactFormRequest.Fields["EventDate"].ToString())
+      .FirstOrDefault();
+    var currentEvent = App.Data.GetAll<Event>()
+      .Where(e => e.Guid.ToString() == contactFormRequest.Fields["Course"].ToString())
+      .FirstOrDefault();
 
-    if(currentEventDate == null) {
+    if (currentEventDate == null)
       throw new Exception("EventDate not found!");
-    }
 
-    if(currentEvent == null) {
+    if (currentEvent == null)
       throw new Exception("Event not found!");
-    }
 
-    if(currentEventDate.Event.Guid != currentEvent.Guid) {
+    if (currentEventDate.Event.Guid != currentEvent.Guid)
       throw new Exception("EventDate does not belong to the Event!");
-    }    
 
     var wrapLog = Log.Call(useTimer: true);
 
