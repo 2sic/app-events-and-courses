@@ -47,7 +47,7 @@
 
         <li class="list-group-item mb-0 @currentEventClass @hiddenEvent" @toolbarDate.For(date)>
           <a href='@Link.To(parameters: MyPage.Parameters.Set("dateId", date.Id))' class="d-block px-3 py-2">
-            <strong>@date.DateTime("Start").ToString("d")  @(!date.Bool("EndDateIsStartDate") ? " - " + date.End.ToString("d") : "")</strong>
+            <strong><span itemprop="startDate">@date.DateTime("Start").ToString("d")</span> @(!date.Bool("EndDateIsStartDate") ? " - <span itemprop='endDate'>" + date.End.ToString("d") + "</span>": "")</strong>
             @(date.IsEmpty("TitleAddition") ? "" : " - " + date.TitleAddition)
             @(date.IsEmpty("TimeSpecifics") ? "" : " - " + date.TimeSpecifics)
             @(MyUser.IsContentAdmin ? $"({regCount} {App.Resources.LabelRegistrations})" : "")
