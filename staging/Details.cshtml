@@ -1,6 +1,7 @@
-@inherits AppCode.Razor.AppRazor
+@inherits AppCode.Razor.DetailRazor
 @using ToSic.Razor.Blade
 @using AppCode.Data
+@using AppCode
 
 @{
   // Data from Query - Stream "Event" contains the event, "Current" contains the selected date (if any)
@@ -45,6 +46,11 @@
 
   // Stack the event date info from the first event date or the event itself
   var eventDateInfo = AsStack<EventDate>(firstEventDate, item);
+
+  if (App.Settings.GoogleEventsApi) {
+    // Get JsonLd for a EventPosting
+    Kit.Page.AddJsonLd(GetJsonLdForEventDetail(eventDateInfo));
+  }
 }
 
 <div class="app-events6 app-events6-detail" @itemToolbar.For(item)>
@@ -122,7 +128,7 @@
             var registerParams = "mid=" + MyContext.Module.Id + "&courseId=" + item.Id + "&dateId=" + firstEventDate.Id + "&" + item.UrlKey;
             addBackButton = false;  // disable this, as we'll add now so it's before the register button
             @BackToListButton()
-            <a class="btn btn-md btn-primary" href="@Link.To(parameters: registerParams)">@Html.Raw(App.Resources.ButtonRegister)</a>
+            <a class="btn btn-md btn-primary" rel="nofollow" href="@Link.To(parameters: registerParams)">@Html.Raw(App.Resources.ButtonRegister)</a>
           }
         }
         @if (addBackButton) {

@@ -11,10 +11,10 @@ namespace AppCode.Data
 }
 */
 
-// Generator:   CSharpDataModelsGenerator v17.07.00
+// Generator:   CSharpDataModelsGenerator v17.99.00
 // App/Edition: Events, Courses and Registration/staging
 // User:        2sic Web-Developer
-// When:        2024-05-02 13:03:09Z
+// When:        2024-06-17 14:29:51Z
 using System.Text.Json.Serialization;
 using ToSic.Sxc.Adam;
 
@@ -25,7 +25,7 @@ namespace AppCode.Data
 
   /// <summary>
   /// AppResources data. <br/>
-  /// Generated 2024-05-02 13:03:09Z. Re-generate whenever you change the ContentType. <br/>
+  /// Generated 2024-06-17 14:29:51Z. Re-generate whenever you change the ContentType. <br/>
   /// <br/>
   /// Default properties such as `.Title` or `.Id` are provided in the base class. <br/>
   /// Most properties have a simple access, such as `.AddNewEvent`. <br/>
