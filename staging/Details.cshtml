@@ -39,7 +39,10 @@
   var titleSuffix = hasEventDate
     ? " | " + eventStart + eventEnd
     : "";
-  Kit.Page.SetTitle(item.Title + titleSuffix + " | ");
+
+  var title = item.Title + titleSuffix + " | ";
+  AddMetaTags(item, title, titleSuffix);
+    
 
   // Prepare toolbar without "new"
   var itemToolbar = Kit.Toolbar.Default().New("-");

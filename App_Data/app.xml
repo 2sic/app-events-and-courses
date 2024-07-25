@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="17.07.00" ExportDate="2024-05-07T08:10:10.376677+02:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="18.00.00" ExportDate="2024-07-25T08:25:06.3791582+02:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -4282,6 +4282,77 @@
             </Value>
           </Entity>
         </Attribute>
+        <Attribute StaticName="GroupGoogleApi" Type="Empty" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="3abef9c1-bd86-449f-8f1a-12a18b23724e" Json="True" KeyNumber="6546">
+            <Value Key="InputType" Value="empty-default" Type="String" />
+            <Value Key="Name" Value="GroupGoogleApi" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="GoogleEventsApi" Type="Boolean" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="ba92f167-89c1-4185-94da-6a8a5af27c4c" Json="True" KeyNumber="6545">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="false" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="HelpLink" Value="" Type="Hyperlink">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Information" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="boolean-default" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Use Google Events API" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Tooltip" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@Boolean" AttributeSetName="@Boolean" EntityGUID="268d2b4d-eec4-4dd0-a4b1-4f87df0e2f04" Json="True" KeyNumber="6545">
+            <Value Key="TitleFalse" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="TitleIndeterminate" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="TitleTrue" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Organization" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="a3a4ed5d-1aaf-460d-bd46-c0736cd61359" Json="True" KeyNumber="6547">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="Organization" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
       </Attributes>
     </AttributeSet>
     <AttributeSet StaticName="c58f78db-0b39-46ee-9c37-6c445d14b090" Name="Categories" Scope="Default" AlwaysShareConfiguration="false">
@@ -5290,6 +5361,71 @@
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="GroupSEO" Type="Empty" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="4e8a5cee-fa1e-44b3-904b-b2c75e2d2f99" Json="True" KeyNumber="6549">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="HelpLink" Value="" Type="Hyperlink">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Information" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="empty-default" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="SEO (optional)" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Tooltip" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@empty-default" AttributeSetName="@empty-default" EntityGUID="ac747818-3343-41be-b208-fd2f97d8288a" Json="True" KeyNumber="6549">
+            <Value Key="DefaultCollapsed" Value="True" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="MetaTitle" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="0aedece4-765c-42ba-99ac-d52c8c865951" Json="True" KeyNumber="6550">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="MetaTitle" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="MetaDescription" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="b05f8eee-5749-4ed3-8362-43ed9f2570d3" Json="True" KeyNumber="6551">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="MetaDescription" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
           </Entity>
         </Attribute>
         <Attribute StaticName="Advanced" Type="Empty" IsTitle="false">
@@ -7957,7 +8093,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Version" Value="06.17.00" Type="String">
+      <Value Key="Version" Value="06.17.01" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -7966,10 +8102,16 @@
       <Value Key="CustomerMailTemplateFile" Value="EmailToCustomer.cs" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="MailFrom" Value="" Type="String">
+      <Value Key="GoogleEventsApi" Value="False" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="OwnerMail" Value="" Type="String">
+      <Value Key="MailFrom" Value="roman.opalko@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Organization" Value="2sic internet solutions" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="OwnerMail" Value="roman.opalko@2sic.com" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="OwnerMailTemplateFile" Value="EmailToOwner.cs" Type="String">
@@ -9060,11 +9202,10 @@
       </Value>
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="889fe838-fd3f-4297-88bb-038ea36a2ea8" AttributeSetName="EventSettings" EntityGUID="0a7487a8-ab3e-47b8-8904-e92789664ecf">
-      <Value Key="Categories" Value="c221dba3-1099-4cf1-8172-42fe91a272ce" Type="Entity" />
       <Value Key="ItemsPerPage" Value="5" Type="Number">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Title" Value="Demo Titel" Type="String">
+      <Value Key="Title" Value="Demo Title" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
@@ -9217,6 +9358,12 @@
       </Value>
       <Value Key="Location" Value="Strasse 1, CH-0000 Stadt" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MetaDescription" Value="Seo Description" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MetaTitle" Value="Seo Title" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Person" Value="2sic" Type="String">
@@ -10524,6 +10671,9 @@
       <Value Key="Name" Value="Events List" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="Name" Value="Event Liste" Type="String">
+        <Dimension DimensionID="46" ReadOnly="false" />
+      </Value>
       <Value Key="Path" Value="live/List.cshtml" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -11110,6 +11260,210 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="TitleAddition" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="cfd70e83-72ce-4f7d-be33-7e6e2dee148f">
+      <Value Key="ModuleId" Value="6520" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;CourseDate&quot;:&quot;11/24/2024&quot;,&quot;Saluation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Roman&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Lang\u00E4ulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0817506787&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;EventDate&quot;:&quot;0a46b487-c5f6-43d2-bb16-ce3f907fbb79&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SenderIP&quot;:&quot;194.0.212.88&quot;}" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIP" Value="194.0.212.88" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2024-05-28T14:39:22" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2024-05-28T14:39:22" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registrations" EntityGUID="4dc77084-3b24-4106-9f03-edb5d0dd6979">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDate" Value="0a46b487-c5f6-43d2-bb16-ce3f907fbb79" Type="Entity" />
+      <Value Key="FirstName" Value="Roman" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Opalko" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0817506787" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.88" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2024-05-28T14:39:22" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="deac5925-84f6-435b-bc9d-0a3d94704dc3">
+      <Value Key="ModuleId" Value="6520" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;CourseDate&quot;:&quot;11/24/2024&quot;,&quot;Saluation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;\u003Ca href=\u0022\u0022\u003Etest\u003C/a\u003E&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Lang\u00E4ulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0817506787&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;EventDate&quot;:&quot;0a46b487-c5f6-43d2-bb16-ce3f907fbb79&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SenderIP&quot;:&quot;194.0.212.88&quot;}" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIP" Value="194.0.212.88" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2024-05-28T14:49:26" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2024-05-28T14:49:26" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registrations" EntityGUID="bd599176-78d9-4895-a8f3-5cafc3af5cb3">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDate" Value="0a46b487-c5f6-43d2-bb16-ce3f907fbb79" Type="Entity" />
+      <Value Key="FirstName" Value="&lt;a href=&quot;&quot;&gt;test&lt;/a&gt;" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Opalko" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0817506787" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.88" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2024-05-28T14:49:26" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="ec75c324-0e50-4174-a21d-e572cdd529f1">
+      <Value Key="ModuleId" Value="6520" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;CourseDate&quot;:&quot;11/24/2024&quot;,&quot;Saluation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;\u003Ca href=\u0022\u0022\u003Etest\u003C/a\u003E&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Lang\u00E4ulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0817506787&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;EventDate&quot;:&quot;0a46b487-c5f6-43d2-bb16-ce3f907fbb79&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SenderIP&quot;:&quot;194.0.212.88&quot;}" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIP" Value="194.0.212.88" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2024-05-28T14:49:48" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2024-05-28T14:49:48" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registrations" EntityGUID="76a42f9b-c4fa-4f8a-9a0e-17b3dba49d0e">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDate" Value="0a46b487-c5f6-43d2-bb16-ce3f907fbb79" Type="Entity" />
+      <Value Key="FirstName" Value="&lt;a href=&quot;&quot;&gt;test&lt;/a&gt;" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Opalko" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0817506787" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.88" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2024-05-28T14:49:48" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="e5f5396e-2e43-4555-9eb7-56da4a4ff70e">
+      <Value Key="ModuleId" Value="6520" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;CourseDate&quot;:&quot;11/24/2024&quot;,&quot;Saluation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;\u003Ca href=\u0022\u0022\u003Etest\u003C/a\u003E&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Lang\u00E4ulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0817506787&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;EventDate&quot;:&quot;0a46b487-c5f6-43d2-bb16-ce3f907fbb79&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SenderIP&quot;:&quot;194.0.212.88&quot;}" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIP" Value="194.0.212.88" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Timestamp" Value="2024-05-28T14:51:12" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Form 2024-05-28T14:51:12" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registrations" EntityGUID="f4629bf3-aa2a-4f59-abb0-fb86d096b98b">
+      <Value Key="Country" Value="Switzerland" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventDate" Value="0a46b487-c5f6-43d2-bb16-ce3f907fbb79" Type="Entity" />
+      <Value Key="FirstName" Value="&lt;a href=&quot;&quot;&gt;test&lt;/a&gt;" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="LastName" Value="Opalko" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Phone" Value="0817506787" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SenderIp" Value="194.0.212.88" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Status" Value="registered" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="SubmitDate" Value="2024-05-28T14:51:12" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="ZIPCity" Value="Buchs" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>

@@ -58,5 +58,34 @@ namespace AppCode.Razor
       };
     }
 
+    public void AddMetaTags(Event item, string title, string titleSuffix)
+    {
+
+      var metaImageUrl = item.IsNotEmpty("Image")
+          ? Link.Image(item.Image, type: "full")
+          : "";
+
+      // Try to replace the term "PostTitle" in the page title with the item title, otherwise prefix the existing title
+      Kit.Page.SetTitle(Text.Has(item.MetaTitle) ? item.MetaTitle + titleSuffix + " " : title);
+
+      Kit.Page.SetDescription(Text.First(item.MetaDescription, item.ShortDescription));
+
+      // Add open graph meta information
+      var itemTitle = item.Title;
+      Kit.Page.AddOpenGraph("og:type", "article");
+      Kit.Page.AddOpenGraph("og:title", itemTitle);
+      Kit.Page.AddOpenGraph("og:url", Link.To(parameters: "details=" + item.UrlKey));
+      Kit.Page.AddOpenGraph("og:description", item.ShortDescription);
+      Kit.Page.AddOpenGraph("og:image", metaImageUrl);
+      Kit.Page.AddOpenGraph("og:image:height", "1200");
+      Kit.Page.AddOpenGraph("og:image:width", "630");
+
+      // // Add twitter meta information
+      // Kit.Page.AddMeta("twitter:card", "summary_large_image");
+      // Kit.Page.AddMeta("twitter:title", title);
+      // Kit.Page.AddMeta("twitter:description", item.ShortDescription);
+      // Kit.Page.AddMeta("twitter:image", metaImageUrl);
+    }    
+
   }
 }

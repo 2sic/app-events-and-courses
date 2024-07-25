@@ -62,4 +62,7 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
 * v06.17.00 2024-04
   * strong-typed
   * Auto Generated Class
+* v06.17.01 2024-07
+  * Update app.sln and app.csproj
+  * Seo Optimization
   
