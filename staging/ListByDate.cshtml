@@ -22,10 +22,11 @@
   @Html.Partial("List.PartEventsWithoutDates.cshtml")
 
 
-  @if (listConfig.IsNotEmpty("Title") || categorie.IsNotEmpty("PageTitle"))
-  {
+   @if (listConfig.IsNotEmpty("Title") || listConfig.IsNotEmpty("Categories.PageTitle")) {
     <h2 class="mb-4">
-      @listConfig.Title @(categorie.IsNotEmpty("PageTitle") ? categorie.PageTitle : "")
+      @* TODO:: Open to fix *@
+      @* @listConfig.Title @(listConfig.IsNotEmpty("Categories.PageTitle") ? listConfig.Categories.PageTitle : "") *@
+      @listConfig.Title 
     </h2>
   }
 
@@ -37,6 +38,9 @@
     {
       if (MyUser.IsContentAdmin || d.Event.ShowInLanguage != false) 
       {
+        var startDate = d.Start;
+        var endDate = d.End;
+
         var item = d.Event;
         var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", item.Id).Set("dateId", d.Id).Set(item.UrlKey));
         <tr class="position-relative app-events6-list-item" @dEventToolbar.For(d.Event)>
@@ -44,7 +48,11 @@
 						@item.Title @(d.IsNotEmpty("TitleAddition") ? "- " + d.TitleAddition : "" )
 					</td>
 					<td class="event-meta">
-						@d.Start.ToString("d") @(!d.EndDateIsStartDate ? "- " + d.End.ToString("d") : "")
+            @if(startDate.ToString("dd/MM/yyyy") == endDate.ToString("dd/MM/yyyy") && !d.EndDateIsStartDate) {
+                <span>@startDate.ToString("dd/MM/yyyy")</span>
+              } else {
+                <span>@startDate.ToString("dd/MM/yyyy")  @(!d.EndDateIsStartDate ? " - " + endDate.ToString("dd/MM/yyyy") : "")</span>
+              }
 					</td>
 					<td>
             @(item.Category != null ? " | " + item.Category.Title : "")

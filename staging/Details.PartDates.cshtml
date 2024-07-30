@@ -45,9 +45,25 @@
         var toolbarDate = toolbarTemplate
           .Data("Registrations", tweak: b => b.Tooltip(App.Resources.LabelRegistrations).Filter("EventDate", date.Id));
 
+            var startDate = date.Start;
+            var endDate = date.End;
+            var useTime = startDate.TimeOfDay != TimeSpan.Zero || endDate.TimeOfDay != TimeSpan.Zero;
+            var dateFormat = useTime ? "dd/MM/yyyy HH:mm" : "dd/MM/yyyy";
+
         <li class="list-group-item mb-0 @currentEventClass @hiddenEvent" @toolbarDate.For(date)>
           <a href='@Link.To(parameters: MyPage.Parameters.Set("dateId", date.Id))' class="d-block px-3 py-2">
-            <strong><span itemprop="startDate">@date.DateTime("Start").ToString("d")</span> @(!date.Bool("EndDateIsStartDate") ? " - <span itemprop='endDate'>" + date.End.ToString("d") + "</span>": "")</strong>
+           
+            @if(startDate.ToString("dd/MM/yyyy") == endDate.ToString("dd/MM/yyyy") && !date.EndDateIsStartDate) {
+              <strong>@startDate.ToString(dateFormat) 
+                @if(useTime) {
+                  <spany>-</spany>  
+                  @endDate.ToString("HH:mm")
+                }
+                 </strong>
+            } else {
+              <strong>@startDate.ToString(dateFormat)  @(!date.EndDateIsStartDate ? " - " + endDate.ToString(dateFormat) : "")</strong>
+            }
+           
             @(date.IsEmpty("TitleAddition") ? "" : " - " + date.TitleAddition)
             @(date.IsEmpty("TimeSpecifics") ? "" : " - " + date.TimeSpecifics)
             @(MyUser.IsContentAdmin ? $"({regCount} {App.Resources.LabelRegistrations})" : "")

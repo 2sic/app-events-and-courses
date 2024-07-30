@@ -32,8 +32,9 @@
   freeSeats = freeSeats < 0 ? 0 : freeSeats;
 
   // Dates to show in various places
-  var eventStart = hasEventDate ? firstEventDate.Start.ToString("dd.MM.yyyy HH:mm") : "";
-  var eventEnd = (hasEventDate && !firstEventDate.EndDateIsStartDate) ? " - " + firstEventDate.End.ToString("d") : "";
+
+  var eventStart = hasEventDate ? firstEventDate.Start.ToString("dd/MM/yyyy HH:mm") : "";
+  var eventEnd = (hasEventDate && !firstEventDate.EndDateIsStartDate) ? " - " + firstEventDate.End.ToString("dd/MM/yyyy HH:mm") : "";
 
   // Set page title
   var titleSuffix = hasEventDate
