@@ -10,7 +10,7 @@
 
   // Get all events, which have no event dates
   var eventsWithoutDates = App.Data.GetAll<Event>()
-    .Where(ev => !ev.Parents<EventDate>().Any(d => d.Start.Date >= DateTime.Now.Date))
+    .Where(ev => !ev.Parents<EventDate>().Any(d => d.Start.Date >= DateTime.Now.Date || d.End.Date >= DateTime.Now.Date))
     .ToList();
 
   var evToolbar = Kit.Toolbar.Empty().Edit();
