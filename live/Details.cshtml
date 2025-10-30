@@ -32,14 +32,18 @@
   freeSeats = freeSeats < 0 ? 0 : freeSeats;
 
   // Dates to show in various places
-  var eventStart = hasEventDate ? firstEventDate.Start.ToString("dd.MM.yyyy HH:mm") : "";
-  var eventEnd = (hasEventDate && !firstEventDate.EndDateIsStartDate) ? " - " + firstEventDate.End.ToString("d") : "";
+
+  var eventStart = hasEventDate ? firstEventDate.Start.ToString("dd/MM/yyyy HH:mm") : "";
+  var eventEnd = (hasEventDate && !firstEventDate.EndDateIsStartDate) ? " - " + firstEventDate.End.ToString("dd/MM/yyyy HH:mm") : "";
 
   // Set page title
   var titleSuffix = hasEventDate
     ? " | " + eventStart + eventEnd
     : "";
-  Kit.Page.SetTitle(item.Title + titleSuffix + " | ");
+
+  var title = item.Title + titleSuffix + " | ";
+  AddMetaTags(item, title, titleSuffix);
+    
 
   // Prepare toolbar without "new"
   var itemToolbar = Kit.Toolbar.Default().New("-");
