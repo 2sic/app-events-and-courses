@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="20.00.08" ExportDate="2025-10-30T10:49:24.3454951+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="20.00.08" ExportDate="2025-10-30T11:47:00.779748+01:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -8042,13 +8042,13 @@
       <Value Key="GoogleEventsApi" Value="False" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="MailFrom" Value="roman.opalko@2sic.com" Type="String">
+      <Value Key="MailFrom" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Organization" Value="2sic internet solutions" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="OwnerMail" Value="roman.opalko@2sic.com" Type="String">
+      <Value Key="OwnerMail" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="OwnerMailTemplateFile" Value="EmailToOwner.cs" Type="String">
@@ -9446,51 +9446,6 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="019d1e76-2644-4da0-bfd1-a8f8cfbf5ab4">
-      <Value Key="Document" Value="" Type="Hyperlink">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="End" Value="2020-08-16T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="EventId" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Fee" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsCancelled" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Location" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Person" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Seats" Value="" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Start" Value="2020-08-16T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TimeSpecifics" Value="14:00 Uhr" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TitleAddition" Value="Demo Title" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="b571d918-f9f3-43fb-8673-deecbf29ea83" AttributeSetName="Event" EntityGUID="83a9fd59-7a8d-476d-b8a2-29cace397fe5">
       <Value Key="Category" Value="55c247bb-2b59-4569-a08f-0847f7e1fbb5" Type="Entity" />
       <Value Key="Description" Value="&lt;p&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p&gt;" Type="String">
@@ -9527,96 +9482,6 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="174513f9-d96a-4d47-af85-15000bce8b7f">
-      <Value Key="Document" Value="" Type="Hyperlink">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="End" Value="2023-06-05T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="EndDateIsStartDate" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="EventId" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Fee" Value="500" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsCancelled" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Location" Value="München" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Person" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Seats" Value="100" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Start" Value="2022-04-18T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TimeSpecifics" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TitleAddition" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="94b949b9-e434-4c75-99ee-8ff26dd25c1d">
-      <Value Key="Document" Value="" Type="Hyperlink">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="End" Value="2023-09-04T02:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="EventId" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Fee" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsCancelled" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Location" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Person" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Seats" Value="99" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Start" Value="2023-09-04T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TimeSpecifics" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TitleAddition" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
     <Entity TargetType="5" AssignmentObjectType="ContentType" AttributeSetStaticName="ContentType" AttributeSetName="ContentType" EntityGUID="6cbe6a2a-99a5-4071-a01a-22993621acde" Json="True" KeyString="b571d918-f9f3-43fb-8673-deecbf29ea83">
       <Value Key="Description" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
@@ -9640,98 +9505,8 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="0becc523-5ee6-49df-9ff4-61db813c6214">
-      <Value Key="Document" Value="" Type="Hyperlink">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="End" Value="2020-06-23T02:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="EventId" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Fee" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsCancelled" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Location" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Person" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Seats" Value="" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Start" Value="2020-06-23T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TimeSpecifics" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TitleAddition" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="3937fa17-ef2d-40a7-b089-64164eb10bab" AttributeSetName="2sxcPolymorphismConfiguration" EntityGUID="52207390-3493-444f-b957-88babdf4c0f8" Json="True">
       <Value Key="Mode" Value="Permissions?IsSuperUser" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="4bbcd4f3-f102-4862-9fac-a2e1b221dbb8">
-      <Value Key="Document" Value="" Type="Hyperlink">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="End" Value="2021-12-18T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Event" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
-      <Value Key="EventId" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Fee" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsCancelled" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Location" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Person" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Seats" Value="" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Start" Value="2021-12-18T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TimeSpecifics" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TitleAddition" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
@@ -10428,51 +10203,6 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="cba59d5e-f124-4c7d-92d0-4075cc57f18c">
-      <Value Key="Document" Value="" Type="Hyperlink">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="End" Value="2022-11-17T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="EventId" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Fee" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsCancelled" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Location" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Person" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Seats" Value="2" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Start" Value="2022-11-17T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TimeSpecifics" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TitleAddition" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="772dfff1-b236-4aa9-8359-5f53c08ff7bf" AttributeSetName="UiFormula" EntityGUID="c08345d1-7c6c-4235-bdfa-301d9a20b5aa" Json="True">
       <Value Key="Enabled" Value="True" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
@@ -10939,51 +10669,6 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="82366c20-5e96-45f0-99d4-d0378cdca34e">
-      <Value Key="Document" Value="" Type="Hyperlink">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="End" Value="2023-10-27T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="EndDateIsStartDate" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Event" Value="cd2a239b-e35e-4eca-a048-7dfca1980ad7" Type="Entity" />
-      <Value Key="EventId" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Fee" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsCancelled" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Location" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Person" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Seats" Value="" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Start" Value="2022-09-30T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TimeSpecifics" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TitleAddition" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
     <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="49e296d3-9c8a-4ae1-8d28-f0d59286a265" Json="True" KeyGuid="170df020-7815-4609-8a80-eff295a1606d">
       <Value Key="Description" Value="" Type="String" />
       <Value Key="Name" Value="Merge Streams" Type="String" />
@@ -11035,60 +10720,6 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Title" Value="Demo Kategorie 3" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="fa3898f2-bdb1-493b-8a87-a14b90f68fd8">
-      <Value Key="Document" Value="" Type="Hyperlink">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="End" Value="2023-10-16T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
-      <Value Key="EventId" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Fee" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Fee" Value="Kostenlos" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="IsCancelled" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Location" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Person" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Seats" Value="" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Seats" Value="20" Type="Number">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="Start" Value="2023-10-16T00:00:00" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TimeSpecifics" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TimeSpecifics" Value="Start 15:00 Uhr" Type="String">
-        <Dimension DimensionID="46" ReadOnly="false" />
-      </Value>
-      <Value Key="TitleAddition" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
@@ -11203,210 +10834,6 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="TitleAddition" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="cfd70e83-72ce-4f7d-be33-7e6e2dee148f">
-      <Value Key="ModuleId" Value="6520" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;CourseDate&quot;:&quot;11/24/2024&quot;,&quot;Saluation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;Roman&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Lang\u00E4ulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0817506787&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;EventDate&quot;:&quot;0a46b487-c5f6-43d2-bb16-ce3f907fbb79&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SenderIP&quot;:&quot;194.0.212.88&quot;}" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SenderIP" Value="194.0.212.88" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Timestamp" Value="2024-05-28T14:39:22" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Title" Value="Form 2024-05-28T14:39:22" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registrations" EntityGUID="4dc77084-3b24-4106-9f03-edb5d0dd6979">
-      <Value Key="Country" Value="Switzerland" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
-      <Value Key="EventDate" Value="0a46b487-c5f6-43d2-bb16-ce3f907fbb79" Type="Entity" />
-      <Value Key="FirstName" Value="Roman" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LastName" Value="Opalko" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Phone" Value="0817506787" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SenderIp" Value="194.0.212.88" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Status" Value="registered" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SubmitDate" Value="2024-05-28T14:39:22" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="ZIPCity" Value="Buchs" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="deac5925-84f6-435b-bc9d-0a3d94704dc3">
-      <Value Key="ModuleId" Value="6520" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;CourseDate&quot;:&quot;11/24/2024&quot;,&quot;Saluation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;\u003Ca href=\u0022\u0022\u003Etest\u003C/a\u003E&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Lang\u00E4ulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0817506787&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;EventDate&quot;:&quot;0a46b487-c5f6-43d2-bb16-ce3f907fbb79&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SenderIP&quot;:&quot;194.0.212.88&quot;}" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SenderIP" Value="194.0.212.88" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Timestamp" Value="2024-05-28T14:49:26" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Title" Value="Form 2024-05-28T14:49:26" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registrations" EntityGUID="bd599176-78d9-4895-a8f3-5cafc3af5cb3">
-      <Value Key="Country" Value="Switzerland" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
-      <Value Key="EventDate" Value="0a46b487-c5f6-43d2-bb16-ce3f907fbb79" Type="Entity" />
-      <Value Key="FirstName" Value="&lt;a href=&quot;&quot;&gt;test&lt;/a&gt;" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LastName" Value="Opalko" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Phone" Value="0817506787" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SenderIp" Value="194.0.212.88" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Status" Value="registered" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SubmitDate" Value="2024-05-28T14:49:26" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="ZIPCity" Value="Buchs" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="ec75c324-0e50-4174-a21d-e572cdd529f1">
-      <Value Key="ModuleId" Value="6520" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;CourseDate&quot;:&quot;11/24/2024&quot;,&quot;Saluation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;\u003Ca href=\u0022\u0022\u003Etest\u003C/a\u003E&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Lang\u00E4ulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0817506787&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;EventDate&quot;:&quot;0a46b487-c5f6-43d2-bb16-ce3f907fbb79&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SenderIP&quot;:&quot;194.0.212.88&quot;}" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SenderIP" Value="194.0.212.88" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Timestamp" Value="2024-05-28T14:49:48" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Title" Value="Form 2024-05-28T14:49:48" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registrations" EntityGUID="76a42f9b-c4fa-4f8a-9a0e-17b3dba49d0e">
-      <Value Key="Country" Value="Switzerland" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
-      <Value Key="EventDate" Value="0a46b487-c5f6-43d2-bb16-ce3f907fbb79" Type="Entity" />
-      <Value Key="FirstName" Value="&lt;a href=&quot;&quot;&gt;test&lt;/a&gt;" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LastName" Value="Opalko" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Phone" Value="0817506787" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SenderIp" Value="194.0.212.88" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Status" Value="registered" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SubmitDate" Value="2024-05-28T14:49:48" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="ZIPCity" Value="Buchs" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="d21cdde4-28fa-458e-b395-586fde923411" AttributeSetName="SystemProtocol" EntityGUID="e5f5396e-2e43-4555-9eb7-56da4a4ff70e">
-      <Value Key="ModuleId" Value="6520" Type="Number">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="RawData" Value="{&quot;CourseName&quot;:&quot;Demo Kurs&quot;,&quot;CourseLocation&quot;:&quot;Musterstrasse 1, CH-0000 Musterstadt&quot;,&quot;CourseDate&quot;:&quot;11/24/2024&quot;,&quot;Saluation&quot;:&quot;Mr&quot;,&quot;FirstName&quot;:&quot;\u003Ca href=\u0022\u0022\u003Etest\u003C/a\u003E&quot;,&quot;LastName&quot;:&quot;Opalko&quot;,&quot;Street&quot;:&quot;Lang\u00E4ulistrasse 62&quot;,&quot;ZIPCity&quot;:&quot;Buchs&quot;,&quot;Country&quot;:&quot;Switzerland&quot;,&quot;Phone&quot;:&quot;0817506787&quot;,&quot;Mail&quot;:&quot;roman.opalko@2sic.com&quot;,&quot;EventDate&quot;:&quot;0a46b487-c5f6-43d2-bb16-ce3f907fbb79&quot;,&quot;Course&quot;:&quot;83a9fd59-7a8d-476d-b8a2-29cace397fe5&quot;,&quot;SenderIP&quot;:&quot;194.0.212.88&quot;}" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SenderIP" Value="194.0.212.88" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Timestamp" Value="2024-05-28T14:51:12" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Title" Value="Form 2024-05-28T14:51:12" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="e92a4857-276f-45de-9363-b052684e65fe" AttributeSetName="Registrations" EntityGUID="f4629bf3-aa2a-4f59-abb0-fb86d096b98b">
-      <Value Key="Country" Value="Switzerland" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Course" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
-      <Value Key="EventDate" Value="0a46b487-c5f6-43d2-bb16-ce3f907fbb79" Type="Entity" />
-      <Value Key="FirstName" Value="&lt;a href=&quot;&quot;&gt;test&lt;/a&gt;" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="LastName" Value="Opalko" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Mail" Value="roman.opalko@2sic.com" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Phone" Value="0817506787" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SenderIp" Value="194.0.212.88" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Status" Value="registered" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Street" Value="Langäulistrasse 62" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="SubmitDate" Value="2024-05-28T14:51:12" Type="DateTime">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="ZIPCity" Value="Buchs" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
