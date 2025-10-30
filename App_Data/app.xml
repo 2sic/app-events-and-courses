@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="18.00.00" ExportDate="2024-07-25T08:25:06.3791582+02:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="20.00.08" ExportDate="2025-10-30T10:49:24.3454951+01:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -3703,12 +3703,6 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="HelpLink" Value="" Type="Hyperlink">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Information" Value="" Type="String">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
             <Value Key="InputType" Value="empty-default" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
@@ -3725,9 +3719,6 @@
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Required" Value="False" Type="Boolean">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Tooltip" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="ValidationRegExJavaScript" Value="" Type="String">
@@ -3757,12 +3748,6 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="HelpLink" Value="" Type="Hyperlink">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Information" Value="" Type="String">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
             <Value Key="InputType" Value="string-default" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
@@ -3779,9 +3764,6 @@
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Required" Value="False" Type="Boolean">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Tooltip" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="ValidationRegExJavaScript" Value="" Type="String">
@@ -3819,12 +3801,6 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="HelpLink" Value="" Type="Hyperlink">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Information" Value="" Type="String">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
             <Value Key="InputType" Value="string-default" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
@@ -3841,9 +3817,6 @@
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Required" Value="False" Type="Boolean">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Tooltip" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="ValidationRegExJavaScript" Value="" Type="String">
@@ -3881,12 +3854,6 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="HelpLink" Value="" Type="Hyperlink">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Information" Value="" Type="String">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
             <Value Key="InputType" Value="empty-default" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
@@ -3900,9 +3867,6 @@
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Required" Value="False" Type="Boolean">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Tooltip" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="ValidationRegExJavaScript" Value="" Type="String">
@@ -4303,12 +4267,6 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="HelpLink" Value="" Type="Hyperlink">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Information" Value="" Type="String">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
             <Value Key="InputType" Value="boolean-default" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
@@ -4322,9 +4280,6 @@
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Required" Value="False" Type="Boolean">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Tooltip" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="ValidationRegExJavaScript" Value="" Type="String">
@@ -5377,12 +5332,6 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="HelpLink" Value="" Type="Hyperlink">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Information" Value="" Type="String">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
             <Value Key="InputType" Value="empty-default" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
@@ -5396,9 +5345,6 @@
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Required" Value="False" Type="Boolean">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Tooltip" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="ValidationRegExJavaScript" Value="" Type="String">
@@ -5678,12 +5624,6 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="HelpLink" Value="" Type="Hyperlink">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Information" Value="" Type="String">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
             <Value Key="InputType" Value="datetime-default" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -5703,9 +5643,6 @@
             </Value>
             <Value Key="Required" Value="True" Type="Boolean">
               <Dimension DimensionID="46" ReadOnly="false" />
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Tooltip" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="ValidationRegExJavaScript" Value="" Type="String">
@@ -5890,7 +5827,7 @@
             </Value>
           </Entity>
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@DateTime" AttributeSetName="@DateTime" EntityGUID="e1c22aeb-74b5-4a39-8609-2dfbfced7e06" Json="True" KeyNumber="2516">
-            <Value Key="UseTimePicker" Value="False" Type="Boolean">
+            <Value Key="UseTimePicker" Value="True" Type="Boolean">
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
@@ -6951,6 +6888,9 @@
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
             <Value Key="InputType" Value="entity-default" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
@@ -6963,6 +6903,9 @@
             </Value>
             <Value Key="Notes" Value="" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Required" Value="False" Type="Boolean">
@@ -7003,8 +6946,11 @@
               <Dimension DimensionID="46" ReadOnly="false" />
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="EntityType" Value="Kurs" Type="String">
+            <Value Key="EntityType" Value="Event" Type="String">
               <Dimension DimensionID="46" ReadOnly="false" />
+              <Dimension DimensionID="45" ReadOnly="false" />
+            </Value>
+            <Value Key="Prefill" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
           </Entity>
@@ -7918,12 +7864,6 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
-            <Value Key="HelpLink" Value="" Type="Hyperlink">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Information" Value="" Type="String">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
             <Value Key="InputType" Value="string-json" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
@@ -7937,9 +7877,6 @@
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="Required" Value="False" Type="Boolean">
-              <Dimension DimensionID="45" ReadOnly="false" />
-            </Value>
-            <Value Key="Tooltip" Value="" Type="String">
               <Dimension DimensionID="45" ReadOnly="false" />
             </Value>
             <Value Key="ValidationRegExJavaScript" Value="" Type="String">
@@ -8093,7 +8030,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Version" Value="06.17.01" Type="String">
+      <Value Key="Version" Value="06.17.02" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -10740,10 +10677,10 @@
       <Value Key="Document" Value="" Type="Hyperlink">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="End" Value="2024-11-22T00:00:00" Type="DateTime">
+      <Value Key="End" Value="2099-11-22T12:20:00" Type="DateTime">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
+      <Value Key="EndDateIsStartDate" Value="False" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="Event" Value="7c015513-80b4-4761-a419-824cf7d9170e" Type="Entity" />
@@ -10771,7 +10708,7 @@
       <Value Key="Seats" Value="5" Type="Number">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Start" Value="2024-11-22T00:00:00" Type="DateTime">
+      <Value Key="Start" Value="2024-11-22T12:00:00" Type="DateTime">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="TimeSpecifics" Value="" Type="String">
@@ -10973,6 +10910,12 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
+      <Value Key="MetaDescription" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="MetaTitle" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
       <Value Key="Person" Value="2sic" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
@@ -10981,7 +10924,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="ShowInLanguage" Value="False" Type="Boolean">
+      <Value Key="ShowInLanguage" Value="True" Type="Boolean">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="ShowInLanguage" Value="True" Type="Boolean">
@@ -11464,6 +11407,96 @@
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
       <Value Key="ZIPCity" Value="Buchs" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="10c13e45-f371-4a67-9baf-0bc2c0f7de06">
+      <Value Key="Document" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="End" Value="2025-01-03T00:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="EndDateIsStartDate" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Event" Value="83a9fd59-7a8d-476d-b8a2-29cace397fe5" Type="Entity" />
+      <Value Key="EventId" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Fee" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="IsCancelled" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Person" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Seats" Value="" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Start" Value="2025-01-03T00:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TimeSpecifics" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TitleAddition" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c3bfb791-42f9-4c2a-8314-06e21447b150" AttributeSetName="EventDate" EntityGUID="29b5447b-29d9-47cd-b019-003da062b607">
+      <Value Key="Document" Value="" Type="Hyperlink">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="End" Value="2026-04-30T00:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="EndDateIsStartDate" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Event" Value="cd2a239b-e35e-4eca-a048-7dfca1980ad7" Type="Entity" />
+      <Value Key="EventId" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Fee" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="IsCancelled" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="IsFullyBooked" Value="False" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Person" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="RegistrationEnabled" Value="True" Type="Boolean">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Seats" Value="20000" Type="Number">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="Start" Value="2025-04-03T00:00:00" Type="DateTime">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TimeSpecifics" Value="" Type="String">
+        <Dimension DimensionID="45" ReadOnly="false" />
+      </Value>
+      <Value Key="TitleAddition" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>

@@ -6,27 +6,28 @@
 @using System
 
 @{
-  // Get the settings for the event list
-  var listConfig = As<EventSettings>(MyItem);
-
   // Get all event dates from the query and group by year-month
   var queryEvents = AsList<EventDate>(MyData.GetStream("EventDates")).GroupBy(c => c.Start.ToString("MM.yyyy"));
+ 
+  // Get the settings for the event list
+  var listConfig = As<EventSettings>(MyItem);
+  
+  // Get the categorie from the list configuration
+  var listConfigCat = As<Categories>(listConfig.Categories);
 
-  var contentSettings = Kit.Toolbar.Default().New("Event",  tweak: b => b.Tooltip(App.Resources.LabelAddEvent)); 
-  var dEventToolbar = Kit.Toolbar.Empty().Edit();
-  var categorie = listConfig.Categories.FirstOrDefault();
+  // Prepare the toolbars for later
+  var mainToolbar = Kit.Toolbar.Default().New("Event", tweak: b => b.Tooltip(App.Resources.LabelAddEvent));
+  var eventToolbar = Kit.Toolbar.Empty().Edit();  
 }
 
-<div class="app-events6 app-events6-list" @contentSettings.For(listConfig)>
+<div class="app-events6 app-events6-list" @mainToolbar.For(listConfig)>
   @* Events for Admin which don't have a date yet *@
   @Html.Partial("List.PartEventsWithoutDates.cshtml")
 
-
-   @if (listConfig.IsNotEmpty("Title") || listConfig.IsNotEmpty("Categories.PageTitle")) {
+  @if (listConfig.IsNotEmpty("Title") || listConfigCat.IsNotEmpty("PageTitle"))
+  {
     <h2 class="mb-4">
-      @* TODO:: Open to fix *@
-      @* @listConfig.Title @(listConfig.IsNotEmpty("Categories.PageTitle") ? listConfig.Categories.PageTitle : "") *@
-      @listConfig.Title 
+      @listConfig.Title @(listConfigCat != null ? listConfigCat.Title : "")
     </h2>
   }
 
@@ -38,21 +39,14 @@
     {
       if (MyUser.IsContentAdmin || d.Event.ShowInLanguage != false) 
       {
-        var startDate = d.Start;
-        var endDate = d.End;
-
         var item = d.Event;
         var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", item.Id).Set("dateId", d.Id).Set(item.UrlKey));
-        <tr class="position-relative app-events6-list-item" @dEventToolbar.For(d.Event)>
+        <tr class="position-relative app-events6-list-item" @eventToolbar.For(d.Event)>
 					<td>
 						@item.Title @(d.IsNotEmpty("TitleAddition") ? "- " + d.TitleAddition : "" )
 					</td>
 					<td class="event-meta">
-            @if(startDate.ToString("dd/MM/yyyy") == endDate.ToString("dd/MM/yyyy") && !d.EndDateIsStartDate) {
-                <span>@startDate.ToString("dd/MM/yyyy")</span>
-              } else {
-                <span>@startDate.ToString("dd/MM/yyyy")  @(!d.EndDateIsStartDate ? " - " + endDate.ToString("dd/MM/yyyy") : "")</span>
-              }
+						@d.Start.ToString("d") @(!d.EndDateIsStartDate ? "- " + d.End.ToString("d") : "")
 					</td>
 					<td>
             @(item.Category != null ? " | " + item.Category.Title : "")
