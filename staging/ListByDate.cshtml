@@ -40,7 +40,7 @@
       if (MyUser.IsContentAdmin || d.Event.ShowInLanguage != false) 
       {
         var item = d.Event;
-        var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", item.Id).Set("dateId", d.Id).Set(item.UrlKey));
+        var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", item.Id).Set("dateId", d.Id).Set("name", item.UrlKey));
         <tr class="position-relative app-events6-list-item" @eventToolbar.For(d.Event)>
 					<td>
 						@item.Title @(d.IsNotEmpty("TitleAddition") ? "- " + d.TitleAddition : "" )

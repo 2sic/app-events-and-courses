@@ -51,7 +51,7 @@
       var evt = evtDate.Event;
       if (MyUser.IsContentAdmin || evt.ShowInLanguage != false) 
       {
-        var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", evt.Id).Set("dateId", evtDate.Id).Set(evt.UrlKey));
+        var detailslink = Link.To(parameters: MyPage.Parameters.Set("details", evt.Id).Set("dateId", evtDate.Id).Set("name", evt.UrlKey));
 
         var overlayStyle = evt.IsNotEmpty("Image")
           ? "" 

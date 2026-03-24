@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="20.00.08" ExportDate="2025-10-30T11:47:00.779748+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="21.06.00" ExportDate="2026-03-24T07:12:53.276371+01:00">
   <Header>
     <App Guid="fd3de96e-fe4c-4f8e-a83d-0a9cba898666" />
     <Language Default="en-us" />
@@ -8030,7 +8030,7 @@
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Version" Value="06.17.02" Type="String">
+      <Value Key="Version" Value="06.17.03" Type="String">
         <Dimension DimensionID="46" ReadOnly="false" />
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
@@ -9739,7 +9739,7 @@
       <Value Key="Take" Value="" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
-      <Value Key="Value" Value="[DateTime:Now|yyyy-MM-dd-23:59:59]" Type="String">
+      <Value Key="Value" Value="[DateTime:Now|yyyy-MM-dd 23:59:59]" Type="String">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
     </Entity>
@@ -9805,33 +9805,15 @@
       </Value>
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="DataPipeline" AttributeSetName="DataPipeline" EntityGUID="0d4ec69b-3d0f-4de0-b73e-ef11fc846ba8" Json="True">
-      <Value Key="AllowEdit" Value="True" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Description" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="HiddenInQueryPicker" Value="False" Type="Boolean">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Name" Value="EventDetails" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="Params" Value="" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="StreamsOut" Value="Default,Header,FutureDates,Registrations,Event,Current" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="StreamWiring" Value="d49aa200-a2c9-473d-8f20-6723d4900a3e:ListContent&gt;Out:Header&#xD;&#xA;f7aaa175-ebbf-4811-9d9a-593247f682b8:Default&gt;Out:FutureDates&#xD;&#xA;7f42d709-5ad6-46ed-a883-585cf8eb71d1:Default&gt;f7aaa175-ebbf-4811-9d9a-593247f682b8:Default&#xD;&#xA;faeab6fa-4a64-43f0-a2f5-495a8a7d272a:Default&gt;d49aa200-a2c9-473d-8f20-6723d4900a3e:Default&#xD;&#xA;b41d8468-635e-40d9-9d41-6d585705e9e6:Default&gt;Out:Registrations&#xD;&#xA;faeab6fa-4a64-43f0-a2f5-495a8a7d272a:Event&gt;913f8ea4-9356-44dc-a715-1035535edb9c:Default&#xD;&#xA;913f8ea4-9356-44dc-a715-1035535edb9c:Default&gt;Out:Event&#xD;&#xA;913f8ea4-9356-44dc-a715-1035535edb9c:Default&gt;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&#xD;&#xA;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&gt;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&#xD;&#xA;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&gt;Out:Current&#xD;&#xA;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&gt;7f42d709-5ad6-46ed-a883-585cf8eb71d1:Default&#xD;&#xA;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&gt;b41d8468-635e-40d9-9d41-6d585705e9e6:Default" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="TestParameters" Value="[QueryString:details]=9318&#xA;[QueryString:dateid]=28091" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
-      <Value Key="VisualDesignerData" Value="{&quot;ShowDataSourceDetails&quot;:true}" Type="String">
-        <Dimension DimensionID="45" ReadOnly="false" />
-      </Value>
+      <Value Key="AllowEdit" Value="True" Type="Boolean" />
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="HiddenInQueryPicker" Value="False" Type="Boolean" />
+      <Value Key="Name" Value="EventDetails" Type="String" />
+      <Value Key="Params" Value="" Type="String" />
+      <Value Key="StreamsOut" Value="Default,Header,FutureDates,Registrations,Event,Current" Type="String" />
+      <Value Key="StreamWiring" Value="d49aa200-a2c9-473d-8f20-6723d4900a3e:ListContent&gt;Out:Header&#xD;&#xA;f7aaa175-ebbf-4811-9d9a-593247f682b8:Default&gt;Out:FutureDates&#xD;&#xA;7f42d709-5ad6-46ed-a883-585cf8eb71d1:Default&gt;f7aaa175-ebbf-4811-9d9a-593247f682b8:Default&#xD;&#xA;faeab6fa-4a64-43f0-a2f5-495a8a7d272a:Default&gt;d49aa200-a2c9-473d-8f20-6723d4900a3e:Default&#xD;&#xA;b41d8468-635e-40d9-9d41-6d585705e9e6:Default&gt;Out:Registrations&#xD;&#xA;faeab6fa-4a64-43f0-a2f5-495a8a7d272a:Event&gt;913f8ea4-9356-44dc-a715-1035535edb9c:Default&#xD;&#xA;913f8ea4-9356-44dc-a715-1035535edb9c:Default&gt;Out:Event&#xD;&#xA;913f8ea4-9356-44dc-a715-1035535edb9c:Default&gt;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&#xD;&#xA;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&gt;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&#xD;&#xA;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&gt;Out:Current&#xD;&#xA;7eb8b287-864a-4405-b8df-d91b4bb9cbb8:Default&gt;7f42d709-5ad6-46ed-a883-585cf8eb71d1:Default&#xD;&#xA;21eae628-50ed-42c0-b19e-6614ffe3e611:Default&gt;b41d8468-635e-40d9-9d41-6d585705e9e6:Default" Type="String" />
+      <Value Key="TestParameters" Value="[QueryString:details]=9318&#xA;[QueryString:dateid]=28091" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&quot;ShowDataSourceDetails&quot;:true}" Type="String" />
     </Entity>
     <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="7eb8b287-864a-4405-b8df-d91b4bb9cbb8" Json="True" KeyGuid="0d4ec69b-3d0f-4de0-b73e-ef11fc846ba8">
       <Value Key="Description" Value="" Type="String" />
@@ -10271,7 +10253,7 @@
       <Value Key="Template" Value="33f4b270-edca-4826-a4ed-f0d5766fc1fb" Type="Entity" />
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="889fe838-fd3f-4297-88bb-038ea36a2ea8" AttributeSetName="EventSettings" EntityGUID="dd5e0b65-114f-4a9a-a25b-e5aafe40b661">
-      <Value Key="Categories" Value="55c247bb-2b59-4569-a08f-0847f7e1fbb5" Type="Entity" />
+      <Value Key="Categories" Value="55c247bb-2b59-4569-a08f-0847f7e1fbb5,33609aec-842d-4f65-a4b5-a72f2aa2c1f8" Type="Entity" />
       <Value Key="ItemsPerPage" Value="" Type="Number">
         <Dimension DimensionID="45" ReadOnly="false" />
       </Value>
