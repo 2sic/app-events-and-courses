@@ -65,4 +65,9 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
 * v06.17.01 2024-07
   * Update app.sln and app.csproj
   * Seo Optimization
+* v06.17.02 2025-10
+  * Bugfixes
+* v06.17.04 2026-03
+  * Bugfixes
+  * Changed from webpack to Vite
   
