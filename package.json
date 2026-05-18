@@ -4,7 +4,9 @@
   "description": "A Event and Courses app for 2sxc",
   "main": "(none)",
   "scripts": {
-    "build-prod": "vite build --watch",
+    "build-prod": "concurrently -n vite,tsc -c cyan,yellow \"npm run build:vite\" \"npm run build:tsc\"",
+    "build:vite": "vite build --watch",
+    "build:tsc": "tsc --noEmit --watch --preserveWatchOutput",
     "copy-staging2live": "(ROBOCOPY staging live /MIR /XD) ^& IF %ERRORLEVEL% LEQ 1 exit 0"
   },
   "author": "2sic internet solutions",
@@ -12,6 +14,7 @@
   "devDependencies": {
     "@types/node": "^20.12.6",
     "autoprefixer": "^10.4.19",
+    "concurrently": "^9.2.1",
     "postcss": "^8.4.38",
     "sass": "^1.74.1",
     "typescript": "^5.4.4",
