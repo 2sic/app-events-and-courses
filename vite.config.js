@@ -50,14 +50,6 @@ export default defineConfig({
     extensions: ['.ts', '.tsx', '.js', '.scss', '.css'],
   },
 
-  // Only used by `vite serve` (dev server), not by `build --watch`
-  server: {
-    port: 3000,
-    watch: {
-      usePolling: true,
-    },
-  },
-
   plugins: [
     {
       name: 'compile-scss-to-css',
