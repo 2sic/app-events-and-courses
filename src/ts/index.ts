@@ -18,12 +18,13 @@ function initAppEvents6({ domAttribute, options } : { domAttribute: string, opti
   var btnToggleExpired = document.querySelector('.js-app-events6-toggle-expired-dates');
   if(btnToggleExpired != null) {
     btnToggleExpired.addEventListener('click', () => {
-      document.querySelectorAll('.event-hidden').forEach((elem: HTMLElement, index) => {
-        console.log(elem.style.display)
-        if (elem.style.display == '' || elem.style.display == "none") {
-          elem.style.display = "block";
+      document.querySelectorAll('.event-hidden').forEach((elem: Element) => {
+        const htmlElem = elem as HTMLElement;
+        
+        if (htmlElem.style.display == '' || htmlElem.style.display == "none") {
+          htmlElem.style.display = "block";
         } else {
-          elem.style.display = "none";
+          htmlElem.style.display = "none";
         }
       })
     })

@@ -23,41 +23,42 @@ export async function getFormValues(formWrapper: Element): Promise<any> {
 
   const fields = formWrapper.querySelectorAll("input,textarea,select");
 
-  fields.forEach((formField: HTMLInputElement) => {
-    const fieldKey = getFieldKey(formField);
-    if (!fieldKey || !formField.value) return;
+  fields.forEach((formField: Element) => {
+    const field = formField as HTMLInputElement;
+    const fieldKey = getFieldKey(field);
+    if (!fieldKey || !field.value) return;
 
     // for checkboxList to get a array with fieldId and the values
-    if (formField.hasAttribute("data-checkbox")) {
-      const fieldId = formField.getAttribute("data-checkbox");
-      const fieldValue = getFieldValue(formField);
+    if (field.hasAttribute("data-checkbox")) {
+      const fieldId = field.getAttribute("data-checkbox");
+      const fieldValue = getFieldValue(field);
       // Check if the array for this fieldId exists, if not, create it in the data object
 
-      if (!data["Fields"][fieldId]) {
+      if (fieldId && !data["Fields"][fieldId]) {
         data["Fields"][fieldId] = [];
       }
 
-      if (fieldValue !== "") {
+      if (fieldId && fieldValue !== "") {
         data["Fields"][fieldId].push(fieldValue);
       }
     }
 
     // for Multiple Dropdown to get a array with fieldId and the values
     if (
-      formField.hasAttribute("data-multiple-dropdown") &&
-      formField.tagName == "SELECT"
+      field.hasAttribute("data-multiple-dropdown") &&
+      field.tagName == "SELECT"
     ) {
-      const fieldId = formField.id; // Use the ID of the select element
-      const selectedOptions = (formField as any).selectedOptions;
+      const fieldId = field.id; // Use the ID of the select element
+      const selectedOptions = (field as any).selectedOptions;
 
       // Check if the array for this fieldId exists, if not, create it in the data object
-      if (!data["Fields"][fieldId]) {
+      if (fieldId && !data["Fields"][fieldId]) {
         data["Fields"][fieldId] = [];
       }
       // loop for each option Value
       for (let i = 0; i < selectedOptions.length; i++) {
         const optionValue = selectedOptions[i].value;
-        if (optionValue !== "") {
+        if (fieldId && optionValue !== "") {
           data["Fields"][fieldId].push(optionValue);
         }
       }
@@ -65,32 +66,33 @@ export async function getFormValues(formWrapper: Element): Promise<any> {
     }
 
     // If Checkbox or Radio not checked, data will not add in the Request
+    const typeAttr = field.getAttribute("type");
     if (
-      formField.getAttribute("type") &&
-      (formField.getAttribute("type").toLowerCase() == "checkbox" ||
-        formField.getAttribute("type").toLowerCase() == "radio") &&
-      !formField.checked
+      typeAttr &&
+      (typeAttr.toLowerCase() == "checkbox" ||
+        typeAttr.toLowerCase() == "radio") &&
+      !field.checked
     ) {
       return;
     }
     // If the type is a checkbox with an attribute terms, then it will add it to the terms
 
     if (
-      formField.getAttribute("type") &&
-      formField.getAttribute("type").toLowerCase() == "checkbox" &&
-      formField.getAttribute("terms")
+      typeAttr &&
+      typeAttr.toLowerCase() == "checkbox" &&
+      field.getAttribute("terms")
     ) {
-      data["Terms"][fieldKey] = getFieldValue(formField);
+      data["Terms"][fieldKey] = getFieldValue(field);
       return;
-    } else if (!formField.hasAttribute("data-checkbox")) {
+    } else if (!field.hasAttribute("data-checkbox")) {
       // If it is a normal field, e.g. first name, then it is added to the field.
-      data["Fields"][fieldKey] = getFieldValue(formField);
+      data["Fields"][fieldKey] = getFieldValue(field);
     }
   });
   return data;
 }
 
-function getFieldKey(formField: HTMLInputElement): string {
+function getFieldKey(formField: HTMLInputElement): string | null {
   // get the property name from special-attribute, name OR id
   return formField.getAttribute("name") || formField.getAttribute("id");
 }
@@ -99,8 +101,9 @@ function getFieldValue(
   formField: HTMLInputElement
 ): { Encoded: Promise<unknown>; Name: string } | unknown {
   // extract data from file fields
-  if (!formField.getAttribute("type")) return formField.value;
-  switch (formField.getAttribute("type").toLowerCase()) {
+  const typeAttr = formField.getAttribute("type");
+  if (!typeAttr) return formField.value;
+  switch (typeAttr.toLowerCase()) {
     case "radio":
       return formField.value;
     case "checkbox":
@@ -131,12 +134,12 @@ export function disableInputs(wrapper: Element, state: boolean) {
   wrapper.classList.toggle("disable", state);
   wrapper
     .querySelectorAll("input,textarea,select")
-    .forEach((elem: HTMLElement) => elem.setAttribute("disabled", "true"));
+    .forEach((elem: Element) => elem.setAttribute("disabled", "true"));
 }
 
 export function enableInputs(wrapper: Element) {
   wrapper.classList.remove("disable");
   wrapper
     .querySelectorAll("input,textarea,select")
-    .forEach((elem: HTMLElement) => elem.setAttribute("disabled", "false"));
+    .forEach((elem: Element) => elem.setAttribute("disabled", "false"));
 }

@@ -9,11 +9,11 @@
 
 // .alert class needs to be included in alert message
 export function showAlert(wrapper: Element, responseMessageElement: string) {
-  wrapper.querySelectorAll('.alert').forEach((elem: HTMLElement) => elem.style.display = 'none');
+  wrapper.querySelectorAll('.alert').forEach((elem: Element) => (elem as HTMLElement).style.display = 'none');
   if (responseMessageElement !== '') (wrapper.querySelector(`#${responseMessageElement}`) as HTMLElement).style.display = 'block';
 }
 
 export function showConfigWarnings(wrapper: Element, attribute: string) {
   wrapper.querySelectorAll(`[${attribute}]`)
-    .forEach((elem: HTMLElement) => elem.style.display = 'block');
+    .forEach((elem: Element) => (elem as HTMLElement).style.display = 'block');
 }

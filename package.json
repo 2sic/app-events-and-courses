@@ -12,16 +12,16 @@
   "author": "2sic internet solutions",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^20.12.6",
-    "autoprefixer": "^10.4.19",
-    "concurrently": "^9.2.1",
-    "postcss": "^8.4.38",
-    "sass": "^1.74.1",
-    "typescript": "^5.4.4",
-    "vite": "^5.2.8"
+    "@types/node": "^26.1.1",
+    "autoprefixer": "^10.5.4",
+    "concurrently": "^10.0.3",
+    "postcss": "^8.5.22",
+    "sass": "^1.101.6",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.5"
   },
   "dependencies": {
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^5.3.8",
     "pristinejs": "^1.1.0"
   }
 }
