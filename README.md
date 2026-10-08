@@ -32,7 +32,7 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
 * v1.0 2017-03
 * v2.0 2017-05
 * ...
-* v06.0 2021-11 for 2sxc 12.08
+* v06.0 2021-11
   * Now hybrid, runs on Dnn and Oqtane
   * Updated to v12 best-practices
   * Improved code, clean-up etc.

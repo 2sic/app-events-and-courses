@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Web;
+using System.Net;
 using AppCode.Mail;
 
 namespace AppCode.MailTemplates
@@ -26,7 +26,7 @@ namespace AppCode.MailTemplates
 
       foreach (var item in request)
       {
-        message += "<div><strong>" + item.Key + "</strong>: " + HttpUtility.HtmlEncode(item.Value) + "</div>";
+        message += "<div><strong>" + item.Key + "</strong>: " + WebUtility.HtmlEncode(item.Value?.ToString()) + "</div>";
       }
 
       message +=

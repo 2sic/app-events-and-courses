@@ -53,9 +53,9 @@
         <li class="list-group-item mb-0 @currentEventClass @hiddenEvent" @toolbarDate.For(date)>
           <a href='@Link.To(parameters: MyPage.Parameters.Set("dateId", date.Id))' class="d-block px-3 py-2">
            
-            @if(startDate.ToString("dd/MM/yyyy") == endDate.ToString("dd/MM/yyyy") && !date.EndDateIsStartDate) {
+            @if (startDate.ToString("dd/MM/yyyy") == endDate.ToString("dd/MM/yyyy") && !date.EndDateIsStartDate) {
               <strong>@startDate.ToString(dateFormat) 
-                @if(useTime) {
+                @if (useTime) {
                   <spany>-</spany>  
                   @endDate.ToString("HH:mm")
                 }
