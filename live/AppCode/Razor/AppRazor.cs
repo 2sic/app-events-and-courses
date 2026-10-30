@@ -42,8 +42,7 @@ namespace AppCode.Razor
     /// </summary>
     public IHtmlTag BackToListButton()
     {
-      var classes = Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary";
-      return Tag.A(App.Resources.String("LabelBackToList")).Class("btn " + classes).Href(Link.To());
+      return Tag.A(App.Resources.String("LabelBackToList")).Class("btn btn-outline-primary").Href(Link.To());
     }
   }
 }

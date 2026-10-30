@@ -18,7 +18,7 @@
     <span class="sr-only">Error:</span>
     @App.Resources.CourseNotFoundError
   </div>
-  <a href="@Link.To()" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(App.Resources.LabelBackToList)</a>
+  <a href="@Link.To()" class="btn btn-outline-primary">@Html.Raw(App.Resources.LabelBackToList)</a>
 
   Kit.Page.SetHttpStatus(404);
   return;
@@ -96,7 +96,7 @@
         @{
           var detailslink = Link.To();
         }
-        <a href="@detailslink" class='btn @(Kit.Css.Is("bs3") ? "btn-default" : "btn-outline-primary")'>@Html.Raw(App.Resources.LabelBack)</a>
+        <a href="@detailslink" class="btn btn-outline-primary">@Html.Raw(App.Resources.LabelBack)</a>
         <button type="button" app-events6-send class="btn btn-primary">@Html.Raw(App.Resources.ButtonRegister)</button>
       </div>
     </div>

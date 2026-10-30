@@ -18,8 +18,8 @@ A standard Events and Courses app to use with 2sxc
 | App Catalog         | ✅    | See [app catalog](https://2sxc.org/en/apps/app/course-and-events-v6-for-dnn-and-oqtane)
 | Screenshots         | ✅    | See [app catalog](https://2sxc.org/en/apps/app/course-and-events-v6-for-dnn-and-oqtane)
 | Best Practices      | ✅    | Uses v13.10 conventions
-| Bootstrap 3         | ✔️    | Works, but not optimized 
-| Bootstrap 4         | ✅    | 
+| Bootstrap 3         | ❌    | Last supported in v06.21.01
+| Bootstrap 4         | ❌    | Last supported in v06.21.01
 | Bootstrap 5         | ✅    | 
 
 
@@ -28,6 +28,10 @@ A standard Events and Courses app to use with 2sxc
 If you want to customize the CSS, you will usually follow the ["Create Custom Styles in a Standard 2sxc App" checklist](https://azing.org/2sxc/r/gg_aB9FD)
 
 ## History
+
+* v06.21.02 2026-10
+  * Removed Bootstrap 3 and Bootstrap 4 support; the app is now Bootstrap 5 only
+  * For Bootstrap 3 or Bootstrap 4, use v06.21.01
 
 * v1.0 2017-03
 * v2.0 2017-05
@@ -74,4 +78,4 @@ If you want to customize the CSS, you will usually follow the ["Create Custom St
   * Added intellisense Extensions for Visual Studio Code
 * v06.21.01 2026-06
   * Switched from webpack to Vite for faster builds
-  
+

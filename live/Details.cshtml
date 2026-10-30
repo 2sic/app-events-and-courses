@@ -70,7 +70,7 @@
 
   <div class="app-events6-detail-content">
     <div class="row">
-      <div class='@(Kit.Css.Is("bs3") ? "col-xs-12" : "col-12") @(item.IsNotEmpty("Image") ? "col-md-8" : "") order-1 order-md-0'>
+      <div class='col-12 @(item.IsNotEmpty("Image") ? "col-md-8" : "") order-1 order-md-0'>
         <h2 class="h5">@item.ShortDescription</h2>
         @* Show main body, with possible Inner-Content *@
         <div class="app-events6-detail-body mb-4" itemprop="description">
